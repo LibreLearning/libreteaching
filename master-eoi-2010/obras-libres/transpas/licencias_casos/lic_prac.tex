@@ -1,0 +1,578 @@
+\documentclass{beamer}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+% imprimir
+% \documentclass[handout]{beamer} 
+% \usepackage{pgfpages}
+% \pgfpagesuselayout{4 on 1}[a4paper,landscape,border shrink=5mm]
+
+\mode<presentation> {
+  \usetheme{Pittsburgh}
+%  \usetheme{Bergen}
+  \useoutertheme{infolines}
+  %\useoutertheme[]{miniframes}
+  \usefonttheme{structurebold}
+  \setbeamercovered{transparent}
+}
+
+\setbeamertemplate{headline}
+{%
+  \includegraphics[height=1.5cm]{format/eoi-header.jpg}%
+}
+
+% \usebackgroundtemplate{\includegraphics[height=0.85cm]{format/eoi-footer.jpg}}
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/eoi-header.jpg}}
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+\setbeamercolor{titlelike}{fg=white}
+\setbeamercolor{frametitle}{fg=black}
+
+%% Metadatos del PDF.
+\hypersetup{  
+  pdftitle={Las licencias libres en la práctica},
+  pdfauthor={Miguel Vidal, Gregorio Robles},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Obras Libres - Máster Propiedad Intelectual EOI},
+}
+%%
+
+%\setbeamerfont*{frametitle}{size=\huge}
+
+\begin{document}
+
+\title{Las licencias libres en la práctica}
+\subtitle{Obras Libres \\ (Máster Propiedad Intelectual EOI)}
+\institute{GSyC/Libresoft} 
+\author{Miguel Vidal, Gregorio Robles}
+% \date{\today}
+\date{5 de junio de 2010}
+
+{
+\frame{
+\setbeamercolor{titlelike}{fg=red}
+\maketitle
+\begin{center}
+\includegraphics[width=5cm]{format/gsyc-urjc}
+\end{center}
+}
+}
+
+\frame{
+~
+\vspace{2cm}
+
+\begin{flushright}
+\small
+  \copyright~ 2010 Miguel Vidal - Gregorio Robles. \\
+  Algunos derechos reservados. Este artículo se distribuye bajo
+  la licencia ``Reconocimiento-CompartirIgual 3.0 España'' de Creative Commons,
+  disponible en \url{http://creativecommons.org/licenses/by-sa/3.0/es/deed.es}
+  
+\end{flushright}
+
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Agenda}
+
+\begin{itemize}
+\item Aspectos prácticos de las licencias libres
+\item Mitos legales
+\end{itemize}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Aspectos prácticos}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+\begin{center}
+\huge{Aspectos prácticos de las licencias libres}
+\end{center}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Escoger una licencia libre}
+
+
+\begin{itemize}
+\item Cada proyecto tiene sus objetivos y criterios en relación a la licencia.
+\item El principal criterio de diferenciación es la existencia o no de pactos de de reciprocidad.
+\item Otras licencias tienen un efecto copyleft reducido, que se aplica únicamente a la obra (o componente) original y a cualquier modificación de la misma. No se extiende a aplicaciones que ``integran''  o ``usan'' el componente libre. 
+\item Políticas de doble licencia.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Escoger una licencia libre}
+
+¿Cuándo hacerlo?  
+
+\begin{itemize}
+\item Cuando queremos garantizar ciertas libertades básicas comunes a todo software libre.
+\item Cuando queremos que una obra alcance el mayor uso y difusión posible.
+\item Cuando queremos imponer algunas condiciones o restricciones (el reconocimiento de autoría, la falta de garantía, el uso de marcas, etc.
+\item Cuando queremos mantener el control sobre la evolución del programa (copyleft).
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Escoger una licencia libre}
+
+
+\begin{itemize}
+\item Cada proyecto tiene sus objetivos y criterios en cuanto a licencia se refiere
+\item El principal criterio de diferenciación es la existencia o no de pactos de de reciprocidad (copyleft).
+\item Otras licencias tienen un efecto copyleft reducido, que se aplica únicamente a
+la obra original y a cualquier modificación de la misma. No se extiende a aplicaciones que "integran" o "usan" el componente libre (copyleft débil). 
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{¿Qué licencia escogería?}
+
+Casos:
+
+\small
+
+\begin{itemize}
+\item ¿Quiero permitir la privatización de obras derivadas y modificaciones?
+\item ¿Quiero que los desarrolladores devuelvan sus modificaciones a la comunidad libre en
+general, o a mí, como autor inicial, en particular?
+\item ¿Quiero permitir que los licenciatarios fusionen o enlacen su programa con el mío?
+\item ¿Quiero una mayor difusión del programa y tratar de establecer un estándar?
+\item ¿Mi programa debe ejecutarse con otro en particular? ¿Tiene éste restricciones?
+\item ¿Hay riesgo de que alguien tenga o pida una patente sobre un elemento
+del programa?
+
+\end{itemize}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Aplicar una licencia libre}
+
+
+\begin{itemize}
+\item Al inicio de cada archivo fuente 
+\item Debería tener al menos la línea de ``copyright'' y un enlace a la versión completa del aviso.
+\item Incluye además información de cómo contactar contigo por correo electrónico y ordinario.
+\item Si el programa es interactivo, que muestre un breve aviso de copyright cuando se inicie en modo interactivo.
+\item Si tiene ventanas o GUI, en la pestaña ayuda se puede añadir dicha nota de copyright (o incluso la licencia completa).
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Ejemplo: Aplicar la GPL}
+
+\footnotesize
+
+\texttt{<una línea con el nombre del programa y una breve idea de su objetivo.>}
+\texttt{Copyright (C) <año>  <nombre del autor>}
+
+\medskip
+
+\texttt{Este programa es software libre: usted puede redistribuirlo y/o modificarlo  bajo los términos de la Licencia Pública General GNU publicada por la Fundación para el Software Libre, ya sea la versión 3  de la Licencia, o (a su elección) cualquier versión posterior.}
+
+\medskip
+
+\texttt{Este programa se distribuye con la esperanza de que sea útil, pero SIN GARANTÍA ALGUNA; ni siquiera la garantía implícita MERCANTIL o de APTITUD PARA UN PROPÓSITO DETERMINADO. Consulte los detalles de la Licencia Pública General GNU para obtener una información más detallada. }
+
+\medskip
+
+\texttt{Debería haber recibido una copia de la Licencia Pública General GNU  junto a este programa. En caso contrario, consulte <http://www.gnu.org/licenses/>.}
+
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Compatibilidad entre licencias}
+
+
+\begin{itemize}
+\item Dos licencias son incompatibles si no es posible combinar código de ambas obras respetando los términos de ambas licencias al mismo tiempo.
+\item Afecta a la distribución, no al uso.
+\item Que dos licencias sean libres no implica que sean compatibles.
+\item Las licencias con copyleft son incompatibles entre ellas, salvo pacto explícito.
+\item Compatibilidad ``por enlace'': aun si no se permite mezclar o integrar software con diferentes licencias, quizá sí se puedan enlazar.
+\end{itemize}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Bifurcación (forks)}
+
+
+\begin{itemize}
+\item La bifurcación de un programa ocurre cuando el software se modifica y esta modificación se
+desarrolla de manera separada, con otro equipo de desarrollo, y se distribuye con otro nombre, y quizá otra licencia.
+\item Los forks solo son posibles con el software libre.
+\item El software con GPL tiende a no dividirse: hay que mantener la licencia original.
+\item El software con licencia tipo BSD se dividirá con mucha facilidad.
+\item Los forks son casos extremos, y en general no son deseables (dividen esfuerzos, redundancia...).
+\end{itemize}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Licencias libres y patentes}
+
+
+\begin{itemize}
+\item Patentes de programación: legales solo en EE.UU y Japón.
+\item Protegen métodos o algoritmos. No permiten la reingeniería (el \textit{clean-room development})
+\item No ofrecen protección extra y son un peligro para el software libre.
+\item Para minimizar el riesgo de las patentes, las licencias libres más modernas disponen de cláusulas para otorgar licencias cruzadas de patentes entre contribuyentes y desarrolladores y pactos resolutorios para el caso en que se iniciara un litigio basado en una patente contra otro contribuyente. 
+
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Licencias y marcas}
+
+
+\begin{itemize}
+\small
+\item El derecho de marcas protege las marcas registradas, que indican la conexión entre una persona o empresa y sus bienes y servicios, y los diferencian de los productos de otra persona.
+\item Es importante notar que la marca registrada es un derecho separado del software (y de las licencias). 
+\item El registro de una marca sobre un software libre sirve para respaldar la autoría original (reputación) y gestionar la evolución del software.
+\item Algunas licencias obligan a los usuarios a indicar la autoría y la marca (Apache), otras prohíben su uso sin el consentimiento expreso del titular de la marca (Zope), otras impiden su uso sobre obras derivadas... 
+\item El modelo de distribución y comercialización profesional del software libre depende en gran medida de las marcas (Linux\texttrademark, Red Hat\texttrademark, SuSE\texttrademark, OpenSolaris\texttrademark, Zope\texttrademark, Apache\texttrademark, Java\texttrademark, MySQL\texttrademark, etc.)
+
+\end{itemize}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Licencias y garantía}
+
+
+\begin{itemize}
+\item Son habituales las cláusulas de exclusión de garantías y limitaciones de responsabilidad.
+\item Hay dudas legales sobre la efectividad de estas cláusulas, que no serían válidas ante los consumidores.
+\item Sí lo serían cuando no hay servicio prestado.
+\item las licencias privativas usan cláusulas análogas, es un mito que acepten mayor nivel de responsabilidad.
+\item Hay que considerar las garantías obligatorias por ley, que se aplican tanto al software libre como al software
+privativo.
+\item Las licencias libres permiten a los distribuidores de software libre agregar cláusulas de garantía.
+
+\end{itemize}
+
+
+\end{frame}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Análisis práctico: la EUPL}
+
+
+\begin{itemize}
+\item Leer las definiciones (sect 1).
+\item Qué tipo de licencia es? (no-libre/permisiva/copyleft)
+\item ¿Como resuelve la licencia las incompatibilidades con otras licencias?
+\item Sección 13 (EUPL 1.0). ¿Cual es el problema? (Localizar y comparar esta sección con la EUPL 1.1)
+
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Análisis práctico: Cláusulas anti-elusión}
+
+\small
+``\textit{Cuando usted transmite una obra amparada, renuncia a cualquier facultad legal de prohibir la elusión de medidas tecnológicas en la medida en que dicha evasión se realice al hacer uso de los derechos que se otorgan conforme a esta Licencia con respecto a la obra amparada, y niega cualquier intención de restringir el uso o la modificación de la obra como una forma de hacer valer, en contra de los usuarios de la obra, sus derechos legales o los derechos legales de terceros para prohibir la evasión de medidas tecnológicas.}'' (GPLv3, sect. 3)
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Análisis práctico: Cláusulas de enlazado}
+
+``\textit{As a special exception, the copyright holders of this library give you permission to link this library with independent modules to produce an executable, regardless of the license terms of these independent modules, and to copy and distribute the resulting executable under terms of your choice.}'' (GNU Classpath)
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Diagrama de Venn}
+
+
+\LARGE Diagrama de Venn con los tipos de licencias.
+
+\end{frame}
+
+
+                                                                                
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Mitos legales}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+\begin{center}
+\huge{Mitos legales}
+\end{center}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+\begin{center}
+\huge{``El copyleft está en contra del derecho de autor''}
+\end{center}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+\begin{center}
+\huge{``El software libre no tiene titulares o propietarios''}
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+\begin{center}
+\huge{`` Las licencias libres obligan a ceder sus derechos de
+autor''}
+\end{center}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+\begin{center}
+\huge{``No se puede hacer un uso comercial del software libre''}
+\end{center}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+\begin{center}
+\huge{``  El software libre y el software privativo son
+incompatibles''}
+\end{center}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+\begin{center}
+\huge{`` No se pueden integrar o combinar software libre y software privativo''}
+\end{center}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+\begin{center}
+\huge{`` Todo el software libre es igual" (en los términos de la
+GPL)''}
+\end{center}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+\begin{center}
+\huge{`` Las licencias libres obligan a publicar sus
+modificaciones particulares''}
+\end{center}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+\begin{center}
+\huge{``El software libre no tiene responsables ni garantías''}
+\end{center}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+\begin{center}
+\huge{``El software libre puede ser usado para el genocidio''}
+\end{center}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+\begin{center}
+\huge{``El software libre es comunista''}
+\end{center}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+\begin{center}
+\huge{``El software libre es liberal''}
+\end{center}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+\begin{center}
+\huge{``La pluralidad de licencias libres es positiva''}
+\end{center}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+\begin{center}
+\huge{``El software libre comienza con Richard Stallman''}
+\end{center}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+\begin{center}
+\huge{``La cultura libre se opone a las grandes corporaciones''}
+\end{center}
+
+\end{frame}
+
+
+
+
+%%==================================================================
+%%---------------------------------------------------------------
+
+
+\end{document}
+
+%%==================================================================
+%%---------------------------------------------------------------
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}
+\frametitle{Quién es quién}
+
+\begin{figure}[h]
+\begin{center}
+  \includegraphics[height=1.80in]{graphics/Larry_Wall_YAPC_2007.jpg}
+%  \caption{{\footnotesize Linus Torvalds}}
+\end{center}
+\end{figure}
+
+
+\end{frame}
+

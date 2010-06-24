@@ -1,0 +1,719 @@
+\documentclass{beamer}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+% imprimir
+% \documentclass[handout]{beamer} 
+% \usepackage{pgfpages}
+% \pgfpagesuselayout{4 on 1}[a4paper,landscape,border shrink=5mm]
+
+\mode<presentation> {
+  \usetheme{Pittsburgh}
+%  \usetheme{Bergen}
+  \useoutertheme{infolines}
+  %\useoutertheme[]{miniframes}
+  \usefonttheme{structurebold}
+  \setbeamercovered{transparent}
+}
+
+\setbeamertemplate{headline}
+{%
+  \includegraphics[height=1.5cm]{format/eoi-header.jpg}%
+}
+
+% \usebackgroundtemplate{\includegraphics[height=0.85cm]{format/eoi-footer.jpg}}
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/eoi-header.jpg}}
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+\setbeamercolor{titlelike}{fg=white}
+\setbeamercolor{frametitle}{fg=black}
+
+%% Metadatos del PDF.
+\hypersetup{  
+  pdftitle={Licencias para obras libres},
+  pdfauthor={Miguel Vidal, Israel Herraiz},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Obras libres (master propiedad intelectual EOI)},
+}
+%%
+
+%\setbeamerfont*{frametitle}{size=\huge}
+
+\begin{document}
+
+\title{Licencias para obras libres}
+\subtitle{Máster Propiedad Intelectual EOI}
+\institute{GSyC/LibreSoft} 
+\author{Miguel Vidal, Israel Herraiz}
+\date{\today}
+\date{29 de mayo de 2010}
+
+{
+\frame{
+\setbeamercolor{titlelike}{fg=red}
+\maketitle
+\begin{center}
+\includegraphics[width=5cm]{format/gsyc-urjc}
+\end{center}
+}
+}
+
+\frame{
+~
+\vspace{2cm}
+
+\begin{footnotesize}
+\begin{flushright}
+  \copyright 2010 Miguel Vidal, Israel Herraiz. \\
+  Algunos derechos reservados. Este artículo se distribuye bajo
+  la licencia ``Reconocimiento-CompartirIgual 3.0 España'' de Creative Commons,
+  disponible en \url{http://creativecommons.org/licenses/by-sa/3.0/es/deed.es}
+  
+  %Este documento (o uno muy similar) está disponible en \\
+  %\url{http://curso-sobre.berlios.de}
+\end{flushright}
+\end{footnotesize}
+
+}
+%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Licencias libres}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% section ``Other intellectual works (CC, etc.)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+\begin{center}
+\huge{Licencias libres para obras intelectuales}
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Qué es la cultura libre}
+\begin{itemize}
+\item ``Cultura libre'' se usa en el mismo sentido que libre mercado, libre expresión, libre comercio, libre empresa, libre albedrío...
+\item Una cultura libre apoya y protege a creadores e innovadores: no es nada nuevo, es la forma tradicional en que se ha construido nuestra cultura.
+\item Una cultura libre \alert{no} es una cultura sin propiedad, igual que un mercado libre no es un mercado donde todo es anárquico o gratuito.
+\item Lo opuesto a una cultura libre es una ``cultura del permiso'' (donde para crear se requiere el permiso de los poderosos o del pasado).
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Nuestra tradición cultural}
+\small
+\begin{itemize}
+\item Shakespeare: \textit{Hamlet} --1601-- deriva de \textit{History of
+Prince Amleth}, de Saxo Gramaticus --1185. Romeo y Julieta --1591-- de 
+\textit{Romeus and Juliet} de Arthur Brooke --1562-- y de Píramo y Tisbe de
+Ovidio. 
+\item Las Meninas y la Monalisa han generado innumerables obras de arte
+y Manet pintó \textit{basándose} en Rafael, Tiziano, Velázquez y
+Rembrandt.
+\item Walt Disney creó su imperio basándose en personajes del dominio 
+público pero ahora defiende la extensión del \copyright~ \textit{sin límites}.
+\item De los 10.027 libros que de editaron en 1930, todos menos 174
+están descatalogados, pero nadie los puede reimprimir por \copyright.
+\item En EE.UU. se ha extendido la protección del copyright 11 veces en el
+siglo pasado (la última se amplió 20 años, en 1998). En 1790 el
+\copyright~ caducaba a los 14 años, ahora a los 70 años y se pretende que
+sea ``prorrogable'' (o sea, infinito).
+
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{El marco legal para las licencias libres}
+\begin{itemize}
+\item Las licencias libres se basan en leyes de coyright internacionales y proveen al usuario con ciertas libertades. 
+\item Estas libertades se obtienen como permisos que \alert{no pueden ser ejercitados} sin la licencia (por defecto, ``all rights are reserved'').
+\item Las licencias libres se comportan como cualquier otra licencia excepto en que ceden una serie de derechos al usuario en vez de restringirlos.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Licencias libres para otras obras}
+
+\begin{itemize}
+\item Las licencias de software libre han inspirado licencias para otras
+obras intelectuales: obras de referencia, blogs, música, literatura, fotografía, obras audiovisuales\ldots 
+
+\item Stallman distingue entre \alert{obras funcionales} (documentación, enciclopedias, manuales de referencia, etc.) y \alert{obras no funcionales} (literatura, música, películas, etc.) para aceptar el uso de cláusulas restrictivas no aceptables en el software libre.
+
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Obras funcionales vs. obras no funcionales}
+
+\begin{itemize}
+\item ¿Son esencialmente distintas?
+\item ¿Es cierto que las obras no funcionales necesitan menos libertades? \\\pause
+\end{itemize}                                                 
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Polémica por la delimitación de obra libre}
+
+\begin{itemize}
+\item Mainstream: sin el derecho a hacer obras derivadas o usos comerciales no hay cultura libre. 
+\item Uso laxo: se aceptan limitaciones a transformar las obras o a comerciar con ellas. 
+\end{itemize}                                                 
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{``Freedom Defined'': obras culturales libres}
+
+\begin{itemize}
+\item Se lanza en 2007: necesidad de una definición razonable y ampliamente aceptada.
+\item No se trata de una nueva licencia, sino de delimitar \textit{obra libre} de forma no ambigua para que se acoja quien lo desee.
+\item Lo propuso en 2005 Ben Mako Hill, un desarrollador de Debian, y fue consensuado con la comunidad, la FSF y CC durante dos años.
+\item Es una adaptación de las cuatro libertades esenciales del software libre.
+\item No discute el derecho de los autores de decidir los términos en que quieren compartir su obra: solo ayuda a reconocer qué licencias (y obras) se ajustan a la definición de libre.
+\end{itemize}                                             
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Definición de obras culturales libres}
+
+\begin{enumerate}
+\item La libertad de usar la obra y disfrutar de los beneficios de su uso.
+\item La libertad de estudiar la obra y aplicar el conocimiento adquirido de ella.
+\item La libertad de hacer y redistribuir copias, totales o parciales, de la información o expresión.
+\item La libertad de hacer cambios y mejoras, y distribuir las obras derivadas.
+\end{enumerate}                                             
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Identificando obras culturales libres}
+
+Siempre que el usuario de una obra no pueda legal o en la práctica ejercitar sus libertades básicas, una obra no puede ser considerada o no debería ser llamada ``libre''. Así:
+
+\begin{itemize}
+\item Restricciones no comerciales son licencias no libres.
+\item Restricciones sobre no derivados son licencias no libres.
+\item ``Open Content'' y ``Open Access'' no son definiciones claras de libertad.
+\end{itemize}                                                 
+
+% \vspace{1cm}
+\begin{center}
+{\LARGE
+\textbf{\url{http://freedomdefined.org/}}
+}
+\end{center}
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Identificando obras culturales libres}
+
+\begin{center}
+\includegraphics[width=4cm]{figs/logo-freedom-defined.png}
+\end{center}
+
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{GNU FDL}
+
+\begin{itemize}
+\item Creada por la FSF como complemento a la GPL para licenciar la documentación --generalmente impresa-- del software.
+\item Hay una distinción entre copias ``transparentes'' de un documento (algo similar a las fuentes) y ``opacas'' (algo similar al binario).
+\item Hay restricciones adicionales: agradecimientos, dedicatorias, y la historia del documento pueden ser modificadas pero sólo para añadir nuevas líneas.
+\item El documento puede incluir secciones ``invariantes'' y ``de tapa''. Sin embargo, sólo textos no técnicos pueden considerarse invariantes.
+\item La GFDL no cumple con las directrices de Debian (cláusula DRM, incompatibilidad con la GPL y partes invariantes), a menos de que no se usen las secciones invariantes.
+
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{El caso de Wikipedia}
+
+\begin{itemize}
+\item Hasta junio de 2009 sus contenidos estaban cubiertos por la GFDL.
+\item Se relicenció a CC-by-sa 3.0, una licencia igualmente de tipo copyleft
+\item ¿Motivos? 
+
+\pause
+
+\small
+	\begin{itemize}
+		\item La GFDL no es adecuada para obras de referencia en línea (pensada para doc. impresa). 
+		\item Su cumplimiento es casi imposible: para reproducir un fragmento de Wikipedia se necesitaría adjuntar (que no enlazar) la licencia GFDL al completo, así como todo el historial de contribuciones.
+		\item Es incompatible con la CC-by-sa, la licencia copyleft más extendida. 
+	\end{itemize}
+
+\end{itemize}
+
+\pause
+\begin{center}
+\alert{Si todos los autores son titulares de sus ediciones, ¿cómo se logró relicenciar?}
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{¿Cómo se logró relicenciar Wikipedia?}
+
+\begin{itemize}
+\item Se hizo un referéndum entre la comunidad en abril de 2009.
+\item Se aprovechó la cláusula ``GFDL 1.2 \alert{o versiones posteriores}''.
+\item A petición de la Wikimedia Foundation, la FSF publicó una nueva versión de la GFDL (1.3), diseñada específicamente para permitir a Wikipedia relicenciar su contenido como CC-by-sa. 
+\item ¿Conflicto con art. 14.1 LPI? (``corresponden al autor los siguientes derechos irrenunciables e \alert{inalienables}: 1. Decidir si su obra ha de ser divulgada y en qué forma'').
+\end{itemize}
+
+\end{frame}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\begin{center}
+\huge{Licencias Creative Commons}
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Objetivos de Creative Commons}
+
+Creative Commons, una organización sin ánimo de lucro para...
+
+\begin{itemize}
+\item Crear un conjunto de licencias, para cualquier tipo de contenido.
+\item Indexado de obras CC, de manera que se puedan localizar contenidos libres rápidamente...
+\item Adaptación internacional de licencias (p.ej., hay licencias CC oficiales españolas).
+\end{itemize}
+\vspace{1cm}
+\begin{center}
+{\LARGE
+\textbf{\url{http://www.creativecommons.org/}}
+}
+\end{center}
+
+\end{frame}
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Objetivos de las Licencias Creative Commons}
+
+Con las licencias Creative Commons puedes:
+
+\begin{itemize}
+\item Donar tu trabajo al dominio público (CC0).
+\item Mantener algunos derechos:
+\begin{itemize}
+\item Atribución
+\item Retener usos comerciales
+\item Sin obras derivadas
+\item \textit{Share Alike} (``compartir bajo la misma licencia'')
+\end{itemize}
+\item Puedes \alert{combinar} estos derechos. Por tanto, puedes mantener
+\begin{center}
+{\LARGE algunos derechos reservados}.
+\end{center}
+\end{itemize}
+
+\end{frame}
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Copyright: Todos los derechos reservados}
+
+\includegraphics[width=11cm]{figs/Copyright.png}
+
+\end{frame}
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Dominio Público: Ningún derecho reservado}
+
+\includegraphics[width=11cm]{figs/DominioPublico.png}
+
+\end{frame}
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Creative Commons: Algunos derechos reservados}
+
+\includegraphics[width=11cm]{figs/CreativeCommons.png}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Tipos de licencias Creative Commons}
+
+Combinar estas condiciones da seis posibilidades:
+
+\begin{block}{Licencias CC}
+\begin{enumerate}
+\item Attribution (by)
+\item Attribution + Non commercial (by-nc)
+\item Attribution + No Derivate Works (by-nd)
+\item Attribution + share alike (by-sa)
+\item Attribution + Non commercial + No Derivate Works (by-nc-nd)
+\item Attribution + Non commercial + share alike (by-nc-sa)
+\end{enumerate}                                                 
+\end{block}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Licencias CC ``especiales''}
+
+\begin{itemize}
+\item Public Domain Dedication (PD, CC0)
+\item \alert{Founder's Copyright:} la obra es publicada en el PD después de 14 ó 28 años.
+\item \alert{Sampling Plus:} partes del trabajo pueden ser copiados y modificados con cualquier propósito. La obra entera puede ser copiada para propósitos no comerciales.
+\item \alert{Noncommercial Sampling Plus:} la obra completa o partes de la obra puede ser copiada y modificada para usos no comerciales.
+\item \alert{Licencias retiradas:} Developing Nations, Sampling.
+\end{itemize}                                                 
+
+\small
+
+\textit{Nota:} Para el software se recomienda el uso de las ya existentes en el mundo del software libre.
+
+\normalsize
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Uso de licencias Creative Commons}
+
+Todas las licencias CC contienen tres secciones, ideadas para humanos, abogados y máquinas:
+\begin{itemize}
+\item \alert{Commons Deed:} Es un resumen, legible por humanos, de la licencia con los iconos relevantes.
+\item \alert{Legal Code:} el código legal completo en el que se basa la licencia.
+\item \alert{Digital Code.} Una versión legible por máquinas que ayuda a buscadores y otras aplicaciones a identificar las obras por sus términos de uso.
+\end{itemize}                                                 
+
+\end{frame}
+
+
+
+%%---------------------------------------------------------------
+
+
+\begin{frame}
+\frametitle{CC Zero (CC0) -- Sin derechos de explotación}
+
+
+\begin{itemize}
+\item Creada en 2009.
+\item Es una licencia equivalente al dominio público (DP).
+\item Ingeniería jurídica: busca darle mayor consistencia jurídica a la dedicatoria al DP.
+\item Si por alguna razón la anticipación al DP no funciona en alguna parte, simplemente la licencia se comporta como una licencia estándar que concede los máximos derechos que la ley permita en ese lugar. 
+\end{itemize}
+
+\end{frame}
+
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{CC Zero (CC0) -- No Copyright}
+
+\begin{block}{}
+``\textit{La persona que asoció un trabajo a este documento ha dedicado su trabajo a los \textit{commons} (procomún) renunciando a todos sus derechos sobre el trabajo bajo la ley de copyright y todos los derechos legales relacionados, en la medida permitida por la ley.}''
+\end{block}
+
+
+\end{frame}
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{CC Zero (CC0) -- No Copyright}
+
+\begin{center}
+\includegraphics[width=8cm]{figs/cc0.png}
+\end{center}
+
+
+\end{frame}
+
+
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{La licencia Attribution-ShareAlike (CC-by-sa)}
+
+Con esta licencia, te reserva dos derechos:
+
+\begin{itemize}
+\item Atribución de la obra.
+\item Cualquier obra derivada ha de tener la misma licencia.
+\end{itemize}
+
+No hay restricciones comerciales o relativas a la creación de obras derivadas.
+
+Esta es una licencia cercana a las del software libre, aunque hay algunos problemas\ldots
+
+\end{frame}
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Compartir bajo la misma licencia (CC-by-sa)}
+
+\begin{center}
+\includegraphics[width=7cm]{figs/cc-by-sa.png}
+\end{center}
+
+\end{frame}
+
+
+
+
+%%---------------------------------------------------------------
+
+%\begin{frame}
+%\frametitle{Debian-legal enters the arena}
+%
+%After the popularization of CC, Debian-legal entered and warned of
+%Attribution. The causes were:
+%
+%\begin{itemize}
+%\item A work under Attribution can be in fact, NoDerivs.
+%\item Inaccurate or excessive authorship credits.
+%\item Problems with Anti-DRM clause.
+%\item Trademark restrictions.
+%\end{itemize}
+%
+%\begin{center}
+%{\LARGE
+%\textbf{Attribution[-ShareAlike] is not compatible with DFSG}}
+%\end{center}
+%
+%\end{frame}			
+%
+%%---------------------------------------------------------------
+%
+%\begin{frame}
+%\frametitle{Attribution Problems (I)}
+%
+%\begin{itemize}
+%\item Licensor/Original Author can request removal of him/her references in derived works.
+%\item However the author name must be included in derivative works ``if supplied'' (Attribution)
+%\end{itemize}
+%
+%It's unclear if creator of derivative works can comply with a requirement of removing references and requirement of give attribution. Then, a request to remove references can make impossible to comply with Attribution; so it may not be possible to make derivative/collective works under this license (DFSG 3 \& 1 incompatible). {\bf The work is not free?}
+%
+%\end{frame}
+
+%%---------------------------------------------------------------
+
+%\begin{frame}
+%\frametitle{Attribution Problems (II): Authorship credits}
+
+%\begin{itemize}
+%\item Requirements for crediting Licensor for his/her work: it's ambiguous
+%\item So, we need the most pessimistic interpretation:
+%\begin{itemize}
+%\item Required attribution for the licensor everywhere that authorship credit is given.
+%\end{itemize}
+% \item Excessive/Inaccurate authorship credits: DFSG 1 \& 3 incompatible.
+%\end{itemize}
+%Example 1: {\it If a work is a collection of essays by different authors, with authorship credit given in the chapter titles, the Licensor's name would have to be listed for each chapter title, even if they did not contribute to it.}\\
+%Example 2: {\it If Alice writes her autobiography, and includes lyrics from Bob's song in one chapter, she must give him credit for the entire work: ``The Autobiography of Alice, by Alice and Bob'', or even ``The Autobiography of Alice and Bob.''}
+%\end{frame}
+
+%%---------------------------------------------------------------
+
+%\begin{frame}
+%\frametitle{Attribution Problems (III)}
+
+%\begin{itemize}
+%\item Anti-DRM Clause: Distribution with measures to control access is not compatible with DFSG 1.
+%\end{itemize}
+
+%Example 1: Private distribution of work might be forbidden.\\
+%Example 2: Distribution in a server with control access (i.e. firewall) might be forbidden.
+%\end{frame}
+
+%%---------------------------------------------------------------
+
+%\begin{frame}
+%\frametitle{Attribution Problems (IV)}
+
+%\begin{itemize}
+%\item Web page says: Using CC trademark or logos is strictly prohibited when it's used for other than indicating the work is licensed under CC.
+%\item Altough CC Trademark not appears to be part of the CC licenses, this is only warned in ``source code'' of CC web page.
+%\item Interpretation: This can prevent redistribution, modification ...
+%\end{itemize}
+
+%\end{frame}
+
+%%---------------------------------------------------------------
+
+%\begin{frame}
+%\frametitle{NoDerivs problems}
+%
+%\LARGE{Obviously, NoDerivs licenses are not compatible with Four Freedoms (nor DFSG)}
+%
+%\end{frame}
+
+%%---------------------------------------------------------------
+
+%\begin{frame}
+%\frametitle{NonCommercial problems}
+
+%\LARGE{Obviously, NonCommercial licenses are not compatible with Four Freedoms (nor DFSG)}
+
+%\end{frame}
+
+%%---------------------------------------------------------------
+
+
+%\begin{frame}
+%\frametitle{Debian recomienda a los autores...}
+
+%\begin{itemize}
+%\item Todo software licenciado bajo CC no es compatible con DFSG.
+%\item Software licenciado bajo NonCommercial/NoDerivs no se puede llamar ``Free Software''
+%\item Los autores que quieren usar Attribution han de utilizar otras licencias, como las tipo BSD.
+%\item Losa auotes que quieren usar Attribution-ShareAlike deben utilizar otras licencias, como la GFDL o GPL.
+%\end{itemize}
+
+%\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{CC NonCommercial Share-alike (CC-nc-sa)}
+
+\begin{itemize}
+\item \alert{No} es una licencia libre.
+\item NonCommercial Share-alike \alert{no} es copyleft: El copyleft reconstruye y protege los derechos que el copyright restrictivo quita.
+\item \alert{Los} derechos, no \textit{algunos} derechos.
+\end{itemize}                                                 
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{La cláusula no-comercial}
+
+\begin{itemize}
+\item Es utilizada frecuentemente, particularmente en blogs y sitios sociales, y está siendo adoptada por algunas instituciones.
+\item Se cree que protegen las obras contra el uso abusivo y oportunistas (reventa o explotación comercial por corporaciones, etc.)
+\item Se afirma que protegen la inversión (aunque algunos estudios han puesto esto en entredicho, ya que restringe la distribución).
+\end{itemize}                                                 
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{¿Qué es la cláusula no-comercial?}
+
+La cláusula relevante de las licencias no comerciales (``-NC'') de Creative Commons, tales como la licencia de la ``Reconocimiento-No Comercial'', es esta:
+
+\begin{block}{Cláusula no comercial}
+\small
+Usted no puede ejercitar ninguno de los derechos cedidos [...] de manera que pretenda principalmente o se encuentre dirigida hacia la obtención de un beneficio mercantil o la remuneración monetaria privada. 
+\end{block}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Algunos problemas de la cláusula no-comercial}
+
+\begin{itemize}
+\item Esta cláusula no distingue entre uso comercial indirecto, proyectos autofinanciados, etc.
+\item Introduce incertidumbre sobre que es una actividad comercial: en caso de duda, uno puede decidir no usarlo para evitar la consulta de abogados...
+\item Incompatible con proyectos libres (p.ej. Wikipedia).
+\item Causa confusión sobre el concepto de ``libre'': promueve otro tipo de oportunismo, ya que se tiene el márketing viral de crear la impresión de que la obra es libre cuando en realidad no lo es.
+\end{itemize}                                                 
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Riesgos: la proliferación de licencias}
+
+\begin{itemize}
+\item \alert{Licencias vanidosas:} problema conocido en la comunidad desde hace unos cuantos años.
+\item Un número creciente de licencias incrementa de manera exponencial las posibles combinaciones e interacciones.
+\item Este hecho hace que sea difícil mezclar código de fuentes diferentes, por incompatibilidad o cláusulas inaceptables.
+\item Introducen inseguridad jurídica que requiere abogados, y eso es precisamente lo que las licencias libres quieren evitar en primer lugar (p.ej., la licencia EUPL y las EULAs).
+\item Favorece el FUD (Fear, Uncertainly, Doubt).
+\end{itemize}                                                 
+
+\end{frame}
+
+
+
+\end{document}

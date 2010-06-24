@@ -1,0 +1,7 @@
+#!/bin/sh
+
+for var in `ls *.gif`
+do
+	BASENAME=`basename $var .gif`
+	giftopnm < $var | pnmtops > $BASENAME.eps
+done
