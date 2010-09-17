@@ -1,0 +1,226 @@
+%
+% $Id: $
+%
+%
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer (paquete latex-beamer en Debian)
+%
+
+%
+% Gráficos:
+% Los gráficos pueden suministrarse en PNG, JPG, TIF, PDF, MPS
+% Los EPS deben convertirse a PDF (usar epstopdf)
+%
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg-soft.png}}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={Brief introduction to git},
+  pdfauthor={Jesus M. Gonzalez-Barahona},
+  pdfcreator={GSyC/LibreSoft, Universidad Rey Juan Carlos},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Case studies I},
+}
+%%
+
+\begin{document}
+
+\title{Brief introduction to git}
+\subtitle{Case studies I / Master on libre software (URJC) \\
+\url{http://master.libresoft.es}}
+\author{Jesus M. Gonzalez-Barahona, Carlos García Campos}
+\institute{jgb@gsyc.es \\
+GSyC/LibreSoft, Universidad Rey Juan Carlos}
+
+\date{September 2010}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+
+% Si el titulo o el autor se quieren acortar para los pies de página
+% se pueden redefinir aquí:
+%\title{Titulo corto}
+%\author{Autores abreviado}
+
+
+%% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
+\frame{
+~
+\vspace{3cm}
+
+\begin{flushright}
+\copyright 2009-2010 Jesus M. Gonzalez-Barahona, Carlos García Campos. \\
+
+Some rights reserved. \\
+This document is distributed under the \\
+Creative Commons Attribution-ShareAlike 3.0 licence, \\
+available in \\
+\url{http://creativecommons.org/licenses/by-sa/3.0}
+
+The original version of this document is available at \\
+\url{http://master.libresoft.es}
+\end{flushright}
+}
+%%
+
+
+\begin{frame}
+\frametitle{Why are we introducing git?}
+
+\begin{itemize}
+\item One of the most used distributed version control systems
+\item Originally written by Linus Torvalds for supporting Linux development
+\item Now used by man projects
+\item Available in most free software distributions
+\item Available for many operating systems
+\item Forges based on it available: Github, Gitorious, etc.
+\item We will use it in the master's program
+\end{itemize}
+
+\begin{flushright}
+\url{http://git-scm.com/} \\
+\url{http://github.com/} \\
+\url{http://gitorious.org/}
+\end{flushright}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Starting to use git}
+
+\begin{itemize}
+\item Creating/initializing a new repository:
+\begin{verbatim}
+$ mkdir project
+$ cd project
+$ git init
+\end{verbatim}
+\item Only once for each repository
+\item Everything (diffs for each commit) will be stored in it
+\item No real difference between ``repository'' and ``working copy''
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Normal workflow}
+
+Committing:
+
+\begin{verbatim}
+$ git add file1 file2 ...
+$ git diff --cached
+$ git status
+$ git commit 
+\end{verbatim}
+
+\begin{itemize}
+\item add marks files to commit (adds them to the index)
+\item diff to know what is about to be commited
+\item status to get a general idea of the current state
+\item commit really adds changes to files in the index
+\item Special shortcut for committing
+\begin{verbatim}
+$ git commit -a
+\end{verbatim}
+\end{itemize}
+
+The index is a snapshot of the working tree that represents the
+content that will be affected by a commit
+\end{frame}
+
+
+\section{Exploring the history}
+
+\begin{frame}[fragile]
+  \frametitle{Exploring the history}
+
+  \begin{itemize}
+  \item {\it git log}
+    {\scriptsize
+\begin{verbatim}
+commit ce6ddeac2200225b173c52e2509ffcc01b2b4a1d
+Author: Carlos Garcia Campos <carlosgc@gnome.org>
+Date:   Mon Nov 19 16:14:01 2007 +0100
+
+    Initial commit
+\end{verbatim}
+    }
+
+
+    \begin{itemize}
+    \item Commit: commit id (sha1)
+    \item Author: commit author (not the committer)
+    \item Date: commit date
+    \item Commit message: (a single line briefly 
+      describing the change and, optionally, a blank line followed by
+      one or more lines with a detailed description)
+    \end{itemize}
+  \end{itemize}
+
+\end{frame}
+
+
+\section{Operations between repositories}
+
+\begin{frame}[fragile]
+  \frametitle{Pulling}
+
+  \begin{itemize}
+  \item Cloning a repository
+\begin{verbatim}
+$ git clone <uri>
+\end{verbatim}
+
+  \item Getting updates
+\begin{verbatim}
+$ git fetch <uri>
+$ git merge origin/master
+\end{verbatim}
+
+  \item Useful shortcut (commonly used)
+\begin{verbatim}
+$ git pull
+\end{verbatim}
+
+\item Updating a remote repository
+\begin{verbatim}
+$ git push
+\end{verbatim}
+
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Further references (git in detail)}
+
+In this presentation, only a very brief tour to the basics...
+
+To probe further:
+
+\begin{itemize}
+\item Class in the Development course in this master's
+\item The Git Community Book \\
+  \url{http://book.git-scm.com/}
+\end{itemize}
+
+\end{frame}
+
+\end{document}
