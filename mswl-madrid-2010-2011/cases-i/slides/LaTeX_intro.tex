@@ -72,9 +72,7 @@
 
 %  \begin{itemize}[<+->]
   \begin{itemize}
-    \item What is \LaTeX
-    \item Why \LaTeX
-    \item Basic introduction
+    \item What is LaTeX
     \item References
   \end{itemize}
 
@@ -90,10 +88,12 @@
 \begin{itemize}
 
 \item ``\TeX'', ``\LaTeX'', or ``LaTeX'', no ``Latex''!
-\item Pronounced `tej' or `látej' (or `latek' in English), neither `tex' nor `latex'. 
+% \item Pronnounced \/lɑ:tɛx\/ in Spanish and \/lɑ:tɛx\/ or \/lei:tɛx\/ in English.
+% Greek letters tau, epsilon, and chi
+\item Pronounced /látej/ or /latek/ (English), no `latex'. 
 \item It derives from the Ancient Greek: $\alert{\tau\epsilon\chi}\nu\eta$ (\textit{\alert{tej}né}: ``skill, art, technique'')
-\item $\chi$: \textit{Ji} letter (voiceless velar fricative, ``j'' sound in Spanish), \textit{Chi} (``kai''), ``k'' sound in modern English.
-\item IPA (International Phonetic Alphabet): /x/ phonem. /látex/ 
+\item $\chi$: \textit{Ji} letter (in Spanish, fricativa velar sorda, ``j'' sound), \textit{Chi} (``kai'') in English.
+\item IPA (International Phonetic Alphabet): [x] phonem 
 \end{itemize}
 
 \end{frame}
@@ -106,7 +106,7 @@
 \begin{itemize}
 
 \item \TeX{} was designed and mostly written by Donald Knuth (1977-1988)
-\item \TeX{} \TeX{} understands about 300 low-level commands (``primitives''). Primitives are rarely used directly by users.
+\item \TeX{} understands about 300 low-level commands (``primitives''). Primitives are rarely used directly by users.
 \item One of the most sophisticated digital typographical systems in the world.
 \item Popular in academia, especially in mathematics, computer science, engineering, and physics. 
 \item Functionality is provided by \alert{format files} (predumped memory images of \TeX{} after large macro collections have been loaded).
@@ -175,7 +175,7 @@
 
 \lstset{ %
 language=TeX,
-backgroundcolor=\color{yellow},
+backgroundcolor=\color{green},
 frame=[frame=trBL]
 }
 
@@ -199,7 +199,7 @@ Hello World! {\textit This} is \LaTeX.
 
 \lstset{ %
 language=TeX,
-backgroundcolor=\color{yellow},
+backgroundcolor=\color{green},
 frame=[frame=trBL]
 }
 
@@ -242,7 +242,7 @@ Two main environments:
 
 \lstset{ %
 language=TeX,
-backgroundcolor=\color{yellow},
+backgroundcolor=\color{green},
 frame=[frame=trBL],
 basicstyle=\footnotesize
 }
@@ -252,8 +252,8 @@ basicstyle=\footnotesize
 \usepackage[options]{package} 
 \end{lstlisting}
 
-\alert{class} (mandatory): book, article, report, letter, slides\dots \\
-\alert{package} (optional): To allow using external macros. 
+\textit{class} (mandatory): book, article, report, letter, slides...
+\textit{package} (optional): to utilize external macros
 
 \end{frame}
 
@@ -298,25 +298,23 @@ basicstyle=\footnotesize
 \begin{frame}[fragile]
 \frametitle{Document Structure: Body text}
 
-\lstset{ %
-language=TeX,
-backgroundcolor=\color{yellow},
-frame=[frame=trBL]
-}
-
-\begin{lstlisting}[]
-\begin{document}
-    ... text mixed with local commands ...
-\end{document}
-\end{lstlisting}
-
-
-
 \begin{itemize}
 \item Abstract
 \item Parts, chapters, sections, subsections, 
 \item Appendices, Bibliography...
 \end{itemize}
+
+\lstset{ %
+language=TeX,
+backgroundcolor=\color{green},
+frame=[frame=trBL]
+}
+
+\begin{lstlisting}[]
+\begin{document}
+  ... text mixed with local commands ...
+\end{document}
+\end{lstlisting}
 
 
 \end{frame}
@@ -374,7 +372,7 @@ basicstyle=\footnotesize
 \textsc{...} % small capitals
 \end{lstlisting}
 
-Compiled output: 
+Example: 
 
 \begin{lstlisting}[]
 \LaTeX{} was \texttt{originally} written in \textbf{1984} 
@@ -418,17 +416,17 @@ basicstyle=\footnotesize
 \Huge 	
 \end{lstlisting}
 
-\tiny
-(Related to font size in \texttt{\textbackslash documentclass})
+(Related to font size in \texttt{\\documentclass})
 
-\normalsize
+Example: 
+
 \begin{lstlisting}[]
 \LaTeX{} was \texttt{originally} written in \textbf{1984} 
 by \textsc{Leslie Lamport} and has become the 
 \textit{dominant} method for using \TeX.
 \end{lstlisting}
 
-\begin{block}{Compiled output:}
+\begin{block}{Example}
 \LaTeX{} was \texttt{originally} written in \textbf{1984} by 
   \textsc{Leslie Lamport} and has become the 
   \textit{dominant} method for using \TeX.
@@ -444,7 +442,7 @@ by \textsc{Leslie Lamport} and has become the
 \begin{itemize}
 
 \item Text aligned
-\item $n > 1$ blank lines and empty spaces: \alert{one} line or \alert{one} space
+\item $n > 1$ blank lines and empty spaces: one line or one space
 \item Start a new paragraph: \textbackslash\textbackslash
 \item Hyphenate the word (exceptional cases): \texttt{man\textbackslash-u\textbackslash-script}
 \item \texttt{\textbackslash newline}, \texttt{\textbackslash newpage}
@@ -477,21 +475,11 @@ Some environments: center, itemize, enumerate, figure, flushright, quotation, ta
 
 Example:
 \begin{lstlisting}[]
-\begin{enumerate}
+\begin{itemize}
 \item Foo
 \item Bar
-\end{enumerate}
+\end{itemize}
 \end{lstlisting}
-
-\begin{block}{Compiled output:}
-\begin{enumerate}
-\item Foo
-\item Bar
-\end{enumerate}
-\end{block}
-
-
-
 
 \end{frame}
 
@@ -505,7 +493,7 @@ Example:
 
 \lstset{ %
 language=TeX,
-backgroundcolor=\color{yellow},
+backgroundcolor=\color{green},
 frame=[frame=trBL],
 basicstyle=\footnotesize
 }
@@ -513,38 +501,15 @@ basicstyle=\footnotesize
 
 % \begin{boxedverbatim} 
 \begin{lstlisting}[]
-\documentclass[options]{article}
 \usepackage[utf8]{inputenc}
 \title{The beauty of \LaTeX}
-\author{Donald Knuth}
+\author{John Doe}
 \date{\today}
 
 \begin{document}
   \maketitle
 
 % This is the comment body.
-``Mathematical books and journals do not look as 
-beautiful as they used to. It is not that their 
-mathematical content is unsatisfactory, rather that 
-the old and well-developed traditions of typesetting 
-have become too expensive. Fortunately, it now appears 
-that mathematics itself can be used to solve 
-this problem.''\footnote{Donald E. Knuth, 1979.}
-
-\end{document}
-
-\end{lstlisting} 
-% \end{boxedverbatim} 
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\begin{frame} 
-\frametitle{Example final output}
-
-\begin{block}{Example final output}
 ``Mathematical books and journals do not look as beautiful 
 as they used to. It is not that their mathematical 
 content is unsatisfactory, rather that the old and 
@@ -552,7 +517,11 @@ well-developed traditions of typesetting have become
 too expensive. Fortunately, it now appears that 
 mathematics itself can be used to solve 
 this problem.''\footnote{Donald E. Knuth, 1979.}
-\end{block}
+
+\end{document}
+
+\end{lstlisting} 
+% \end{boxedverbatim} 
 
 \end{frame}
 
