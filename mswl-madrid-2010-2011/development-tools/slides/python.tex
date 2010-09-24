@@ -1,0 +1,536 @@
+\section{Python}
+
+\begin{frame}
+  \frametitle{Introduction}
+
+  \begin{itemize}
+  \item High level interpreted language created by Guido van Rossum
+  \item First public release in 1991
+  \item Designed to be simple to use
+  \item Readability
+  \item Object Oriented
+  \item ``Multiplatform''
+  \item The interpreter is extensible (written in C)
+  \item Free Software!
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{History}
+
+  \begin{itemize}
+  \item In the early 80s, Guido van Rossum worked at CWI (Centrum voor
+    Wiskunde \& Informatica) in Netherlands, developing the ABC
+    programming language.
+  \item In 1986 van Rossum is moved to a different project, the Amoeba
+    project, a distributed operating system.
+  \item By the late 80s they realized they need and scripting language
+    for Amoeba, and Guido started to work on his own programming
+    language (in his free time taking advantage of the Christmas holidays)
+  \item During 1990 he continued working on Python in his own time.
+  \item In February 1991 the 0.9 version is released.
+  \item The version 1.0 is released in January 1994.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{History (Cont.)}
+
+  \begin{itemize}
+  \item In 1995 Guido van Rossum leaves CWI and moves to Corporation
+    for National Research Initiatives (CNRI) in Reston, Virginia where
+    he continues developing Python.
+  \item In 2000, the Python core development team moved to BeOpen.com
+    to form the BeOpen PythonLabs team.
+  \item In October 2000 version 2.0 is released by BeOpen.com
+  \item After 2.0 was released, the PythonLabs developers joined
+    Digital Creations (later renamed as Zope Coorporation)
+  \item In March 2001, the Python Software Foundation (PSF) is founded
+    as a non-profit organization in order to protect and promote the
+    Python development.
+  \item Today, the project has an important community around and
+    Python is the language selected by many different projects.
+  \item Python 3.0 (a.k.a Python 3000) is the latest major release 
+    and it breaks backwards compatibility with Python 2.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Hello World}
+{\huge
+\begin{verbatim}
+print "Hello World"
+\end{verbatim}
+}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{The interpreter}
+
+  \begin{itemize}
+  \item Interactive mode
+{\scriptsize
+\begin{verbatim}
+Python 2.5.2 (r252:60911, Oct  5 2008, 19:24:49) 
+[GCC 4.3.2] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 2 + 2
+4
+>>> print "Hello World"
+Hello World
+>>>
+\end{verbatim}
+}
+\item Running scripts
+{\scriptsize
+\begin{verbatim}
+#!/usr/bin/env python
+
+print "Hello World"
+\end{verbatim}
+}
+
+\item ipython: An Enhanced Interactive Python
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Builtin data types}
+  \begin{itemize}
+  \item Elemental types: int, float, bool, long, ...
+  \item Strings: str, unicode
+  \item Compound types: list, tuple, dict, ...
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Strings}
+  \begin{itemize}
+  \item Single or double quotes
+{\scriptsize
+\begin{verbatim}
+>>> "double quote" == 'double quote'
+True
+>>> 'single \' quote'
+"single ' quote"
+>>> "single ' quote"
+"single ' quote"
+\end{verbatim}
+}
+
+\item Even triple quotes: """ or '''
+{\scriptsize
+\begin{verbatim}
+>>> print "We need to scape\n\
+... new lines"
+We need to scape
+new lines
+>>> print """No need to scape
+... new lines"""
+No need to scape
+new lines
+\end{verbatim}
+}  
+
+\item Raw string
+{\scriptsize
+\begin{verbatim}
+>>> print "Not\t a raw\n string"
+Not a raw
+ string
+>>> print r"It's\t a raw\n string"
+It's\t a raw\n string
+\end{verbatim}
+}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Strings (Cont.)}
+  \begin{itemize}
+  \item Concatenate and repeat
+{\scriptsize
+\begin{verbatim}
+>>> "Hello" + "World"
+'HelloWorld'
+>>> "Hello"*5
+'HelloHelloHelloHelloHello'
+\end{verbatim}
+}
+
+\item Indexing
+{\scriptsize
+\begin{verbatim}
+>>> s = "Hello World"
+>>> s[6]
+'W'
+\end{verbatim}
+}
+
+\item Unicode
+{\scriptsize
+\begin{verbatim}
+>>> print u'Danke schön für alles!'
+Danke schön für alles!
+>>> u'Danke schön für alles!'
+u'Danke sch\xf6n f\xfcr alles!'
+>>> print u'Danke sch\xf6n f\xfcr alles!'
+Danke schön für alles!
+>>> print 'Danke sch\xf6n f\xfcr alles!'
+Danke schn fr alles!
+\end{verbatim}
+}
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Lists and tuples}
+  \begin{itemize}
+  \item Ordered sequence of items
+{\scriptsize
+\begin{verbatim}
+>>> ['string', 5.0, u'unicode', 2, ['a', "b"], r'raw']
+['string', 5.0, u'unicode', 2, ['a', 'b'], 'raw']
+\end{verbatim}
+}
+
+\item Indexing
+{\scriptsize
+\begin{verbatim}
+>>> print l[0], l[-1], l[-2]
+string raw ['a', 'b']
+>>> print l[3:], l[:3], l[:-4]
+[2, ['a', 'b'], 'raw'] ['string', 5.0, u'unicode'] ['string', 5.0]
+>>> print l[:]
+['string', 5.0, u'unicode', 2, ['a', 'b'], 'raw']
+\end{verbatim}
+}
+
+\item Other operations
+{\scriptsize
+\begin{verbatim}
+>>> [1,2,3] + [4,5,6]
+[1, 2, 3, 4, 5, 6]
+>>> len ([1,2,3])
+3
+\end{verbatim}
+}
+
+\item A tuple is an immutable list
+{\scriptsize
+\begin{verbatim}
+>>> (1,2)
+(1, 2)
+>>> t[0]
+1
+>>> t[0] = 0
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object does not support item assignment
+\end{verbatim}
+}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Dictionaries}
+  \begin{itemize}
+  \item Unordered collection of items. Hash table
+{\scriptsize
+\begin{verbatim}
+>>> rooms = { 'carlosgc' : 120, 'jfcogato' : 126 }
+>>> rooms['carlosgc']
+120
+>>> rooms['islafuente'] = 118
+>>> rooms
+{'islafuente': 118, 'jfcogato': 126, 'carlosgc': 120}
+>>> rooms.keys ()
+['islafuente', 'jfcogato', 'carlosgc']
+\end{verbatim}
+}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Control Flow}
+  \begin{itemize}
+  \item Code blocks are defined by its indentation.
+  \item The colon (:) is used when a new code block is expected
+{\scriptsize
+\begin{verbatim}
+if n % 2 == 0:
+    print "Even number"
+else:
+    print "Odd number"
+\end{verbatim}
+}
+  \item if, else, elif. There isn't case or switch
+  \item while, for, break, continue
+  \item Functions
+{\scriptsize
+\begin{verbatim}
+>>> def next (n):
+...     return n + 1
+... 
+>>> print next (2)
+3
+>>>
+\end{verbatim}
+}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Object Oriented Programming}
+  \begin{itemize}
+  \item Everything is an object
+{\scriptsize
+\begin{verbatim}
+>>> isinstance (25, int)
+True
+\end{verbatim}
+}
+
+\item Inheritance
+\item Polymorphism
+\item Methods overriding (always virtual)
+\item Methods and operators redefinition
+\item Everything is public
+\item Exceptions: try, except, finally, raise
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Example}
+{\scriptsize
+\begin{verbatim}
+>>> class Figure:
+...     def __init__ (self, name):
+...             self.name = name
+...     def what_am_i (self):
+...             print "I'm a geometric figure named %s" % (self.name)
+...     def get_area (self):
+...             raise NotImplementedError
+... 
+>>> class Rectangle (Figure):
+...     def __init__ (self, width=0.0, height=0.0):
+...             Figure.__init__ (self, "Rectangle")
+...             self.width = width
+...             self.height = height
+...     def get_area (self):
+...             return self.height * self.width
+... 
+>>> r = Rectangle (10, 20)
+>>> r.what_am_i ()
+I'm a geometric figure named Rectangle
+>>> r.get_area ()
+200
+\end{verbatim}
+}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Methods and operators redefinition}
+{\scriptsize
+\begin{verbatim}
+>>> class Number:
+...     def __init__ (self, n=None):
+...             if n is not None:
+...                     self.n = n
+...             else:
+...                     self.n = 0
+...     def __add__ (self, other):
+...             return self.n + other.n
+... 
+>>> n1 = Number (10)
+>>> n2 = Number ()
+>>> n1 + n2
+10
+>>> n3 = Number (30)
+>>> n1 + n3
+40
+>>> n3 - n1
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: unsupported operand type(s) for -: 'instance' and 'instance'
+\end{verbatim}
+}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Everything is public}
+  \begin{itemize}
+  \item Attributes and methods starting with \_\_ are supposed to be
+    private
+  \end{itemize}
+{\scriptsize
+\begin{verbatim}
+>>> class Foo:
+...     def __init__ (self, p1, p2):
+...             self.__p1 = p1
+...             self.p2 = p2
+... 
+>>> f = Foo (1, 2)
+>>> f.p2
+2
+>>> f.p1
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: Foo instance has no attribute 'p1'
+>>> f.__p1
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: Foo instance has no attribute '__p1'
+>>> f._Foo__p1
+1
+\end{verbatim}
+}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Exceptions}
+{\scriptsize
+\begin{verbatim}
+>>> class NotPositiveException (Exception):
+...     pass
+... 
+>>> class Positive:
+...     def __init__ (self, n):
+...             if n <= 0:
+...                     raise NotPositiveException
+...             self.n = n
+...     def __add__ (self, other):
+...             return self.n + other.n
+...
+>>> p = Positive (-1)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 4, in __init__
+__main__.NotPositiveException
+>>> try:
+...     p = Positive (-1)
+... except NotPositiveException:
+...     p = Positive (2)
+... 
+>>> p.n
+2
+\end{verbatim}
+}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Modules and Packages}
+  \begin{itemize}
+  \item A module is a file with .py extension containing
+    definitions. The name of the module is the file name without the
+    extension. (i.e os.py)
+{\scriptsize
+\begin{verbatim}
+>>> import os
+>>> os.uname ()
+('Linux', 'charmaleon', '2.6.28', '#1 SMP PREEMPT Wed Dec 31 14:33:16
+CET 2008', 'i686')
+>>> from os import uname
+>>> uname ()
+('Linux', 'charmaleon', '2.6.28', '#1 SMP PREEMPT Wed Dec 31 14:33:16
+CET 2008', 'i686')
+>>> from os import *
+>>> getpid ()
+6011
+\end{verbatim}
+}
+
+\item A package is a directory that contains modules. In order to be
+  considered a package the directory must have also a file called
+  \_\_init\_\_.py (it might be empty). 
+
+\item When a module is imported, its code is executed.
+\item When a package is imported, the \_\_init\_\_.py file code is
+  executed. 
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Some tips}
+
+  \begin{itemize}
+  \item Unpacking of lists, tuples, ...
+{\scriptsize
+\begin{verbatim}
+>>> name, age = ('Carlos', 28)
+>>> print name
+Carlos
+>>> print age
+28
+>>> a, b = b, a
+\end{verbatim}
+}
+
+\item Use 'in' where possible: it's generally faster and it's available for
+  containers such as lists, tuples, dicts, ...
+
+\item Truth values: use if x: instead of if x == True: since it's
+  efficient to take advantage of intrinsic truth values of objects.
+
+\item Default parameter values
+{\scriptsize
+\begin{verbatim}
+>>> def append (item, l = []):
+...     l.append (item)
+...     return l
+... 
+>>> print append (25)
+[25]
+>>> print append (30)
+[25, 30]
+\end{verbatim}
+}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Some tips (Cont.)}
+  \begin{itemize}
+  \item {\bf Don't use wild-card imports!}
+  \item Variables are tags, not 'boxes'
+  \item Portability: use the 'os' module
+  \item Dictionaries: get and setdefault
+{\tiny
+\begin{verbatim}
+>>> cache = {}
+>>> for i, c in enumerate ("text to count the chars"):
+...     if c not in cache:
+...             cache[c] = []
+...     cache[c].append (i)
+>>> cache
+{'a': [20], ' ': [4, 7, 13, 17], 'c': [8, 18], 'e': [1, 16], 'h': [15,
+19], 'o': [6, 9], 'n': [11], 's': [22], 'r': [21], 'u': [10], 't': [0,
+3, 5, 12, 14], 'x': [2]}
+\end{verbatim}
+\pause
+\begin{verbatim}
+>>> cache = {}
+>>> for i, c in enumerate ("text to count the chars"):
+...     cache.setdefault (c, []).append (i)
+>>> cache
+{'a': [20], ' ': [4, 7, 13, 17], 'c': [8, 18], 'e': [1, 16], 'h': [15,
+19], 'o': [6, 9], 'n': [11], 's': [22], 'r': [21], 'u': [10], 't': [0,
+3, 5, 12, 14], 'x': [2]}
+\end{verbatim}
+}    
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{References}
+  \begin{itemize}
+  \item The Python Tutorial (\url{http://docs.python.org/tutorial/})
+  \item Code Like a Pythonista: Idiomatic Python
+    (\url{http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html})
+  \end{itemize}
+\end{frame}
+
+
