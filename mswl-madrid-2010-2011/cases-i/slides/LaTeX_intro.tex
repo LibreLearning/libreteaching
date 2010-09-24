@@ -1,0 +1,584 @@
+\documentclass{beamer}
+\usepackage{moreverb} 
+\usepackage{listings}
+% imprimir
+% \documentclass[handout]{beamer} 
+% \usepackage{pgfpages}
+% \pgfpagesuselayout{4 on 1}[a4paper,landscape,border shrink=5mm]
+
+\mode<presentation> {
+  \usetheme{Warsaw}
+  \setbeamercovered{transparent}
+}
+
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+% \usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{  
+  pdftitle={LaTeX in a nutshell},
+  pdfauthor={Miguel Vidal},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Master on Free Software},
+}
+%%
+
+\begin{document}
+
+\title{LaTeX in a nutshell}
+\subtitle{Master on Libre Software 2010}
+\institute{mvidal@gsyc.urjc.es \\ GSyC/Libresoft -- URJC} 
+\author{Miguel Vidal} 
+%\date{\today}
+\date{September 24, 2010}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+\frame{
+~
+\vspace{4cm}
+
+\begin{flushright}
+{\footnotesize
+(cc) 2010 Miguel Vidal. \\
+  Some rights reserved. This work is licensed under a Creative Commons 
+  Attribution-Share Alike 3.0 License, available at 
+  \url{http://creativecommons.org/licenses/by-sa/3.0/}
+ 
+
+\bigskip
+
+}
+\end{flushright}
+}
+%%
+
+\begin{frame}
+  \frametitle{Agenda}
+
+%  \begin{itemize}[<+->]
+  \begin{itemize}
+    \item What is \LaTeX
+    \item Why \LaTeX
+    \item Basic introduction
+    \item References
+  \end{itemize}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{How to pronounce and spell ``LaTeX''}
+
+\begin{itemize}
+
+\item ``\TeX'', ``\LaTeX'', or ``LaTeX'', no ``Latex''!
+\item Pronounced `tej' or `látej' (or `latek' in English), neither `tex' nor `latex'. 
+\item It derives from the Ancient Greek: $\alert{\tau\epsilon\chi}\nu\eta$ (\textit{\alert{tej}né}: ``skill, art, technique'')
+\item $\chi$: \textit{Ji} letter (voiceless velar fricative, ``j'' sound in Spanish), \textit{Chi} (``kai''), ``k'' sound in modern English.
+\item IPA (International Phonetic Alphabet): /x/ phonem. /látex/ 
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{\TeX}
+
+\begin{itemize}
+
+\item \TeX{} was designed and mostly written by Donald Knuth (1977-1988)
+\item \TeX{} \TeX{} understands about 300 low-level commands (``primitives''). Primitives are rarely used directly by users.
+\item One of the most sophisticated digital typographical systems in the world.
+\item Popular in academia, especially in mathematics, computer science, engineering, and physics. 
+\item Functionality is provided by \alert{format files} (predumped memory images of \TeX{} after large macro collections have been loaded).
+
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{\LaTeX}
+
+\begin{itemize}
+
+\item The most widely used \alert{format} is \LaTeX, originally developed by Leslie Lamport, which incorporates document styles for books, letters, slides, etc., 
+\item \LaTeX{} was originally written in the early 1980s by Leslie Lamport. The current version is \LaTeX2e.
+\item Set of macros from \TeX primitives.  
+\item \LaTeX{} is free software distributed under the terms of the LaTeX Project Public License (LPPL), OSI-compliant.
+
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Why \LaTeX?}
+
+\begin{itemize}
+
+\item Typesetting, not ``word processing'': high quality final output
+\item Accurate, precise output (device independent)
+\item Separate content and styling
+\item Modular, powerful and flexibility
+\item Easy to make global changes
+\item Encourage content reuse
+
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Caveats}
+
+\begin{itemize}
+
+\item Not WYSIWIG.
+\item Hard learning curve.
+\item Absolute space/positioning is tricky.
+\item Need to be compiled.
+
+\end{itemize}
+
+\end{frame}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile] 
+\frametitle{The simplest document}
+
+\lstset{ %
+language=TeX,
+backgroundcolor=\color{yellow},
+frame=[frame=trBL]
+}
+
+% \begin{boxedverbatim} 
+\begin{lstlisting}[]
+\documentclass{article}
+\begin{document}
+Hello World! {\textit This} is \LaTeX.
+\end{document}
+\end{lstlisting} 
+% \end{boxedverbatim} 
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Document workflow}
+
+\alert{Editor} (\texttt{foobar.tex}) $\to$ \alert{\LaTeX{} processor} (\texttt{foobar.dvi}) $\to$ \alert{display} (viewer/screen) $\to$ \alert{drivers} (\texttt{foobar.ps}, printer)
+
+\lstset{ %
+language=TeX,
+backgroundcolor=\color{yellow},
+frame=[frame=trBL]
+}
+
+\begin{lstlisting}[]
+_$ latex foobar.tex (`tex &latex foobar.tex')
+_$ dvips -o foobar.ps foobar.dvi (ps output)
+_$ pdflatex foobar.tex (pdf output)
+_$ hevea foobar.tex  (html output)
+\end{lstlisting}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Document Structure}
+
+Two main environments:
+
+\begin{itemize}
+\item \alert{Preamble:} commands and macros that affect the entire document.
+\begin{itemize}
+\item \alert{Top matter:} author, title, date, institution, etc. 
+\end{itemize}
+\item \alert{Document environment:} body text
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Document Structure: Preamble}
+
+\begin{itemize}
+\item Everything from the start of the LaTeX source file until the \\begin\{document\} command
+\item It normally contains global commands that affect the entire document.
+\end{itemize}
+
+\lstset{ %
+language=TeX,
+backgroundcolor=\color{yellow},
+frame=[frame=trBL],
+basicstyle=\footnotesize
+}
+
+\begin{lstlisting}[]
+\documentclass[options]{class}
+\usepackage[options]{package} 
+\end{lstlisting}
+
+\alert{class} (mandatory): book, article, report, letter, slides\dots \\
+\alert{package} (optional): To allow using external macros. 
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Top Matter}
+
+\begin{itemize}
+\item Title, date
+\item Information about the authors, such as name, address, email etc.
+\end{itemize}
+
+\lstset{ %
+language=TeX,
+backgroundcolor=\color{yellow},
+frame=[frame=trBL],
+basicstyle=\footnotesize
+}
+
+\begin{lstlisting}[]
+\documentclass[11pt,a4paper,oneside]{report}
+\usepackage[utf8]{inputenc} % utf-8 encoding
+\usepackage{amssymb}  % math symbols
+
+\begin{document}
+\title{How to Structure a LaTeX Document}
+\author{Andrew Roberts}
+\date{December 2004}
+\maketitle
+\end{document}\end{lstlisting}
+
+\alert{class} (mandatory): book, article, report \\
+\alert{package} (optional): to utilize external macros (\texttt{inputenc, babel, graphics, amssymb}...)
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Document Structure: Body text}
+
+\lstset{ %
+language=TeX,
+backgroundcolor=\color{yellow},
+frame=[frame=trBL]
+}
+
+\begin{lstlisting}[]
+\begin{document}
+    ... text mixed with local commands ...
+\end{document}
+\end{lstlisting}
+
+
+
+\begin{itemize}
+\item Abstract
+\item Parts, chapters, sections, subsections, 
+\item Appendices, Bibliography...
+\end{itemize}
+
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}[fragile] 
+\frametitle{How to Structure a LaTeX Document}
+
+LaTeX allows to structure documents with a variety of hierarchical constructs:
+
+\lstset{ %
+language=TeX,
+backgroundcolor=\color{yellow},
+frame=[frame=trBL],
+basicstyle=\footnotesize
+}
+
+
+\begin{lstlisting}[]
+\part{part title} 
+\chapter{chapter title} 	% only books and reports
+\section{section title} 	
+\subsection{subsection title} 
+\subsubsection{subsubsection title} 	
+\end{lstlisting}
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Font Styles}
+
+
+\lstset{ %
+language=TeX,
+backgroundcolor=\color{yellow},
+frame=[frame=trBL],
+basicstyle=\footnotesize
+}
+
+
+\begin{lstlisting}[]
+\textrm{...} % roman font
+\textit{...} % italics
+\textbf{...} % bold
+\texttt{...} % monospace - teletype
+\textsf{...} % sans serif 
+\textsc{...} % small capitals
+\end{lstlisting}
+
+Compiled output: 
+
+\begin{lstlisting}[]
+\LaTeX{} was \texttt{originally} written in \textbf{1984} 
+by \textsc{Leslie Lamport} and has become the 
+\textit{dominant} method for using \TeX.
+\end{lstlisting}
+
+\begin{block}{Example}
+\LaTeX{} was \texttt{originally} written in \textbf{1984} by 
+  \textsc{Leslie Lamport} and has become the 
+  \textit{dominant} method for using \TeX.
+\end{block}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}[fragile]
+\frametitle{Font Sizes}
+
+
+\lstset{ %
+language=TeX,
+backgroundcolor=\color{yellow},
+frame=[frame=trBL],
+basicstyle=\footnotesize
+}
+
+
+\begin{lstlisting}[]
+\tiny  
+\scriptsize 
+\footnotesize 
+\small 	      
+\normalsize 
+\large 	
+\Large 	
+\LARGE 	
+\huge 	
+\Huge 	
+\end{lstlisting}
+
+\tiny
+(Related to font size in \texttt{\textbackslash documentclass})
+
+\normalsize
+\begin{lstlisting}[]
+\LaTeX{} was \texttt{originally} written in \textbf{1984} 
+by \textsc{Leslie Lamport} and has become the 
+\textit{dominant} method for using \TeX.
+\end{lstlisting}
+
+\begin{block}{Compiled output:}
+\LaTeX{} was \texttt{originally} written in \textbf{1984} by 
+  \textsc{Leslie Lamport} and has become the 
+  \textit{dominant} method for using \TeX.
+\end{block}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Some special features}
+
+\begin{itemize}
+
+\item Text aligned
+\item $n > 1$ blank lines and empty spaces: \alert{one} line or \alert{one} space
+\item Start a new paragraph: \textbackslash\textbackslash
+\item Hyphenate the word (exceptional cases): \texttt{man\textbackslash-u\textbackslash-script}
+\item \texttt{\textbackslash newline}, \texttt{\textbackslash newpage}
+
+\end{itemize}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Environments}
+
+
+\lstset{ %
+language=TeX,
+backgroundcolor=\color{yellow},
+frame=[frame=trBL],
+basicstyle=\footnotesize
+}
+
+\begin{lstlisting}[]
+\begin{environment name}
+\end{environment name} 
+\end{lstlisting}
+
+Some environments: center, itemize, enumerate, figure, flushright, quotation, table...
+
+Example:
+\begin{lstlisting}[]
+\begin{enumerate}
+\item Foo
+\item Bar
+\end{enumerate}
+\end{lstlisting}
+
+\begin{block}{Compiled output:}
+\begin{enumerate}
+\item Foo
+\item Bar
+\end{enumerate}
+\end{block}
+
+
+
+
+\end{frame}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile] 
+\frametitle{A simple document}
+
+\lstset{ %
+language=TeX,
+backgroundcolor=\color{yellow},
+frame=[frame=trBL],
+basicstyle=\footnotesize
+}
+
+
+% \begin{boxedverbatim} 
+\begin{lstlisting}[]
+\documentclass[options]{article}
+\usepackage[utf8]{inputenc}
+\title{The beauty of \LaTeX}
+\author{Donald Knuth}
+\date{\today}
+
+\begin{document}
+  \maketitle
+
+% This is the comment body.
+``Mathematical books and journals do not look as 
+beautiful as they used to. It is not that their 
+mathematical content is unsatisfactory, rather that 
+the old and well-developed traditions of typesetting 
+have become too expensive. Fortunately, it now appears 
+that mathematics itself can be used to solve 
+this problem.''\footnote{Donald E. Knuth, 1979.}
+
+\end{document}
+
+\end{lstlisting} 
+% \end{boxedverbatim} 
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame} 
+\frametitle{Example final output}
+
+\begin{block}{Example final output}
+``Mathematical books and journals do not look as beautiful 
+as they used to. It is not that their mathematical 
+content is unsatisfactory, rather that the old and 
+well-developed traditions of typesetting have become 
+too expensive. Fortunately, it now appears that 
+mathematics itself can be used to solve 
+this problem.''\footnote{Donald E. Knuth, 1979.}
+\end{block}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame} 
+\frametitle{References}
+
+\begin{itemize}
+\item \textsc{Lamport}, Leslie. \textit{LaTeX: A document preparation system: User's guide and reference}, Addison-Wesley, 1994.
+\item \textsc{Sanguino-Botella}, Javier. \textit{Iniciación a \LaTeX2e: Un sistema para preparar documentos}, Addison-Wesley, 1997.
+\item \textsc{VV.AA.} \textit{\LaTeX: Una imprenta en sus manos}, ADI, 2000.
+\item CTAN: the authoritative collection of materials related to the TeX typesetting system. \url{http://www.ctan.org/}
+\item Guide to the LaTeX markup language: \url{http://en.wikibooks.org/wiki/LaTeX/}
+\item CervanTeX: Grupo de usuarios hispanohablantes de TeX: \url{http://www.cervantex.es/}
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\end{document}
+
+Ejemplos tipografía vs word:
+http://nitens.org/taraborelli/latex
