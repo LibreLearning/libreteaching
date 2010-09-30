@@ -1,0 +1,94 @@
+%
+% $Id: $
+%
+%
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer (paquete latex-beamer en Debian)
+%
+
+%
+% Gráficos:
+% Los gráficos pueden suministrarse en PNG, JPG, TIF, PDF, MPS
+% Los EPS deben convertirse a PDF (usar epstopdf)
+%
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg-soft.png}}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={Master Thesis / Master on Libre Software (URJC)},
+  pdfauthor={Gregorio Robles},
+  pdfcreator={GSyC/LibreSoft, Universidad Rey Juan Carlos},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Introduction},
+}
+%%
+
+\includeonly{presentation}
+%\includeonly{introduction}
+%\includeonly{history}
+
+
+\begin{document}
+
+\title{Master Thesis}
+\subtitle{Master on Libre Software (URJC) \\
+\url{http://master.libresoft.es}}
+\author{Gregorio Robles, Jesús M. González Barahona}
+\institute{\{gre,jgb\}x@gsyc.urjc.es \\
+GSyC/LibreSoft, Universidad Rey Juan Carlos}
+
+\date{September 2010}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+
+% Si el titulo o el autor se quieren acortar para los pies de página
+% se pueden redefinir aquí:
+%\title{Titulo corto}
+%\author{Autores abreviado}
+
+
+%% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
+\frame{
+~
+\vspace{3cm}
+
+\begin{flushright}
+\begin{footnotesize}
+\copyright 2010 Gregorio Robles, Jesus M. Gonzalez-Barahona. \\
+
+Some rights reserved. \\
+This document is distributed under the \\
+Creative Commons Attribution-ShareAlike 3.0 licence, \\
+available in \\
+\url{http://creativecommons.org/licenses/by-sa/3.0}
+
+The original version of this document is available at \\
+\url{http://master.libresoft.es}
+\end{footnotesize}
+\end{flushright}
+}
+%%
+
+\include{presentation}
+\include{introduction}
+\include{history}
+
+\end{document}
