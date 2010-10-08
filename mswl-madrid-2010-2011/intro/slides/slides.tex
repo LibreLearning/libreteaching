@@ -38,10 +38,19 @@
 %\includeonly{presentation}
 %\includeonly{introduction}
 %\includeonly{history}
-%\includeonly{myths}
-%\includeonly{trials}
+\includeonly{consequences}
 %\includeonly{public_administrations}
+%\includeonly{trials}
+%\includeonly{myths}
 
+\AtBeginSection[]
+{
+\begin{frame}<beamer>
+\begin{center}
+{\Huge \insertsection}
+\end{center}
+\end{frame}
+}
 
 \begin{document}
 
@@ -91,8 +100,9 @@ The original version of this document is available at \\
 \include{presentation}
 \include{introduction}
 \include{history}
-\include{trials}
+\include{consequences}
 \include{public_administrations}
+\include{trials}
 \include{myths}
 
 
