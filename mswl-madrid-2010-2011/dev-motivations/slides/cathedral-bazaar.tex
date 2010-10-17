@@ -1,0 +1,569 @@
+%
+% $Id: slides.tex 4228 2006-06-21 21:55:12Z jjamor $
+%
+%
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer (paquete latex-beamer en Debian)
+%
+
+%
+% Gráficos:
+% Los gráficos pueden suministrarse en PNG, JPG, TIF, PDF, MPS
+% Los EPS deben convertirse a PDF (usar epstopdf)
+%
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={The Cathedral and the Bazaar},
+  pdfauthor={Juanjo Amor, Gregorio Robles, Jose Gato Luis, Teófilo Romera},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={About the seminal work by Eric. S. Raymond},
+}
+%%
+
+\begin{document}
+
+\title{The Cathedral and the Bazaar}
+\subtitle{Presentation about Eric Raymond's paper}
+\institute{\{jgato,teo\}@libresoft.es\\
+GSyC/Libresoft}
+\author{Jose Gato Luis, Teófilo Romera}
+\date{28-29 November 2008}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+
+% Si el titulo o el autor se quieren acortar para los pies de página
+% se pueden redefinir aquí:
+%\title{Titulo corto}
+%\author{Autores abreviado}
+
+
+%% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
+\frame{
+~
+\vspace{4cm}
+
+\begin{flushright}
+{\tiny
+(cc) 2008-2010 Jose Gato Luis, Teófilo Romera \\
+(cc) 2007 Juanjo Amor, Gregorio Robles \\
+  Some rights reserved. This work licensed under Creative Commons
+  Attribution-ShareAlike License. To view a copy of full license, see
+  http://creativecommons.org/licenses/by-sa/2.0/ or write to
+  Creative Commons, 559 Nathan Abbott Way, Stanford,
+  California 94305, USA.
+%  Este documento (o uno muy similar) está disponible en \\
+%  \url{http://gsyc.escet.urjc.es/~jjamor/}
+}
+\end{flushright}
+}
+%%
+
+\begin{frame}
+  \frametitle{Summary}
+
+%  \begin{itemize}[<+->]
+  \begin{itemize}
+    \item Origins
+    \item The lessons
+    \item Criticism
+  \end{itemize}
+
+\end{frame}
+
+\section{Introducing the paper}
+
+\begin{frame}
+
+\frametitle{Eric Steven Raymond}
+
+\begin{center}
+\includegraphics[width=2cm]{figs/EricrRaydmon.jpg}
+\end{center}
+
+
+\begin{itemize}
+\item December 4, 1957
+\item Fetchmail, gpsd, emacs editing modes
+\item "The Cathedral and the Bazaar", published in 1997 -> Became a prominent voice in the open source movement 
+\item Co-founded the Open Source Initiative in 1998
+
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Origins}
+
+\begin{itemize}
+\item First version of the paper written in 1997.
+\item Several revisions appeared up to 2000.
+\item The author discovers a ``development model'' through the history
+  of the Linux kernel and an own tool.
+\item This model is presented as revolutionary, since it is useful to
+  build large systems without apparently any or few organization at all.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{The models}
+
+\begin{itemize}
+\item {\bf The Cathedral}: The ``classic'' model.
+\begin{itemize}
+\item Closed environment.
+\item Small group of leaders/developers.
+\item Only ``stable'' releases on, in some cases, ``betas''.
+\item Used both in classic development models, such as waterfall, spiral etc;
+  and in classic OSS projects.
+\item Examples: GCC, GNU Emacs.
+\end{itemize}
+
+\item {\bf The Bazaar}: The model introduced by Linus Torvalds.
+\begin{itemize}
+\item Open environment, almost any person can participate.
+\item There are no clear leaders, undefined number of developers.
+\item However, there is a benevolent-dictator figure.
+\item ``Release early, Release often''.
+\item Examples: Linux.
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{The surprise}
+
+The Bazaar style of development:
+\begin{itemize}
+\item with a community seemed to resemble a large babbling bazaar of
+  diverse agendas and approaches
+\item with archive repositories where anyone can propose a
+  modification
+\item but from this, a stable and coherent large system emerges.
+\end{itemize}
+
+This was surprising:
+\begin{itemize}
+\item Why Linux world did not fly apart in confusion?
+\item and why Linux seemed to go from strength to strength at a speed
+  barely imaginable to cathedral-builders?
+\end{itemize}
+
+\end{frame}
+
+\section{The Lessons}
+
+\begin{frame}
+\frametitle{Lesson 1}
+
+\begin{center}
+{\large Every good work of software starts by scratching a developer's
+  personal itch.}
+\end{center}
+
+\begin{itemize}
+\item Most successful free software projects have been started by developers
+with needs addressed by their ``pet'' project.
+\item In the world of proprietary software, programmers spend their
+  time building programs that they neither need nor want.
+\item This motivation could explain the high quality of results given
+  by Linux.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Lesson 2}
+
+\begin{center}
+{\large Good programmers know what to write. Great ones know what to
+  rewrite (and reuse).}
+\end{center}
+
+\begin{itemize}
+\item Linus Torvalds did not try to write Linux from scratch. Instead,
+  he started by reusing Minix code and ideas.
+\item Although today all
+  reused Minix code has been removed or rewritten, while it was there,
+  it provided scaffolding for the infant that would eventually become
+  Linux.
+\item The source-sharing tradition of the Unix world has always been
+  friendly to code reuse.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Lesson 3}
+
+\begin{center}
+{\large ``Plan to throw one away; you will, anyhow.''}
+\end{center}
+from chapter 11, The Mythical Man-Month, by Fred Brooks.
+
+\begin{itemize}
+\item We really do not understand the problem, until the first
+  implementation is done.
+\item So if you want to get it right, be ready to start over at least once.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Lesson 4}
+
+\begin{center}
+{\large If you have the right attitude, interesting problems will find you.}
+\end{center}
+
+\begin{itemize}
+\item Eric's problem was that he needed a POP protocol client to work
+  with.
+\item And he found an abandoned one.
+\item The problem was the continuation of the abandoned client, and
+  Eric took it over and started to coordinate it.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Lesson 5}
+
+\begin{center}
+{\large When you lose interest in a program, your last duty to it is to hand it off to a competent successor.}
+\end{center}
+
+\begin{itemize}
+\item Before abandoning the development of a free software,
+  we should find another person to continue its development.
+\item Fortunately, in the bazaar world, some other hacker will find
+  your abandoned work soon, and will start to develop it for his own
+  needs.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Lesson 6}
+
+\begin{center}
+{\large Treating your users as co-developers is your least-hassle route to rapid code improvement and effective debugging.}
+\end{center}
+
+\begin{itemize}
+\item In Linux, many users are hackers too.
+\item Because source code availability, these users can be {\em
+    effective} hackers.
+\item This can be useful for shortening debugging time.
+\item These users will diagnose problems, suggest fixes, and help in
+  improvements.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Lesson 7}
+
+\begin{center}
+{\large Release early. Release often. And listen to your customers.}
+\end{center}
+
+\begin{itemize}
+\item This is another Linux characteristic: during very active
+  development periods, lots of versions were released.
+\item Sometimes, more than one in a day.
+\item This maintains the hackers constantly stimulated and rewarded:
+\item stimulated by the prospect of having an ego-satisfying piece of the action,
+\item and rewarded by the sight of constant (even daily) improvement
+  of their work.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Lesson 8}
+
+\begin{center}
+{\large Given a large enough beta-tester and co-developer base, almost
+  every problem will be characterized quickly and the fix obvious to
+  someone.}
+\end{center}
+
+\begin{itemize}
+\item ``Given enough eyeballs, all bugs are shallow.'' (named ``Linus's
+  Law'' by Eric S. Raymond).
+\item Somebody finds the problem, and somebody else understands (and
+  fixes) it.
+\item The differences between the cathedral and the bazaar: In the
+  cathedral-builder view of programming, bugs and development problems
+  are tricky, insidious, deep phenomena.
+\item In the bazaar, bugs are generally shallow phenomena (they turn
+  shallow when exposed to a thousand eager co-developers collaborating
+  in next release).
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Lesson 9}
+
+\begin{center}
+{\large Smart data structures and dumb code works a lot better than
+  the other way around.}
+\end{center}
+
+\begin{itemize}
+\item It is difficult to understand the code written by others,
+\item but when we understand the data structures, understanding the
+  code is easier.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Lesson 10: Eric tries the model}
+
+Eric S. Raymond tries successfully the model, with the following
+principles:
+\begin{itemize}
+\item Releasing early and often.
+\item Adding to the beta list to everyone who contacted him about the
+  implemented program.
+\item Announcing new releases to the beta list, stimulating people to
+  participate.
+\item Listening to beta-testers, polling them about design decisions
+  and taking in consideration patches and other feedback sent by them.
+\end{itemize}
+
+The consequence:
+\begin{center}
+{\large If you treat your beta-testers as if they're your most
+  valuable resource, they will respond by becoming your most valuable
+  resource.
+}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Lessons 11 and 12}
+
+\begin{center}
+{\large The next best thing to having good ideas is recognizing good
+  ideas from your users. Sometimes the latter is better.
+}
+\end{center}
+
+\begin{center}
+{\large Often, the most striking and innovative solutions come from
+  realizing that your concept of the problem was wrong.}
+\end{center}
+
+\begin{itemize}
+\item Eric learned this when saw good ideas for his application
+  suggested by users.
+\item These ideas helped him to understand that, initially, he was
+  looking the solution for the wrong problem.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Lesson 13}
+
+\begin{center}
+{\large ``Perfection (in design) is achieved not when there is nothing more to add, but rather when there is nothing more to take away.''}
+\end{center}
+by Antonie de Saint-Exupery.
+
+\begin{itemize}
+\item When the code is getting both better and simpler, that is when
+  we know it is right.
+\item At this moment, the software maintained by Eric was, not only
+  very different, but also simpler and better. It was time to change
+  its name and give it its new identity: ``fetchmail'' instead of
+  ``popclient''.
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Lessons 14, 15}
+
+\begin{center}
+{\large Any tool should be useful in the expected way, but a truly
+  great tool lends itself to uses you never expected.}
+\end{center}
+
+\begin{center}
+{\large When writing gateway software of any kind, take pains to
+  disturb the data stream as little as possible -- and never throw away information unless the recipient forces you to!.}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Lessons 16, 17}
+
+\begin{center}
+{\large When your language is nowhere near Turing-complete, syntactic
+  sugar can be your friend.}
+\end{center}
+
+\begin{center}
+{\large A security system is only as secure as its secret. Beware of
+  pseudo-secrets.}
+\end{center}
+
+\begin{itemize}
+\item These are lessons learned directly from the concrete
+  application: {\em fetchmail}. Not related with SE.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Lessons 18, 19}
+
+\begin{center}
+{\large To solve an interesting problem, start by finding a problem
+  that is interesting to you.}
+\end{center}
+
+\begin{center}
+{\large Provided the development coordinator has a communications
+  medium at least as good as the Internet, and knows how to lead
+  without coercion, many heads are inevitably better than one.}
+\end{center}
+
+\end{frame}
+
+\section{Criticism}
+
+\begin{frame}
+\frametitle{Criticism}
+
+\begin{itemize}
+\item No scientific rigor, because the document is an essay.
+\item Not systematic.
+\item Raymond tries to generalize the case of Linux to all free
+  software projects.
+\item Some critics say that Linux is, in fact, an example of cathedral
+  process: there is a leader, and a hierarchic structure of people
+  with delegated tasks. Also, responsibilities are distributed in that
+  structure although not explicitly.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Criticism}
+
+\begin{itemize}
+\item Free Software = Bazaar?
+\begin{itemize}
+\item Is there one development model for free software?
+\item Are all projects really with many contributions of *many*
+  developers?
+\end{itemize}
+\item Bazaar definition may not be accurate.
+
+\item Free Software is not bazaar.
+
+\begin{itemize}
+\item Free software is software released with the four freedoms.
+\end{itemize}
+
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{A Second Look to the Cathedral and the Bazaar (Nikolai Bezroukov)}
+
+\begin{itemize}
+
+\item \emph{Brooks Law does not apply to Internet-based distributed development}
+	\begin{itemize}
+	\item Internet increase the quality of the pool of developers
+	\end{itemize}
+
+\item \emph{Given enough eyeballs, all bugs are shallow}
+\item \emph{Does Linux belongs to the Cathedral model or to the Bazaar model?}
+	\begin{itemize}
+		\item No so democratic Bazaar
+		\item Kernel core Cathedral?
+	\end{itemize}
+
+\item Does OSS development model automatically yield the best results?
+
+\end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Eric Raymond Influence}
+
+\begin{itemize}
+
+\item Netscape Communications
+	\begin{itemize}
+	\item 22 January, 1998
+	\item Netscape publicly released the source code of Netscape Communicator 4.0
+	\item \emph{Oh behalf of everyone at netscape, I want to thank you for helping us get to this point in the first place. Your thinking and writings were fundamental inspirations to our decision.} Eric Hahn, executive vice president and chief technology officer at Netscape
+	\end{itemize}
+	
+\item Wikipedia
+	\begin{itemize}
+	\item Great Bazaar example
+	\item \emph{..opened my eyes to the possibility of mass collaboration} - Jimmy Wales, a cofounder of the encyclopedia
+	\end{itemize}
+
+
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{References}
+
+{\small
+\begin{itemize}
+\item Eric S. Raymond, ``The Cathedral and the Bazaar'' (1997-2006)
+  \url{http://www.catb.org/~esr/writings/cathedral-bazaar/}
+\item N. Bezroukov, ``A Second Look to the Cathedral and the Bazaar''
+  (1999) \url{http://pascal.case.unibz.it/retrieve/3464/Bazaar.htm}
+\end{itemize}
+}
+
+\end{frame}
+
+\end{document}
