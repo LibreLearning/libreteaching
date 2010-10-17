@@ -1,0 +1,89 @@
+\documentclass[a4paper]{article}
+%\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+\usepackage[hypertex,colorlinks]{hyperref}
+%\usepackage{html}
+%\usepackage{hthtml}
+\usepackage{geometry}
+
+% Comments (optional argument is author of comment)
+\newcommand{\comments}[2][?]{
+  \begin{quote}
+    \textbf{Comment (#1):} {\em #2}
+  \end{quote}
+  }
+
+% \name is for ``special names'', like procedure or variable names.
+\newcommand{\name}[1]{\texttt{\hturl{#1}}}
+
+% Just a shortcut for links where the url appears as footnote.
+\newcommand{\htflink}[2]{\htmladdnormallinkfoot{#1}{#2}}
+
+\title{MSWL Introduction \\
+Master on libre software \\
+URJC - GSyC/Libresoft \\
+\url{http://master.libresoft.es}}
+
+\author{Jesus M. Gonzalez-Barahona}
+\date{September 2010}
+
+\sloppy
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Course syllabus and learning program for the course ``Introduction to libre software'', of the Master on libre software of the Universidad Rey Juan Carlos (Móstoles, Spain).
+
+[This is an evolving document, until the course is finished and graded]
+\end{abstract}
+
+\tableofcontents
+
+\section{Grading plan}
+
+Each activity contributing to the grading of the course has its own evaluation criteria, as described below. Each of these activities has a minimum and maximum grading. If the minimum grading is 0, the activity is optional. Otherwise, the activity is mandatory, and has to be graded al least with the minimum to pass the course. Each activity has also a description, and when possible, some general grading criteria. In any case, the final grade for the course will also depend on the continuous observation of the instructors on the outcomes and progress of students.
+
+Students should ask instructors about any detail which may not be clear to them, either about the general grading plan, or about specific aspects of the activities. As a general rule, evaluation will have into account how the activity and its results show that the student has come close to the competences, knowledge and skills expected for the course.
+
+The student can consider that the next table will be used as a (minimum) guideline for assigning marks:
+
+\begin{itemize}
+\item Pass (``aprobado''): 150
+\item Good (``notable''): 250
+\item Excellent (``sobresaliente): 350
+\end{itemize}
+
+\begin{itemize}
+\item \textbf{Exercises (answered in forum)}. \\
+  Minimum: 20 points, maximum: 80 points.
+
+  Exercises proposed and answered in the the forum of the course.
+
+\item \textbf{Blog entries}. \\
+  Minimum: 20 points, maximum: 80 points
+
+  Blog entries specifically related to the course, and marked as such. The tag used for that is mswl-intro.
+
+\item \textbf{Collaborative notebook}. \\
+  Minimum: 0 points, maximum: 40 points
+
+  Based on work in class (in real time) and afterwards (complementing the work, using git).
+
+\item \textbf{Video presentation}. \\
+  Minimum: 20 points, maximum: 80 points
+
+  Can be an screencast, or more ellaborate kinds of videos. Has to explain some topic covered by the course. The most focused, the better: try to explain only one issue, but explain it as well as possible.
+
+\item \textbf{Specific report}. \\
+  Minimum: 20 points, maximum: 120 points
+
+  Specific report about a relevant aspect of libre software, related to the topics dealt with in this course. Can be a traditional written report, but can also be a presentation (recorded in video, in this case), a video, a podcast, etc. It is important to detail all the references, and to heavily root the report on data and/or specific works publicly available.
+
+\item \textbf{Other activities}. \\
+  Minimum: 0 points, maximum: 100 points
+
+  These activities have to be agreed with the instructors.
+\end{itemize}
+
+\end{document}
