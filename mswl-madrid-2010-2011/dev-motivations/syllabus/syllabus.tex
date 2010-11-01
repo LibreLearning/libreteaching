@@ -1,0 +1,118 @@
+\documentclass[a4paper]{article}
+%\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+\usepackage[hypertex,colorlinks]{hyperref}
+%\usepackage{html}
+%\usepackage{hthtml}
+\usepackage{geometry}
+
+% Comments (optional argument is author of comment)
+\newcommand{\comments}[2][?]{
+  \begin{quote}
+    \textbf{Comment (#1):} {\em #2}
+  \end{quote}
+  }
+
+% \name is for ``special names'', like procedure or variable names.
+\newcommand{\name}[1]{\texttt{\hturl{#1}}}
+
+% Just a shortcut for links where the url appears as footnote.
+\newcommand{\htflink}[2]{\htmladdnormallinkfoot{#1}{#2}}
+
+\title{MSWL Developers and motivation \\
+Master on libre software \\
+URJC - GSyC/Libresoft \\
+\url{http://master.libresoft.es}}
+
+\author{Felipe Ortega}
+\date{October 2010}
+
+\sloppy
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Course syllabus and learning program for the course ``Developers and their motivations'', 
+of the Master on libre software of the Universidad Rey Juan Carlos (Móstoles, Spain).
+
+[This is an evolving document, until the course is finished and graded]
+\end{abstract}
+
+\tableofcontents
+
+\section{Grading plan}
+
+Each activity contributing to the grading of the course has its own evaluation criteria, 
+as described below. Each of these activities has a minimum and maximum grading. If the 
+minimum grading is 0, the activity is \textit{optional}. Otherwise, the activity is \textit{mandatory}, and 
+has to be graded al least with the minimum to pass the course. Each activity has also a 
+description, and when possible, some general grading criteria. In any case, the final grade 
+for the course will also depend on the continuous observation of the instructors on the 
+outcomes and progress of students.
+
+Students should ask instructors about any detail which may not be clear to them, 
+either about the general grading plan, or about specific aspects of the activities. 
+As a general rule, evaluation will have into account how the activity and its results 
+show that the student has come close to the competences, knowledge and skills expected 
+for the course.
+
+The student can consider that the next table will be used as a (minimum) guideline for 
+assigning marks:
+
+\begin{itemize}
+\item Pass (``aprobado''): 150
+\item Good (``notable''): 250
+\item Excellent (``sobresaliente): 350
+\end{itemize}
+
+\subsection{Graded activities}
+
+\begin{itemize}
+\item \textbf{Exercises (answered in forum)}. \\
+  Minimum: 20 points, maximum: 100 points.
+
+  Exercises proposed and answered in the the forum of the course.
+
+\item \textbf{Blog entries}. \\
+  Minimum: 20 points, maximum: 80 points
+
+  Blog entries specifically related to the course, and marked as such. The tag used for that is mswl-intro.
+
+\item \textbf{Collaborative notebook}. \\
+  Minimum: 0 points, maximum: 40 points
+
+  Based on work in class (in real time) and afterwards (complementing the work, using git).
+
+\item \textbf{Specific report on leadership}. \\
+  Minimum: 20 points, maximum: 140 points
+
+  Specific written report (5-10 pages) about a prominent leader in FLOSS. An initial list of candidate profiles to choose
+from will be published in short on the course website. It is important to detail all the references, and to 
+heavily root the report on data and/or specific works publicly available.
+
+  Some aspects that must be considered include:
+  \begin{itemize}
+   \item Biography and relevant details to contextualize their contributions in FLOSS.
+   \item Annotated description of the evolution of the FLOSS project they lead, or have led in the past.
+   \begin{itemize}
+    \item Founder? Arrived lately?
+    \item If possible, try to quantify their contributions (number of commits, bug fixes or other relevant 
+    activities to boost the project).
+    \item Is this person still leading the project? If that is not the case, why did he/she left?
+    \item Was he/she essential for the success of the project or the surrounding community? Why?
+   \end{itemize}
+
+   \item It is possible that they have lead more than one project. Then, students can either focus on just
+   one of these projects or enlighten the transitions between projects and their reasons.
+   \item A thorough description of the main leadership traits exhibited by the analyzed figure is essential.
+  \end{itemize}
+
+
+\item \textbf{Other activities}. \\
+  Minimum: 0 points, maximum: 100 points
+
+  These activities have to be agreed with the instructors.
+\end{itemize}
+
+\end{document}

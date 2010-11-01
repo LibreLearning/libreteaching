@@ -1,4 +1,3 @@
-
 %
 % $Id: slides.tex 4228 2006-06-21 21:55:12Z jjamor $
 %
@@ -17,7 +16,7 @@
 \usetheme{Warsaw}
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
 \usepackage[spanish]{babel}
-\usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage{graphics}
 \usepackage{amssymb} % Simbolos matematicos
 \usepackage{url}
@@ -30,7 +29,7 @@
 %% Metadatos del PDF.
 \hypersetup{
   pdftitle={The Onion Model in FLOSS},
-  pdfauthor={Felipe Ortega},
+  pdfauthor={F. Ortega, J.J. Amor, G. Robles},
   pdfcreator={GSyC/Libresoft},
   pdfproducer=PDFLaTeX,
   pdfsubject={nn},
@@ -53,7 +52,7 @@
 \subtitle{Master on Free Software}
 \institute{\\jfelipe@libresoft.es\\
 GSyC/Libresoft}
-\author{Felipe Ortega}
+\author{Felipe Ortega, Juan José Amor, Gregorio Robles}
 \date{\today}
 
 \frame{
@@ -77,7 +76,7 @@ GSyC/Libresoft}
 
 \begin{flushright}
 {\tiny
-(cc) 2008-2010 Felipe Ortega. \\
+(cc) 2007-2010 Felipe Ortega, Juanjo Amor, Gregorio Robles. \\
 Some rights reserved. This document is distributed under the Creative \\
             Commons Attribution-ShareAlike 3.0 licence, available in \\
             http://creativecommons.org/licenses/by-sa/3.0/
@@ -104,6 +103,8 @@ Some rights reserved. This document is distributed under the Creative \\
 \end{itemize}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}
  \frametitle{Overview of the analysis}
  \begin{itemize}
@@ -116,7 +117,11 @@ SourceForge.
  \end{itemize}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Social structure of FLOSS projects}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
 \frametitle{Social Structure of FLOSS projects}
@@ -127,15 +132,20 @@ SourceForge.
 \end{center}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}
  \frametitle{Other analyses of social structure in FLOSS}
  \begin{itemize}
-  \item Apache \textbf{httpd} (Mockus \emph{et al.}, 2002)
+  \item Apache \textbf{httpd} (Mockus \emph{et al.}, 2000)
   \begin{itemize}
    \item Only 15 developers contributin more than 80 percent
    of the code.
    \item Usual example of Pareto's Law.
    \item Size of each layer differs by an order of magnitude
+    \item \begin{footnotesize}[Mockus 2000] A. Mockus et al, ``A case study of open source software development:
+      the Apache server'' (2000)
+      \url{http://opensource.mit.edu/papers/mockusapache.pdf}\end{footnotesize}
   \end{itemize}
   \item Debian (Robles \emph{et al.} 2005, Michlmayr \emph{et al.} 2006)
   \begin{itemize}
@@ -145,6 +155,7 @@ SourceForge.
  \end{itemize}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
 \frametitle{Evolution of FLOSS projects}
@@ -155,7 +166,77 @@ SourceForge.
 \end{center}
 \end{frame}
 
-\section{Practice: analysis of \bfseries{evince}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Evolution of the ``core'' group}
+
+\begin{center}
+\includegraphics[height=6.5cm]{figs/mozilla_log-per_10_22.png}
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Social Network Analysis (I)}
+
+\begin{center}
+\includegraphics[width=6cm]{figs/simple-sna.png}
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Social Network Analysis (II)}
+
+\begin{center}
+\includegraphics[width=9cm]{figs/sna-one.png}
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Social Network Analysis (and III)}
+
+\begin{center}
+\includegraphics[width=11cm]{figs/sna-two.png}
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{SNA for Linux 1.0}
+
+\begin{center}
+\includegraphics[width=7cm]{figs/linux1-sna.png}
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Developer Territoriality}
+
+\begin{center}
+\includegraphics[width=7cm]{figs/german-territoriality.png}
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Practice: analysis of \bfseries{brasero}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
  \begin{itemize}
@@ -174,6 +255,8 @@ SourceForge.
  \end{itemize}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}[fragile]
 \frametitle{Some hints for the practice (I)}
 \begin{itemize}
@@ -191,6 +274,8 @@ fm3_brasero_bicho < fm3_brasero_bicho_bg_trk_...sql
  \end{verbatim}
 \end{itemize}
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]
 
@@ -211,6 +296,8 @@ fm3_brasero_bicho < fm3_brasero_bicho_bg_trk_...sql
 \end{verbatim}
 
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]
 \frametitle{Some hints for the practice (III)}
