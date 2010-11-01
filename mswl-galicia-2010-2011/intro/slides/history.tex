@@ -1,0 +1,286 @@
+%
+% $Id: $
+%
+%
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer (paquete latex-beamer en Debian)
+%
+
+%
+% Gráficos:
+% Los gráficos pueden suministrarse en PNG, JPG, TIF, PDF, MPS
+% Los EPS deben convertirse a PDF (usar epstopdf)
+%
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg-soft.png}}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={History of Libre (Free, Open Source) Software},
+  pdfauthor={Jesus M. Gonzalez-Barahona},
+  pdfcreator={GSyC/LibreSoft, Universidad Rey Juan Carlos},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Introduction},
+}
+%%
+
+\begin{document}
+
+\title{History of Libre (Free, Open Source) Software}
+\subtitle{Master on Free Software Projects Development and Management}
+\author{Jesus M. Gonzalez-Barahona}
+\institute{jgb@gsyc.es \\
+GSyC/LibreSoft, Universidad Rey Juan Carlos}
+
+\date{October 2010}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+
+% Si el titulo o el autor se quieren acortar para los pies de página
+% se pueden redefinir aquí:
+%\title{Titulo corto}
+%\author{Autores abreviado}
+
+
+%% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
+\frame{
+~
+\vspace{4cm}
+
+\begin{flushright}
+\copyright 2000-2010 Jesus M. Gonzalez-Barahona. \\
+
+Some rights reserved. This document is distributed under the 
+Creative Commons Attribution-ShareAlike 3.0 licence,
+available in \url{http://creativecommons.org/licenses/by-sa/3.0}
+\end{flushright}
+}
+%%
+
+\section{History of libre (free, open source) software}
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Before 1970s}
+
+\begin{itemize}
+\item Software was born libre
+\item Source code was shared by developers
+\item Software was a kind of add-on to hardware
+\item Communities of users, promoted by vendors
+\item No specific market for software: vendor catalog
+\item The ``IBM unbundling'' changed it all...
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{1970s, early 1980s}
+
+\begin{itemize}
+\item 1970s: Isolated efforts: TeX, Spice, etc.
+\item Richard Stallman, GNU, FSF.
+  \begin{itemize}
+  \item Legal (GPL) and philosophical foundations.
+  \item Basic infrastructure: text editor (Emacs), compiler (GCC),
+    debugger (GDB), etc.
+  \item Goal: building a complete system, alternative to Unix.
+  \item Structured work, with clear goals.
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+ %%---------------------------------------------------------------
+
+ \begin{frame}
+ \frametitle{1970s, early 1980s (2)}
+
+ \begin{itemize}
+ \item Berkeley CSRG:
+   \begin{itemize}
+   \item Importance of sharing source code (``original'' Unix culture),
+   \item Limited by ATT license (but not from a practical point of
+     view, everyone had it).
+   \item Focus on the operating system (kernel, utilities, etc.)
+   \item Used in many proprietary software (SunOS, Ultrix, etc.)
+   \end{itemize}
+ \item Early Internet:
+   \begin{itemize}
+   \item Reference implementations, available for everyone.
+   \item The Net as a tool for cooperation (News, ftp, email).
+   \item User community provides the best support.
+   \end{itemize}
+ \end{itemize}
+
+ \end{frame}
+
+ %%---------------------------------------------------------------
+
+ \begin{frame}
+ \frametitle{Late 1980s, early 1990s}
+
+ \begin{itemize}
+ \item Complete environments around Unix (SunOS, Solaris, etc.):
+   \begin{itemize}
+   \item Many applications are the best ones in their field (Unix
+     utilities, GCC compiler, etc.)
+   \item Specially interesting: X~Window.
+   \item Only a kernel is missing...
+   \end{itemize}
+ \item 386BSD, NetBSD, FreeBSD, OpenBSD:
+   \begin{itemize}
+   \item Bill Jolitz builds the parts missing in the kernel.
+   \item Quickly afterwards: complete systems, similar to SunOS in
+     functionality.
+   \item BSD license, can be redistributed as proprietary software.
+   \end{itemize}
+ \end{itemize}
+
+ \end{frame}
+
+
+ %%---------------------------------------------------------------
+
+ \begin{frame}
+ \frametitle{Late 1980s, early 1990s (2)}
+
+ \begin{itemize}
+ \item GNU/Linux:
+   \begin{itemize}
+   \item Linus Torvalds builds his ``libre Minix''.
+   \item Hundreds of developers jump on it, integrating GNU software.
+   \item Porting of applications, new applications...
+   \item Most code under GPL: remains libre after redistribution
+   \item One kernel, many distributions (Slackware, Debian, RedHat,
+     Suse, etc.).
+   \item Large ``popular'' success.
+   \end{itemize}
+ \end{itemize}
+
+ \end{frame}
+
+ %%---------------------------------------------------------------
+
+ \begin{frame}
+ \frametitle{Late 1990s}
+
+ \begin{itemize}
+ \item Netscape announcement.
+ \item GNU/Linux and FreeBSD compete with Windows NT.
+ \item Closer and closer to the ``regular'' user: KDE, GNOME.
+ \item GNU/Linux enters Universities (and student's homes).
+ \item Best option is libre in many niches (Apache,
+   Internet infrastructure, XFree, GCC, Gnat).
+ \item Companies such as RedHat obtain venture capital.
+ \item Media starts to pay attention to libre software.
+ \item Large corporations (Corel, Apple, IBM) study how to deal with
+   libre software.
+ \end{itemize}
+
+ \end{frame}
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+  \frametitle{Early 2000s}
+
+  \begin{itemize}
+  \item Libre software is close to be ready for the desktop
+    (GNOME 2.x, KDE 3.x, OpenOffice), and it is easy to install by
+    end-users.
+  \item Libre software enters the strategy of large corporations (IBM,
+    HP, Sun).
+  \item Some others (such as Microsoft) prefer an strategy of partial
+    clash.
+  \item Funding difficulties due to the dotcom crisis.
+  \item Penetration in public administrations and large corporations
+    starts.
+  \item Large increase of number of developers, quantity of available
+    libre software, etc.
+  \end{itemize}
+
+\end{frame}
+
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+  \frametitle{Early 2000s (2)}
+
+  \begin{itemize}
+  \item A new research field studies libre software: path open to
+    the understanding of how it works
+  \item First effects of location independence: countries in the edges
+    start to show interesting developments
+  \item Some markets, some sectors, consider libre software as a
+    ``natural'' option.
+  \item Legal environment is changing: will it became hostile to libre
+    software?
+  \end{itemize}
+
+\end{frame}
+
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+  \frametitle{Late 2000s}
+
+  \begin{itemize}
+  \item Libre software is strategic for many companies (ej: Google).
+  \item Complete application suites for many environments.
+  \item Companies testing new collaboration models (ej: OW2, Morfeo).
+  \item New business models, models for new business.
+  \item Libre software as an enabler in many industries.
+  \item Libre software is becoming ``business as usual''.
+  \end{itemize}
+
+\end{frame}
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+  \frametitle{The future: a steeplechase?}
+
+  Future evolution of libre software can find some obstacles:
+
+  \begin{itemize}
+  \item FUD (fear, uncertainty, doubt) techniques: up to know have
+    caused little harm.
+  \item ``Dissolution'' (models which can be mistaken with libre
+    software): community split, loss of model advantages
+  \item Ignorance (loss of vision): why is libre software interesting?
+  \item Legal barriers: software patents, DRM, etc.
+  \end{itemize}
+
+\end{frame}
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+  %\frametitle{}
+
+  \begin{center}
+  {\LARGE \bf How will libre software status be in 10 years?}
+  \end{center}
+
+\end{frame}
+
+\end{document}

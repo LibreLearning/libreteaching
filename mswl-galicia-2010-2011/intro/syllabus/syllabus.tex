@@ -1,0 +1,217 @@
+\documentclass[a4paper]{article}
+%\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+\usepackage[hypertex,colorlinks]{hyperref}
+%\usepackage{html}
+%\usepackage{hthtml}
+\usepackage{geometry}
+
+% Comments (optional argument is author of comment)
+\newcommand{\comments}[2][?]{
+  \begin{quote}
+    \textbf{Comment (#1):} {\em #2}
+  \end{quote}
+  }
+
+% \name is for ``special names'', like procedure or variable names.
+\newcommand{\name}[1]{\texttt{\hturl{#1}}}
+
+% Just a shortcut for links where the url appears as footnote.
+\newcommand{\htflink}[2]{\htmladdnormallinkfoot{#1}{#2}}
+
+\title{Introduction to Libre Software\\
+Master on Free Software Projects Development and Management \\
+URJC - GSyC/Libresoft \\
+\url{http://master.libresoft.es}}
+
+\author{Jesus M. Gonzalez-Barahona}
+\date{October 2010}
+
+\sloppy
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Course syllabus and learning program for the course ``Introduction to libre software'', of the Master on Free Software Projects Development and Management of the Universidad Rey Juan Carlos in collaboration with Igalia.
+
+[This is an evolving document, until the course is finished and graded]
+\end{abstract}
+
+\tableofcontents
+
+%%---------------------------------------------------------------------
+%%---------------------------------------------------------------------
+%%---------------------------------------------------------------------
+\section{Schedule}
+
+%%---------------------------------------------------------------------
+%%---------------------------------------------------------------------
+\subsection{Introduction}
+
+%%---------------------------------------------------------------------
+\subsubsection{November 22, 2010}
+
+\begin{itemize}
+\item \textbf{In place session}
+\item \textbf{Lecturer:} Gregorio Robles
+\end{itemize}
+
+%%---------------------------------------------------------------------
+\subsubsection{November 23, 2010}
+
+\begin{itemize}
+\item \textbf{In place session}
+\item \textbf{Lecturer:} Gregorio Robles
+\end{itemize}
+
+%%---------------------------------------------------------------------
+%%---------------------------------------------------------------------
+\subsection{History}
+
+
+%%---------------------------------------------------------------------
+\subsubsection{November 29, 2010}
+
+\begin{itemize}
+\item \textbf{Distance session}
+\item \textbf{Lecturer:} Jesus M. Gonzalez-Barahona
+\item \textbf{Media:} Chapter ``History of libre software'' in the book ``Introduction to Free Software''.
+
+\item \textbf{Video show:} First third (up to min. 37) of video ``OS Revolution''.
+\item \textbf{Media:} ``OS Revolution''.
+
+\item \textbf{Exercise:} In groups of three people, list of relevant items in the free software history, previous to 1995. Write down those, and present them to the class. Discussion.
+\item \textbf{Presentation:} History of free software. Up to late 1980s.
+  \begin{itemize}
+  \item \textbf{Slides:} ``History of free software''
+  \end{itemize}
+\end{itemize}
+
+%%---------------------------------------------------------------------
+\subsubsection{November 30, 2010}
+
+\begin{itemize}
+\item \textbf{Distance session}
+\item \textbf{Lecturer:} Jesus M. Gonzalez-Barahona
+\item \textbf{Media:} Chapter ``History of libre software'' in the book ``Introduction to Free Software''.
+\item \textbf{Exercise:} In groups of two people, read the threads between Andy Tannenbaum, Linus Torvalds and Fred Fish, and select two-three sentences that summarize the ``new methods'' that they were using, and were expecting to use, in Linux kernel development.
+  \begin{itemize}
+  \item \textbf{Media:} Linus vs. Tanenbaum: \\
+    \url{http://www.dina.dk/~abraham/Linus_vs_Tanenbaum.html}
+  \item \textbf{Media:} First announcement about Linux: \\
+    \url{http://www.linux.org/people/linus_post.html}
+  \item \textbf{Media:} Minix3: \\
+    \url{http://www.minix3.org/}
+  \item \textbf{Media:} Andy Tanenbaum: \\
+    \url{http://en.wikipedia.org/wiki/Andrew_S._Tanenbaum}
+  \end{itemize}
+\item \textbf{Exercise:} Comments to ``History of OSI''.
+  \begin{itemize}
+  \item \textbf{Media:} ``History of OSI'' \\
+    \url{http://www.opensource.org/docs/history.html}
+\item \textbf{Media:} ``Free as in Freedom'' \\
+  \url{http://oreilly.com/openbook/freedom/}
+  \end{itemize}
+\item \textbf{Video show:} Second third (min. 37-53) of video ``OS Revolution''
+
+\item \textbf{Presentation:} History of free software. The 1990s.
+  \begin{itemize}
+  \item \textbf{Slides:} ``History of free software''
+  \end{itemize}
+
+\item \textbf{Video show:} Third third (min. 53 up to the end) of video ``OS Revolution''
+
+\item \textbf{Presentation:} History of free software. The 2000s.
+  \begin{itemize}
+  \item \textbf{Slides:} ``History of free software''
+  \end{itemize}
+
+\item \textbf{Exercise:} Main actors of the history of free software. In pairs, write the names (up to ten) of the most important persons of the history of free software. Same for the most important projects.
+
+\item \textbf{Exercise (to complete in Moodle):} 
+Free software in 2010.
+Main barriers for free software in the forthcoming years
+Wiki with main actors and main projects of the history of free software
+Wiki with the main events of the history of free software
+\end{itemize}
+
+\begin{itemize}
+\item Exercise:
+  \begin{itemize}
+  \item Timeline with free software events: list of relevant items in the free software history. Two versions: about 20-30 events, until 1995, and about 20-30 events, from 2000 up to now.
+  \item Relevant actors in the free software history. Document with the most relevant persons, worldwide, with summaries of their contribution, and links to their profiles in Wikipedia. Include up to 30 persons.
+  \item Relevant projects in the free software history. Document with the most relevant projects, worldwide, with summaries of their contribution, and why they are relevant. Include as well links to their profiles in Wikipedia. Include up to 30 projects.
+  \item Find the origins of the Linux kernel, including the original announcements by Linus Torvalds, his discussions with Tanenbaum, the first Linux releases, etc.
+  \item Write about the origins of the term ``open source software'', the reasons to coin it, the reactions the name raised. If possible, date the birth of the term, find out who first proposed it, which specific event triggered it, and why it was so widely accepted in a relatively short time.
+  \item Map the history of Linux distributions. Include up to 20 of the most relevant, with their relationships, the dates of their most prominent releases, and other milestones of their history.
+  \item Trace the history of the GNU project as much as possible. In particular, find out about its origins, the first tools released, the main early contributors, the origin of the GPL, the FSF, etc.
+  \item Try to document, with information available in the web, the ``Unbundling'' of IBM products, that happened in late 1960s, and its importante for the software industry.
+  \item Put in parallel the most prominent events of Internet development, BSD Unix, and GNU project during the 1980s. Try to explore relationships among them.
+  \end{itemize}
+
+\item Trivia: List of questions/answers relaed to the history of free software.
+
+\item \textbf{Media:}
+\item \textbf{Media:} Video ``Documental Código Linux'' \\
+  \url{http://video.google.com/videoplay?docid=-1647626314188526128}
+
+\item \textbf{Media:} Video ``Software libre en la ética y en la práctica'' (2007), Richard Stallman \\
+  \url{http://www.archive.org/details/FSWCStallman}
+\item \textbf{Media:} Essay ``The Origins and Future of Open Source Software'', Nathan Newman \\
+  \url{http://www.netaction.org/opensrc/future/oss-whole.html}
+\item \textbf{Media:} Essay ``A Brief History of Free/Open Source Software Movement'', Rash \\
+  \url{http://www.glennmcc.org/foss/brief-open-source-history.html}
+
+\end{itemize}
+
+%%---------------------------------------------------------------------
+%%---------------------------------------------------------------------
+%%---------------------------------------------------------------------
+%% \section{Grading plan}
+
+%% Each activity contributing to the grading of the course has its own evaluation criteria, as described below. Each of these activities has a minimum and maximum grading. If the minimum grading is 0, the activity is optional. Otherwise, the activity is mandatory, and has to be graded al least with the minimum to pass the course. Each activity has also a description, and when possible, some general grading criteria. In any case, the final grade for the course will also depend on the continuous observation of the instructors on the outcomes and progress of students.
+
+%% Students should ask instructors about any detail which may not be clear to them, either about the general grading plan, or about specific aspects of the activities. As a general rule, evaluation will have into account how the activity and its results show that the student has come close to the competences, knowledge and skills expected for the course.
+
+%% The student can consider that the next table will be used as a (minimum) guideline for assigning marks:
+
+%% \begin{itemize}
+%% \item Pass (``aprobado''): 150
+%% \item Good (``notable''): 250
+%% \item Excellent (``sobresaliente): 350
+%% \end{itemize}
+
+%% \begin{itemize}
+%% \item \textbf{Exercises (answered in forum)}. \\
+%%   Minimum: 20 points, maximum: 80 points.
+
+%%   Exercises proposed and answered in the the forum of the course.
+
+%% \item \textbf{Blog entries}. \\
+%%   Minimum: 20 points, maximum: 80 points
+
+%%   Blog entries specifically related to the course, and marked as such. The tag used for that is mswl-intro.
+
+%% \item \textbf{Collaborative notebook}. \\
+%%   Minimum: 0 points, maximum: 40 points
+
+%%   Based on work in class (in real time) and afterwards (complementing the work, using git).
+
+%% \item \textbf{Video presentation}. \\
+%%   Minimum: 20 points, maximum: 80 points
+
+%%   Can be an screencast, or more ellaborate kinds of videos. Has to explain some topic covered by the course. The most focused, the better: try to explain only one issue, but explain it as well as possible.
+
+%% \item \textbf{Specific report}. \\
+%%   Minimum: 20 points, maximum: 120 points
+
+%%   Specific report about a relevant aspect of libre software, related to the topics dealt with in this course. Can be a traditional written report, but can also be a presentation (recorded in video, in this case), a video, a podcast, etc. It is important to detail all the references, and to heavily root the report on data and/or specific works publicly available.
+
+%% \item \textbf{Other activities}. \\
+%%   Minimum: 0 points, maximum: 100 points
+
+%%   These activities have to be agreed with the instructors.
+%% \end{itemize}
+
+\end{document}
