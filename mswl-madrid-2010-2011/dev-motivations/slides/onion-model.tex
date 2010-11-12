@@ -139,7 +139,7 @@ SourceForge.
  \begin{itemize}
   \item Apache \textbf{httpd} (Mockus \emph{et al.}, 2000)
   \begin{itemize}
-   \item Only 15 developers contributin more than 80 percent
+   \item Only 15 developers contributing more than 80 percent
    of the code.
    \item Usual example of Pareto's Law.
    \item Size of each layer differs by an order of magnitude
@@ -239,6 +239,7 @@ SourceForge.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
+\frametitle{Proposed practice}
  \begin{itemize}
   \item Load \textbf{brasero} data set from FLOSSMetrics DB.
   \item Activities:
@@ -307,7 +308,7 @@ fm3_brasero_bicho < fm3_brasero_bicho_bg_trk_...sql
   \begin{itemize}
   \item \texttt{summary(df)}
   \item \texttt{plot(df\$x,df\$y, type=''b'', colour=''navy'',...)}
-  \item \texttt{barplot(df\$x,df\$y, colour=''olive'',...)}
+  \item \texttt{barplot(df\$y, names.arg=df\$x, colour=''olive'',...)}
   \item \texttt{boxplot(df\$x)}
   \item \texttt{histogram(df\$x); lines(density(df\$x))}
   \end{itemize}
