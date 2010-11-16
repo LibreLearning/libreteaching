@@ -139,7 +139,7 @@ SourceForge.
  \begin{itemize}
   \item Apache \textbf{httpd} (Mockus \emph{et al.}, 2000)
   \begin{itemize}
-   \item Only 15 developers contributin more than 80 percent
+   \item Only 15 developers contributing more than 80 percent
    of the code.
    \item Usual example of Pareto's Law.
    \item Size of each layer differs by an order of magnitude
@@ -147,10 +147,10 @@ SourceForge.
       the Apache server'' (2000)
       \url{http://opensource.mit.edu/papers/mockusapache.pdf}\end{footnotesize}
   \end{itemize}
-  \item Debian (Robles \emph{et al.} 2005, Michlmayr \emph{et al.} 2006)
+  \item Debian (Robles \emph{et al.} 2006, Michlmayr \emph{et al.} 2005)
   \begin{itemize}
    \item The composition of the core evolves over time.
-   \item Hal-life ratio: 7.5 years
+   \item Half-life ratio: 7.5 years
   \end{itemize}
  \end{itemize}
 \end{frame}
@@ -239,6 +239,7 @@ SourceForge.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
+\frametitle{Proposed practice}
  \begin{itemize}
   \item Load \textbf{brasero} data set from FLOSSMetrics DB.
   \item Activities:
@@ -278,6 +279,7 @@ fm3_brasero_bicho < fm3_brasero_bicho_bg_trk_...sql
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]
+\frametitle{Some hints for the practice (II)}
 
 \begin{itemize}
  \item Access MySQL DBs from GNU R.
@@ -306,7 +308,7 @@ fm3_brasero_bicho < fm3_brasero_bicho_bg_trk_...sql
   \begin{itemize}
   \item \texttt{summary(df)}
   \item \texttt{plot(df\$x,df\$y, type=''b'', colour=''navy'',...)}
-  \item \texttt{barplot(df\$x,df\$y, colour=''olive'',...)}
+  \item \texttt{barplot(df\$y, names.arg=df\$x, colour=''olive'',...)}
   \item \texttt{boxplot(df\$x)}
   \item \texttt{histogram(df\$x); lines(density(df\$x))}
   \end{itemize}

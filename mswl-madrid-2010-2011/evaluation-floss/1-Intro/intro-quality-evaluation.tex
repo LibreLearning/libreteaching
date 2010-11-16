@@ -1,0 +1,537 @@
+%
+% $Id: slides.tex 4228 2006-06-21 21:55:12Z jjamor $
+%
+%
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer (paquete latex-beamer en Debian)
+%
+
+%
+% Gráficos:
+% Los gráficos pueden suministrarse en PNG, JPG, TIF, PDF, MPS
+% Los EPS deben convertirse a PDF (usar epstopdf)
+%
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+\usepackage{url}
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={Introduction to software quality evaluation},
+  pdfauthor={F. Ortega, D. Izquierdo, P. Coca},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={nn},
+}
+%%
+
+
+\AtBeginSection[]
+{
+  \begin{frame}<presentation>
+    \frametitle{Index}
+    \tableofcontents[current]
+  \end{frame}
+}
+
+
+\begin{document}
+
+\title{Introduction to software quality evaluation}
+\subtitle{Master on Free Software}
+\institute{\\jfelipe@libresoft.es\\
+GSyC/Libresoft}
+\author{Felipe Ortega, Daniel Izquierdo, Pedro Coca}
+\date{\today}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+
+% Si el titulo o el autor se quieren acortar para los pies de página
+% se pueden redefinir aquí:
+%\title{Titulo corto}
+%\author{Autores abreviado}
+
+
+%% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
+\frame{
+~
+\vspace{4cm}
+
+\begin{flushright}
+{\tiny
+(cc) 2010 Felipe Ortega, Daniel Izquierdo, Pedro Coca. \\
+Some rights reserved. This document is distributed under the Creative \\
+            Commons Attribution-ShareAlike 3.0 licence, available in \\
+            http://creativecommons.org/licenses/by-sa/3.0/
+
+%  Este documento (o uno muy similar) está disponible en \\
+%  \url{http://gsyc.escet.urjc.es/~jjamor/}
+}
+\end{flushright}
+}
+%%
+
+%%%%%%
+%Transpas separadas por \begin{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%\end{frame}
+
+\section{Introduction}
+
+\begin{frame}
+\frametitle{What is software quality?}
+\begin{itemize}
+\item Complex concept, different from quality in manufacturing.
+\begin{itemize}
+ \item Product developed to meet its specification.
+\end{itemize}
+
+\item But it is difficult to write good software specification.
+\item Maintainability, reusability, modularity, security, etc. 
+are usually not included (but required).
+\item Quality is linked to meeting end-user expectations (subjective).
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Factors that may improve quality}
+ \begin{itemize}
+ \item OOP, CASE support.
+ \item Standards (development and organizational). But bureaucracy is not enough.
+ \item Quality culture: experience, best practices, management.
+ \item But they also find a common stratification pattern:
+  \textbf{the onion model}
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Main areas of software quality in large projects}
+ \begin{itemize}
+  \item \textbf{Quality assurance}: Defining framework for organizational quality.
+  \item \textbf{Quality planning}: Selecting elements from the framework, adapted
+  to a particular project.
+  \item \textbf{Quality control}: Checking that development teams adhere to the plan.
+  \item For many \textit{community} FLOSS projects, none of the above are defined.
+  \item Problems for companies with this methods in place to integrate community FLOSS.
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Process and product quality}
+ \begin{itemize}
+ \item In traditional manufacturing, process quality is tightly linked to final product quality.
+ \item But software involves design, creativity. Subject to past experience and team skills.
+ \item Difficult to measure some aspects: maintainability, reusability, etc.
+ \item Obscure links between changes in process and software product quality.
+ \item Blind application of process quaility is not good for all situations.
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Quality Assurance (QA): standards}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Quality assurance overview}
+\begin{center}
+\begin{figure}
+ \includegraphics[height=7.5cm]{figs/quality-assurance.pdf}
+\end{figure}
+\end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Role of software development standards}
+ \begin{itemize}
+ \item Try to convey best practices in software development.
+ \item Offer required framework for QA.
+ \item Many examples: US DoD, ANSI, IEEE, BSI, NATO, etc.
+ \item Engineers usually reluctant to adopt standards (bureaucracy).
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{ISO 9000}
+ \begin{itemize}
+ \item International body of standards for quality in any industry.
+ \item ISO 9001 is the most extended version.
+    \begin{itemize}
+     \item Quality in process, development and maintenance of any product.
+     \item Mainly concerned about high level procedures.
+     \item Forces definition of specific metrics to measure quality.
+     \item Involves periodic reviews to maintain ISO 9001 label award.
+    \end{itemize}
+ \item Involve definition of documentation templates, and documenting all processes.
+ \item Does not ensure that standarized process reflects best practices in the field.
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Documentation standards}
+ \begin{itemize}
+ \item 3 different categories:
+ \item \textbf{Documentation process standards}: Establish good process for document production.
+ \item \textbf{Documentation standards}: Define structure and presentation of documents.
+ \item \textbf{Document interoperability standards}: Compatibility between document formats.
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Documentation standards}
+ \begin{itemize}
+ \item Some examples
+ \item \textbf{Document identification}: Unique names, easy tracking and identification.
+ \item \textbf{Document structure}: Homogeneous structure for docs of similar character.
+ \item \textbf{Document presentation}: Customized layout and ``look and feel'' (design and presentation).
+ \item \textbf{Document update}: Tracking changes/updates/reviews.
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Quality Planning}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Documentation standards}
+ \begin{itemize}
+ \item 5 different aspects:
+ \item \textbf{Product overview}: Description, target market, user expectations.
+ \item \textbf{Product plan}: Releases, updates, support, distribution, etc.
+ \item \textbf{Process description}: Product development and management.
+ \item \textbf{Quality goals}: Including identification of quality attributes to be tracked.
+ \item \textbf{Risks and risk management}: Risks affecting quality and corrective actions.
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Software quality attributes}
+\begin{center}
+\begin{figure}
+ \includegraphics[height=7.5cm]{figs/quality-attributes.pdf}
+\end{figure}
+\end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Quality Control}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Documentation standards}
+ \begin{itemize}
+ \item 3 components:
+ \item \textbf{Quality reviews}: Periodic checks of conformity with quality standards define in the project.
+ \item \textbf{Automated assessment}: Collecting quality information automatically (product and process).
+ \item \textbf{Quality metrics}: Measure different quality aspects as an input for assessment.
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Quality reviews}
+ \begin{itemize}
+ \item 3 components:
+ \item We need a dedicated team of reviewers.
+ \item Systematic methodology and approaches to examine key quality properties defined for the project.
+ \begin{itemize}
+  \item Design or program inspections.
+  \item Progress reviews (management).
+  \item Quality reviews: Technical analysis of components and assessment from metrics.
+ \end{itemize}
+
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Software measurement and metrics}
+ \begin{itemize}
+ \item \textit{Sofware metric}: Measurement linked to a software system, process or related documentation.
+ \item Examples: SLOC, complexity, coupling, connascence, etc.
+ \item Usually, the main problem is how to define meaningful metrics.
+  \begin{itemize}
+   \item We can measure many different aspects and elements.
+   \item But do they describe the quality aspect we want to track?
+   \item 2 types: \textit{Control} metrics (process) and \textit{predictor} metrics (product).
+  \end{itemize}
+  \item Key application: predicting possible problems for proactive management and control.
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Measurement procedure}
+\begin{center}
+\begin{figure}
+ \includegraphics[height=7.5cm]{figs/quality-measurement.pdf}
+\end{figure}
+\end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Product quality}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Product metrics}
+\begin{center}
+\begin{figure}
+ \includegraphics[height=7cm]{figs/quality-product-metrics.pdf}
+\end{figure}
+\end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Product metrics}
+ \begin{itemize}
+ \item Static metrics:
+ \begin{itemize}
+  \item \textit{Fan-in/Fan-out}: Number of functions or methods that call some other
+function or method (complexity, connascence).
+  \item \textit{Length of code}: Size of program. SLOC (LOC or LLOC).
+  \item \textit{Cyclomatic complexity}: Metric for control complexity of software.
+  \item \textit{Length of identifiers}: Average length of identifiers used in a program.
+Supposedly, the longer the ID, the better for readability and maintenance of code.
+  \item \textit{Depth of conditional nesting}: Deeply nested statements are harder to be grasped.
+  \item \textit{Fog index}: Average length of words and sentences in documents.
+ \end{itemize}
+
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Product metrics}
+ \begin{itemize}
+ \item Dynamic metrics:
+ \begin{itemize}
+  \item \textit{Depth of inheritance tree}: Number of discrete levels in the tree of
+classes (OOP). The deeper the tree, the more complex the desgin.
+  \item \textit{Method fan-in/fan-out}: Distinction between origin of calls to other
+methods (from object or from external methods).
+  \item \textit{Weighted methods per class}: Number of methods included in a class, weighted complexity
+of every method. Too complex classes are difficult as for understanding and maintenance.
+  \item \textit{Number of overriding operations}: Operations overridden in sub-classes. The higher this
+number, the less appropriate may be the super-class.
+ \end{itemize}
+
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Metrics assessment}
+ \begin{itemize}
+ \item It is not enough to collect different metrics. We need to infer assessments and
+conclusions from these results.
+ \item Most of times, human interpretation of results is needed. 
+ \item Value ranges drawn from multiple case examples may serve as guidelines.
+ \item Usually, supported through integrated assessment frameworks (Business Intelligence).
+  \begin{itemize}
+   \item Organization of measurement areas and lists of metrics.
+   \item Automated production of reports summarizing results.
+   \item Support for elaboration of assessment reports and executive summaries.
+   \item Other buit-in functionalities: data mining, data warehouse, statistical tools, etc.
+  \end{itemize}
+
+ \end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Process quality}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Cycle of process improvement}
+\begin{center}
+\begin{figure}
+ \includegraphics[height=7cm]{figs/process-improvement-cycle.pdf}
+\end{figure}
+\end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Process improvement}
+ \begin{itemize}
+  \item Quality frameworks focused on improving the process, rather 
+than just describing it.
+  \item 3 stages:
+  \begin{enumerate}
+   \item \textit{Process measurement}: Compilation of metrics and indicators
+related to software process (development and management).
+   \item \textit{Process analysis}: Producing meaningful assessment from results,
+identifying or anticipating problems that must be corrected.
+   \item \textit{Process change}: Alter problematic elements or practices to align
+the process to the quality goals of the project.
+  \end{enumerate}
+  \end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Link between process and product}
+ \begin{itemize}
+  \item Humphrey, in his book about process management (1988), states that
+the same techniques applied to any kind of industry are valid for sofware
+processes.
+  \item However, a number of caveats are present in sofware projects.
+  \begin{itemize}
+   \item The design phase plays a key role in the whole process and results.
+   \item Skills and experience of team leaders and experts affect quality of results.
+   \item Different projects may need different methodologies and approaches.
+   \item Great influence of 3 variables: cost, time frame and schedule.
+  \end{itemize}
+
+  \end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Process metrics}
+ \begin{itemize}
+  \item Process metrics should be aimed to facilitate process improvement.
+  \item 3 types:
+  \begin{itemize}
+   \item Time to complete the process.
+   \item Resources required to carry on the process.
+   \item Number of occurrences of a particular event to be monitored.
+  \end{itemize}
+
+  \item The key question is to identify what we need to measure.
+  \end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{The GQM methodology}
+ \begin{itemize}
+  \item Frequently applied to develop customized process quality frameworks.
+  \item Goal-oriented, top-down methodology to measure quality of software
+processes and products.
+  \item First developed at University of Maryland (1984) in collaboration with NASA.
+  \item Hierarchical structure composed by 3 kinds of elements: goals, questions and
+metrics.
+  \end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{GQM Hierarchy}
+\begin{center}
+\begin{figure}
+ \includegraphics[height=6.5cm]{figs/gqm-abstract-example.pdf}
+\end{figure}
+\end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{GQM implementation}
+ \begin{itemize}
+  \item We need to think at 3 different levels:
+   \begin{itemize}
+    \item \textbf{Conceptual} (goals): Goals must focus on an \textit{object},
+is aimed to certain \textit{purposes}, pursue one or several \textit{quality focuses},
+examine the object from one or different \textit{points of view} and it is
+defined within a certain \textit{context}.
+    \item \textbf{Operational} (questions): Break down one or several roles into
+concrete issues to be inspected.
+    \item \textbf{Quantitative} (metrics): Define measurable quantities or
+logical aspects that providing information to offer precise answers and assessment in
+response to the set of questions.
+   \end{itemize}
+
+  \end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{frame}
+
+\begin{frame}
+ \frametitle{GQM Example}
+  \begin{center}
+  \begin{figure}
+    \includegraphics[height=5.75cm]{figs/gqm-example.pdf}
+  \end{figure}
+  \end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{References}
+ \begin{itemize}
+  \item Humphrey, W. S. \textit{Characterizing the software process}.
+IEEE Software, 5(2), 73-79. 1988.
+  \item V. R. Basili, \textit{Quantitative Evaluation of Software Engineering Methodology}, 
+Proceedings of the First Pan Pacific Computer Conference, Melbourne, 
+Australia, Vol. 1 pp. 379-398, 1985.
+
+  \end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
