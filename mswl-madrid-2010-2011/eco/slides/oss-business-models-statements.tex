@@ -1,0 +1,211 @@
+%
+% $Id: slides.tex 4228 2006-06-21 21:55:12Z jjamor $
+%
+%
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer (paquete latex-beamer en Debian)
+%
+
+%
+% Gráficos:
+% Los gráficos pueden suministrarse en PNG, JPG, TIF, PDF, MPS
+% Los EPS deben convertirse a PDF (usar epstopdf)
+%
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+\usepackage{url}
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={Ten myths about FLOSS business models},
+  pdfauthor={F. Ortega, C. Daffara},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={nn},
+}
+%%
+
+
+\AtBeginSection[]
+{
+  \begin{frame}<presentation>
+    \frametitle{Index}
+    \tableofcontents[current]
+  \end{frame}
+}
+
+
+\begin{document}
+
+\title{Ten myths about FLOSS business models}
+\subtitle{Master on Free Software}
+\institute{\\jfelipe@libresoft.es\\
+GSyC/Libresoft}
+\author{Felipe Ortega, Carlo Daffara}
+\date{\today}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+
+% Si el titulo o el autor se quieren acortar para los pies de p�gina
+% se pueden redefinir aqu�:
+%\title{Titulo corto}
+%\author{Autores abreviado}
+
+
+%% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
+\frame{
+~
+\vspace{4cm}
+
+\begin{flushright}
+{\tiny
+(cc) 2010 Felipe Ortega, Carlo Daffara. \\
+Some rights reserved. This document is distributed under the Creative \\
+            Commons Attribution-ShareAlike 3.0 licence, available in \\
+            http://creativecommons.org/licenses/by-sa/3.0/
+
+%  Este documento (o uno muy similar) está disponible en \\
+%  \url{http://gsyc.escet.urjc.es/~jjamor/}
+}
+\end{flushright}
+}
+%%
+
+%%%%%%
+%Transpas separadas por \begin{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%\end{frame}
+
+%\section{Aim of this exercise}
+
+\begin{frame}
+\frametitle{Dynamics and goals}
+\begin{itemize}
+\item We visit 10 statemens about FLOSS.
+\item Each one can be right or wrong.
+\item Work in groups to give simple answers supporting or rebating the statement.
+\item Document your answers with factual arguments, if possible (links, data, etc.).
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Statement 1}
+ \begin{center}
+  \begin{LARGE} FLOSS does not prevent prices from being established for it.  \end{LARGE}
+ \end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Statement 2}
+ \begin{center}
+  \begin{LARGE} FLOSS licenses aim to supress any ownership claims, they are hostile to
+intellectual property rights.  \end{LARGE}
+ \end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Statement 3}
+ \begin{center}
+  \begin{LARGE} FLOSS development is mainly driven by ad-hoc altruism and volunteer effort. \end{LARGE}
+ \end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Statement 4}
+ \begin{center}
+  \begin{LARGE} If I release my software to the FLOSS community, thousands of developers 
+will suddenly start working for me, for nothing. \end{LARGE}
+ \end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Statement 5}
+ \begin{center}
+  \begin{LARGE} Many big companies and firms (even outside software development business) use FLOSS. \end{LARGE}
+ \end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Statement 6}
+ \begin{center}
+  \begin{LARGE} FLOSS is inherently unreliable, and not very well supported. \end{LARGE}
+ \end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Statement 7}
+ \begin{center}
+  \begin{LARGE} Private companies contribute to FLOSS, since they can get profit in exchange. \end{LARGE}
+ \end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Statement 8}
+ \begin{center}
+  \begin{LARGE} Widespread FLOSS projects are invariably funded by large private companies. \end{LARGE}
+ \end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Statement 9}
+ \begin{center}
+  \begin{LARGE} FLOSS software has achieved to become a market leader in certain sectors.  \end{LARGE}
+ \end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Statement 10}
+ \begin{center}
+  \begin{LARGE} If a company leading a FLOSS project is acquired, the new owner
+can lock the source code and force all its customers to pay for it. \end{LARGE}
+ \end{center}
+
+\end{frame}
+
+
+\end{document}
