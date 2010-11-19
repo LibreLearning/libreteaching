@@ -1,0 +1,142 @@
+%
+% $Id: slides.tex 4228 2006-06-21 21:55:12Z jjamor $
+%
+%
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer (paquete latex-beamer en Debian)
+%
+
+%
+% Gráficos:
+% Los gráficos pueden suministrarse en PNG, JPG, TIF, PDF, MPS
+% Los EPS deben convertirse a PDF (usar epstopdf)
+%
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+\usepackage{url}
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={Debate open innovation video (C. Leadbeater)},
+  pdfauthor={F. Ortega, Jesus M. Gonzalez-Barahona},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={nn},
+}
+%%
+
+
+\AtBeginSection[]
+{
+  \begin{frame}<presentation>
+    \frametitle{Index}
+    \tableofcontents[current]
+  \end{frame}
+}
+
+
+\begin{document}
+
+\title{Debate open innovation video (C. Leadbeater)}
+\subtitle{Master on Free Software}
+\institute{\\jfelipe@libresoft.es\\
+GSyC/Libresoft}
+\author{Felipe Ortega, Jesus M. Gonzalez-Barahona}
+\date{\today}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+
+% Si el titulo o el autor se quieren acortar para los pies de p�gina
+% se pueden redefinir aqu�:
+%\title{Titulo corto}
+%\author{Autores abreviado}
+
+
+%% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
+\frame{
+~
+\vspace{4cm}
+
+\begin{flushright}
+{\tiny
+(cc) 2010 Felipe Ortega, Jesus M. Gonzalez-Barahona. \\
+Some rights reserved. This document is distributed under the Creative \\
+            Commons Attribution-ShareAlike 3.0 licence, available in \\
+            http://creativecommons.org/licenses/by-sa/3.0/
+
+%  Este documento (o uno muy similar) está disponible en \\
+%  \url{http://gsyc.escet.urjc.es/~jjamor/}
+}
+\end{flushright}
+}
+%%
+
+%%%%%%
+%Transpas separadas por \begin{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%\end{frame}
+
+%\section{Aim of this exercise}
+
+\begin{frame}
+\frametitle{Dynamics}
+\begin{itemize}
+\item Some references from video presentation.
+\item Possible topics or questions for open debate.
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Pro-ams/prosumers}
+ \begin{itemize}
+  \item \textit{http://www.clunkers.net/}
+  \item The role of pro-ams and prosumers to drive innovation.
+  \item More examples of creativity driven by consumers??
+ \end{itemize}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Creativity an innovation sources}
+ \begin{itemize}
+  \item Big firms have a built-in tendency to reinforce past positive experiences...
+  \item ... but that prevents disruptive innovation to show up.
+  \item \textit{http://www2.innocentive.com/}
+ \end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Users can be producers}
+ \begin{itemize}
+  \item \textit{http://en.wikipedia.org/wiki/Shanda}
+  \item \textit{http://wikifactcheck.org/}
+  \item NewsCorp. \textit{paywall} vs. NYT URL-shortener (social media).
+ \end{itemize}
+
+\end{frame}
+
+\end{document}
