@@ -1,0 +1,6 @@
+#!/bin/sh
+
+for var in `ls *.eps`
+do
+	epstopdf $var
+done

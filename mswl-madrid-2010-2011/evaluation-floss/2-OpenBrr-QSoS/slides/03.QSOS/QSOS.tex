@@ -1,0 +1,356 @@
+%
+% $Id: slides.tex 4228 2010-11-24 17:55:12Z pcoca $
+%
+%
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer (paquete latex-beamer en Debian)
+%
+
+%
+% Gráficos:
+% Los gráficos pueden suministrarse en PNG, JPG, TIF, PDF, MPS
+% Los EPS deben convertirse a PDF (usar epstopdf)
+%
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+\usepackage{url}
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={QSOS: Qualification and Selection of Software Open Source},
+  pdfauthor={F. Ortega, D. Izquierdo, P. Coca},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={nn},
+}
+%%
+
+
+\AtBeginSection[]
+{
+  \begin{frame}<presentation>
+    \frametitle{Index}
+    \tableofcontents[current]
+  \end{frame}
+}
+
+
+\begin{document}
+
+\title{QSOS}
+\subtitle{Qualification and Selection of Software Open Source}
+\institute{\\pcoca@libresoft.es\\
+GSyC/Libresoft}
+\author{Felipe Ortega, Daniel Izquierdo, Pedro Coca}
+\date{\today}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+
+% Si el titulo o el autor se quieren acortar para los pies de página
+% se pueden redefinir aquí:
+%\title{Titulo corto}
+%\author{Autores abreviado}
+
+
+%% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
+\frame{
+~
+\vspace{4cm}
+
+\begin{flushright}
+{\tiny
+(cc) 2010 Felipe Ortega, Daniel Izquierdo, Pedro Coca. \\
+Some rights reserved. This document is distributed under the Creative \\
+            Commons Attribution-ShareAlike 3.0 licence, available in \\
+            http://creativecommons.org/licenses/by-sa/3.0/
+
+%  Este documento (o uno muy similar) está disponible en \\
+%  \url{http://gsyc.escet.urjc.es/~jjamor/}
+}
+\end{flushright}
+}
+%%
+
+%%%%%%
+%Transpas separadas por \begin{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%\end{frame}
+
+\section{Introduction}
+
+\begin{frame}
+\frametitle{What is QSOS?}
+\begin{itemize}
+\item QSOS Manifesto
+\begin{itemize}
+ \item Analyse needs and limitations in software adoption.
+ \item Evaluate functional and technical requirements.
+ \item Formalise a methodology.
+ \item Results reuse.
+ \item Provide a free method.
+\end{itemize}
+
+\item Raphaël Semeteys at Atos Origin release in 2004 the first official QSOS version: 1.3.
+\item Afert Re-licensing, aditions and tranlations last released was done in 2006. QSOS 1.6. 
+\item GNU Free Documentation License
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Target Audience of QSOS}
+ \begin{itemize}
+ \item Standard Software Quality Methodologies audience.
+ \item + FLOSS Communities / Actors.
+ \end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{QSOS General Process}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{QSOS Process overview}
+ \begin{itemize}
+ \item Four independents steps
+   \begin{itemize}
+   \item Definition.
+   \item Evaluation.
+   \item Qualification.
+   \item Selection.
+   \end{itemize}
+ \item Iterative process
+ \item Tools provided
+   \begin{itemize}
+   \item O3S: Open Source Selection Software.
+   \end{itemize}
+
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{QSOS Process overview}
+\begin{center}
+\begin{figure}
+ \includegraphics[height=6cm]{figs/QSOS_Process_Overview.png}
+\end{figure}
+\end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{QSOS Process: Definition}
+ \begin{itemize}
+ \item Initial stage of the process.
+ \item Define Frame of references.
+   \begin{itemize}
+   \item Software Families.
+   \item Types of licenses.
+      \begin{itemize}
+      \item Ownership.
+      \item Virality.
+      \item Inheritance.
+      \end{itemize}
+   \item Types of communities.
+      \begin{itemize}
+      \item Insulated developer.
+      \item Group of developers.
+      \item Organization of developers.
+      \item Legal entity.
+      \item Commercial entity.
+      \end{itemize}
+   \end{itemize}
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{QSOS Process: Definition}
+\begin{center}
+\begin{figure}
+ \includegraphics[height=6cm]{figs/QSOS_Process_Definition.png}
+\end{figure}
+\end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{QSOS Process: Evaluation}
+ \begin{itemize}
+ \item Based on the Community information.
+ \item Collected the relevant information.
+ \item Targets:
+    \begin{itemize}
+     \item Identity Card (Not directly scored!)
+     \item Evaluation Sheet
+    \end{itemize}
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{QSOS Process: Evaluation}
+ \begin{itemize}
+ \item Identity Card.
+    \begin{itemize}
+     \item General Information
+     \item Existing Services
+     \item Functional and technical aspects
+     \item Synthesis
+    \end{itemize}
+
+ \item Evaluation Sheet.
+    \begin{itemize}
+     \item Functional Coverage
+     \item Risks (User's perspective)
+     \item Risks (Service provider's perspective)
+    \end{itemize}
+
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{QSOS Process: Evaluation Sheet}
+ \begin{itemize}
+ \item Scoring
+    \begin{itemize}
+     \item Criteria: [0-2]
+    \end{itemize}
+
+ \item Functional Coverage
+    \begin{itemize}
+     \item Not Covered(0)/Partially Covered(1)/Completely Covered(2)
+    \end{itemize}
+ \item Risks (User's perspective)
+    \begin{itemize}
+     \item Intrinsic durability (Maturity, Adoption, etc)
+     \item Industrialised solution (Services, Documentation, etc)
+     \item Integration (Packaging, etc)
+     \item Technical adaptability (Modularity, code modification, etc)
+     \item Strategy (License, Copyright, Independence, etc)
+    \end{itemize}
+ \item Risks (Service provider's perspective)
+    \begin{itemize}
+     \item Services providing (Maintenability, Code expertise, etc)
+    \end{itemize}
+
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{QSOS Process: Evaluation}
+\begin{center}
+\begin{figure}
+ \includegraphics[height=6cm]{figs/QSOS_Process_Evaluation.png}
+\end{figure}
+\end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{QSOS Process: Qualification}
+ \begin{itemize}
+ \item Define filters.
+    \begin{itemize}
+     \item Take into account needs and limitations
+     \item Specific context!
+    \end{itemize}
+
+ \item Filter on ID card.
+ \item Filter on Functional grid.
+    \begin{itemize}
+     \item Required functionality
+     \item Optional functionality
+     \item Not required functionality
+    \end{itemize}
+
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}
+\frametitle{QSOS Process: Qualification}
+\begin{center}
+\begin{figure}
+ \includegraphics[height=5cm]{figs/QSOS_Process_Qualification.png}
+\end{figure}
+\end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{QSOS Process: Selection}
+ \begin{itemize}
+ \item Identify software meeting the needs/requirements
+ \item Compare sofware, targeting selection.
+ \item Selection modes.
+    \begin{itemize}
+     \item Strict selection
+     \item loose selection
+    \end{itemize}
+
+ \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}
+\frametitle{QSOS Process overview}
+\begin{center}
+\begin{figure}
+ \includegraphics[height=5cm]{figs/QSOS_Process_Selection.png}
+\end{figure}
+\end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{References}
+
+\begin{frame}
+ \frametitle{References}
+ \begin{itemize}
+  \item QSOS Website. \textit{http://www.qsos.org}.
+  \item O3S Tool \textit{http://www.qsos.org/o3s/}
+  \item QSOS Community Web Site \textit{https://savannah.nongnu.org/projects/qsos/}
+  \end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
