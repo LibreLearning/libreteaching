@@ -29,7 +29,7 @@ But now, the question is
 code is just an example).
   \item Case study: \textbf{GoldCorp} \texttt{http://www.goldcorp.com/}
     \begin{itemize}
-    \item Traditional mining company, gold business, needs to find new veins.
+    \item Traditional mining company, needs to find new veins.
     \item Executive President Rob McEwen publishes open contest (2000): 575K\$ for participants
     who offer best methods to choose new extraction points.
     \item 80\% of answers produced positive results.
@@ -70,8 +70,8 @@ and surrounding conditions.
 \begin{itemize}
  \item Contrary to other products, the true \alert{value} of software does not lie in its production
 or replacement cost (food, cars, engines, appliances...).
- \item The upper limit of the value of software for clients is imposed by the expected value of the future service
-that sellers offer to clients.
+ \item The upper limit of the value of software for clients is imposed by 
+the \alert{expected value} of the future \alert{service} that sellers offer to clients.
       \begin{itemize}
        \item Software stability.
        \item Help-desk, support services.
@@ -107,7 +107,7 @@ scalable and sustainable way.
  \item Any business model would be doomed to fail, or else, to result 
 in a new scenario with closed solutions.
  \item Antidote: In fact \alert{software use} does not \alert{reduce} but it
-\alert{grows its value}.
+\alert{increments its value}.
     \begin{itemize}
     \item Larger user community (potential clients).
     \item Benefit from patches and proposed solutions.
@@ -139,7 +139,7 @@ sale value.}
 \alert{securing benefits} aimed to a sustainable growth.
 \end{center}
 \begin{center}
- FLOSS can improve \alert{viability} and \alert{efficiency} of many business models.
+ FLOSS can improve \alert{viability} and \alert{efficiency} with many business models.
 \end{center}
 
 
@@ -199,29 +199,177 @@ tipos de software libre.
   \end{itemize}
   \end{frame}
   
-  \begin{frame}
+\begin{frame}
  \frametitle{Carlo Daffara taxonomy (FLOSSMETRICS)}
  \begin{itemize}
 \item \textit{Selection/consulting companies}: Closer to the analyst role, minimum impact on FLOSS communities.
   \item \textit{Legal certification and consulting}: Assessment on license compatibility.
   \item \textit{Training and documentation}: Either as part of a broader support contract or companies exclusively devoted
 to this market area.
-  \item \textit{R\&D cost sharing}: Initial investment + leveraging community to reduce R\&D costs.
+  \item \textit{R\&D cost sharing}: Initial investment + creating community to reduce R\&D costs.
   \item \textit{Indirect revenues}: Baseline for sales of associated products or services (commodities).
  \end{itemize}
 \end{frame}
 
 \begin{frame}
+ \frametitle{Dual (or multiple) licensing}
+ \begin{itemize}
+  \item Examples: MySQL (GPL+prop.), Mozilla software (MPL, GPL, LGPL).
+  \item The owner of source code IPR selects a double licensing strategy.
+  \begin{itemize}
+   \item \textbf{Copyleft license}: To obtain some benefits (community contribution, integration in other libre software, etc.).
+   \item \textbf{Proprietary license of permissive free license}: Other companies might integrate this software with
+   proprietary software.
+  \end{itemize}  
+  \item Leverage adoption and visibility, offering solutions to proprietary software companies.
+  \item But it may also limit contributions from FLOSS developers (we force them to release the ownership  of the code
+  to maintain the right of dual licensing).
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Open core}
+ \begin{itemize}
+  \item Also based on dual licensing, but this is not the business foundation.
+  \item Examples: SugarCRM, SendMail.
+  \item Different features linked to licenses:
+  \begin{itemize}
+   \item \textbf{Libre core}: Basic version of the software, including minimal working functinalities,
+   is libre software.
+   \item \textbf{Proprietary added-value functionalities}: Most sophisticated features, targeting the
+   enterprise sector and expert audience, are released under proprietary license.
+  \end{itemize}  
+  \item Revenues concentrate on commercialization of proprietary components, plus support and
+  extension/customization.
+  \item FLOSS developers might distrust the project, for the same reasons as dual licensing.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Product specialists}
+ \begin{itemize}
+  \item Company offering or creating maintainance for a specific software product, usually in a concrete market.
+  \item Example: Alfresco (Content Management System).
+  \item Main revenues come from training, consulting, specialized support for installation, deployment and
+  configuration, extensions, customization, etc.
+  \item Typical model ``best product knowledge here'' or ``best source code here''.
+  \item It is mandatory to retain the best team of specialists.
+  \item High risk of other competitors entering at the same level of knowledge and specialization in the same
+  market.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Platform providers}
+ \begin{itemize}
+  \item Selection, support, integration and services around a set of projects integrated in a single, tested
+and verified product.
+  \item Key points:
+  \begin{itemize}
+   \item Verification process to meet quality standards.
+   \item Additional services (support, training, customization).
+  \end{itemize}
+  \item Copyright ownership prevents direct copy (not cloning).
+  \item Example: RedHat.
+  \item The source code is libre software, but the product name and logo are trademarks.
+  \item Considerable effort to eliminate them from files, documentation, etc.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Aggregate support providers}
+ \begin{itemize}
+  \item Centralized support point for different libre software products.
+  \item Two strategies:
+  \begin{itemize}
+   \item Employing developers specialized in those products.
+   \item Redirecting petitions to other support specialists.
+  \end{itemize}
+  \item Clear benefit for large projects whose costs could raise due to excessive
+diversification of support channels (comprehensive help-desk).
+  \item It only works for clients with many different products running on mission-critical platforms.
+  They assure exclusive support contracts.
+  \item Example: OpenLogic.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Selection/consulting companies}
+ \begin{itemize}
+  \item Usually, they do not develop software.
+  \item Assessment about selection and evaluation of software products and services.
+  \item It might save costs for clients (software selection process can add up to 45\% of
+total costs of software adoption).
+  \item Experience to undertake selection process is not easily replicable.
+  \item Sometimes, they develop dedicated tools aimed for selection, that they do not release as
+free software to stop competence.
+  \item Example: Open WebApps.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Legal certification/consulting}
+ \begin{itemize}
+  \item They do not usually develop software, either.
+  \item Legal assessment for companies about complex problems derived from multiplicity of libre software
+licenses and their compatibilities.
+  \item They might save costs for integrators less familiarized with selection process and licensing checking.
+  \item Example: Palamida.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Training and documentation}
+ \begin{itemize}
+  \item Focused on important aspects of libre software, but not directly related to development.
+  \begin{itemize}
+   \item Training users and tech staff.
+   \item Support for certification processes (technical staff and end-users).
+   \item Creation of high quality documentation.
+  \end{itemize}
+  \item It is very helpful if supported products have a large user base (size of target market).
+  \item Certification programs might provide extra income, conditions for collaboration agreements
+(partnerships).
+  \item Example: Gbdirect.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{R\&D cost sharing}
+ \begin{itemize}
+  \item Company interested in software development decides to release the code to benefit from
+contributions from large community of interested developers.
+  \item Development cost of closed source alternative would be prohibitive.
+  \item Viability conditions:
+  \begin{itemize}
+   \item Great branding and public image to attract attention from stakeholders.
+   \item Solvency to develop and nurture community participation.
+   \item Investment in project support (IDE, events, promotion, etc.).
+  \end{itemize}
+   \item Example: Maemo (Nokia).
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Indirect revenues}
+ \begin{itemize}
+  \item Companies that decide to develop libre software or funding libre software projects to leverage
+their business on related products.
+  \item Some examples:
+   \begin{itemize}
+    \item Hardware makers: Intel, Dell. Broaden their target audience base providing better support for libre
+software platforms.
+    \item Tech books publishers: O'Reilly (contributes to Perl community, and it is the main publisher of Perl books).
+   \end{itemize}
+   \item Stakeholders that indirectly benefit from success of libre software projects.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
 \frametitle{Distribution of models identified in the study}
-\begin{center}
 \begin{figure}
- \includegraphics[height=4.5cm]{figs/models-share.jpg}
- \caption{\small Taken from ``FLOSS: A guide for SMEs''. C. Daffara (FLOSSMETRICS EU FP6)}
+ \includegraphics[height=4cm]{figs/models-share.jpg}
 \end{figure}
-\begin{figure}
- \includegraphics[height=4.5cm]{figs/models-share-numbers.png}
-\end{figure}
-\end{center}
 \end{frame}
 
 \begin{frame}
@@ -542,7 +690,7 @@ to this market area.
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 
-\section{Conclusions}
+\subsection{Conclusions}
 
 \begin{frame}
  \frametitle{New ways of collaboration}
