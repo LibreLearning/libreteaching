@@ -1,0 +1,166 @@
+% 1- Explicar detenidamente la principal motivacion del articulo. Dejar claro cual es el posible problema
+% 2- Presentar las preguntas de investigacion pertinentes
+% 3- Presentar algunos resultados preliminares
+% 4- Presentar el trabajo llevado hasta ahora de investigacion y desarrollo
+% 5- Dejar algunas preguntas abiertas y problemas encontrados hasta ahora
+%
+% $Id: slides.tex 4228 2006-06-21 21:55:12Z jjamor $
+%
+%
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer (paquete latex-beamer en Debian)
+%
+
+%
+% Grficos:
+% Los grficos pueden suministrarse en PNG, JPG, TIF, PDF, MPS
+% Los EPS deben convertirse a PDF (usar epstopdf)
+%
+
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+\usepackage{url}
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={Libresoft},
+  pdfauthor={Daniel Izquierdo Cort\'azar},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Exercise: metrics tools for FLOSS projects},
+}
+%%
+
+
+
+\AtBeginSection[]
+{
+  \begin{frame}<presentation>
+    \frametitle{Index}
+    \tableofcontents[current]
+  \end{frame}
+}
+
+
+
+
+\begin{document}
+
+
+
+\title{Metrics tools for FLOSS projects
+}
+\subtitle{ Master on Free Software
+}
+\institute{jfelipe@libresoft.es\\
+GSyC/Libresoft, Universidad Rey Juan Carlos}
+\author{Felipe Ortega, Pedro Coca, Daniel Izquierdo Cort\'azar}
+\date{Fuenlabrada, Madrid\\ 2nd, December 2010}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=4cm]{format/gsyc-urjc.pdf} 
+\end{center}
+}
+
+
+% Si el titulo o el autor se quieren acortar para los pies de pgina
+% se pueden redefinir aqu:
+%\title{Titulo corto}
+%\author{Autores abreviado}
+
+
+%% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
+\frame{
+~
+\vspace{4cm}
+
+\begin{flushright}
+{\tiny
+(cc) 2010 Felipe Ortega. \\
+Some rights reserved. This document is distributed under the Creative \\
+            Commons Attribution-ShareAlike 3.0 licence, available in \\
+            http://creativecommons.org/licenses/by-sa/3.0/
+
+%  Este documento (o uno muy similar) está disponible en \\
+%  \url{http://gsyc.escet.urjc.es/~jjamor/}
+}
+\end{flushright}
+}
+%%
+
+% \frame{
+% \frametitle{Table of contents}
+% \tableofcontents
+% }
+
+
+%\section{Introduction}
+
+
+\begin{frame}
+\frametitle{Motivation}
+\begin{center}
+\begin{itemize}
+\item We need to gather metrics about FLOSS projects
+\item Many different aspects to cover:
+\begin{itemize}
+ \item Source code metrics.
+ \item Mailing list metrics.
+ \item Bug tracking metrics.
+ \item Licenses and documentation metrics.
+ \item Development process metrics.
+ \item (You name it)
+\end{itemize}
+\end{itemize}
+\end{center}
+\end{frame}
+
+% \section{Activity}
+
+\begin{frame}
+\frametitle{Explore tools computing metrics from FLOSS projects}
+\begin{center}
+\begin{itemize}
+ \item Explore the Internet to find metrics tools for FLOSS projects.
+ \item Ideally, the complete set of tools should cover most aspects to be measured.
+ \item Probably, tools will come from different projects/developers/communities.
+ \item Some metrics will be provided by more than one tool. Which is the best one? Why?
+ \item Which aspects are not covered at all by any available tool? Why?
+\end{itemize}
+\end{center}
+\end{frame}
+
+% \section{Results}
+
+\begin{frame}
+\frametitle{Results}
+\begin{center}
+\begin{itemize}
+ \item Complete list of metrics tools, inclduing:
+ \begin{itemize}
+  \item Provider/autors.
+  \item URL.
+  \item Included metrics.
+  \item Target information sources (SCM, BTS, mailing lists, forums...).
+  \item Brief description.
+  \item Case studies or examples.
+ \end{itemize}
+
+\end{itemize}
+\end{center}
+\end{frame}
+
+\end{document}
