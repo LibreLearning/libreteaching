@@ -97,8 +97,18 @@ Some rights reserved. This document is distributed under the Creative \\
 \begin{frame}
 \frametitle{What is QA}
 \begin{itemize}
-\item Quality Assurance ...
-\item ...
+\item Trackin and monitoring the software engineering processes
+    \begin{itemize}
+       \item software design 
+       \item source code control 
+       \item change management 
+       \item ...
+       \item configuration management 
+       \item testing 
+       \item release management
+    \end{itemize}
+\item Goal: Ensure "Quality"
+\item As we have seen before, some standards, methodologies and paradigms aim partially or totally this goal
 \end{itemize}
 \end{frame}
 
@@ -120,6 +130,21 @@ Some rights reserved. This document is distributed under the Creative \\
 
  \end{itemize}
 \end{frame}
+
+
+\section{Mozilla QA}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Mozilla QA structure}
+\begin{center}
+ \includegraphics[height=5cm,width=11.5cm]{figs/MozillaQAOrgPic.jpg}
+\begin{figure}
+\end{figure}
+\end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -148,7 +173,7 @@ Some rights reserved. This document is distributed under the Creative \\
  \item Attachment Reminder
  \item Activity Manager
  \item Offline operation
- \item Message Search (unless you include this in msg management)
+ \item Message Search
  \item Add-ons (Calendar, etc)
  \end{itemize}
 \end{frame}
@@ -348,18 +373,29 @@ Some rights reserved. This document is distributed under the Creative \\
  \begin{itemize}
  \item Tools that sends information to Thunderbird developers whenever Thunderbird crashes
  \item Is a set of libraries for client-side crash reporting
- \item Same thing, different names: QFA, TalkBack, BreakPad, Socorro...
- \item Implementation
+ \item Same thing, different names
     \begin{itemize}
-        \item Client integration to handle crash reporting 
-        \item Server (Socorro) that collects and processes collected crash data
-        \item A web interface (Socorro) for viewing and parsing crash reports, called
-        \item This info is used by Thunderbird developers to make future versions crash less frequently. 
-        \item Important part of the Mozilla Core
-        \item It cannot be deselected during custom install, unlike the old version, the Talkback add-on.
-        \item Also used in other Mozilla products (Firefox, etc).
-        \item Development started by Google.
+     \item QFA
+     \item TalkBack
+     \item BreakPad
+     \item Socorro
+     \item ...
     \end{itemize}
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+ \frametitle{Crash Reporter Implementation}
+ \begin{itemize}
+   \item Client integration to handle crash reporting 
+   \item Server (Socorro) that collects and processes collected crash data
+   \item A web interface (Socorro) for viewing and parsing crash reports, called
+   \item This info is used by Thunderbird developers to make future versions crash less frequently. 
+   \item Important part of the Mozilla Core
+   \item It cannot be deselected during custom install, unlike the old version, the Talkback add-on.
+   \item Also used in other Mozilla products (Firefox, etc).
+   \item Development started by Google.
  \end{itemize}
 \end{frame}
 
@@ -408,7 +444,7 @@ Some rights reserved. This document is distributed under the Creative \\
     \end{itemize}
   \item Each submitted crash report is identified as a text file, located in the "Crash Reports" folder within the "submitted" subfolder.
   \item Find the GGUID of the crash report that we want to take a look at...
-  \item ...add the GGUID to the end of \textit{http://crash-stats.mozilla.com/report/index/}
+  \item ...append the GGUID to the end of \textit{http://crash-stats.mozilla.com/report/index/}
  \end{itemize}
 \end{frame}
 
@@ -426,14 +462,110 @@ Some rights reserved. This document is distributed under the Creative \\
 
 
 \begin{frame}
-\frametitle{Other information }
+\frametitle{Litmus}
  \begin{itemize}
-  \item Localization Tools.
-  \item Work organization.
-  \item How to use them.
-  \item Best practices.
+    \item Litmus is a web-based, open source QA tool maintained by Mozilla Corporation.
+    \item Is designed to improve workflow, visibility, and turnaround time in the Mozilla QA process.
+    \item Everything is manual.
+ \end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Litmus}
+ \begin{itemize}
+    \item Litmus does:
+       \begin{itemize}
+       \item Makes easier for casual testers to assist with testing Mozilla products.
+       \item Serve as a repository for test cases, with all the inherent management abilities that implies.
+       \item Serve as a repository for test results, carrying over the best features of Testrunner, e.g. test lists, division of labor, etc.
+       \item Provide a query interface for viewing, reporting on, and comparing test results.
+       \item Expose a web services interface for the mechanical batch submission of testing results.
+       \end{itemize}
  \end{itemize}
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Litmus}
+ \begin{itemize}
+    \item Litmus does not:
+       \begin{itemize}
+       \item Manage the automation of testing.
+       \end{itemize}
+ \end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Title here}
+ \begin{itemize}
+   \item Example item
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Test types}
+  \begin{itemize}
+
+  \item Smoketest 
+       \begin{itemize}
+       \item Covers common operations (Install, Uninstall, Usability)
+       \item Includes a set of various operations
+       \item Its the Standard Test.
+       \end{itemize}
+  \item Full Functional Tests
+       \begin{itemize}
+       \item Its the biggest testrun in Litmus. 
+       \item It includes a lot of testcases for all aspects of the Product you have selected.
+       \end{itemize}
+  \item Localization (l10)
+       \begin{itemize}
+       \item A test provided for Localization Builds
+       \end{itemize}
+  \item Basic Functional Test (BFT)
+       \begin{itemize}
+       \item Includes more testcases than a Smoketest and covers all aspects of the Product.
+       \item From Installing till Security Features.
+       \end{itemize}
+
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Test results}
+ \begin{itemize}
+   \item Not Run: The test has not been excuted yet
+   \item Pass: Test got the expected results
+   \item Fail: Test failed
+   \item Test unclear/broken: Not enought information to run the test
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Testing...}
+ \begin{itemize}
+   \item We need a user account in Litmus
+   \item A testing build of Thunderfird
+   \item Set up for the test run
+   \item Execute the test
+   \item Submit the test run results
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% http://piratepad.net/zyyP4uNTsp
