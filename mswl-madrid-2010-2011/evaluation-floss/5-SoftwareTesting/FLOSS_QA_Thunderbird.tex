@@ -97,7 +97,7 @@ Some rights reserved. This document is distributed under the Creative \\
 \begin{frame}
 \frametitle{What is QA}
 \begin{itemize}
-\item Trackin and monitoring the software engineering processes
+\item Tracking and monitoring the software engineering processes
     \begin{itemize}
        \item software design 
        \item source code control 
@@ -382,18 +382,302 @@ Some rights reserved. This document is distributed under the Creative \\
  \frametitle{Mozilla Thunderbird QA}
  \begin{itemize}
  \item Mozilla Thunderbird QA uses tools such as:
-    \begin{itemize}
+     \begin{itemize}
      \item Bugzilla
      \item Crash reporter
      \item Manual software testing
      \item Automated software testing 
+     \end{itemize}
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Testing tools}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Bug Reporting}
+ \begin{itemize}
+
+    \item Once reported, Developers study in detail the bug information
+    \item The information in a bug report could hints at the cause
+    \item The more info, the better!
+    \item A bug report without useful information could be just a waste of time: 
+    \item Information provided in bug reports affects
+         \begin{itemize}
+         \item Resolution effort
+         \item Resolution time
+         \end{itemize}
+
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Bug Writing Guidelines }
+ \begin{itemize}
+    \item Be precise
+    \item Be clear: explain it so others can reproduce the bug
+    \item One bug per report
+    \item No bug is too trivial to report: small bugs may hide big bugs
+    \item Clearly separate fact from speculation
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Bad Bug Report examples}
+ \begin{itemize}
+     \item Browser should work with my web site
+     \item I just clicked and it crashes
+     \item System is really slow
+     \item ... happens sometimes
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Bad Bug Report examples}
+\begin{center}
+ \includegraphics[height=6cm]{figs/BadBugEmail.png}
+\begin{figure}
+\end{figure}
+\end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{What Makes a Good Bug Report?}
+ \begin{itemize}
+    \item Survey conducted. 150 developers and reporters
+        \begin{itemize}
+        \item Apache
+        \item Eclipse
+        \item Mozilla
+        \end{itemize}
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Bug reporting empirical studies: Bug reports contents}
+ \begin{itemize}
+    \item Questions for the Developers:
+      \begin{itemize}
+      \item 1) Items previously used when fixing bugs
+      \item 2) Top 3 helpful items 
+      \item 16 Options
+      \end{itemize}
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Bug reporting empirical studies: Bug reports contents}
+ \begin{itemize}
+    \item Developers responses about more valuable information: 
+        \begin{itemize}
+        \item How to reproduce the bug (steps)
+        \item Stack traces 
+        \item Test cases
+        \item Screenshots (Essentials for GUI testing!)
+        \item Code examples
+        \end{itemize}
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Insert here the graphic 24-1 if finally is possible (first part)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Bug reporting empirical studies: Bug reports contents}
+ \begin{itemize}
+    \item Questions for the Developers:
+      \begin{itemize}
+      \item 1) Issues found when fixing bugs
+      \item 2) Top 3 delaying issues when fixing bugs
+      \item 21 Options
+      \end{itemize}
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Bug reporting empirical studies: Bug reports contents}
+ \begin{itemize}
+    \item Developers responses about problem's severeness
+        \begin{itemize}
+        \item How to reproduce the bug (steps)
+        \item Incomplete information
+        \item Observed behavior
+        \item Test cases
+        \end{itemize}
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Insert here the graphic 24-1 if finally is possible (second part)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Bug reporting empirical studies: Bug reports contents}
+ \begin{itemize}
+    \item Questions for the Reporters:
+      \begin{itemize}
+      \item 1) Items reported in the past
+      \item 2) Top 3 more difficult items
+      \item 2) Top 3 items considered most relevant for developers
+      \item Same 16 items offered to the previous group (developers)
+      \end{itemize}
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Bug reporting empirical studies}
+ \begin{itemize}
+    \item Reporters responses about problem's severeness
+        \begin{itemize}
+        \item Observed behavior
+        \item Expected behavior
+        \item How to reproduce the bug (steps)
+        \end{itemize}
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Bug reporting empirical studies}
+ \begin{itemize}
+    \item Mismatching between developers and reporters?
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Bug reporting empirical studies}
+ \begin{itemize}
+    \item Developers and reporters agreed in top most important items
+    \item Also agreed in less important item
+    \item Many mismatching in the rest of the items
+    \item Stack traces, test cases and code examples are rarely reported but considered important by developers
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Bug reports fixed sooner}
+ \begin{itemize}
+    \item Bug reports with stack traces
+    \item Bug reports easier to read
+    \item Bug reports including code samples
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Bug reporting empirical studies}
+ \begin{itemize}
+    \item Duplicate bug reports
+       \begin{itemize}
+       \item Demmand more effort from QA teams?
+       \item Do developers suffer them?
+       \item Do they provide more/useful information?
+       \end{itemize}
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+ \frametitle{Bug reporting empirical studies}
+ \begin{itemize}
+    \item Duplicate bug reports
+       \begin{itemize}
+       \item A common practice is to simply close the bug and discard the info.
+       \item Is the first one the best one?
+       \item Duplicate bugs are not really a problem
+       \item Often add more information
+       \item Master report (Original one)
+       \item Extended report (Master + duplicates)
+       \item Extended reports can provide much more useful information
+       \end{itemize}
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Mozilla QA Tools: Bugzilla}
+ \begin{itemize}
+ \item Web based bug tracker originally developed to be used by the Mozilla project
+ \item Released under the MPL
+ \item Released as FLOSS in 1998 by Netscape
+ \item It is used by many important FLOSS projects/companies
+    \begin{itemize}
+    \item GhostScript
+    \item Novell
+    \item Songbird
+    \item Gnome
+    \item Apache
+    \item ...
     \end{itemize}
  \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Testing tools}
 
+\begin{frame}
+\frametitle{Mozilla Usage}
+\begin{center}
+ \includegraphics[height=6cm]{figs/Bugzilla_usage_worldwide.png}
+\begin{figure}
+\end{figure}
+\end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Mozilla Install list web page}
+\begin{center}
+\begin{figure}
+ \includegraphics[height=6cm]{figs/Bugzilla_Install_List.png}
+\end{figure}
+\end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Mozilla QA Tools: Bugzilla. How to report a bug}
+ \begin{itemize}
+    \item Point your browser to \textit{http://bugzilla.mozilla.org}
+    \item Recomended but not mandatory,have a bugzilla acccount.
+    \item Log into bugzilla.
+    \item Use the search box in the main page to see if your bug has already been submitted.
+    \begin{itemize}
+       \item Important to avoid duplicate bugs.
+    \end{itemize}
+    \item If a previous bug exist, you should add your info into as a comment.
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
  \frametitle{Mozilla QA Tools: Bugzilla}
  \begin{itemize}
@@ -467,15 +751,26 @@ Some rights reserved. This document is distributed under the Creative \\
       \item Description. Full details of the issue, giving as much detail as possible.
       \item Add and Attachment. Use this button if you have important docs to attach to the bugs, like images or something.
       \item Remember to add all the info that you can, the rest can be left blank).
-      \item Once you are done click 'Submmit Bug'.
+      \item Once you are done click 'Submit Bug'.
       \end{itemize}
-     \item There is an advance form to report  bug, but it's more complex, using the normal form with the right information should be enought.
-     \item Interesting essay about how to fill a bug at \textit{http://www.chiark.greenend.org.uk/~sgtatham/bugs.html}
  \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}
+ \frametitle{Mozilla QA Tools: Bugzilla. How to report a bug}
+ \begin{itemize}
+     \item The simple way to report a bug with the right information should be enough.
+     \item Nevertheless, there is an advanced form to report bug, but it's more complex.
+     \item Interesting essay about how to fill a bug at 
+         \begin{itemize}
+         \item \textit{http://www.chiark.greenend.org.uk/~sgtatham/bugs.html}
+         \end{itemize}
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
  \frametitle{Mozilla QA Tools: Crash Reporter}
  \begin{itemize}
@@ -580,7 +875,7 @@ Some rights reserved. This document is distributed under the Creative \\
        \item Serve as a repository for test cases, with all the inherent management abilities that implies.
        \item Serve as a repository for test results, carrying over the best features of Testrunner, e.g. test lists, division of labor, etc.
        \item Provide a query interface for viewing, reporting on, and comparing test results.
-       \item Expose a web services interface for the mechanical batch submission of testing results.
+       \item Show a web services interface for the mechanical batch submission of testing results.
        \end{itemize}
  \end{itemize}
 \end{frame}
@@ -593,6 +888,11 @@ Some rights reserved. This document is distributed under the Creative \\
     \item Litmus does not:
        \begin{itemize}
        \item Manage the automation of testing.
+       \item At all! :)
+       \item There are some other tools for that in Mozilla:
+          \begin{itemize} 
+          \item Mozmill
+          \end{itemize}
        \end{itemize}
  \end{itemize}
 
@@ -600,13 +900,6 @@ Some rights reserved. This document is distributed under the Creative \\
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Title here}
- \begin{itemize}
-   \item Example item
- \end{itemize}
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -663,6 +956,49 @@ Some rights reserved. This document is distributed under the Creative \\
  \end{itemize}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Manual Testing with Litmus}
+\begin{center}
+ \includegraphics[height=6cm]{figs/Litmus_01_Config_Required_Criteria.png}
+\begin{figure}
+\end{figure}
+\end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Manual Testing with Litmus}
+\begin{center}
+ \includegraphics[height=6cm]{figs/Litmus_02_Testgroup_Selection.png}
+\begin{figure}
+\end{figure}
+\end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Manual Testing with Litmus}
+\begin{center}
+ \includegraphics[height=6cm]{figs/Litmus_03_Test_Run_Intro.png}
+\begin{figure}
+\end{figure}
+\end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Manual Testing with Litmus}
+\begin{center}
+ \includegraphics[height=6cm]{figs/Litmus_04_Test_Results_Submitted.png}
+\begin{figure}
+\end{figure}
+\end{center}
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -676,7 +1012,6 @@ Some rights reserved. This document is distributed under the Creative \\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 \begin{frame}
 \frametitle{Mozmill Test Automation}
 \begin{center}
@@ -685,7 +1020,6 @@ Some rights reserved. This document is distributed under the Creative \\
 \end{figure}
 \end{center}
 \end{frame}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% http://piratepad.net/zyyP4uNTsp
