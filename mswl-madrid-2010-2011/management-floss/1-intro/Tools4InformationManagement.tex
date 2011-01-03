@@ -1,0 +1,202 @@
+%
+% $Id: slides.tex 4228 2006-06-21 21:55:12Z jjamor $
+%
+%
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer (paquete latex-beamer en Debian)
+%
+
+%
+% Gráficos:
+% Los gráficos pueden suministrarse en PNG, JPG, TIF, PDF, MPS
+% Los EPS deben convertirse a PDF (usar epstopdf)
+%
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+\usepackage{url}
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={Tools for Information and Documentation Management},
+  pdfauthor={Daniel Izquierdo Cortázar},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={},
+}
+%%
+
+
+\AtBeginSection[]
+{
+  \begin{frame}<presentation>
+    \frametitle{Index}
+    \tableofcontents[current]
+  \end{frame}
+}
+
+
+\begin{document}
+
+\title{Tools for Information and Documentation Management}
+\subtitle{Master on Free Software}
+\institute{dizquierdo@gsyc.escet.urjc.es\\
+GSyC/Libresoft}
+\author{Daniel Izquierdo Cortázar}
+\date{\today}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+
+% Si el titulo o el autor se quieren acortar para los pies de página
+% se pueden redefinir aquí:
+%\title{Titulo corto}
+%\author{Autores abreviado}
+
+
+%% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
+\frame{
+~
+\vspace{4cm}
+
+\begin{flushright}
+{\tiny
+(cc) 2007 Daniel Izquierdo Cortázar. \\
+Some rights reserved. This document is distributed under the Creative \\
+            Commons Attribution-ShareAlike 2.5 licence, available in \\
+            http://creativecommons.org/licenses/by-sa/2.5/
+
+%  Este documento (o uno muy similar) estÃ¡ disponible en \\
+%  \url{http://gsyc.escet.urjc.es/~jjamor/}
+}
+\end{flushright}
+}
+%%
+
+
+
+\section{Introduction}
+
+\begin{frame}
+\frametitle{}
+\begin{itemize}
+\item Based on QualipSO project (\url{http://www.qualipso.org}) \\
+ 
+\begin{quotation}
+``QualiPSo is a unique alliance of European, Brazilian and Chinese ICT 
+industry players, SMEs, governments and academics to help industries 
+and governments fuel innovation and competitiveness with Open Source 
+software.''
+\end{quotation}
+\item Deliverable made by Libresoft (\url{http://libresoft.es})
+\end{itemize}
+\end{frame}
+
+\section{Communication and Coordination}
+
+\begin{frame}
+\frametitle{Tools}
+\begin{itemize}
+\item Mailman
+\item SmartList
+\item XChat
+\item Gaim
+\item Ekiga
+\item MoinMoin
+\item Evolution
+\item Planner
+\item Trac
+\item Others
+\end{itemize}
+\end{frame}
+
+\section{Documentation}
+\begin{frame}
+\frametitle{Tools}
+\begin{itemize}
+\item Plone
+\item Joomla!
+\item Open Office
+\item KOffice
+\item Latex
+\item Dia
+\item FreeMind
+\item Others
+\end{itemize}
+\end{frame}
+
+
+
+\section{Development}
+\begin{frame}
+\frametitle{Tools}
+\begin{itemize}
+\item CVS, SVN, Git, Bazaar, ...
+\item Emacs, VI, ...
+\item Bugzilla, debbugs
+\item Glade, Stetic, ...
+\item apt, rpm, yum, ...
+\end{itemize}
+\end{frame}
+
+\section{Support}
+\begin{frame}
+\frametitle{Tools}
+\begin{itemize}
+\item Bugzilla
+\item phpBB
+\item Mailman
+\item XChat
+\item Others
+\end{itemize}
+\end{frame}
+
+\section{Translation}
+\begin{frame}
+\frametitle{Tools}
+\begin{itemize}
+\item gettext
+\item KBabel
+\item gtranslator
+\item Open Language Tools
+\item xml2po
+\item Others
+\end{itemize}
+\end{frame}
+
+
+\section{Bibiography}
+\begin{frame}
+\begin{itemize}
+
+\item Álvaro del Castillo, Julia Anaya. QualipSO D4.2.2: 
+Available tools for Information and Documentation Management.
+Technical Report, Universidad Rey Juan Carlos, Móstoles, Spain, May 2007.
+\url{http://www.qualipso.org/media/A4/D4.2.2.pdf}. Last visited November, 2007.
+
+\item Karl Fogel. Producing Open Source Software: How to run a succesful
+free software project. Chapter 8: Managing Volunteers. Ed: O'Reilly, October 2005.
+
+\end{itemize}
+\end{frame}
+
+
+
+
+
+\end{document}

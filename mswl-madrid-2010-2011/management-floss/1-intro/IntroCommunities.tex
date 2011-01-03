@@ -1,0 +1,389 @@
+%
+% $Id: slides.tex 4228 2006-06-21 21:55:12Z jjamor $
+%
+%
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer (paquete latex-beamer en Debian)
+%
+
+%
+% Gráficos:
+% Los gráficos pueden suministrarse en PNG, JPG, TIF, PDF, MPS
+% Los EPS deben convertirse a PDF (usar epstopdf)
+%
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+\usepackage{url}
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={Libre Software Communities},
+  pdfauthor={Daniel Izquierdo Cortázar},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={nn},
+}
+%%
+
+
+\AtBeginSection[]
+{
+  \begin{frame}<presentation>
+    \frametitle{Index}
+    \tableofcontents[current]
+  \end{frame}
+}
+
+
+\begin{document}
+
+\title{Libre Software Communities: An Approach}
+\subtitle{Master on Free Software}
+\institute{dizquierdo@gsyc.escet.urjc.es\\
+GSyC/Libresoft}
+\author{Daniel Izquierdo Cortázar}
+\date{\today}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+
+% Si el titulo o el autor se quieren acortar para los pies de página
+% se pueden redefinir aquí:
+%\title{Titulo corto}
+%\author{Autores abreviado}
+
+
+%% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
+\frame{
+~
+\vspace{4cm}
+
+\begin{flushright}
+{\tiny
+(cc) 2007 Daniel Izquierdo Cortázar. \\
+Some rights reserved. This document is distributed under the Creative \\
+            Commons Attribution-ShareAlike 2.5 licence, available in \\
+            http://creativecommons.org/licenses/by-sa/2.5/
+
+%  Este documento (o uno muy similar) estÃ¡ disponible en \\
+%  \url{http://gsyc.escet.urjc.es/~jjamor/}
+}
+\end{flushright}
+}
+%%
+
+
+
+\section{Introduction}
+
+\begin{frame}
+\frametitle{Take a look around you}
+\begin{itemize}
+\item Is somebody doing the same work?
+\item Try to look for information at:\\
+Forges: SF - \url{http://sourceforge.net}, Berlios - \url{http://berlios.de} \\
+Project's indexes: Freshmeat \- \url{http://freshmeat.net}, FSF directory \- \url{http://directory.fsf.org} 
+\item Is better to unify efforts?
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{To unify efforts or not}
+\begin{itemize}
+\item GNOME - KDE
+\item Beryl - Compiz
+\item Several distributions (Debian, Suse, Fedora, Mandriva, Ubuntu, Linex, GuadaLinex, ...)
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Take a look around you}
+\begin{itemize}
+\item Have you contacted with them?
+\item Different goals?, different points of view? just want to start a project? others ...
+\item Let's go!
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{First steps}
+\begin{itemize}
+\item Mission limits\\
+What your product will do... (List of features)\\
+What your product will not do
+\item Name \\
+\begin{tiny}
+\begin{quotation}
+What's your name? \\
+{\em Apache!} \\
+Nice to meet you :)
+\end{quotation}
+\end{tiny}
+\item Have a clear mission statement
+\item Alpha, Beta
+\end{itemize}
+\end{frame}
+
+\section{Legal Aspects}
+
+\begin{frame}
+\frametitle{License, what is the best?}
+\begin{itemize}
+\item Source code (remember): \\
+GPL family (+ restrictive)\\ 
+BSD family (- restrictive)
+
+\item Documentation: \\
+Creative Commons? 
+
+\item You could create your own license, however...\\
+
+
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{License}
+\begin{itemize}
+
+\item It is usual to start from a minor project\\
+
+\item Perhaps there are several authors: \\
+
+A company. \\
+
+%You could have legal problems if the source code was made by them and they disagree
+%in the process of liberation.\\
+
+%Sometimes you sign a contract like: ``All the things you create, even in your free time
+%will have our copyright''.\\
+
+%Some free software communities need a contract to confirm that the company wants to 
+%free its software. It occurs when the community or foundation will get the copyright, thus
+%they can get in trouble.\\
+
+You are the owner.\\
+
+Several authors worked on it.\\
+% You have to ask them about changing the license, if not
+%you could have legal problems.\\
+
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Pieces of advice}
+\begin{itemize}
+\item Your web site should contain a clear reference to the license you use.
+\item Source code:\\
+License could be included in each file.\\
+Every file could contain a reference to the license (COPYING or LICENSE)
+\end{itemize}
+\end{frame}
+
+
+\section{Image}
+
+\subsection{Web site}
+
+\begin{frame}
+\frametitle{Visibility}
+\begin{itemize}
+\item Basic to:\\
+Attract new users, developers.\\
+More users = more bug reports = more activity = ...\\
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Structure}
+\begin{itemize}
+\item Basic information (Remember! first steps!)
+\item Hot news
+\item Activity and maintenance in mailing lists, wiki, trac ...
+\item Related projects
+\item Projects which use our product
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Documentation}
+\begin{itemize}
+\item User documentation
+\item Developer documentation: specific mailing lists, SCM URL, BTS, others
+\item Developer documentation: architecture, style, rules, others
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Examples}
+\begin{itemize}
+\item Plone
+\item GNOME projects
+\item SourceForge
+\end{itemize}
+\end{frame}
+
+
+\subsection{Source code}
+
+\begin{frame}
+\frametitle{Users}
+\begin{itemize}
+\item Expert, medium and beginner\\
+\item Easy, clear and fast installation\\
+\item Good documentation\\
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Installation process}
+\begin{itemize}
+\item Difficulties mean:\\
+Lost time answering doubts\\
+Lost time fixing problems\\
+Lost time updating the web site\\
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Installation process}
+\begin{itemize}
+\item If it fails, there are other products on the Internet!
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Cleaning code}
+\begin{itemize}
+\item Your code is your image (Yep, They are the developers of the product X)
+\item Commits mailing list (everybody will know about your changes)
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Files}
+\begin{itemize}
+\item Source code must have several ``burocratic'' files: \\
+License (LICENSE or COPYING)\\
+General Info (README)\\
+Changes made (Changelog) \\
+Installation process info (INSTALL) \\
+Documentation (Users, developers)\\
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Packages or binaries}
+\begin{itemize}
+\item They should be marked with the correct version
+\item They must follow the same standard
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Other recomendations}
+\begin{itemize}
+\item Clean your code (use English)
+\item Documentation (local language + English)
+\item Try to prepare your software to be used by others\\
+Translators: */po/*\\
+Developers: Clear architecture and comments\\
+...
+
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Demos}
+\begin{itemize}
+\item At least images with results (graphic environment)
+\item or data in a database, XML, CSV, ...
+\end{itemize}
+\end{frame}
+
+\section{Tools}
+\begin{frame}
+\frametitle{Web site}
+\begin{itemize}
+\item Collaborative development - Wiki
+\item Fast installation - Zope/Plone
+\item CMS in general
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{}
+\begin{itemize}
+\item Each project has its goals:\\
+\item SCM - SVN, CVS, Git ...
+\item BTS - Bugzilla, Gnat, Trac...
+\item Trac
+\end{itemize}
+\end{frame}
+
+
+\section{Announcing}
+\begin{frame}
+\frametitle{Ok, but where?}
+\begin{itemize}
+\item SourceForge, Freshmeat, FSF directory
+\item Your own blog
+\item Basic scheme:\\
+\begin{quotation}
+What is it?\\
+Where to get it?\\
+Features\\
+Requirements\\
+Current version
+\end{quotation}
+\end{itemize}
+\end{frame}
+
+
+
+\section{Conclusions}
+
+\begin{frame}
+\frametitle{Conclusions}
+
+
+\end{frame}
+
+
+
+\end{document}
