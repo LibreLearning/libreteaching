@@ -1,0 +1,142 @@
+%
+% $Id: slides.tex 4228 2006-06-21 21:55:12Z jjamor $
+%
+%
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer (paquete latex-beamer en Debian)
+%
+
+%
+% Gráficos:
+% Los gráficos pueden suministrarse en PNG, JPG, TIF, PDF, MPS
+% Los EPS deben convertirse a PDF (usar epstopdf)
+%
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+\usepackage{url}
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={Libre Software Communities},
+  pdfauthor={Daniel Izquierdo Cortázar},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={nn},
+}
+%%
+
+
+\AtBeginSection[]
+{
+  \begin{frame}<presentation>
+    \frametitle{Index}
+    \tableofcontents[current]
+  \end{frame}
+}
+
+
+\begin{document}
+
+\title{Management of Libre Software Communities}
+\subtitle{Master on Free Software}
+\institute{dizquierdo@gsyc.escet.urjc.es\\
+GSyC/Libresoft}
+\author{Daniel Izquierdo Cortázar}
+\date{\today}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+
+% Si el titulo o el autor se quieren acortar para los pies de página
+% se pueden redefinir aquí:
+%\title{Titulo corto}
+%\author{Autores abreviado}
+
+
+%% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
+\frame{
+~
+\vspace{4cm}
+
+\begin{flushright}
+{\tiny
+(cc) 2011 Daniel Izquierdo Cortázar. \\
+Some rights reserved. This document is distributed under the Creative \\
+            Commons Attribution-ShareAlike 2.5 licence, available in \\
+            http://creativecommons.org/licenses/by-sa/2.5/
+
+%  Este documento (o uno muy similar) estÃ¡ disponible en \\
+%  \url{http://gsyc.escet.urjc.es/~jjamor/}
+}
+\end{flushright}
+}
+%%
+
+
+
+\section{Technical Report}
+
+\begin{frame}
+\frametitle{Who?}
+\begin{itemize}
+ \item SME company wondering about freeing some software
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Why?}
+\begin{itemize}
+\item For sure, we'd like to create community around it and attract new people.
+\item Bussiness model similar to MySQL is our main goal.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{What we need}
+\begin{itemize}
+\item Good reasoning about freeing the software
+\item Our Competitors nowadays
+\item Technical Infrastructure needed
+\item Licenses, we have heard about some BSD or GPL, but not sure!
+\item Good practices in the source code in FLOSS environment
+\item Others...
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Different Contexts}
+\begin{itemize}
+\item Product similar to Open Office (problem: parts of the source code are owned by another company)
+\item Product similar to Zope/Plone
+\item Product similar to Kopete or Gaim
+\item Excelent IDE for Python
+\item Micro-blogging
+\item Mobile browser for Internet
+\end{itemize}
+\end{frame}
+
+
+
+
+
+\end{document}
