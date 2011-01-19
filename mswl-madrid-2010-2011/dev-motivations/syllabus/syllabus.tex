@@ -2,7 +2,7 @@
 %\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{url}
-\usepackage[hypertex,colorlinks]{hyperref}
+\usepackage[pdfborder=0 0 0]{hyperref}
 %\usepackage{html}
 %\usepackage{hthtml}
 \usepackage{geometry}
@@ -20,28 +20,166 @@
 % Just a shortcut for links where the url appears as footnote.
 \newcommand{\htflink}[2]{\htmladdnormallinkfoot{#1}{#2}}
 
-\title{MSWL Developers and motivation \\
+\title{MSWL Economic Aspects \\
 Master on libre software \\
 URJC - GSyC/Libresoft \\
 \url{http://master.libresoft.es}}
 
-\author{Felipe Ortega}
-\date{October 2010}
+\author{Felipe Ortega, Pedro Coca, José Gato, Juan José amor and Miquel Vidal}
+\date{November 2010}
 
 \sloppy
 \begin{document}
 \maketitle
 
 \begin{abstract}
-Course syllabus and learning program for the course ``Developers and their motivations'', 
-of the Master on libre software of the Universidad Rey Juan Carlos (Móstoles, Spain).
+Course syllabus and learning program for the course ``Developers and Motivation'', of the Master on libre software at Universidad Rey Juan Carlos (Móstoles, Spain).
 
 [This is an evolving document, until the course is finished and graded]
 \end{abstract}
 
 \tableofcontents
 
-\section{Grading plan}
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+\section{Course topics and schedule}
+
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+\subsection{00 - Presentation of the course}
+
+An overivew of this course, including sessions, content and activities. We also explain all aspects related to administrative issues and evaluation.
+
+Supporting materials and references can be found on the Moodle page for this course.
+
+%%----------------------------------------------------------------
+\subsubsection{October 14, 2010 (0.5 hours)}
+
+\begin{itemize}
+\item \textbf{Lecturer:} Felipe Ortega
+\item \textbf{Presentation:} ``Course presentation''
+  \begin{itemize}
+  \item \textbf{Supporting material:} Slides ``Course presentation''
+  \end{itemize}
+\end{itemize}
+
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+\subsection{01 - Introduction and motivation}
+
+Introduction to different profiles of developers in FLOSS projects, and their motivations.
+
+%%----------------------------------------------------------------
+\subsubsection{October 14, 2010 (2 hours)}
+
+\begin{itemize}
+\item \textbf{Lecturer:} Jose Gato
+\item \textbf{Presentation:} ``Characterization of libre software developers''
+  \begin{itemize}
+  \item \textbf{Discussion:} Conclusions drawn from different studies analyzing developers profiles in FLOSS projects.
+  \item \textbf{Supporting material:} Slides ``Characterization of libre software developers''
+  \end{itemize}
+\item \textbf{Discussion and assignment (results in website):} Statements about FLOSS developers (assignment~\ref{sub:statements-devs})
+\item \textbf{Analysis of the paper:} \textit{Geographic origin of libre software developers} (assignment~\ref{sub:geo-origin-devs})
+\end{itemize}
+
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+\subsection{02 - Motivations of libre software developers}
+
+In-depth analysis of motivations behind the participation of developers and other contributors in FLOSS projects.
+
+%%----------------------------------------------------------------
+\subsubsection{October 14, 2010 (2 hours)}
+
+\begin{itemize}
+\item \textbf{Lecturer:} Pedro Coca
+\item \textbf{Presentation:} ``The Cathedral and the Bazaar''
+  \begin{itemize}
+  \item \textbf{Supporting material:} Slides ``The Cathedral and the Bazaar''
+  \end{itemize}
+\item \textbf{Discussion and assignment (results in website):} Conclusions from \textit{The Cathedral and the Bazaar} (assignment~\ref{sub:cathedral-bazaar}).
+\end{itemize}
+
+%%----------------------------------------------------------------
+\subsubsection{October 21, 2010 (4.5 hours)}
+
+\begin{itemize}
+\item \textbf{Lecturer:} Felipe Ortega
+\item \textbf{Activity:} ``The OpenSSL affair in Debian''
+  \begin{itemize}
+  \item \textbf{Supporting material:} Introductory slides ``The OpenSSL affair in Debian''
+  \end{itemize}
+\item \textbf{Discussion and assignment (results in website):} Investigate the origin and development of this critical security issue in Debian (assignment~\ref{sub:openssl-affair}).
+\end{itemize}
+
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+\subsection{03 - Roles and organization in libre software projects}
+
+Presentation of different roles and organizational teams in FLOSS projects and other open communities (like Wikipedia).
+
+%%----------------------------------------------------------------
+\subsubsection{October 28, 2010 (4.5 hours)}
+
+\begin{itemize}
+\item \textbf{Lecturer:} Felipe Ortega.
+\item \textbf{Presentation:} ``Roles and organization in FLOSS projects''
+  \begin{itemize}
+  \item \textbf{Discussion:} List of roles in FLOSS projects. Presentation of teams and roles in ASF, Mozilla and Wikipedia.
+  \item \textbf{Supporting material:} Introductory slides ``Roles and organization in FLOSS projects''
+  \end{itemize}
+\item \textbf{Discussion and assignment (results in website):} Split in 2 groups, investigate the roles and teams in Fedora and Ubuntu (one for each group) (assignment~\ref{sub:roles-debian}).
+\item \textbf{Discussion and assignment (results in website):} Investigate the roles and teams in Debian (assignment~\ref{sub:roles-debian})
+\end{itemize}
+
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+\subsection{04 - Leadership in libre software projects}
+
+A tour through different profiles of prominent leaders in FLOSS projects and open communities.
+
+%%----------------------------------------------------------------
+\subsubsection{November 4, 2010 (4.5 hours)}
+
+\begin{itemize}
+\item \textbf{Lecturers:} Juan José Amor and Miquel Vidal.
+\item \textbf{Presentation:} ``FLOSS leaders''
+  \begin{itemize}
+  \item \textbf{Discussion:} Analysis of different profiles of relevant leaders in FLOSS projects.
+  \item \textbf{Supporting material:} Slides ``FLOSS leaders''
+  \end{itemize}
+\item \textbf{Discussion and main assignment:} Final report about a relevant FLOSS leader (assignment~\ref{sub:floss-leaders}).
+
+\end{itemize}
+
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+\subsection{05 - Social structure: the onion model and generational relay}
+
+Introduction to the onion model explaining the social structure in FLOSS projects. Overview of the generational relay effect in the core of most active contributors in FLOSS projects.
+
+%%----------------------------------------------------------------
+\subsubsection{November 11, 2010 (4.5 hours)}
+
+\begin{itemize}
+\item \textbf{Lecturer:} Felipe Ortega.
+\item \textbf{Presentation:} ``The social structure of FLOSS communities''
+  \begin{itemize}
+  \item \textbf{Discussion:} Conclusions from the structure identified in FLOSS projects.
+  \item \textbf{Supporting material:} Slides ``The social structure of FLOSS communities''
+  \end{itemize}
+\item \textbf{Discussion and assignment (results in website):} Provide empirical proofs of the existence of the onion model in a FLOSS commuinity of your choice (assignment~\ref{sub:empirical-onion}).
+
+\end{itemize}
+
+\section{Grading}
+
+This section details the criteria for grading the course, the deadlines for the different activities, and the submission details for th activities that require them.
+
+\subsection{Evaluation criteria}
+\label{sub:evaluation-criteria}
 
 Each activity contributing to the grading of the course has its own evaluation criteria, 
 as described below. Each of these activities has a minimum and maximum grading. If the 
@@ -63,10 +201,8 @@ assigning marks:
 \begin{itemize}
 \item Pass (``aprobado''): 150
 \item Good (``notable''): 250
-\item Excellent (``sobresaliente): 350
+\item Excellent (``sobresaliente''): 350
 \end{itemize}
-
-\subsection{Graded activities}
 
 \begin{itemize}
 \item \textbf{Exercises (answered in forum)}. \\
@@ -115,102 +251,174 @@ heavily root the report on data and/or specific works publicly available.
   These activities have to be agreed with the instructors.
 \end{itemize}
 
-\section{Sessions}
+\subsection{Submission deadlines}
 
-\subsection{Session 1 (Thu. October 14, 2010)}
+All activities to be graded in January must be completed and submitted by January 9, 2011.
+
+\subsection{Submission details}
+
+Please, consider the details below for submitting the different activities for evaluation (for those not specified in this list, nothing special is needed for submission).
 
 \begin{itemize}
- \item \textbf{Professors}: José Gato and Pedro Coca.
+\item As a summary of all the activities, a ``Summary of activities for evaluation'' should be sent. This summary should be uploaded to the corresponding resource in the Moodle site for this course, and should include the following data:
+  \begin{itemize}
+  \item \textbf{Name:} Full name of the student (as ``family name'', ``given name'')
+  \item \textbf{Blog entries:} Url of the blog entries for this course (HTML, not RSS version). The tag is \textit{mswl-dm}.
+  \item \textbf{Contributions to the collaborative notebook:} Id for commits to the repository where the collaborative notebook is hosted, and summary of the main contributions to it related to this course, including links to the repository and commit ids if appropriate.
+  \item \textbf{List of other activities:} If any, list of other activities submitted for evaluation (those that would fit in the ``other activities'' item in the ``Evaluation criteria'' (subsection~\ref{sub:evaluation-criteria}). The results of those activities should be uploaded to the ``other activities'' resource in the Moodle site for this course, when appropriate. In some specific cases (such as streaming videos) it will be enough to include in this list the url to the external site where the result is hosted.
+  \end{itemize}
+\end{itemize}
 
- \item \textbf{Content}:
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+\section{Assignments and activities}
 
-  \begin{enumerate}
-   \item Characterization of libre software developers.
-   \item Analysis of the paper \textit{Geographic origin of libre software developers}, by J.M. González-Barahona,
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+\subsection{01 - Introduction and motivation}
+
+
+%%----------------------------------------------------------------
+\subsubsection{Statements about libre software developers}
+\label{sub:statements-devs}
+Discussion about some statements usually attributed to motivations and rationale behind contributions of FLOSS developers. 
+They could be true, or not, or arguable. Working in groups, prepare and consolidate your answers collaboratively. The goal is to refute some myths in this regard.
+
+\textbf{Supporting material}
+
+\begin{itemize}
+\item Slides ``FLOSS developers statements''.
+\end{itemize}
+
+%%----------------------------------------------------------------
+\subsubsection{Geographic origin of libre software developers}
+\label{sub:geo-origin-devs}
+
+Analysis of the paper \textit{Geographic origin of libre software developers} by J.M. González-Barahona,
   G. Robles, R. Andradas-Izquierdo and R. Gosh. Information Economics and Policy Volume 20, Issue 4, December 2008, Pages 356-363
   Empirical Issues in Open Source Software.
 
-    \item Analysis of the essay \textit{The Cathedral and the bazaar}, by Eric. S. Raymond. Questions and open debate in class.
-  \end{enumerate}
-
-\end{itemize}
-
-\subsection{Session 2 (Thu. October 21, 2010)}
+\textbf{Supporting material}
 
 \begin{itemize}
- \item \textbf{Professor}: Felipe Ortega.
-
- \item \textbf{Content}:
-
-  \begin{enumerate}
-   \item Practice: The OpenSSL affair in Debian. Working in groups, we analyzed in detail the case study of the security problem
-originated by a flaw in OpenSSL package in Debian. We went through all details of the story, documenting each step with mailing
-lists messages, excerpts from commits, and comments and posts from developers and experts involved in this issue.
-
-   \item Open debate: We divided the class in two groups. One group assumed the role of Debian, while the others acted as OpenSSL. Each
-team prepared a short slide presentation (including as many concrete proofs as possible) to show that the other group was liable for
-this OpenSSL affair in Debian.
-  \end{enumerate}
-
+\item Paper ``Geographic origin of libre software developers''.
 \end{itemize}
 
-\subsection{Session 3 (Thu. October 28, 2010)}
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+\subsection{02 - Motivation of libre software developers}
 
-  \begin{itemize}
-   \item \textbf{Professor}: Felipe Ortega.
 
-   \item \textbf{Content}:
+%%----------------------------------------------------------------
+\subsubsection{Conclusions from ``The Cathedral and the Bazaar''}
 
-   \begin{enumerate}
-    \item Roles in FLOSS projects and open communities: Theoretical presentation summarizing the main profiles found in FLOSS and other
-open communties, and the necessary skills to match each profile.
+Discussion and conclusions extracted from the essay ``The Cathedral and the Bazaar'', by Eric. S. Raymond.
 
-    \item Exercise: In two groups, we analyzed the roles in Ubuntu and Fedora communities. Explain the most salient traits found in each main
-role, and how roles are linked with teams, groups, management and technical plans.
-
-    \item Organization in FLOSS and open communities: We explored 2 case studies (Apache SF and Mozilla Found.) to learn different approaches
-follow for community organization and governance.
-
-    \item Exercise: Search for information about internal organization in the Wikipedia communty.
-
-    \item Homework: Search for details about organization and different roles in Debian. Answer some concrete questions posted in the Q/A forum.
-   \end{enumerate}
-
-  \end{itemize}
-
-\subsection{Session 4 (Thu. November 4, 2010)}
+\textbf{Supporting material}
 
 \begin{itemize}
- \item \textbf{Professors}: Juan José Amor and Miquel Vidal.
-
-  \item \textbf{Content}:
-
-  \begin{enumerate}
-   \item FLOSS leaders: Short introduction on the story and origin of FLOSS leaders, their commont traits and skill.
-
-   \item Group dynamic: Create a short presentation about a FLOSS leader (10 different profiles presented). For each leader, find out some
-details about bio, projects that founded or led, current activities, what they do now for a living, etc.
-
-   \item \textbf{Main assignment}: Ellaborate a short work summarizing in 10 pages the complete profile of a FLOSS leader of your choice.
-  \end{enumerate}
-
+\item Paper ``The Cathedral and the Bazaar''.
 \end{itemize}
 
-\subsection{Session 5 (Thu. November 11, 2010)}
+%%----------------------------------------------------------------
+\subsubsection{The OpenSSL affair in Debian}
+\label{sub:openssl-affair}
+
+This activity takes a whole session. Working in groups, the students must follow all details related to the big security issue
+discovered by a bug inadvertently introduced in the openssl package in Debian. This bug is still recalled as one of the worst security
+flaws in the history of Debian, and it also affected other close related projects (such as Ubuntu).
+
+The outcome of the analysis should be a presentation from each group answering key question about the chrnology of this affair and its
+main consequences.
+
+In the second part of the exercise, students divide in 2 groups representing OpenSSL and Debian, respectively. Each team must try to gather
+enough evidence as to blame the other group for creating this security issue. Evidences should include mailing list messages, comments in
+commits, personal blogs and any other traces that can point back to provable facts in this story.
+
+\textbf{Supporting material}
 
 \begin{itemize}
- \item \textbf{Professor}: Felipe Ortega.
+\item Slides ``The OpenSSL affair in Debian''.
+\end{itemize}
 
- \item \textbf{Content}:
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+\subsection{03 - Roles and organization in libre software projects}
 
- \begin{enumerate}
-  \item Social structure of FLOSS communities: We introduced the paper \textit{The Social Structure of Free and Open Source Software Development}, by
-K. Crowston and J. Howison, First Monday Vol. 10 (2), 2005. Then, we presented different methodologies to analyze the structure of FLOSS communities.
 
-  \item Exercise: We explored the quantitative data from the SVN and bug tracking system of the \textit{brasero} project in GNOME. Retrieve the information
+%%----------------------------------------------------------------
+\subsubsection{Teams and roles in Fedora and Ubuntu}
+\label{sub:roles-debian}
+
+Students are divided in 2 groups. One group studies the teams and roles found in Fedora, and the other group analyzes Ubuntu. Finally, each groups
+presents their conclusions about the different roles and organizational teams found in their project.
+
+\textbf{Supporting material}
+
+\begin{itemize}
+\item Slides ``Roles and organization in FLOSS projects''.
+\end{itemize}
+
+%%----------------------------------------------------------------
+\subsubsection{Teams and roles in Debian}
+\label{sub:roles-debian}
+
+Students individually study the teams and roles found in Debian, presenting a brief report with their main conclusions (results available in the course forum).
+
+\textbf{Supporting material}
+
+\begin{itemize}
+\item Slides ``Roles and organization in FLOSS projects''.
+\end{itemize}
+
+
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+\subsection{04 - Leadership in libre software projects}
+
+
+%%----------------------------------------------------------------
+\subsubsection{FLOSS leader report}
+\label{sub:floss-leaders}
+
+The main assignment for this course is to ellaborate a specific written report (5-10 pages) about a prominent leader in FLOSS. An initial list of 
+candidate profiles to choose from will be published in short on the course website. It is important to detail all the references, and to heavily root 
+the report on data and/or specific works publicly available.
+
+Max. length of the document (including graphs, tables, etc., but excluding the front page) is 10 pages.
+
+Some aspects that must be considered include:
+
+    * Biography and relevant details to contextualize their contributions in FLOSS.
+    * Annotated description of the evolution of the FLOSS project they lead, or have led in the past.
+    * Founder? Arrived lately?
+    * If possible, try to quantify their contributions (number of commits, bug fixes or other relevant activities to boost the project).
+    * Is this person still leading the project? If not, why did he/she left?
+    * Was he/she essential for the success of the project or the surrounding community? Why?
+
+It is possible that they have lead more than one project. Then, students can either focus on just one of these projects or enlighten the transitions between 
+projects and their reasons. A thorough description of the main leadership traits exhibited by the leader is essential.
+
+\textbf{Supporting material}
+
+\begin{itemize}
+\item Slides ``FLOSS leaders''.
+\end{itemize}
+
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+\subsection{05 - Social structure: the onion model and generational relay}
+
+%%----------------------------------------------------------------
+\subsubsection{The onion model in FLOSS projects}
+\label{sub:empirical-onion}
+ 
+We explored the quantitative data from the SVN and bug tracking system of the \textit{brasero} project in GNOME. Retrieve the information
 already available in Flossmetrics (\texttt{http://melquiades.flossmetrics.org}). Answer 4 concrete questions to study whether the onion model matches this community.
- \end{enumerate}
 
+\begin{itemize}
+\item Slides ``The social structure of FLOSS communities''.
 \end{itemize}
 
 \end{document}
