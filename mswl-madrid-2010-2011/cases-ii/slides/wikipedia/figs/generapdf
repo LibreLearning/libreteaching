@@ -1,0 +1,6 @@
+#!/bin/sh
+
+for var in `ls *.eps`
+do
+	ps2pdf $var
+done

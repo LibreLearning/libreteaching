@@ -1,0 +1,290 @@
+%
+% $Id: slides.tex 4228 2006-06-21 21:55:12Z jjamor $
+%
+%
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer (paquete latex-beamer en Debian)
+%
+
+%
+% Gráficos:
+% Los gráficos pueden suministrarse en PNG, JPG, TIF, PDF, MPS
+% Los EPS deben convertirse a PDF (usar epstopdf)
+%
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+\usepackage{url}
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={Libre Software Communities},
+  pdfauthor={Daniel Izquierdo Cortázar},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={nn},
+}
+%%
+
+
+\AtBeginSection[]
+{
+  \begin{frame}<presentation>
+    \frametitle{Index}
+    \tableofcontents[current]
+  \end{frame}
+}
+
+
+\begin{document}
+
+\title{Libre Software Communities: An Approach}
+\subtitle{Master on Free Software}
+\institute{dizquierdo@gsyc.escet.urjc.es\\
+GSyC/Libresoft}
+\author{Daniel Izquierdo Cort\'azar}
+\date{\today}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+
+% Si el titulo o el autor se quieren acortar para los pies de página
+% se pueden redefinir aquí:
+%\title{Titulo corto}
+%\author{Autores abreviado}
+
+
+%% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
+\frame{
+~
+\vspace{4cm}
+
+\begin{flushright}
+{\tiny
+Based on the presentation given by Jos\'e Gato and Teo Romera\\ 
+titled as ''The rising figure of the community manager'', 2007. \\
+(cc) 2011 Daniel Izquierdo Cortázar. \\
+Some rights reserved. This document is distributed under the Creative \\
+            Commons Attribution-ShareAlike 2.5 licence, available in \\
+            http://creativecommons.org/licenses/by-sa/2.5/
+
+%  Este documento (o uno muy similar) estÃ¡ disponible en \\
+%  \url{http://gsyc.escet.urjc.es/~jjamor/}
+}
+\end{flushright}
+}
+%%
+
+
+
+\section{Introduction}
+
+\begin{frame}
+ \frametitle{FLOSS Communities}
+ \begin{itemize}
+  \item Increasing complexity
+  \item Increasing commercial interest
+  \item Relations between communities and corporations
+  \item There is a need to bring the two worlds together
+  \item Dedicated new figure: The Community Manager
+ \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{Importance of Communities}
+ \begin{itemize}
+  \item \textit{Collaborative Internet has taken us from a Read/Only culture to a Read/Write one }
+   \begin{flushright}
+    Says Lessig             
+   \end{flushright}
+  \item \textit{Architecture of participation: nature of systems that are designed for user contribution}
+    \begin{flushright}
+     Says O'reilly               
+    \end{flushright}
+   \item Examples of this kind of cooperation and communities?
+ \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{Important Communities}
+ \begin{itemize}
+  \item Think about:
+    \begin{itemize}
+      \item Wikipedia: anyone can edit
+      \item Last.fm: based on what you listen to
+      \item Flickr
+      \item Facebook
+      \item Twitter
+      \item etc, etc...
+     \end{itemize}
+ \end{itemize}
+
+\end{frame}
+
+
+\section{Community Manager}
+
+\begin{frame}
+ \frametitle{What is a community manager?}
+\begin{itemize}
+ \item \textit{The online community organizer (or community manager) is one of the most important jobs of the future}
+  \begin{flushright}
+   Seth Godin          
+  \end{flushright}
+ \item Who is Seth Godin? \\
+  \textit{The ultimate entrepreneur for the information age}
+   \begin{flushright}
+     Business Week               
+   \end{flushright}
+ \item Not sure what it means, but I'd like to be one of them!
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{What is a community manager?}
+\begin{itemize}
+  \item It is a figure useful for both, FLOSS communities, but also corporations
+  \item Highly correlated to the FLOSS development model (distributed by definition)
+  \item Hybrid business models where everyone could potentially participate
+  \item Someone has to link all this together
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{What is a community manager?}
+\begin{itemize}
+  \item Cares for the health of the community
+  \item Interacts with users
+  \item Interacts with developers
+  \item Interacts with stakeholders
+  \item Organizational aspects of the project
+  \item Is the liaison between the company and the community
+  \item Different hats in different moments
+\end{itemize}
+\end{frame}
+
+
+\section{Rationale}
+
+\begin{frame}
+ \frametitle{Rationale}
+ \begin{itemize}
+  \item Companies want to establish communities around their products
+  \item They want people to engage with the company
+  \item \textit{Community managers work with a number of stakeholders and perform many different activities. 
+  They have no power over contributors and have to find interesting incentives, such as contributing 
+  to a meaningful project, in order to motivate contributors.}
+ \begin{flushright}
+   Martin Mychlmier                 
+  \end{flushright}
+ \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{Roles of a Community Manager}
+ \begin{itemize}
+  \item Facilitation.- Connect people, get started.
+  \item Delegation.- Motivation
+  \item Marketing.- Advocacy, press, conferences
+  \item Listening and observation.- Information flow
+  \item Creating vision.- Shared culture
+  \item Reporting.- Community <=> Company
+ \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{Skills of a Community Manager}
+ \begin{itemize}
+  \item Communication
+  \item Marketing
+  \item  Management
+  \item Technical Skills
+  \item Patience and helpfulness
+  \item Being visible and present
+ \end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}
+ \frametitle{Building community}
+ \begin{itemize}
+  \item Face to face meetings
+  \item Stands at conferences
+  \item Online training events
+  \item Bug squashing parties
+  \item Newsletter, planet of blogs
+ \end{itemize}
+
+\end{frame}
+
+
+\section{Examples}
+
+\begin{frame}
+ \frametitle{Exercise}
+ \begin{itemize}
+  \item Adam Williamson (Not the soccer player!)
+  \item Jono Bacon
+  \item Joe Brockmeier
+  \item Greg Dekoenigsberg
+  \item Jim Grisanzio
+  
+ \end{itemize}
+ 
+
+\end{frame}
+
+
+
+\begin{frame}
+ \frametitle{Exercise}
+ \begin{itemize}
+  \item Adam Williamson (Fedora)
+  \item Jono Bacon (Ubuntu)
+  \item Joe Brockmeier (Open Suse)
+  \item Greg Dekoenigsberg (Fedora)
+  \item Pascal Chevrel (Mozilla)
+  
+ \end{itemize}
+ 
+
+\end{frame}
+
+
+\section{Conclusions}
+
+\begin{frame}
+\frametitle{Conclusions}
+
+
+\end{frame}
+
+
+
+\end{document}
