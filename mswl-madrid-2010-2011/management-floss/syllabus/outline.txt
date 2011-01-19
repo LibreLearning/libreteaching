@@ -1,0 +1,136 @@
+Sesión 1.
+===========
+
+    - 1h/1h30: Presentación asignatura 
+        - Enfoque macro.
+            - Aspectos macroeconómicos.
+            - Aspectos estratégicos (nichos de mercado).
+            - Efectos sobre empresas fuera de negocio producción sw.
+            - Innovación abierta.
+        - Enfoque viabilidad de empresas.
+            - Clasificación de C. Daffara.
+        - Enfoque ecosistema y sostenibilidad de los proyectos.
+            - Clasificación de Hecker.
+
+    - 1h Actividad: 10 statements about FLOSS business models.
+
+            - Gobby: template para respuestas.
+            - Un fichero para cada equipo con las respuestas.
+            - Intentar documentar las respuestas.
+
+        - Actividad Moodle: Comentar el artículo de Stanford sobre impacto
+        negativo del FLOSS en mercados, dentro del contexto de lo visto en clase.
+
+    - 1h Video de Benkler. + Discusión.
+
+        Actividad Moodle:
+                - Crítica o comentario del video de Benkler.
+
+Sesión 2.
+============
+
+    - 2h: Charla invitada innovación abierta.
+        - Forum Q/A: Identificación de prácticas de innovación abierta en una
+            empresa o ecosistema.
+    - 2h: Debate abierto sobre aspectos estratégicos, fuera de negocio sw.
+        - Presentación corta. Practicas de adopción de FLOSS en empresas. TCO y otros
+        aspectos financieros y operacionales.
+            
+            http://carlodaffara.conecta.it/?p=463
+        
+        - Criterios de selección de soluciones FLOSS.
+            
+            Cap. 4 y 5 SME Guide.
+            
+        - Video de Leadbeater.
+        - Debate abierto. Caso de Android? Documentación.
+        - Forum Q/A: Elegir un sector y ver cómo introducir una estrategia
+        novedosa basada en FLOSS.
+
+Sección 3.
+=============
+
+- 2h Aspectos macro:
+      - Efectos sobre empresas fuera de negocio producción sw.
+
+      - Aspectos macroeconómicos.
+      
+- 2h Patentes de software (perspectiva económica y de mercado).
+      - Motivaciones tras la defensa de patentes de software.
+      - Aspectos negativos de las patentes de software.
+      - Implicaciones para el desarrollo de nuevos mercados y soluciones.
+      - Caso de estudio: [Jesús elige uno o varios casos de estudio favoritos].
+            - Oracle sues Google??
+
+Sección 4.
+=============
+
+- 4h: Taxonomía de Carlo Daffara.
+
+        Presentación.
+        Análisis de algunas empresas.
+        Ej hacer un modelo de negocio.
+            Screencast: del modelo de negocio.
+
+Sección 5.
+=============
+
+    - 4h: Ecosistemas y mercados alrededor del software libre. Sostenibilidad de proyectos.
+    [Algunos papers buenos en: Open source ecosystems: diverse communities interacting]
+    http://books.google.com/books?id=b7H5eBsa2DwC&lpg=PA175&ots=7FFgXV6t8p&dq=cocomo%20floss&pg=PR13#v=onepage&q=cocomo%20floss&f=false
+    
+       - 1h: Creando y uniéndose a ecosistemas y mercados con FLOSS.
+            - Paper: management styles and impact on FLOSS ecosystems.
+            
+       - 3h: Caso de estudio: Oracle adquiere Sun Microsystems.
+            - Estrategias anteriores de Sun Microsystems respecto al sofware libre.
+            - El proceso de adquisición por Oracle. Implicaciones para varios ecosistemas basados en FLOSS.
+            - Caso de ejemplo: la comunidad OpenSolaris y el proyecto Illumos.
+            - Caso de ejemplo: MySQL, implicaciones sobre cuotas de mercado.
+            
+            - Ejercicio: Analizar las razones e implicaciones de la creación de la Document Foundation y LibreOffice.
+            
+MODULOS ADICIONALES
+=====================
+
+    - 2h El caso económico de las fundaciones FLOSS (paper D. Riehle).
+            - Presentación.
+            - Casos de estudio: Apache, GNOME y KDE.
+            - Trabajo: análisis del papel de la Fundación Mozilla para la sostenibilidad de sus proyectos y su rol
+            en la potenciación de estándares web abiertos.
+            
+    - 2h Modelos de administración de software libre en grandes empresas (varios papers).
+            
+            [Quizás veo más este dentro de administración de proyectos de SL???]
+            
+            - Creación de forjas dentro de empresas.
+            - Ventajas estratégicas de desarrollo colaborativo con socios y clientes.
+            - Casos de estudio: HP, SAP.
+            
+    - 2h FLOSS en Administraciones Públicas.
+            - Presentación estudio nacional y estudios internacionales.
+            - El caso español: legislación y análisis de penetración de mercado.
+            - Otros casos: Holanda, Francia, Alemania y Australia.
+            - Debate: ventajas de la adopción del FLOSS en las AA.PP.
+            - Trabajo: reflexionar sobre el caso concreto de software para educación pública.
+            
+    - 1h30m Borderline strategies for interaction with FLOSS ecosystems.
+            - Open core y dual licensing: 
+            
+                * http://carlodaffara.conecta.it/?p=460
+                
+                * Open Core is bad for you
+                    http://www.computerworlduk.com/community/blogs/index.cfm?entryid=3047&blogid=41
+                    http://webmink.com/2010/07/14/links-for-2010-07-14/
+            - Free riders.
+            - Upstream contributions. http://carlodaffara.conecta.it/?p=471
+
+    - 2h Effort estimation, code reuse and implications for efficient, cost-wise software development
+    
+            C. Daffara: Estimating source-to-product costs for OSS: an experiment.
+                http://carlodaffara.conecta.it/?p=473
+                
+            - COCOMO II model for OSS: http://carlodaffara.conecta.it/?p=135
+            
+            - J. Ramil y Dani Izquierdo: What does it take to develop a million lines of open source code?
+            http://docencia.etsit.urjc.es/moodle/file.php/65/2009-06-02_dizquierdo_megaloc.pdf

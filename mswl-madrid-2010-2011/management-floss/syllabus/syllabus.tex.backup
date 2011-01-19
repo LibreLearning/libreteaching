@@ -1,0 +1,419 @@
+\documentclass[a4paper]{article}
+%\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+\usepackage[pdfborder=0 0 0]{hyperref}
+%\usepackage{html}
+%\usepackage{hthtml}
+\usepackage{geometry}
+
+% Comments (optional argument is author of comment)
+\newcommand{\comments}[2][?]{
+  \begin{quote}
+    \textbf{Comment (#1):} {\em #2}
+  \end{quote}
+  }
+
+% \name is for ``special names'', like procedure or variable names.
+\newcommand{\name}[1]{\texttt{\hturl{#1}}}
+
+% Just a shortcut for links where the url appears as footnote.
+\newcommand{\htflink}[2]{\htmladdnormallinkfoot{#1}{#2}}
+
+\title{MSWL Economic Aspects \\
+Master on libre software \\
+URJC - GSyC/Libresoft \\
+\url{http://master.libresoft.es}}
+
+\author{Felipe Ortega, Daniel Izquierdo Cortázar}
+\date{January 2011}
+
+\sloppy
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Course syllabus and learning program for the course ``Project Management'', of the Master on libre software at Universidad Rey Juan Carlos (Móstoles, Spain).
+
+[This is an evolving document, until the course is finished and graded]
+\end{abstract}
+
+\tableofcontents
+
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+\section{Course topics and schedule}
+
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+\subsection{00 - Presentation of the course}
+
+Presentation of the main aspects of the course, and specially those related to administrative issues, evaluation, etc.
+
+%%----------------------------------------------------------------
+\subsubsection{November 19, 2010 (1 hour)}
+
+\begin{itemize}
+\item \textbf{Lecturer:} Daniel Izquierdo Cortázar
+\item \textbf{Presentation:} ``Presentation of the course''
+  \begin{itemize}
+  \item \textbf{Supporting material:} Slides ``Presentation of the course''
+  \end{itemize}
+\item \textbf{Main assignment (results in website):} Assessment report on best practices to release a software project as FLOSS (assignment~\ref{sub:report-FLOSS-release})
+
+\item \textbf{Supporting materials:} 
+  \begin{itemize}
+  \item Text: ``Producing OSS'', by Karl Fogel (O'Reilly Media, 2005)\\
+    \url{http://producingoss.com}
+  \item Text: ``Art of Community'', by Jono Bacon (O'Reilly Media, 2009)\\
+    \url{http://www.artofcommunityonline.org} 
+  \end{itemize}
+\end{itemize}
+
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+\subsection{01 - Introduction to infrastructure used in Libre Software Communities}
+
+Introduction to the basic infrastructure and services that are essential for correct management of FLOSS projects.
+
+%%----------------------------------------------------------------
+\subsubsection{January 14, 2011 (3 hours)}
+
+\begin{itemize}
+\item \textbf{Lecturer:} Daniel Izquierdo
+\item \textbf{Presentation:} ``Introduction to infrastructure: tips and clues''
+\item \textbf{Presentation:} ``Tools for documentation and communication''
+  \begin{itemize}
+  \item \textbf{Supporting material:} Slides ``Introduction to infrastructure: tips and clues''
+  \item \textbf{Supporting material:} Slides ``Tools for documentation and communication''
+  \end{itemize}
+\item \textbf{Discussion and assignment (results in website):} The origin of GNOME and KDE (assignment~\ref{sub:gnome-kde})
+\item \textbf{Discussion and assignment (results in website):} Community forks: Compiz and Beryl (assignment~\ref{sub:compiz-beryl})
+\end{itemize}
+
+%%----------------------------------------------------------------
+\subsubsection{January 21, 2011 (1 hour)}
+
+Review and discussion of pending assignments.
+
+\begin{itemize}
+\item \textbf{Lecturer:} Felipe Ortega
+ \item \textbf{Presentation:} ``The role of community managers''.
+    \begin{itemize}
+      \item \textbf{Supporting material:} Slides ``Community manager''.
+    \end{itemize}
+\item \textbf{Discussion and assignment (results in website):} Profiles of featured community managers (assignment~\ref{sub:community-managers})
+\end{itemize}
+
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+\subsection{02 - Forges for software development}
+
+Introduction to forges for software development: services, community support and strategies for correct project management.
+
+%%----------------------------------------------------------------
+\subsubsection{January 21, 2011 (3 hours)}
+
+\begin{itemize}
+\item \textbf{Lecturers}: José Francisco Castro, Felipe Ortega
+\item \textbf{Guest presentation:} ``Forges for software development''.
+  \begin{itemize}
+  \item \textbf{Supporting material:} Slides ``Forges for software development''.
+  \end{itemize}
+\item \textbf{Discussion and assignment (results in website):} Analysis of 3 relevant forges for software development (assignment~\ref{sub:forges-analysis})
+\item \textbf{Assignment (results in website):} Choosing the best forge to release our software project. (assignment~\ref{sub:report-FLOSS-release})
+\end{itemize}
+
+% %%----------------------------------------------------------------
+% \subsubsection{December 10, 2010 (1.25 hours)}
+% 
+% Review and discussion of pending assignments.
+% 
+% \begin{itemize}
+%  \item \textbf{Lecturers}: Jesus M. Gonzalez-Barahona.
+% \item \textbf{Discussion of assignment:} Cases of free software and open innovation (assignment~\ref{sub:openinnova-cases})
+% \item \textbf{Discussion of assignment:} Charles Leadbeater on innovation (assignment~\ref{sub:openinnova-leadbater})
+% \end{itemize}
+% 
+% %%----------------------------------------------------------------
+% %%----------------------------------------------------------------
+% \subsection{03 - Business models}
+% 
+% %%----------------------------------------------------------------
+% \subsubsection{December 3, 2010 (4 hours)}
+% 
+% \begin{itemize}
+% \item \textbf{Lecturers}: Felipe Ortega.
+% \item \textbf{Presentation:} ``FLOSS business models''
+%   \begin{itemize}
+%   \item \textbf{Supporting material:} Slides ``FLOSS business models''
+%   \end{itemize}
+% \item \textbf{Discussion:} Case examples of companies running FLOSS business models (assignment~\ref{sub:business-cases}).
+% \item \textbf{Discussion and assignment (results in website):} Identify FLOSS
+% business models (assignment~\ref{sub:business-models}). First three companies were discussed in class, the rest are for answering in the website.
+% \item \textbf{Discussion and assignment (results in website):} The open core debate (assignment~\ref{sub:business-opencore}). General discussion in class, specific questions for answering in the website.
+% \item \textbf{Assignment (results in website):} The Magic Cauldron (assignment~\ref{sub:business-magic-cauldron}). General discussion in class, specific questions for answering in the website.
+% \item \textbf{Supporting material (read before session):}
+%   \begin{itemize}
+%   \item Text ``FLOSS-based business models (FLOSS guide for SMEs)'', by Carlo Daffara \\
+%     \url{http://guide.flossmetrics.org/index.php/6._FLOSS-based_business_models}
+%   \end{itemize}
+% \end{itemize}
+% 
+% %%----------------------------------------------------------------
+% \subsubsection{December 10, 2010 (0.25 hours)}
+% 
+% \begin{itemize}
+% \item \textbf{Lecturers}: Jesus M. Gonzalez-Barahona.
+% \item \textbf{Assignment (results in website):} Your very own FLOSS
+%   business plan (assignment~\ref{sub:business-plan}).
+% \end{itemize}
+% 
+% %%----------------------------------------------------------------
+% %%----------------------------------------------------------------
+% \subsection{04 - Impact on stakeholders and markets, strategic aspects}
+% 
+% %%----------------------------------------------------------------
+% \subsubsection{December 10, 2010 (2 hours)}
+% 
+% \begin{itemize}
+% \item \textbf{Lecturers}: Jesus M. Gonzalez-Barahona.
+% \item \textbf{Presentation:} ``Impact on companies using software and in the production fabric''
+%   \begin{itemize}
+%   \item \textbf{Supporting material:} Slides ``Economic impact''
+%   \end{itemize}
+% \item \textbf{Assignment and discussion (results in website):} The role of libre software (assignment~\ref{sub:impact-role}).
+% \item \textbf{Assignment (results in website):} Libre software as an strategic tool  (assignment~\ref{sub:impact-strategic-tool}).
+% \item \textbf{Supporting materials:} 
+%   \begin{itemize}
+%   \item Video: ``Open for business: Building successful commerce around open source'' \\
+%     \url{http://www.parc.com/event/1092/open-for-business.html}
+%   \item Text: ``FLOSS adoption models (FLOSS guide for SMEs)'', by Carlo Daffara \\
+%     \url{http://guide.conecta.it/index.php/3._Basic_FLOSS_adoption_models}
+%   \item Text: ``Best practices for FLOSS adoption (FLOSS guide for SMEs)'', by Carlo Daffara \\
+%     \url{http://guide.conecta.it/index.php/5._Best_practices_for_FLOSS_adoption}
+%   \item Text: ``The Economic Motivation of Open Source Software: Stakeholder Perspectives'' \\
+%     \url{http://dirkriehle.com/2008/07/20/the-economic-motivation-of-open-source-software-stakeholder-perspectives/}
+%   \end{itemize}
+%   
+% \end{itemize}
+% 
+% %% \item Debate: strategic aspects of FLOSS outside the software development business.
+% %% \item Presentation: Adoption of FLOSS in companies: TCO and other financial and 
+% %%   operational perspectives for SMEs and firms.
+% %% \item Criteria for an informed selection of FLOSS solutions.
+% %%   \begin{itemize}
+% %%   \item Video: Charles Leadbeater on open innovation.
+% %%   \end{itemize}
+% %% \item Open debate. Concrete case examples: Android.
+% %% \item \textit{Assignment}: Choose a specific sector and try to introduce a novel business strategy based on FLOSS.
+% 
+% %% \item Macroeconomics aspects.
+% %%   \begin{itemize}
+% %%   \item Implications for global and country-level finances.
+%     
+% %%   \end{itemize}
+% 
+% 
+% %%----------------------------------------------------------------
+% %%----------------------------------------------------------------
+% \subsection{05 - Sustainability of communities}
+% 
+% 
+% %%----------------------------------------------------------------
+% \subsubsection{December 17, 2010 (4 hours)}
+% 
+% \begin{itemize}
+% \item \textbf{Lecturers}: Jesus M. Gonzalez-Barahona and Felipe Ortega.
+%   
+% \item \textbf{Presentation:} ``Funding models for free software development''
+% 
+
+% \item \textbf{Supporting materials:} 
+%   \begin{itemize}
+%   \item Text: ``The Economic Case for Open Source Foundations''\\
+%     \url{http://dirkriehle.com/publications/2010/the-economic-case-for-open-source-foundations/}
+%   \item Text: ``Control Points and Steering Mechanisms in Open Source Software Projects''\\
+%     \url{http://dirkriehle.com/2010/11/24/control-points-and-steering-mechanisms-in-open-source-software-projects/} 
+%   \end{itemize}
+% \end{itemize}
+
+
+
+\section{Grading}
+
+This section details the criteria for grading the course, the deadlines for the different activities, and the submission details for th activities that require them.
+
+\subsection{Evaluation criteria}
+\label{sub:evaluation-criteria}
+
+Each activity contributing to the grading of the course has its own evaluation criteria, as described below. Each of these activities has a minimum and maximum grading. If the minimum grading is 0, the activity is optional. Otherwise, the activity is mandatory, and has to be graded at least with the minimum to pass the course. Each activity has also a description, and when possible, some general grading criteria. In any case, the final grade for the course will also depend on the continuous observation of the instructors on the outcomes and progress of students.
+
+Students should ask instructors about any detail which may not be clear to them, either about the general grading plan, or about specific aspects of the activities. As a general rule, evaluation will have into account how the activity and its results show that the student has come close to the competences, knowledge and skills expected for the course.
+
+The student can consider that the next table will be used as a (minimum) guideline for assigning marks:
+
+\begin{itemize}
+\item Pass (``aprobado''): 150
+\item Good (``notable''): 250
+\item Excellent (``sobresaliente''): 350
+\end{itemize}
+
+\begin{itemize}
+\item \textbf{Exercises (answered in forum)}. \\
+  Minimum: 20 points, maximum: 100 points.
+
+  Exercises proposed and answered in the the forum of the course.
+
+\item \textbf{Blog entries}. \\
+  Minimum: 20 points, maximum: 80 points
+
+  Blog entries specifically related to the course, and marked as such. The tag used for that is mswl-eco.
+
+\item \textbf{Collaborative notebook}. \\
+  Minimum: 0 points, maximum: 40 points
+
+  Based on work in class (in real time) and afterwards (complementing the work, using git).
+
+\item \textbf{Business plan}. \\
+  Minimum: 20 points, maximum: 80 points
+
+  Business plan for a company in which libre software clearly has an impact. The plan has to be detailed enough. Detailed description in assignment~\ref{sub:business-plan}.
+
+\item \textbf{Specific report}. \\
+  Minimum: 20 points, maximum: 80 points
+
+Specific report about a certain business model or strategy based on FLOSS, showing its general aspects, but also analyzing companies already putting it into place, discussing advantages and drawbacks of the model, etc. A detailed DAFO analysis has to be a part of the report.
+
+As a result of this activity, the student should produce:
+
+\begin{itemize}
+\item A `traditional' written report.
+\item A video or audio presentation (10 min. maximum).
+\item A set of slides supporting the presentation.
+\end{itemize}
+
+ It is important to detail all the references, and to heavily root the report on data and/or specific works publicly available. The video or audio presentation  wil be uploaded to some audio or video web hosting site which allows for download of the whole audio or video file, not only streaming (eg, blip.tv)
+
+\item \textbf{Other activities}. \\
+  Minimum: 0 points, maximum: 100 points
+
+  These activities have to be agreed in advance with the instructors.
+\end{itemize}
+
+\subsection{Submission deadlines}
+
+All activities to be graded in January must be completed and submitted by March 15th, 2010.
+
+\subsection{Submission details}
+
+Please, consider the details below for submitting the different activities for evaluation (for those not specified in this list, nothing special is needed for submission).
+
+\begin{itemize}
+\item As a summary of all the activities, a ``Summary of activities for evaluation'' should be sent. This summary should be uploaded to the corresponding resource in the Moodle site for this course, and should include the following data:
+  \begin{itemize}
+  \item \textbf{Name:} Full name of the student (as ``family name'', ``given name'')
+  \item \textbf{Blog entries:} Url of the blog entries for this course (HTML, not RSS version).
+  \item \textbf{Contributions to the collaborative notebook:} Id for commits to the repository where the collaborative notebook is hosted, and summary of the main contributions to it related to this course, including links to the repository and commit ids if appropriate.
+  \item \textbf{List of other activities:} If any, list of other activities submitted for evaluation (those that would fit in the ``other activities'' item in the ``Evaluation criteria'' (subsection~\ref{sub:evaluation-criteria}). The results of those activities should be uploaded to the ``other activities'' resource in the Moodle site for this course, when appropriate. In some specific cases (such as streaming videos) it will be enough to include in this list the url to the external site where the result is hosted.
+  \end{itemize}
+\end{itemize}
+
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+\section{Assignments and activities}
+
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+\subsection{00 - Main assignment: Report}
+
+%%----------------------------------------------------------------
+\subsubsection{Assessment on how to release a FLOSS project}
+\label{sub:report-FLOSS-release}
+
+\begin{itemize}
+ \item \textbf{Group size}: Individual or in pairs.
+ \item \textbf{Max. length}: 30 pages.
+\end{itemize}
+
+You work for an SME company evaluating how to release one of their products as FLOSS effectively.
+
+For sure, we'd like to create community around it and attract new users and contributors. A target business model similar to MySQL (dual licensing) is our main goal.
+
+Students will write a report summarizing the main aspects to be considered for the release plan, including:
+
+\begin{itemize}
+ \item Current competitors.
+ \item Technical Infrastructure needed.
+ \item Social and political organization of the project/community.
+ \item Communication strategy and channels.
+ \item Development plan (good practices for source code development) and roadmap.
+ \item Managing volunteers and attracting new users.
+ \item Brief discussion about licenses (your company has heard about some BSD or GPL, but they are not sure!).
+\end{itemize}
+
+We will tackle individual sections of the whole report as we move along the subject.
+
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+\subsection{01 - Introduction to infrastructure used in Libre Software Communities}
+
+%%----------------------------------------------------------------
+\subsubsection{The origin of GNOME and KDE}
+\label{sub:gnome-kde}
+
+Search for information about the beginning of both communities. Present it to the rest of the class.
+
+As a second question, do you think that this division of efforts is successful enough, nowadays? 
+
+%%----------------------------------------------------------------
+\subsubsection{Community forks: Compiz and Beryl}
+\label{sub:compiz-beryl}
+
+Following the previous assignment: 
+\begin{itemize}
+ \item Why did these two communities decide to divide their efforts?
+ \item Why did these two communities decide to combine efforts later? 
+\end{itemize}
+
+%%----------------------------------------------------------------
+\subsubsection{Profiles of featured community managers}
+\label{sub:community-managers}
+
+Split up in groups of 3 persons, and find out information about the profile of any of these prominent community managers:
+
+\begin{itemize}
+ \item Adam Williamson.
+ \item Jono Bacon.
+ \item Joe Brockmeier.
+ \item Greg Dekoenigsberg.
+ \item Jim Grisanzio.
+\end{itemize}
+
+\textbf{Supporting material}
+
+\begin{itemize}
+\item Slides ``Community manager''
+\end{itemize}
+
+%%----------------------------------------------------------------
+\subsubsection{Analysis of 3 relevant forges for software development}
+\label{sub:forges-analysis}
+
+Split up in groups of 3 persons, analyze the main characteristics, services and workflows found in the following 3 featured forges:
+
+\begin{itemize}
+ \item GitHub.
+ \item SourceForge.
+ \item Fusion Forge.
+\end{itemize}
+
+\textbf{Supporting material}
+
+\begin{itemize}
+\item Slides ``Forges for software development''
+\end{itemize}
+
+\end{document}
