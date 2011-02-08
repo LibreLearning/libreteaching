@@ -1,0 +1,54 @@
+
+Minipracticas para hacer en clase
+=================================
+
++ Minipractica 1: Layouts y Activity
+
+La sesión explicará como realizar aplicaciones con Activity y el
+tratamiento de los Layouts para mostrar diferentes controles en la
+pantalla.
+
+La minipractica consistira en cambiar y añadir layouts para conseguir
+otra configuración visual de la Activity. Por ejemplo añadir una
+imagen al lado, o arriba.
+
+
++ Minipractica 2: Mapas y Geolocalización
+
+La sesión explicará como crear mapas (keys), utilizarlos, superponer
+layouts con información, etc.
+
+La minipráctica consistirá en añadir los controles de mapa satélite,
+zoom, etc. Además incluiremos el mapa en un layout
+
+
++ Minipractica 3: Gestión de datos locales y remotos
+
+La sesión explicará como utilizar datos locales utilizando las
+Preferencias de la aplicación y los datos remotos como XML &
+JSON. Además se introducirá ListActivity.
+
+La minipráctica consistirá en añadir a la practica final las
+preferencias sobre la localización del GPS/WIFI.
+
+
++ Minipractica 4: Audio y Video
+
+La sesión explicará como usar el api de streaming y visualización de
+video y audio.
+
+La minipráctica consistirá en mostrar un VideoViewer en pantalla y
+acceder a la cámara IP mediante RTSP.
+Opciones: Mostrar sólo audio, mostrar sólo vídeo, mostrar ambas.
+Esta práctica se sale!! :-)
+
+
++ Minipractica 5: Trabajando en background
+
+La sesión explicará como crear y configurar un servicio para que
+trabaje en background.
+
+La minipráctica consistirá en transformar un programa que cuenta
+segundos en pantalla a un servicio. De tal manera que si la aplicación
+la suspendemos y la abrimos dentro de X segundos, no se habrá detenido
+el conteo de segundos.

@@ -1,0 +1,565 @@
+% 1- Explicar detenidamente la principal motivacion del articulo. Dejar claro cual es el posible problema
+% 2- Presentar las preguntas de investigacion pertinentes
+% 3- Presentar algunos resultados preliminares
+% 4- Presentar el trabajo llevado hasta ahora de investigacion y desarrollo
+% 5- Dejar algunas preguntas abiertas y problemas encontrados hasta ahora
+%
+% $Id: slides.tex 4228 2006-06-21 21:55:12Z jjamor $
+%
+%
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer (paquete latex-beamer en Debian)
+%
+
+%
+% Grficos:
+% Los grficos pueden suministrarse en PNG, JPG, TIF, PDF, MPS
+% Los EPS deben convertirse a PDF (usar epstopdf)
+%
+
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+\usepackage{url}
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={Libresoft},
+  pdfauthor={Daniel Izquierdo Cort\'azar},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={QualOSS: Quality of Open Source Software},
+}
+%%
+
+
+
+\AtBeginSection[]
+{
+  \begin{frame}<presentation>
+    \frametitle{Index}
+    \tableofcontents[current]
+  \end{frame}
+}
+
+
+
+
+\begin{document}
+
+
+
+\title{QualOSS: Quality of Open Source Software
+}
+\subtitle{ Master on Free Software
+}
+\institute{dizquierdo@gsyc.es\\
+GSyC/Libresoft, Universidad Rey Juan Carlos}
+\author{Felipe Ortega, Pedro Coca, Daniel Izquierdo Cort\'azar}
+\date{Fuenlabrada, Madrid\\ 2nd, December 2010}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=4cm]{format/gsyc-urjc.pdf} 
+\end{center}
+}
+
+
+% Si el titulo o el autor se quieren acortar para los pies de pgina
+% se pueden redefinir aqu:
+%\title{Titulo corto}
+%\author{Autores abreviado}
+
+
+%% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
+\frame{
+~
+\vspace{4cm}
+
+\begin{flushright}
+{\tiny
+(cc) 2010 Daniel Izquierdo Cort\'azar. \\
+Some rights reserved. This document is distributed under the Creative \\
+            Commons Attribution-ShareAlike 3.0 licence, available in \\
+            http://creativecommons.org/licenses/by-sa/3.0/
+
+%  Este documento (o uno muy similar) está disponible en \\
+%  \url{http://gsyc.escet.urjc.es/~jjamor/}
+}
+\end{flushright}
+}
+%%
+
+\frame{
+\frametitle{Table of contents}
+\tableofcontents
+}
+
+
+\section{Introduction}
+
+
+\begin{frame}
+\frametitle{Motivation}
+\begin{center}
+\begin{itemize}
+\item Plenty of companies use FLOSS products.
+\item And when acquiring software, they are not only interested to know about the product,
+\item but also about who produced that and how reliable they are.
+
+\end{itemize}
+\end{center}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{QualOSS}
+\begin{center}
+\begin{itemize}
+\item Not too many quality models are focused on FLOSS so far
+\item and if so, they are still too light weight : OpenBRR / QSoS
+
+\end{itemize}
+\end{center}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{QualOSS}
+\begin{center}
+\begin{itemize}
+\item QualOSS: Quality of Open Source Software
+\item http://qualoss.eu
+\item This project aimed to fill that gap in the state of the art
+
+\end{itemize}
+\end{center}
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Automation}
+\begin{center}
+\begin{itemize}
+\item One of its goals consisted of semi-full automation of the analysis
+\item The community metrics were retrieved using FLOSSMetrics (http://flossmetrics.org) data.
+\item And several scripts are provided for this purpose.
+\end{itemize}
+\end{center}
+\end{frame}
+
+
+\section{Methodology}
+\subsection{Initial Steps}
+
+\begin{frame}
+\frametitle{Initial set of potential quality attributes}
+\begin{center}
+\begin{itemize}
+\item Interviews with several companies.
+\item Some of them were interested in communities.
+\item In fact, some of them were just interested in the community and not the source code.
+\item Further information can be found at deliverable 1.2
+\end{itemize}
+\end{center}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Some of the questions}
+\begin{center}
+\begin{itemize}
+\item\textit{ For which types of purposes/systems do you (would you) use F/OSS products?}
+\item \textit{What are criteria that F/OSS components need to fulfill to be appropriate?}
+\item\textit{ To your knowledge, do you achieve business goals through F/OSS usage?}
+\end{itemize}
+\end{center}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Initial set of potential quality attributes}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{figs/initialqualityattributes.png}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Initial set of potential quality attributes}
+\begin{center}
+\begin{itemize}
+\item One of the main attributes raised during the interviews was
+the idea of measuring community.
+\begin{itemize}
+\item Is able a community to survive for years?
+\item Imagine that the main developer of a community disappears, how does this affect the evolvability of the product?
+\end{itemize}
+\end{itemize}
+\end{center}
+\end{frame}
+
+\subsection{Basic Quality Model: Methodology}
+
+\begin{frame}
+\frametitle{Main quality attributes}
+\begin{center}
+\begin{itemize}
+\item The two key quality attributes were Robustness and Evolvability
+\item For each of them it was followed a top-down approach
+\end{itemize}
+\end{center}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Goal - Question - Metric}
+\begin{center}
+\begin{itemize}
+\item It follows the GQM approach.
+\item Each goal (evolvability and robustness) is divided into several questions.
+\item And several metrics are defined for each question.
+
+\end{itemize}
+\end{center}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{QualOSS Quality Model}
+\begin{center}
+\begin{itemize}
+\end{itemize}
+\includegraphics[width=0.8\textwidth]{figs/rob_evol_4StdQualossMethod.png}
+\end{center}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{QualOSS Quality Model}
+\begin{center}
+\begin{itemize}
+\item Let's focus on the community side
+\end{itemize}
+
+\end{center}
+\end{frame}
+
+
+\subsection{Community Side}
+
+\begin{frame}
+\frametitle{Definitions of the main quality attributes}
+\begin{center}
+\begin{itemize}
+\item Size and Regeneration Adequacy: The degree to which the size evolution and regeneration of a FLOSS community happens at an adequate rate to maintain a sustainable community size.
+
+\item Interactivity and Workload Adequacy:   The degree to which the community interacts adequately and partition the workload among FLOSS community members adequately to maintain a community cohesion and motivated.
+\end{itemize}
+\end{center}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Questions: Size and Regeneration Adequacy}
+\begin{center}
+\begin{itemize}
+\item Has the evolution of new community members reporting bugs re-
+mained stable or grown over the history of the FLOSS endeavor? (at
+least shown a stable or positive trend overall)
+\item  Has the evolution of new code contributing members remained stable
+or grown over the history of the FLOSS endeavor? (at least shown a
+stable or positive trend overall)
+\item  Has the evolution of new members contributing data other than code
+or bug report remained stable or grown over the history of the FLOSS
+endeavor? (at least shown a stable or positive trend overall)
+\end{itemize}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Questions: Size and Regeneration Adequacy}
+\begin{center}
+\begin{itemize}
+\item  Has the evolution of new core contributing members remained stable
+or grown over the history of the FLOSS endeavor? (at least shown a
+stable or positive trend overall) (a core member is one with commit
+right who perform commits frequently for instance, more than once
+every three month period)
+\item  What is the evolution of core members who stopped contributing for
+a significant period?
+\item  Has the evolution of core members who stopped contributing for a
+significant period been compensated by the joining of new core members around the same time frame?
+\item What is the average longevity of committers to the FLOSS endeavor
+
+\end{itemize}
+\end{center}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Questions: Community Interactivity and Workload Adequacy}
+\begin{center}
+\begin{itemize}
+\item  Is the number of events adequate (to show a lively community)?
+\item Is the number of code commits adequate (to show a lively committer
+community)?
+\item Has the size of community supporting older versions of a FLOSS
+component remained sufficient? (compared to number of bug reports,
+the number of report fix vs those open and compared to code size)
+\item Are they sub-groups in the community? If so, are they disconnected
+or are active community members serving as bridges between these
+sub groups (sub groups can be at the level of roles such bug reporter,
+committer but subgroups can also be studied at the code level)
+
+\end{itemize}
+\end{center}
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{Questions: Community Composition Adequacy}
+\begin{center}
+\begin{itemize}
+\item  What companies have contributed bug reports?
+\item What companies have contributed code (code patches or code com-
+mits)?
+\item What companies have employees in leadership position in the FLOSS
+community (project leader, release manager, treasurer, ...)?
+\item What companies provide services on the FLOSS component?
+\item What are the roles who are filled by active community members?
+\item Are these roles adequate for the FLOSS endeavor in question?
+\item Is there a sufficient number of code expert on the various portion of
+the FLOSS component?
+
+
+\end{itemize}
+\end{center}
+\end{frame}
+
+
+\subsection{Metrics}
+
+\begin{frame}
+\frametitle{Metrics}
+\begin{center}
+\begin{itemize}
+\item They should be as objective as possible
+\item One of more metrics are matched with a given question.
+\item \textbf{S}ize and \textbf{R}egeneration \textbf{A}dequacy (SRA)
+\item  Community \textbf{I}nteractivity and \textbf{W}orkload \textbf{A}dequacy (IWA)
+\end{itemize}
+\end{center}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Metrics: Averages}
+\begin{center}
+\begin{itemize}
+\item Metrics whose results is directly calculated as an average among some data:
+\begin{itemize}
+\item \textbf{sra7} average number of months where each committer committed,
+\item \textbf{iwa4} proportion of files maintained by a single committer,
+\item \textbf{iwa5} ratio of the number of lines of source code by the number of committers
+active in the last year,
+\item \textbf{iwa7} proportion of code files committed to in the last year.
+\end{itemize}
+
+\end{itemize}
+\end{center}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Metrics: Describing evolution of the community}
+\begin{center}
+\begin{itemize}
+\item Metrics whose results aim to represent the evolution of a given concept:
+\begin{itemize}
+\item \textbf{sra2} number of new code committers in the interval,
+\item \textbf{sra3} number of new non code committers in the interval,
+\item \textbf{sra9} number of active code committers in the interval,
+\item \textbf{iwa1} ratio of the number of commits by the number of committers in the
+interval,
+\item \textbf{iwa2} ratio of the number of code commits by the number of code committers
+in the interval.
+\end{itemize}
+\end{itemize}
+\end{center}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Metrics: Describing the evolution of the community}
+\begin{center}
+\begin{itemize}
+\item Next metrics use the notion of \textit{core committer}
+\begin{itemize}
+\item \textbf{sra4} number of new core committers in the year
+\item \textbf{sra5} number of core committers that quit in the year
+\item \textbf{sra6} difference between sra4 and sra5.
+
+\end{itemize}
+\end{itemize}
+\end{center}
+\end{frame}
+
+
+
+\subsection{Obtaining Metrics}
+
+\begin{frame}
+\frametitle{Methodology}
+\begin{center}
+\begin{itemize}
+\item To measure risky situations, thresholds were defined: green, yellow, red and black.
+\item Those thresholds were derived from a statistical analysis of a set of 1400 projects from FLOSSMetrics dataset.
+\item Those thresholds show how a given project is located among others. This could be useful from
+the point of view of benchmarking. 
+\item Having a black color does not mean that this project is ``bad'', but it means that the results were in the set of projects that are most far from the average.
+
+\end{itemize}
+\end{center}
+\end{frame}
+
+
+
+
+
+\section{Results}
+
+
+\begin{frame}
+\frametitle{Some Results}
+\begin{center}
+\begin{itemize}
+\item sra7: Average longevity measured in months.
+\item iwa4: Territoriality.
+\item sra2: New code core contributors.\\
+\end{itemize}
+
+\vspace{0.5cm}
+
+\begin{tabular}{l*{4}{c}}
+%\toprule
+Pred.\ diff.  & evolution & evince & httpd1.3\\
+\hline\noalign{\smallskip}
+
+sra7 &  8.6044 Y   & 5.0272 B   & 15.7206 G\\
+\hline\noalign{\smallskip}
+iwa4 &  0.3666 G   & 0.4216 G   & 0.0923 G\\
+%iwa5 &  374772.4 B & 48282.8 R  & -\\
+%iwa7 &  0.145 G    & 0.1904 Y   & 6.0e-4 B\\
+\hline\noalign{\smallskip}
+%$\Delta_{90}$ sra2$_30}   & 0 Y & 0 Y & 0 Y & 0 Y\\
+$\Delta_{90}$ sra2$_{90}$   & 0 Y & 0 Y & 0 Y\\
+%$\Delta_{90}$ sra2$_180}  & 0 Y & 0 Y & 0 Y & 0 Y\\
+%$\Delta_{180}$ sra2$_30}  & 0 Y & 0 Y & 0 Y & 0 Y\\
+%$\Delta_{180}$ sra2$_90}  & 0 Y & 0 Y & 0 Y & 0 Y\\
+%$\Delta_{180}$ sra2$_{180}$ & 0 Y & 0 Y & 0 Y & 0 Y\\
+
+%$\Delta_{90}$ sra3$_30}   & 0 Y & 0 Y & 0 Y & 0 Y\\
+   %$\Delta_{90}$ sra3$_{90}$   & 0 Y & 0 Y & 0 Y\\
+%$\Delta_{90}$ sra3$_180$  & 0 Y & 0 Y & 0 Y & 0 Y\\
+%$\Delta_{180}$ sra3$_30}  & 0 Y & 0 Y & 0 Y & 0 Y\\
+%$\Delta_{180}$ sra3$_90}  & 0 Y & 0 Y & 0 Y & 0 Y\\
+%$\Delta_{180}$ sra3$_{180}$ & 0 Y & 1 Y & 0 Y & 0 Y\\
+
+%$\Delta_{90}$ sra9$_30}   & 0 Y & 0 Y & 0 Y & 0 Y\\
+   %$\Delta_{90}$ sra9$_{90}$   & 0 Y & 0 Y & 0 Y\\
+%$\Delta_{90}$ sra9$_180}  & 0 Y & 0 Y & 0 Y & 0 Y\\
+%$\Delta_{180}$ sra9$_30}  & 0 Y & 0 Y & 0 Y & 0 Y\\
+%$\Delta_{180}$ sra9$_90}  & 0 Y & 0 Y & 0 Y & -1 R\\
+%$\Delta_{180}$ sra9$_{180}$ & 0 Y & 0 Y & 0 Y & -1 R\\
+
+%$\Delta_{90}$ iwa1$_30}  & -0.11461449 R & 0.01739115 Y & -0.09101181 R & -0.26294442 R\\
+    %$\Delta_{90}$ iwa1$_{90}$  & -0.23327969 R & -0.0312513 R & -0.62113349 R\\
+%$\Delta_{90}$ iwa1$_180} & -0.308871655 R & -0.12249361 R & -0.36510017 R & -1.09633002R\\
+%$\Delta_{180}$ iwa1$_30} & -0.22922898 Y & 0.0347823 Y & -0.18202362 Y & -0.52588884 Y\\
+%$\Delta_{180}$ iwa1$_90} & -0.46655938 Y & -0.0625026 Y & -0.40314032 Y & -1.24226698 R\\
+%$\Delta_{180}$ iwa1$_{180}$& -0.61774331 Y & -0.24498722 Y & -0.73020034 Y & -2.19266004 R\\
+
+%$\Delta_{90}$ iwa2$_30}  & -0.53154186 R & 0.37025139 Y & -0.79931637 R & -0.26808226 R\\
+     %$\Delta_{90}$ iwa2$_{90}$  & -1.03448107 R & 0.31998312 Y & -0.76343814 R\\
+%$\Delta_{90}$ iwa2$_180} & -1.236808695 R & -0.078177255 R & -2.75218718 R & -1.3574936 R\\
+%$\Delta_{180}$ iwa2$_30}  & -1.06308372 Y & 0.74050278 Y & -1.59863274 Y & -0.5361645 Y\\
+%$\Delta_{180}$ iwa2$_90}  & -2.06896214 R & 0.63996624 Y & -3.21783906 R & -1.52687628 Y\\
+%$\Delta_{180}$ iwa2$_{180}$ & -2.47361739 R & -0.15635451 Y & -5.50437436 R & -2.71498719 R\\
+
+%\hline\noalign{\smallskip}
+%$\Delta$ sra4  & 1 G & 2 G &  0 Y\\
+%$\Delta$ sra5 & 1 B & 1 B &  0 R\\
+%$\Delta$ sra6 & -1 R & 0 Y &  0 Y\\
+%\hline\noalign{\smallskip}
+\end{tabular}
+
+\end{center}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Results}
+\begin{center}
+\begin{itemize}
+\item At CETIC website: \url{http://ingrid.cetic.be:33323/qualoss_assessment/}
+\item At FLOSSMetrics website: \url{http://melquiades.flossmetrics.org/projects/octave/quality}
+\end{itemize}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Conclusions}
+\begin{center}
+\begin{itemize}
+\item Statistical approach to create a benchmarking to give a mark for a given project and for a given metric.
+\item This could be useful to check the tendency of the community since part of the metrics measure the evolution of some characteristics.
+\item As said, indicators measure relative and not absolute risk. 
+\item 22 metrics proposed for the community side, where 16 of them are fully automated using data 
+from FLOSSMetrics.
+\end{itemize}
+\end{center}
+\end{frame}
+
+%**********************
+
+
+\begin{frame}
+\frametitle{Questions?}
+\begin{center}
+%Thanks for your attendance!\\
+Questions?\\
+%--\\
+%\begin{small}
+%Daniel Izquierdo Cortzar\\
+%dizquierdo@gsyc.es\\
+%GSyC/LibreSoft - Universidad Rey Juan Carlos\\
+%\end{small}
+\end{center}
+\end{frame}
+
+
+
+
+\end{document}

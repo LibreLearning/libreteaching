@@ -1,0 +1,539 @@
+\documentclass{beamer}
+% imprimir
+% \documentclass[handout]{beamer} 
+% \usepackage{pgfpages}
+% \pgfpagesuselayout{4 on 1}[a4paper,landscape,border shrink=5mm]
+
+\mode<presentation> {
+  \usetheme{Warsaw}
+  \setbeamercovered{transparent}
+}
+
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphics}
+\usepackage{epstopdf}
+
+\usepackage{amssymb} % Simbolos matematicos
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+
+%% Metadatos del PDF.
+\hypersetup{  
+  pdftitle={Introducción a Wikipedia},
+  pdfauthor={Miquel Vidal},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Máster URJC},
+}
+%%
+
+%\setbeamerfont*{frametitle}{size=\huge}
+
+\begin{document}
+
+\title{Wikipedia, la enciclopedia libre}
+\subtitle{Máster de software libre}
+\institute{\{mvidal,jfelipe\}@gsyc.urjc.es \\
+GSyC/LibreSoft} 
+\author{Miguel Vidal, Felipe Ortega}
+% \date{\today}
+\date{Fuenlabrada, 13 de enero 2011}
+
+{
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+}
+
+\frame{
+~
+\vspace{2cm}
+
+\begin{footnotesize}
+\begin{flushright}
+  \copyright~2011 Miguel Vidal. \\
+  Algunos derechos reservados. Este artículo se distribuye bajo
+  la licencia ``Reconocimiento 3.0 España'' de Creative Commons,
+  disponible en \url{http://creativecommons.org/licenses/by/3.0/es/deed.es}
+  
+  %Este documento (o uno muy similar) está disponible en \\
+  %\url{http://curso-sobre.berlios.de}
+\end{flushright}
+\end{footnotesize}
+
+}
+%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{¿Quiénes somos?}
+
+\begin{itemize}
+\item \alert{Miguel Vidal:}
+	\begin{itemize}
+	\item Bibliotecario (\textit{sysop}) y \textit{burócrata} desde feb/2007.
+	\item +11.000 ediciones y +150 artículos nuevos. 
+	\item Un Artículo Destacado("<Josep Pla">): solo un 0,13 son AD (945 de 700K, enero 2011). 
+	\item Ha contribuido en 2.300 artículos distintos. 
+	\end{itemize}
+
+\item \alert{Felipe Ortega:} 
+	\begin{itemize}
+	\item 4 años investigando Wikipedia desde un punto de vista cuantitativo.
+	\item Autor de una tesis doctoral comparando las 10 mayores Wikipedias.
+	\item Autor de una herramienta para analizar Wikipedia: WikiXRay
+	\item PC Chair WikiSym 2010 (Conf. Internacional Wikis y Colaboración abierta).
+	\end{itemize}
+
+\end{itemize}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+% \frametitle{Quiénes somos}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=9cm]{figs/UserPage.png}
+\caption{Mi página de usuario.}
+\end{figure}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+% \frametitle{Quiénes somos}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=9cm]{figs/EditCounter.png}
+\caption{Contador de ediciones.}
+\end{figure}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+% \frametitle{}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=8cm]{figs/wsj.jpg}
+\caption{Artículo en el Wall Street Journal sobre investigación en LibreSoft.}
+\end{figure}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Wikipedia: la enciclopedia libre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+\begin{center}
+\huge{Wikipedia: la enciclopedia libre}
+\end{center}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Qué es Wikipedia}
+
+\begin{itemize}
+\item Wikipedia es una \alert{enciclopedia} de contenido \alert{libre}.
+\item Está escrita de manera colaborativa por miles de voluntarios de todo el mundo basándose en tecnología wiki.
+\item Está disponible en numerosas lenguas. Cada edición es independiente de las demás.
+\item Pero todas ellas comparten cinco ``pilares'' comunes.
+\item Se comparten datos entre las ediciones: repositorio de imágenes, proyectos de traducción, enlaces entre ediciones, etc.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Historia de Wikipedia (1)}
+
+\footnotesize
+
+\begin{itemize}
+\item 25 marzo 1995: Ward Cunningham instala el sitio web editable en un servidor.
+\item 9 marzo 2000: Nace Nupedia. Escrita por expertos (\textit{peer review}) y contenido libre. Fundado por Wales. Larry Sanger, editor en jefe.
+\item \alert{15-01-2001}: fundada en inglés por Jimbo Wales y Larry Sanger (actual fork Citizendium), como una extensión ágil de Nupedia.
+\item 16 marzo 2001: Primeras versiones en idiomas distintos del inglés (catalán entre ellos).
+\item 26 febrero, 2002: Fork de la Wikipedia en español (Enciclopedia Libre) por supuesta ``censura'', existencia de línea editorial y temor a la comercialización del proyecto. 
+\item 1 marzo 2002: Larry Sanger abandona Nupedia y Wikipedia.
+\item Agusto 2002: Wales anuncia que no habrá anuncios en Wikipedia, en respuesta al fork español. 
+\item 20 junio 2003: Jimmy Wales anuncia la Wikimedia Foundation.
+\item Septiembre 2003: Servidor de Nupedia cae y queda offline. Nunca regresa.
+\end{itemize}
+
+\end{frame}
+
+\normalsize
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Historia de Wikipedia (2)}
+
+\begin{itemize}
+\item \alert{2007}: Wikipedia en inglés superó los 2M de artículos (mayor enciclopedia de la historia). 
+\item La marca depende de Wikimedia Foundation. Pero los contenidos son de sus autores y el conjunto de la comunidad.
+\item Actualmente Wikipedia tiene 17M de artículos. (3,5M en inglés, 700K en español), ediciones en más de 260 lenguas (24 superan los 100.000 arts. y 81 los 1000). 
+\item Edición en español (\alert{enero 2011}): 1.698.439 usuarios, de los cuales menos del 1\% son usuarios activos (13.575), 140 son bibliotecarios activos y +200 son bots de mantenimiento. 
+\end{itemize}
+
+\end{frame}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{¿Qué significa libre?}
+
+\begin{itemize}
+
+\item ``Libre'' en el contexto de Wikipedia significa: 
+\begin{itemize}
+\item {\alert{Libertad 0:} Usarla como quieras, donde quieras.}
+\item {\alert{Libertad 1:} Copiarla las veces que quieras.} 
+\item {\alert{Libertad 2:} Redistribuirla a quien quieraa por los medios que
+quieraa}
+\item {\alert{Libertad 3:} Modificarla (mejorarla, estudiarla, adaptarla\dots)}
+\end{itemize}
+
+\end{itemize}
+
+\pause
+\begin{center}
+\alert{Libre $==$ licencia libre}
+\end{center}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Licencia libre}
+
+\begin{itemize}
+\item {Desde junio de 2009: Licencia CC-by-SA 3.0 (copyleft)}
+\item {Esta licencia libre permite copiar, redistribuir y modificar el contenido de Wikipedia con o sin fines comerciales.}
+\item {Sólo si se garantiza la misma libertad a otros y se reconoce la fuente.}
+\item {Cláusula recíproca (\textit{share-alike}): cualquier modificación mantiene todas las libertades originales.}
+\item Hasta junio de 2009: Se usó la GFDL. 
+\item Se cambio tras un referéndum, porque la GFDL está pensada para manuales de software y es incompatible con la CC-by-sa.
+\end{itemize}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Lo que Wikipedia NO es (1)}
+
+\begin{itemize}
+\item Wikipedia NO es un diccionario ni es de papel.
+\item Wikipedia NO es un editor de pensamientos originales
+\item Wikipedia NO es una tribuna de opinión
+\item Wikipedia NO es un almacén de enlaces, imágenes o archivos
+\item Wikipedia NO es un alojamiento de páginas web, blogs o una red social
+\item Wikipedia NO es una colección de información sin criterio
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Lo que Wikipedia NO es (y 2)}
+
+\begin{itemize}
+\item Wikipedia NO es una bola de cristal
+\item Wikipedia NO está censurada
+\item Wikipedia NO es un experimento de anarquía
+\item Wikipedia NO es una democracia. Tampoco es una burocracia
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Wikipedia tampoco es una plataforma educativa}
+
+\begin{itemize}
+\item Su objetivo es informar, no educar sobre una materia o tema concreto. 
+\item No deben incluirse ejemplos, ejercicios, estructuras en temarios o similares. 
+\item El proyecto de la Wikiversidad tiene esa función.
+\item \url{http://es.wikipedia.org/wiki/Wikiversidad}
+
+\end{itemize}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{¿La Wikipedia tiene normas?}
+
+\large{Si es libre, ¿significa que la Wikipedia no tiene normas?}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Los cinco pilares de Wikipedia}
+
+
+\begin{enumerate}
+\small
+\item \alert{Wikipedia es una enciclopedia}: no es un diccionario, ni una colección de textos originales, ni una máquina de propaganda, ni un periódico, ni un servidor gratuito, ni un experimento sobre la anarquía o la democracia, ni un directorio de enlaces. 
+\item \alert{Wikipedia busca el ``punto de vista neutral''}, es decir, intenta conseguir que los artículos no aboguen por un punto de vista en concreto. Implica citar fuentes autorizadas y verificables, especialmente en temas polémicos.
+\item \alert{Wikipedia es de contenido libre}: todo el texto está disponible bajo licencia Creative Commons by-sa y/o Licencia de Documentación Libre GNU (GFDL). 
+\item \alert{Wikipedia sigue unas normas de etiqueta}: presume buena fe, no títeres, no saboteo, etc.
+\item \alert{Wikipedia no tiene normas firmes} más allá de los cinco principios generales enunciados aquí. 
+\end{enumerate}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Políticas}
+
+Son necesarias: fiabilidad, vandalismos\dots
+
+\begin{itemize}
+
+\item \alert{Contenidos}: copyright, PVN, relevancia, enciclopédico.
+\item \alert{Convenciones de estilo}: estructura, secciones, marcas, inetrwikis, categorías\dots
+
+\end{itemize}
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{¿Quién tiene el control editorial?}
+
+\pause
+
+\large{La comunidad, esto es, los \alert{editores voluntarios}.}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{¿Quién escribe los artículos?}
+
+\begin{itemize}
+    \item La mayoría de artículos son editables por cualquiera.       
+    \item Los artículos se dividen en secciones editables
+independientemente.
+    \item Control de cambios concurrentes.
+
+\end{itemize}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Edición}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=7cm]{figs/wp-edit.png}
+% \caption{Time line showing some major events in the history of virtualization.}
+\end{figure}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{El historial}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=6cm]{figs/edit1.png}
+% \caption{El wiki de Wards Cunningham.}
+\end{figure}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Revisión de una edición}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=6cm]{figs/edit2.png}
+% \caption{El wiki de Wards Cunningham.}
+\end{figure}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Zona de pruebas}
+
+\begin{center}
+\url{http://es.wikipedia.org/wiki/Wikipedia:Zona_de_pruebas}
+
+\bigskip
+\pause
+
+\alert{¡Nunca deben hacerse pruebas en artículos reales!}
+\end{center}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Tipos de usuarios}
+
+\begin{itemize}
+    \item \alert{Anónimo}: Puede editar artículos o crear artículos nuevos.
+    \item \alert{Registrado}: página propia, preferencias, lista de seguimiento, uploads.
+    \item \alert{Bibliotecario} (admin, sysop)
+    \item \alert{Burócrata} (bureaucrat)
+    \item \alert{Bots}: automatizan tareas tediosas (\textit{typos}, interwikis, enlaces muertos, reversiones\dots)
+\end{itemize}
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Bibliotecarios}
+
+Algunas tareas de mantenimiento están reservadas para una clase especial de usuarios, los bibliotecarios (en inglés \textit{sysops}). Antes se les llamaba administradores en español. Son los únicos que:
+
+\begin{itemize}
+\item {pueden borrar páginas e imágenes}
+\item {pueden bloquear y desbloquear usuarios registrados e
+IPs de usuarios anónimos} 
+\item {pueden proteger y desproteger páginas.}
+\item pueden editar en páginas bloqueadas
+\item pueden ver y restaurar páginas e imágenes borradas;
+\item pueden ver las contribuciones borradas de un usuario.
+\item pueden ver la lista de páginas sin vigilar.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Elección de un bibliotecario}
+
+\begin{itemize}
+\item {Cualquier usuario con 100 ediciones y un mes puede ser elegido.}
+\item {La comunidad evalúa el trabajo global realizado por el candidato en Wikipedia incluyendo artículos, páginas de enciclopedia, atención a otros usuarios, labores de mantenimiento, mediación, discusión de políticas, etc.}
+\item {El candidato es aceptado si consigue un 75\% de votos a favor.} 
+\item Hay solo unos 100 bibliotecarios activos en la Wikipedia en español (y unos 50 retirados o inactivos).
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Lo que un bibliotecario no es}
+
+\begin{itemize}
+\item No son dueños de Wikipedia ni empleados de Wikipedia.
+\item No más derechos ni tienen autoridad de ningún tipo, más allá de la de cualquier otro wikipedista.
+\item No son los responsables de poner las normas; las normas de Wikipedia son fijadas entre todos los wikipedistas, por consenso o votación.
+\item No son los únicos que pueden luchar contra vándalos, arreglar errores, revertir, categorizar y otras tareas de mantenimiento.
+\item Aplican las normas: pero no deciden arbitrariamente qué se borra y qué no, ni a quién se bloquea y a quién no.
+\item No tienen capacidad de decisión mayor que la de cualquier otro wikipedista.
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Burócrata}
+
+En algunas ediciones de Wikipedia, un burócrata es el único que puede:
+
+\begin{itemize}
+\item Dar y retirar permisos de bibliotecario (conforme a una elección).
+\item Cambiar el nombre a usuarios registrados.
+\item Dar o retirar flag de bot.
+\end{itemize}
+
+En la Wikipedia en español los roles de bibliotecario y de burócrata están fusionados.
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Referencias}
+
+
+\begin{itemize}
+\item Los cinco pilares de Wikipedia: \url{http://es.wikipedia.org/wiki/WP:5P}
+\item Portal de la comunidad. Con todos los recursos necesarios para iniciarse: 
+\url{http://es.wikipedia.org/wiki/Portal:Comunidad}
+\item Manual de estilo: 
+\small{\url{http://es.wikipedia.org/wiki/Wikipedia:Manual_de_estilo}}
+\item Mi página personal, para dejarme dudas o comentarios: 
+\url{http://es.wikipedia.org/wiki/Usuario:Yonderboy}
+\end{itemize}
+
+\end{frame}
+
+
+\end{document}

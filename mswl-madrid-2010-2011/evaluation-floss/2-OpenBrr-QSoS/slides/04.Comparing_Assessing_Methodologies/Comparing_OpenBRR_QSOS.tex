@@ -1,0 +1,398 @@
+%
+% $Id: slides.tex 4228 2010-11-24 17:55:12Z pcoca $
+%
+%
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer (paquete latex-beamer en Debian)
+%
+
+%
+% Gráficos:
+% Los gráficos pueden suministrarse en PNG, JPG, TIF, PDF, MPS
+% Los EPS deben convertirse a PDF (usar epstopdf)
+%
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+\usepackage{url}
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={Comparing Assessment Methodologies for FLOSS: OpenBRR and QSOS},
+  pdfauthor={F. Ortega, D. Izquierdo, P. Coca},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={nn},
+}
+%%
+
+
+\AtBeginSection[]
+{
+  \begin{frame}<presentation>
+    \frametitle{Index}
+    \tableofcontents[current]
+  \end{frame}
+}
+
+
+\begin{document}
+
+\title{Comparing Assessment Methodologies for FLOSS}
+\subtitle{OpenBRR and QSOS}
+\institute{\\pcoca@libresoft.es\\
+GSyC/Libresoft}
+\author{Felipe Ortega, Daniel Izquierdo, Pedro Coca}
+\date{\today}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+
+% Si el titulo o el autor se quieren acortar para los pies de página
+% se pueden redefinir aquí:
+%\title{Titulo corto}
+%\author{Autores abreviado}
+
+
+%% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
+\frame{
+~
+\vspace{4cm}
+
+\begin{flushright}
+{\tiny
+(cc) 2010 Felipe Ortega, Daniel Izquierdo, Pedro Coca. \\
+Some rights reserved. This document is distributed under the Creative \\
+            Commons Attribution-ShareAlike 3.0 licence, available in \\
+            http://creativecommons.org/licenses/by-sa/3.0/
+
+%  Este documento (o uno muy similar) está disponible en \\
+%  \url{http://gsyc.escet.urjc.es/~jjamor/}
+}
+\end{flushright}
+}
+%%
+
+%%%%%%
+%Transpas separadas por \begin{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%\end{frame}
+
+\section{Introduction}
+
+\begin{frame}
+\frametitle{Based on}
+
+ \begin{itemize}
+ \item Comparing Assessment Methodologies for FLOSS: OpenBRR and QSoS
+ \item \textit{Jean-Christophe Deprez and Simon Alexandre}
+ \item \textit{CETIC, Charleroi, Belgium}
+ \end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Introduction}
+ \begin{itemize}
+ \item How to select FLOSS projects?
+ \item Most companies use ad-hoc methodologies to assess quality
+ \item OpenBRR and QSOS try to fill that gap
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Introduction}
+ \begin{itemize}
+ \item Light weight methodologies
+ \item QSOS (Atos Origin)
+ \item OpenBRR (Carnegie Mellon West, CodeZoo, SpikeSource and Intel)
+ \item Currently at a RFC stage.
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Motivation}
+ \begin{itemize}
+ \item Better understanding of OpenBRR and QSOS
+ \item Limitations of each assessment methodology
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}
+\frametitle{Motivation}
+ \begin{itemize}
+ \item Comparison of:
+    \begin{itemize}
+     \item Overall Approach
+     \item Scoring Procedures
+     \item Evaluation Criteria
+    \end{itemize}
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Description of QSOS and OpenBRR}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}
+\frametitle{QSOS and OpenBRR}
+ \begin{itemize}
+ \item Start from a list of projects given by the FLOSS integrator.
+ \item QSOS 1.6 provides a list of criteria and "Quality Attributes".
+ \item Scoring is provided by the QSOS given criteria.
+ \item In QSOS The evaluator can adjust the importance of each criteria.
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{QSOS and OpenBRR}
+ \begin{itemize}
+ \item OpenBRR performs a quick assessment: "Pre-screening".
+ \item OpenBRR tailors the evaluation template.
+ \item Data Collection, Processing and Translation.
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{QSOS Main Criteria}
+ \begin{itemize}
+     \item Intrinsic durability (Maturity, Adoption, etc)
+     \item Industrialised solution (Services, Documentation, etc)
+     \item Integration (Packaging, etc)
+     \item Technical adaptability (Modularity, code modification, etc)
+     \item Strategy (License, Copyright, Independence, etc)
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{BRR Main Criteria}
+ \begin{itemize}
+   \item Functionality
+   \item Usability
+   \item Quality
+   \item Security
+   \item Performance
+   \item Scalability
+   \item Architecture
+   \item Support
+   \item Documentation
+   \item Adoption
+   \item Community
+   \item Professionalism
+\end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Comparing Methodologies}
+
+\begin{frame}
+ \frametitle{QSOS vs OpenBRR}
+ \begin{itemize}
+ \item Is the range of scores adequate?
+ \item Is the scoring procedure of each evaluation criteria unambiguos?
+ \item Is the raw data required likely to be available in the field?
+ \end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{QSOS vs OpenBRR}
+ \begin{itemize}
+ \item Similarities?
+ \item Differences?
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Differences}
+
+\begin{frame}
+ \frametitle{OpenBRR}
+ \begin{itemize}
+ \item Each user may have a different sight of the product
+ \item Main criteria could be less important depending on the assigned role
+ \item "Usability" may not mean the same for a developer than for a user
+ \item "Support" may not mean the same for a developer than for a user
+ \item OpenBRR provides that flexibility
+ \end{itemize}
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{QSOS}
+ \begin{itemize}
+ \item QSOS provides an absolute score
+ \item In this way, evey analysis should give the same score
+ \item There are no roles, and no different points of view
+ \item Reduced scoring range [0-2] means less result variance between evaluators
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Ambiguity}
+ \begin{itemize}
+ \item Wording unclear or several interpretations/context are possible
+ \item QSOS: 22 scoring rules were found ambiguous
+ \item OpenBRR: 7 scoring rules were found ambiguos
+ \item Also information could be partially or not available!
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Evaluation Criteria}
+ \begin{itemize}
+ \item 16 QSOS criteria are not covered by OpenBRR
+ \item 7 OpenBRR criteria are not covered by QSOS
+ \item QSOS leaf criteria use imprecise words
+ \item OpenBRR top nodes are very broad and inaccurate
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Vitality}
+ \begin{itemize}
+ \item QSOS: Active this year. Reports in September 2010
+ \item OpenBRR: No activity. Project on stand-by
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Conclusions}
+
+\begin{frame}
+\frametitle{QSOS Advantages}
+ \begin{itemize}
+ \item Clear list of criteria
+ \item Versioned QSOS methodology
+ \item Comprehensive list of criteria
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{QSOS Disadvantages}
+ \begin{itemize}
+ \item Ambiguos scoring rules
+ \item Three levels of three criteria, a bit complex
+ \item Universality of scores
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{OpenBRR Advantages}
+ \begin{itemize}
+ \item Criteria flexibility
+ \item Clearer scoring procedure with fewer ambiguities
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{OpenBRR Disadvantages}
+ \begin{itemize}
+ \item Terminology is not as clear as QSOS's
+ \item Five scales to give a score, but half of the criteria do not use them
+ \item Less active
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Future work}
+ \begin{itemize}
+ \item These findinds show a clear room for improvement
+ \item QUALOSS project, a FP6 research project aims for that.
+ \item European Union research initiative
+ \item Will be covered as well in the next session of the masters
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Further Work}
+
+\begin{frame}
+ \frametitle{Assignment}
+ \begin{itemize}
+  \item Compare SCM Tools:
+  \begin{itemize}
+    \item Bazaar
+    \item Git
+    \item Mercurial
+  \end{itemize}
+ \end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{References}
+
+\begin{frame}
+ \frametitle{References}
+ \begin{itemize}
+  \item Open BRR. \textit{http://www.openbrr.org/}.
+  \item QSOS Website. \textit{http://www.qsos.org}.
+  \item O3S Tool \textit{http://www.qsos.org/o3s/}.
+  \item QSOS Community Web Site \textit{https://savannah.nongnu.org/projects/qsos/}.
+  \end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}

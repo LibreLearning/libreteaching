@@ -1,0 +1,218 @@
+
+%
+% $Id: slides.tex 4228 2006-06-21 21:55:12Z jjamor $
+%
+%
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer (paquete latex-beamer en Debian)
+%
+
+%
+% Gráficos:
+% Los gráficos pueden suministrarse en PNG, JPG, TIF, PDF, MPS
+% Los EPS deben convertirse a PDF (usar epstopdf)
+%
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+\usepackage{url}
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={Libresoft},
+  pdfauthor={Felipe Ortega},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Automated FLOSS projects metrics},
+}
+%%
+
+
+\AtBeginSection[]
+{
+  \begin{frame}<presentation>
+    \frametitle{Index}
+    \tableofcontents[current]
+  \end{frame}
+}
+
+
+\begin{document}
+
+\title{Automated FLOSS projects metrics}
+\subtitle{Master on Libre Software}
+\institute{\\jfelipe@libresoft.es\\
+GSyC/Libresoft}
+\author{Felipe Ortega}
+\date{\today}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+
+% Si el titulo o el autor se quieren acortar para los pies de p�gina
+% se pueden redefinir aqu�:
+%\title{Titulo corto}
+%\author{Autores abreviado}
+
+
+%% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
+\frame{
+~
+\vspace{4cm}
+
+\begin{flushright}
+{\tiny
+(cc) 2010 Felipe Ortega. \\
+Some rights reserved. This document is distributed under the Creative \\
+            Commons Attribution-ShareAlike 3.0 licence, available in \\
+            http://creativecommons.org/licenses/by-sa/3.0/
+
+%  Este documento (o uno muy similar) está disponible en \\
+%  \url{http://gsyc.escet.urjc.es/~jjamor/}
+}
+\end{flushright}
+}
+%%
+
+%%%%%%
+%Transpas separadas por \begin{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%\end{frame}
+
+\section{Introduction}
+
+\begin{frame}
+\frametitle{Why we need metrics about FLOSS projects?}
+\begin{itemize}
+\item Describe and account FLOSS project organization
+\item Characterize evolution patterns in FLOSS project.
+\item Finding out common structures in FLOSS projects
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Overview of the analysis}
+ \begin{itemize}
+ \item Identify target project(s)
+ \item Retrieve information from SCM platform (CVS, SVN, GIT...)
+ \item Compute metrics and graphs locally
+ \item Arrange results and compose report
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{What we need?}
+ \begin{itemize}
+ \item Automated tools
+ \item Libre software
+ \item Support for data management and statistics
+ \item MySQL/SQLite + CVSAnalY + GNU R
+ \end{itemize}
+\end{frame}
+
+\section{CVSAnaly: retrieving data from SCMs}
+
+\begin{frame}
+ \frametitle{CVSAnalY: the tool}
+ \begin{itemize}
+ \item The CVSAnalY tool extracts information out of source 
+code repository logs and stores it into a database.
+ \item Support: CVS, SVN, GIT.
+ \item Future support: Mercurial, Bazaar.
+ \item Outcome: database of extracted information
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{CVSAnalY database schema}
+ \begin{itemize}
+ \item Data for every commit (\textit{scmlog})
+ \item Data for every file recorded (\textit{files})
+ \item Data for every contributor (\textit{people})
+ \item Basic metrics: sloc, loc, ncomments, nfunctions...
+ \item \texttt{\footnotesize http://melquiades.flossmetrics.org/wiki/doku.php?id=scm}
+ \end{itemize}
+\end{frame}
+% 
+
+\begin{frame}
+\frametitle{Installing CVSAnalY}
+ \begin{itemize}
+ \item Dependencies:
+ \begin{itemize}
+  \item mysql-server
+\item python (sqlite3, python-pysqlite2)
+\item python-mysqldb
+\item sloccount
+\item automake
+\item autoconf
+\item git-core
+\item pkg-config
+ \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Installing CVSAnalY}
+ \begin{itemize}
+  \item git clone git://git.libresoft.es/git/cvsanaly
+  \item git clone git://git.libresoft.es/git/repositoryhandler
+  \item Install Repository Handler \texttt{\$ ./autogen.sh  \&\& make \&\& sudo make install} 
+(or copy \textit{repositoryhandler} dir in \textit{/cvsanaly})
+  \item Install CVSAnalY2 \texttt{\$ sudo python ./setup.py install}
+  \item Check everything correctly works \texttt{\$ cvsanaly2 --help}
+\item Retrieving info from remote URI and using SQLite as dbserver.
+ \item \small \texttt{\$ cvsanaly2 --db-driver sqlite -d ~/db/nautilus.db \\}
+\texttt{http://svn.gnome.org/svn/nautilus}
+ \end{itemize}
+\end{frame}
+
+\section{GNU R: computing statistics}
+
+\begin{frame}
+\frametitle{Why using GNU R}
+ \begin{itemize}
+ \item Most widespread tool for statistical analysis
+ \item More than 2,000 libraries already availabe.
+ \item Perfect integration with DBs (MySQL, SQLite).
+ \item Easy automation (scripts).
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Installing GNU R}
+ \begin{itemize}
+ \item \texttt{\# apt-get install r-base r-recommended r-cran-rmysql}
+ \item You can also install additional packages (from R CRAN).
+ \item Download package, then: 
+\texttt{\$ sudo R CMD INSTALL package.gz}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{GNU R: receipts}
+ \begin{itemize}
+ \item Scripts computing statistics (numbers, graphs).
+ \item Total figures, averages...
+ \item Graphs for aggregated statistics
+ \item Example of metric evolution (monthly number of commits)
+ \item Advanced techniques made easy (season-trend decomposition).
+ \item Usage: \texttt{\$RScript <receipt-name.R> <dbname.db>}
+ \end{itemize}
+\end{frame}
+
+\end{document}

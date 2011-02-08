@@ -1,104 +1,15 @@
-%
-% $Id: slides.tex 4228 2006-06-21 21:55:12Z jjamor $
-%
-%
-% Compilar a .pdf con LaTeX (pdflatex)
-% Es necesario instalar Beamer (paquete latex-beamer en Debian)
-%
-
-%
-% Gráficos:
-% Los gráficos pueden suministrarse en PNG, JPG, TIF, PDF, MPS
-% Los EPS deben convertirse a PDF (usar epstopdf)
-%
-
-\documentclass{beamer}
-\usetheme{Warsaw}
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
-\usepackage[spanish]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage{graphics}
-\usepackage{amssymb} % Simbolos matematicos
-\usepackage{url}
-
-%\definecolor{libresoftgreen}{RGB}{162,190,43}
-%\definecolor{libresoftblue}{RGB}{0,98,143}
-
-%\setbeamercolor{titlelike}{bg=libresoftgreen}
-
-%% Metadatos del PDF.
-\hypersetup{
-  pdftitle={Ten myths about FLOSS business models},
-  pdfauthor={F. Ortega, C. Daffara},
-  pdfcreator={GSyC/Libresoft},
-  pdfproducer=PDFLaTeX,
-  pdfsubject={nn},
-}
 %%
 
+\section{Assignment: Ten myths about FLOSS business models}
 
-\AtBeginSection[]
-{
-  \begin{frame}<presentation>
-    \frametitle{Index}
-    \tableofcontents[current]
-  \end{frame}
-}
-
-
-\begin{document}
-
-\title{Ten myths about FLOSS business models}
-\subtitle{Master on Free Software}
-\institute{\\jfelipe@libresoft.es\\
-GSyC/Libresoft}
-\author{Felipe Ortega, Carlo Daffara}
-\date{\today}
-
-\frame{
-\maketitle
-\begin{center}
-\includegraphics[width=6cm]{format/gsyc-urjc}
-\end{center}
-}
-
-
-% Si el titulo o el autor se quieren acortar para los pies de p�gina
-% se pueden redefinir aqu�:
-%\title{Titulo corto}
-%\author{Autores abreviado}
-
-
-%% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
-\frame{
-~
-\vspace{4cm}
-
-\begin{flushright}
-{\tiny
-(cc) 2010 Felipe Ortega, Carlo Daffara. \\
-Some rights reserved. This document is distributed under the Creative \\
-            Commons Attribution-ShareAlike 3.0 licence, available in \\
-            http://creativecommons.org/licenses/by-sa/3.0/
-
-%  Este documento (o uno muy similar) está disponible en \\
-%  \url{http://gsyc.escet.urjc.es/~jjamor/}
-}
-\end{flushright}
-}
-%%
-
-%%%%%%
-%Transpas separadas por \begin{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%\end{frame}
-
-%\section{Aim of this exercise}
 
 \begin{frame}
 \frametitle{Dynamics and goals}
+
 \begin{itemize}
-\item We visit 10 statemens about FLOSS.
-\item Each one can be right or wrong.
+\item Statements based on ``Ten myths about FLOSS business models'', by Carlo Daffara \\
+\url{http://www.groklaw.net/articlebasic.php?story=20070828132340846}
+\item Each one can be right or wrong (or arguable).
 \item Work in groups to give simple answers supporting or rebating the statement.
 \item Document your answers with factual arguments, if possible (links, data, etc.).
 \end{itemize}
@@ -207,5 +118,3 @@ can lock the source code and force all its customers to pay for it. \end{LARGE}
 
 \end{frame}
 
-
-\end{document}
