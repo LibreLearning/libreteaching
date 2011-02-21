@@ -1,0 +1,52 @@
+
+Contenidos y enlaces:
+
+./anti-patterns-exercise.odp
+./anti-patterns-exercise.pdf
+
+Breve presentación original sobre los anti-patrones de Leary, más ejercio.
+No tiene mucho sentido si después no se ve el vídeo. La presentación
+es incompleta a propósito, para que ellos piensen en causas y soluciones.
+
+./anti-patterns.pdf
+
+Presentación original de David Neary, fuente:
+http://www.slideshare.net/nearyd/community-antipatterns
+
+./Link to Community Anti-Pat.desktop
+
+Enlace a la charla de Neary en MeeGo Conference 2010 en vídeo.
+
+./bikeshed-exercise.odp
+./bikeshed-exercise.pdf
+
+Preguntas sobre el texto en http://bikeshed.org para contestar en grupo.
+
+./managingvolunteers-fogel.odp
+./managingvolunteers-fogel.pdf
+
+Presentación original sobre Gestión de Voluntarios, basado en Cap 8
+del libro de Fogel, Producing OSS.
+
+./michlmayr-mia.pdf
+
+Artículo original de Martin Michlmayr, Managing Volunteer Activity in 
+Free Software Projects, fuente:
+http://www.cyrius.com/publications/michlmayr-mia.html
+
+./MVAiFSP-Michlmayr.odp
+./MVAiFSP-Michlmayr.pdf
+
+Presentación original comentando el artículo de gestión de voluntarios
+de Martin.
+
+./References-Community-Building.odp
+./References-Community-Building.pdf
+
+Referencias varias sobre la creación y gestión de comunidades.
+
+./sturmer-community-building.pdf
+
+Tesis de Matthias Stürmer, actualmente consultor de Ernst & Young,
+sobre creación de comunidades de software libre, fuente:
+http://opensource.mit.edu/papers/sturmer.pdf
