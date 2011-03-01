@@ -1,0 +1,204 @@
+% 1- Explicar detenidamente la principal motivacion del articulo. Dejar claro cual es el posible problema
+% 2- Presentar las preguntas de investigacion pertinentes
+% 3- Presentar algunos resultados preliminares
+% 4- Presentar el trabajo llevado hasta ahora de investigacion y desarrollo
+% 5- Dejar algunas preguntas abiertas y problemas encontrados hasta ahora
+%
+% $Id: slides.tex 4228 2006-06-21 21:55:12Z jjamor $
+%
+%
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer (paquete latex-beamer en Debian)
+%
+
+%
+% Grficos:
+% Los grficos pueden suministrarse en PNG, JPG, TIF, PDF, MPS
+% Los EPS deben convertirse a PDF (usar epstopdf)
+%
+
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+\usepackage{url}
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={Libresoft},
+  pdfauthor={Daniel Izquierdo Cort\'azar},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Master on Free Software},
+}
+%%
+
+
+
+\AtBeginSection[]
+{
+  \begin{frame}<presentation>
+    \frametitle{Index}
+    \tableofcontents[current]
+  \end{frame}
+}
+
+
+
+
+\begin{document}
+
+
+
+\title{Introduction to \textit{Libre Software Communities}
+}
+\subtitle{Master on Free Software
+}
+\author{Daniel Izquierdo Cort\'azar}
+\date{Universidad Rey Juan Carlos, Fuenlabrada, Spain\\ 18th, February, 2011}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=4cm]{format/gsyc-urjc.pdf} 
+\end{center}
+}
+
+
+% Si el titulo o el autor se quieren acortar para los pies de pgina
+% se pueden redefinir aqu:
+\title{Libre Software Communities}
+%\author{Daniel Izquierdo}
+
+
+%% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
+\frame{
+\vspace{4cm}
+
+\begin{flushright}
+{\tiny
+(cc) 2011 Daniel Izquierdo Cort\'azar. \\
+Some rights reserved. This document is distributed under the Creative \\
+            Commons Attribution-ShareAlike 2.5 licence, available in \\
+            http://creativecommons.org/licenses/by-sa/2.5/
+
+%  Este documento (o uno muy similar) está disponible en \\
+%  \url{http://gsyc.escet.urjc.es/~jjamor/}
+}
+\end{flushright}
+}
+%%
+
+\frame{
+\frametitle{Table of contents}
+\tableofcontents
+}
+
+
+\section{Administrative Data}
+
+\begin{frame}
+\frametitle{Administrative data}
+
+\begin{itemize}
+\item Second semester, 3 ECTS credits
+\item Teachers:
+  \begin{itemize}
+  \item Felipe Ortega (jfelipe at gsyc.es)
+  \item Pedro Coca (pcoca at gsyc.es)
+  \item Daniel Izquierdo (dizquierdo at gsyc.es)
+  \item Departamento de Sistemas Telemticos y Computacin (GSyC)
+  \item Rooms 106, 118 and 120 Departamental II (Mostoles campus)
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Administrative data}
+
+\begin{itemize}
+\item Invited talks:
+  \begin{itemize}
+  \item Andrea Capiluppi, professor at the University of East London, UK.
+  \item Daniel Germ\'an, professor the University of Victoria, Canada.
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{Administrative data}
+
+\begin{itemize}
+\item Schedule: Friday, 17:00-21:00
+\item Sessions:
+  \begin{itemize}
+  \item Classroom 215, Aulario II, Fuenlabrada campus
+  \item Lab 7, Laboratorios II, Fuenlabrada campus
+  \end{itemize}
+\item Moodle course (please, join it as soon as possible): \\
+  \url{http://gsyc.escet.urjc.es/moodle/course/view.php?id=132}
+\end{itemize}
+\end{frame}
+
+\section{Subjects}
+
+\begin{frame}
+\frametitle{Main topics addressed}
+
+\begin{itemize}
+\item Introduction to data mining
+\item LibreSoft tools
+\item R
+\item Software Evolution
+\item MSR
+\end{itemize}
+
+\end{frame}
+
+\section{Evaluation}
+
+
+\begin{frame}
+\frametitle{Evaluation}
+
+\begin{itemize}
+\item Exercises (1 or 2 exercises per day).
+\item Blog entries
+\item Exercises in forum
+\item Others...
+\end{itemize}
+
+\end{frame}
+
+
+
+\section{References}
+
+\begin{frame}
+\frametitle{Some references}
+
+\begin{itemize}
+\item Web site \\
+  \url{http://docencia.etsit.urjc.es/moodle/course/view.php?id=132}
+
+\end{itemize}
+
+\end{frame}
+
+
+\end{document}
