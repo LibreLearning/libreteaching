@@ -290,7 +290,7 @@
 \begin{tiny}
 \begin{block}{}
 \begin{xml}
-<permission android:name="com.rasi.DETONATE_DEVICE"
+<permission android:name="com.clau.DETONATE_DEVICE"
             android:protectionLevel="dangerous"
             android:label="Self Destruct"
             android:description="@string/detonate_description">
@@ -324,7 +324,7 @@
 \begin{xml}
 <instrumentation android:label="My Test"
                  android:name=".MyTestClass"
-                 android:targetPackage="com.rasi.aPackage">
+                 android:targetPackage="com.clau.aPackage">
 </instrumentation>
 \end{xml}
 \end{block}
@@ -436,9 +436,9 @@
 \frametitle{Creación de una Actividad}
 
 \begin{scriptsize}
-\begin{block}{src/com.rasi.myapplication/MyActivity.java}
+\begin{block}{src/com.clau.myapplication/MyActivity.java}
 \begin{java}
-  package com.rasi.myapplication;
+  package com.clau.myapplication;
 
   import android.app.Activity; 
   import android.os.Bundle;
@@ -1339,9 +1339,9 @@ public class MyTextView extends TextView {
 \end{itemize}
 
 \begin{tiny}
-\begin{block}{src/com.rasi.todolist/TodoListItemView.java}
+\begin{block}{src/com.clau.todolist/TodoListItemView.java}
 \begin{java}
-package com.rasi.todolist;
+package com.clau.todolist;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;
@@ -1429,7 +1429,7 @@ public class TodoListItemView extends TextView {
 \end{itemize}
 
 \begin{tiny}
-\begin{block}{src/com.rasi.todolist/TodoListItemView.java (fragmento)}
+\begin{block}{src/com.clau.todolist/TodoListItemView.java (fragmento)}
 \begin{java}
 private Paint marginPaint;
 private Paint linePaint;
@@ -1468,7 +1468,7 @@ private void init() {
 \end{itemize}
 
 \begin{tiny}
-\begin{block}{src/com.rasi.todolist/TodoListItemView.java (fragmento)}
+\begin{block}{src/com.clau.todolist/TodoListItemView.java (fragmento)}
 \begin{java}
   @Override
   public void onDraw(Canvas canvas) {
@@ -1513,7 +1513,7 @@ private void init() {
 \begin{block}{res/layout/todolist\_item.xml}
 \begin{xml}
 <?xml version="1.0" encoding="utf-8"?>
-<com.rasi.todolist.TodoListItemView
+<com.clau.todolist.TodoListItemView
    xmlns:android="http://schemas.android.com/apk/res/android"
    android:layout_width="fill_parent"
    android:layout_height="fill_parent"
@@ -1540,7 +1540,7 @@ private void init() {
   hacer uso del nuevo \emph{Layout}.
 \item ANTES:
 \begin{tiny}
-\begin{block}{src/com.rasi.todolist/TodoListItemView.java (fragmento)}
+\begin{block}{src/com.clau.todolist/TodoListItemView.java (fragmento)}
 \begin{java}
   final ArrayList<String> todoItems = new ArrayList<String>();
   final ArrayAdapter<String> aa;
@@ -1553,7 +1553,7 @@ private void init() {
 
 \item \alert{AHORA}:
 \begin{tiny}
-\begin{block}{src/com.rasi.todolist/TodoListItemView.java (fragmento)}
+\begin{block}{src/com.clau.todolist/TodoListItemView.java (fragmento)}
 \begin{java}
   final ArrayList<String> todoItems = new ArrayList<String>();
   int resID = R.layout.todolist_item;
@@ -2040,7 +2040,7 @@ public boolean onContextItemSelected(MenuItem item) {
 \end{itemize}
 
 \begin{tiny}
-\begin{block}{src/com.rasi.todolist/TodoList.java (fragmento)}
+\begin{block}{src/com.clau.todolist/TodoList.java (fragmento)}
 \begin{java}
 static final private int ADD_NEW_TODO = Menu.FIRST;
 static final private int REMOVE_TODO = Menu.FIRST + 1;
@@ -2061,7 +2061,7 @@ static final private int REMOVE_TODO = Menu.FIRST + 1;
 \end{itemize}
 
 \begin{tiny}
-\begin{block}{src/com.rasi.todolist/TodoList.java (fragmento)}
+\begin{block}{src/com.clau.todolist/TodoList.java (fragmento)}
 \begin{java}
 @Override
 public boolean onCreateOptionsMenu(Menu menu) {
@@ -2098,7 +2098,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
   \verb|onCreate| para indicar que la \emph{ListView} tendrá dicho menú:
 
 \begin{tiny}
-\begin{block}{src/com.rasi.todolist/TodoList.java (fragmento)}
+\begin{block}{src/com.clau.todolist/TodoList.java (fragmento)}
 \begin{java}
   Override
    public void onCreate(Bundle onSaveInstanceState) {
@@ -2114,7 +2114,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
 \item Ahora redefinimos \verb|onCreateContextMenu|:
 
 \begin{tiny}
-\begin{block}{src/com.rasi.todolist/TodoList.java (fragmento)}
+\begin{block}{src/com.clau.todolist/TodoList.java (fragmento)}
 \begin{java}
 @Override
 public void onCreateContextMenu(ContextMenu menu,
@@ -2148,7 +2148,7 @@ public void onCreateContextMenu(ContextMenu menu,
 \end{itemize}
 
 \begin{tiny}
-\begin{block}{src/com.rasi.todolist/TodoList.java (fragmento)}
+\begin{block}{src/com.clau.todolist/TodoList.java (fragmento)}
 \begin{java}
 private ArrayList<String> todoItems;
 private ListView myListView;
@@ -2191,7 +2191,7 @@ public void onCreate(Bundle savedInstanceState) {
 \end{itemize}
 
 \begin{tiny}
-\begin{block}{src/com.rasi.todolist/TodoList.java (fragmento)}
+\begin{block}{src/com.clau.todolist/TodoList.java (fragmento)}
 \begin{java}
 private boolean addingNew = false;
 
@@ -2229,7 +2229,7 @@ public boolean onPrepareOptionsMenu(Menu menu) {
 \end{itemize}
 
 \begin{tiny}
-\begin{block}{src/com.rasi.todolist/TodoList.java (fragmento)}
+\begin{block}{src/com.clau.todolist/TodoList.java (fragmento)}
 \begin{java}
 @Override
 public boolean onOptionsItemSelected(MenuItem item) {
@@ -2270,7 +2270,7 @@ public boolean onOptionsItemSelected(MenuItem item) {
 \end{itemize}
 
 \begin{tiny}
-\begin{block}{src/com.rasi.todolist/TodoList.java (fragmento)}
+\begin{block}{src/com.clau.todolist/TodoList.java (fragmento)}
 \begin{java}
 @Override
 public boolean onContextItemSelected(MenuItem item) {
@@ -2305,7 +2305,7 @@ public boolean onContextItemSelected(MenuItem item) {
 \end{itemize}
 
 \begin{tiny}
-\begin{block}{src/com.rasi.todolist/TodoList.java (fragmento)}
+\begin{block}{src/com.clau.todolist/TodoList.java (fragmento)}
 \begin{java}
 private void cancelAdd() {
   addingNew = false;
@@ -2339,7 +2339,7 @@ private void removeItem(int _index) {
 \end{itemize}
 
 \begin{tiny}
-\begin{block}{src/com.rasi.todolist/TodoList.java (fragmento)}
+\begin{block}{src/com.clau.todolist/TodoList.java (fragmento)}
 \begin{java}
 myEditText.setOnKeyListener(new OnKeyListener() {
   public boolean onKey(View v, int keyCode, KeyEvent event) {
