@@ -1,0 +1,35 @@
+#+LaTeX_CLASS: beamer
+#+MACRO: BEAMERMODE presentation
+#+MACRO: BEAMERTHEME Warsaw
+#+MACRO: BEAMERCOLORTHEME lily
+#+MACRO: BEAMERSUBJECT Advanced Software Development
+#+MACRO: BEAMERINSTITUTE Universidad Politécnica de Madrid
+#+TITLE: Steps for the advanced development project
+#+AUTHOR: Israel Herraiz
+
+* Steps for the advanced development project
+
+** Outline
+
+1. One
+2. Two
+3. Three
+
+** Another slide
+
+*** With subsections
+
+Hello
+
+*** Yes
+
+Goodbye
+
+#+BEGIN_SRC python
+
+import sys
+
+for i in range(3):
+  print i
+#+END_SRC
+
