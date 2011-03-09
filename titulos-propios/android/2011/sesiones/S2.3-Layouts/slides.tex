@@ -1,0 +1,300 @@
+  
+%
+% $Id: slides.tex 4228 2006-06-21 21:55:12Z jjamor $
+%
+%
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer (paquete latex-beamer en Debian)
+%
+
+
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+\usepackage{url}
+\usepackage{listings}
+%\usepackage{html}
+%\usepackage{hthtml}
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+% for xml code. Usage: \begin{xml} xml code... \end{xml}
+\lstnewenvironment{xml}
+{\lstset{language=xml,numbers=left,stepnumber=2}}
+{}
+
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={Layouts},
+  pdfauthor={Roberto Calvo Palomino},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={nn},
+}
+%%
+
+
+\AtBeginSection[]
+{
+  \begin{frame}<presentation>
+    \frametitle{Index}
+    \tableofcontents[current]
+  \end{frame}
+}
+
+
+\begin{document}
+
+\title{Curso de Desarrollo en Android }
+\subtitle{Layouts}
+\institute{\\rocapal@libresoft.es\\
+GSyC/Libresoft}
+\author{Roberto Calvo Palomino}
+\date{\today}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+
+%\title{Titulo corto}
+%\author{Autores abreviado}
+
+
+%% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
+\frame{
+~
+\vspace{4cm}
+
+\begin{flushright}
+{\tiny
+(cc) 2011 Roberto Calvo Palomino. \\
+Some rights reserved. This document is distributed under the Creative \\
+            Commons Attribution-ShareAlike 3.0 licence, available in \\
+            http://creativecommons.org/licenses/by-sa/3.0/
+
+
+}
+\end{flushright}
+}
+
+\section{Nomenglatura}
+\begin{frame}
+\frametitle{Medición en Pantalla}
+\begin{itemize}
+\item px (píxeles)
+\item dip (píxeles independientes del dispositivo)
+\item sp (píxeles escalados, mejor para tamaños de texto)
+\item pt (puntos)
+\item in (inches)
+\item mm (milímetros)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Diferentes Pantalla}
+\begin{itemize}
+\item Tamaño
+\item Densidad (dependiente o no del pixel)
+\item Aspecto de Ratio
+\item Versión de plataforma
+\end{itemize}
+
+\begin{center}
+\htmladdnormallink{Screens Support (Link)}{http://developer.android.com/guide/practices/screens\_support.html\#range}
+\end{center}
+\end{frame}
+
+\section{Tipos de Layouts}
+
+\begin{frame}
+\frametitle{Introduccion}
+\begin{itemize}
+\item Unidad elemental de la interfaz gráfica.
+\item Contenedores de widgets que ocupan la pantalla
+\item Relación fuerte entre layouts para conseguir la interfaz deseada
+\item fill\_parent: Ocupa la anchura o altura máximo que le deje su padre
+\item wrap\_content: Ocupa la anchua o altura mínima necesaria
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{FrameLayout}
+\begin{itemize}
+\item Está diseñado para ocupar un area de la pantalla para mostrar un
+  solo elemento
+\item Puedes añadir muchos hijos a este FrameLayout, pero todos los
+  hijos aparecerán alineados arriba a la izquierda de este contenedor. 
+\item En este grupo de vistas no se puede especificar la posición de
+  los hijos
+\item No son los layouts más utilizados
+\end{itemize}
+\end{frame}
+
+
+\begin{tiny}
+\begin{block}{}
+\begin{xml}
+<?xml version=''1.0'' encoding=''utf-8''?>
+<FrameLayout
+xmlns:android=''http://schemas.android.com/apk/res/android''
+    android:layout_width=''150dip''
+    android:layout_height=''150dip''
+    android:background=''#FF00FF00''
+    >     
+  <Button
+    android:layout_width=''wrap_content'' 
+    android:layout_height=''wrap_content'' 
+    android:text=''Botón''
+    />    
+  <TextView
+    android:layout_width=''wrap_content''
+    android:layout_height=''wrap_content''
+    android:text=''Hola que tal como estás. Este texto aparece encima
+    del botón''
+  />    
+</FrameLayout>
+\end{xml}
+\end{block}
+\end{tiny}
+
+\begin{frame}
+\frametitle{LinearLayout}
+\begin{itemize}
+\item Dispone sus hijos en una sola columna o en una sola fila (configurable)
+\item La dirección de cada fila puede ser especificada mediante
+  \emph{setOrientation()} en código o mediante
+  \emph{android:orientation} en el XML. Por defecto, es horizontal
+\item También puedes especificar gravedad, la cual indica la
+  alineación de todos los elementos hijos
+\item Soporta asignar peso a los hijos de forma
+  individual. Este valor permite a los hijos que se expandan hasta
+  llenar cualquier espacio libre de la pantalla.
+\end{itemize}
+\end{frame}
+
+\begin{tiny}
+\begin{block}{}
+\begin{xml}
+<?xml version=''1.0'' encoding=''utf-8''?>
+<LinearLayout
+xmlns:android=''http://schemas.android.com/apk/res/android''
+    android:orientation=''horizontal''
+    android:layout_width=''fill_parent''
+    android:layout_height=''wrap_content''
+    android:background=''#FF00FF00''
+    >     
+<TextView
+    android:layout_width=''wrap_content''
+    android:layout_height=''wrap_content''
+    android:text=''Texto prueba''
+    android:background=''#FFFFFFFF''
+    android:layout_weight=''5''
+    />
+<Button
+    android:layout_width=''wrap_content''
+    android:layout_height=''wrap_content''
+    android:text=''Botón''
+    android:layout_weight=''1''
+    />
+</LinearLayout>
+\end{xml}
+\end{block}
+\end{tiny}
+
+\begin{frame}
+\frametitle{RelativeLayout}
+\begin{itemize}
+\item El más flexible de todos los tipos de layouts. Puedes construir
+  casi cualquier cosa con ellos.
+\item La posición de los hijos son relativas al padre e incluso a
+  otros hijos.
+\item Nos permite realizar interfaces complejas y portables a
+  diferentes tamaños de pantalla.
+\end{itemize}
+\end{frame}
+
+\begin{tiny}
+\begin{xml}
+<?xml version=''1.0'' encoding=''utf-8''?>
+<RelativeLayout
+xmlns:android=''http://schemas.android.com/apk/res/android''
+    android:layout_width=''fill_parent''
+    android:layout_height=''fill_parent''
+    >
+    <TextView  
+        android:id=''@+id/hello''
+        android:layout_width=''fill_parent'' 
+        android:layout_height=''wrap_content'' 
+        android:text=''@string/hello''
+        />
+    <TextView
+        android:id=''@+id/black_on_red''
+        android:layout_width=''fill_parent''
+        android:layout_height=''wrap_content''
+        android:layout_below=''@id/hello''
+        android:background=''#ff0000''
+        android:textColor=''#000000''
+        android:text=''black on red''
+        />
+    <TextView
+        android:id=''@+id/update_me''
+        android:layout_width=''fill_parent''
+        android:layout_height=''wrap_content''
+        android:layout_below=''@id/black_on_red''
+        android:background=''#00ff00''
+        android:textColor=''#000000''
+        android:text=''update Text''
+        /> 
+    <TextView
+        android:id=''@+id/left_wrap''
+        android:layout_width=''wrap_content''
+        android:layout_height=''wrap_content''
+        android:layout_below=''@id/update_me''
+        android:background=''#0000ff''
+        android:textColor=''#000000''
+        android:text=''wrap''
+        />
+    <TextView
+        android:id=''@+id/right_fill''
+        android:layout_width=''fill_parent''
+        android:layout_height=''wrap_content''
+        android:layout_below=''@id/update_me''
+        android:layout_toRightOf=''@id/left_wrap''
+        android:background=''#ff0000''
+        android:textColor=''#000000''
+        android:text=''fill''
+    />
+</RelativeLayout>
+\end{xml}
+\end{tiny}
+
+
+\section{Depuración de Vistas}
+\begin{frame}
+\frametitle{HierarchyViewer y LayoutOpt}
+\begin{itemize}
+\item Herramientas para depurar nuestras interfaces
+\item Útil para poder optimizar recursos en nuestras aplicaciones
+\item Se encuentra en \bf{\$DIR\_SDK\_ANDROID/tools/}
+\end{itemize}
+
+\begin{center}
+  \htmladdnormallink{Depurar Interfaces (Link)}{http://developer.android.com/guide/developing/debugging/debugging-ui.html\#layoutopt}
+\end{center}
+
+\end{frame}
+
+\end{document}
