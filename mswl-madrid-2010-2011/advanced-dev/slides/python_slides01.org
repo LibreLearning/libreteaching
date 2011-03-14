@@ -1,0 +1,258 @@
+#+LaTeX_CLASS: beamer
+#+MACRO: BEAMERMODE presentation
+#+MACRO: BEAMERTHEME Warsaw
+#+MACRO: BEAMERCOLORTHEME lily
+#+MACRO: BEAMERSUBJECT Advanced Software Development
+#+MACRO: BEAMERINSTITUTE israel.herraiz@upm.es \\ Universidad Politécnica de Madrid
+#+TITLE: Deploying a web crawler written in Python
+#+AUTHOR: Israel Herraiz
+
+#+BEGIN_LaTeX
+\lstset{ %
+language=python,
+basicstyle=\footnotesize\ttfamily,       % the size of the fonts that are used
+numbers=none,                   % where to put the line-numbers
+numberstyle=\ttfamily,      % the size of the fonts that are used
+stepnumber=2,                   % the step between two
+numbersep=5pt,                  % how far the line-numbers are from
+showspaces=false,               % show spaces adding particular
+showstringspaces=false,         % underline spaces within strings
+showtabs=false,                 % show tabs within strings adding
+frame=none,                   % adds a frame around the code
+tabsize=2,                      % sets default tabsize to 2 spaces
+captionpos=b,                   % sets the caption-position to bottom
+breaklines=true,                % sets automatic line breaking
+breakatwhitespace=false,        % sets if automatic breaks should only
+title=\lstname,                 % show the filename of files included
+escapeinside={\%*}{*)},         % if you want to add a comment within
+morekeywords={*,...}            % if you want to add more keywords to
+}
+#+END_LaTeX
+
+* How to properly deploy using =setuptools=
+   
+** What is =setuptools=?
+
+Python package to install and deploy Python applications. 
+
+
+Features
+
+- Register and upload your package in PyPi
+- Take care of dependencies
+  - Generate dependencies to build dist packages
+  - Retrieve missing deps on installing
+- Properly install your app in the system
+  - Windows, GNU/Linux, etc
+  - Easy creation of packages for distributions
+
+** What is PyPi?
+
+The Python Package Index, Official repository for Python apps.
+
+
+Database with information about Python programs. Example:
+
+- [[http://pypi.python.org/pypi/mlstats/]]
+
+
+Why should you care?
+
+- Visibility for your app
+- If it is a library, it can be used in a standard way with other
+  libraries and apps
+
+** Using =setuptools= with your own programs
+
+The main file of your app must be named =setup.py=. We have also the
+main file of your app, called =mycraaawler= and a directory with own
+modules for your app called =pymycraaawler=.
+
+So this is the sources tree
+ - =mycraaawler= (Python script)
+ - =setup.py=
+ - =pymycraaawler=
+   - =__init__.py=
+ - And other files (=COPYING=, =README=, etc)
+
+** =setup.py=
+#+BEGIN_LaTeX
+\begin{lstlisting}
+from setuptools import setup, find_packages
+
+setup( name = "MyCraaawler",
+       version = "0.1",
+       packages = find_packages(),
+       scripts = ['mycraaaawler'],
+       install_requires = ['BeatifulSoup'],
+       package_data = { 'pymycraawler': [''], },
+       author = "Sponge Bob",
+       author_email = "bob@undersea.pineapple.com",
+       description = "Scrapper for The New Atlantis",
+       license = "",
+       keywords = "",
+       url = "",
+       long_description = "",
+       download_url = "", )
+\end{lstlisting}
+#+END_LaTeX
+
+** Installing and creating dist packages
+
+=python setup.py [command]=
+
+- =install=
+- =easy_install=
+- =bdist=
+- =sdist=
+- =check=
+- =register=
+- =upload=
+
+** Configuration for automatic register and upload
+
+You have to create a file named =~/.pypirc=
+#+BEGIN_EXAMPLE
+[distutils]
+index-servers =
+    pypi
+
+[pypi]
+username:your_username
+password:your_password
+#+END_EXAMPLE
+
+* How do I get a file from the Internet?
+
+** Python modules for Internet communications
+
+There are two different modules in Python to connect to a host in the Internet:
+ - =urllib=
+ - =urllib2=
+
+** Making sense of =urllib=, =urllib2= and co.
+   
+- =urllib= is deprecated in favor of =urllib2= (although in Python 3, both modules are present).
+- =urllib= provides =urlopen= which is similar to =open= but will  accept URLs
+- =urllib2= also provides =urlopen=
+- =urlparse= is useful to handle URLs (but we will not use it)
+
+** Reading a file located in a remote host
+
+#+BEGIN_LaTeX
+\begin{lstlisting}
+ import urllib2
+ user_agent = "Mozilla/5.0 (X11; U; Linux x86_64; en-US) AppleWebKit/534.7 (KHTML, like Gecko) Chrome/7.0.517.41 Safari/534.7"
+
+ _opener = urllib2.build_opener()
+ _opener.addheaders = [('User-agent', user_agent)]
+ raw_code = self._opener.open(article.url).read()
+\end{lstlisting}
+#+END_LaTeX
+
+* Parsing =HTML= using =BeatifulSoup=
+
+** About =BeatifulSoup=
+
+=BeatifulSoup= is a =HTML= parser for Python. You didn't write that
+awful page. You're just trying to get some data out of it. Right now,
+you don't really care what =HTML= is supposed to look like.
+
+Neither does this parser.
+ - Find out more at [[http://www.crummy.com/software/BeautifulSoup/]]
+
+** Example: getting all the =<div>= of a particular kind (called =article= in this case)
+
+#+BEGIN_LaTeX
+\begin{lstlisting}
+from BeautifulSoup import BeautifulSoup as Soup
+
+soup_code = Soup(raw_code)
+divs = [div for div 
+            in soup_code.findAll('div') 
+            if div.get('id') == 'article']
+\end{lstlisting}
+#+END_LaTeX
+
+** Example: get all links
+
+
+#+BEGIN_LaTeX
+\begin{lstlisting}
+from BeautifulSoup import BeautifulSoup as Soup
+
+soup_code = Soup(raw_code)
+links = [link['href'] for link 
+                      in soup_code.findAll('a') 
+                      if link.has_key('href')]
+\end{lstlisting}
+#+END_LaTeX
+
+** Example: Decode =HTML= entities
+
+
+#+BEGIN_LaTeX
+\begin{lstlisting}
+from BeautifulSoup import BeautifulStoneSoup as StoneSoup
+
+html_entity = "Cami&oacute;n"
+
+python_str = StoneSoup(html_entity,
+              convertEntities = StoneSoup.HTML_ENTITIES)
+\end{lstlisting}
+#+END_LaTeX
+
+* Command line arguments made easy with =argparse=
+
+** What is =argparse=?
+
+The argparse module makes it easy to write user friendly command line interfaces
+ - New in version 2.7
+ - Find out more at
+   [[http://docs.python.org/release/2.7/library/argparse.html]]
+
+** Example
+
+Command line application =myapp [-n N] URL=
+
+#+BEGIN_LaTeX
+\begin{lstlisting}
+import argparse
+parser = argparse.ArgumentParser(description="Let's craaaawl the Internet")
+
+parser.add_argument('url', nargs=1,
+     help='target URL')
+
+parser.add_argument('-n', '--number-of-levels', type=int, default=1,
+     help='how deep the craaaawl will go')
+
+args = parser.parse_args()
+
+target_url = args.url.pop()
+deep = args.number_of_levels
+\end{lstlisting}
+#+END_LaTeX
+
+
+** Another example
+
+Command line application =myapp [-w]=
+
+#+BEGIN_LaTeX
+\begin{lstlisting}
+import argparse
+parser = argparse.ArgumentParser(description='World domination 0.1')
+
+parser.add_argument('-w', '--start-nuclear-war', action='store_true',
+    help='should I start a thermonuclear war?')
+
+args = parser.parse_args()
+
+if args.launch_nuclear_war:
+   world.dominate()
+else:
+   sleep()
+
+\end{lstlisting}
+#+END_LaTeX
+
