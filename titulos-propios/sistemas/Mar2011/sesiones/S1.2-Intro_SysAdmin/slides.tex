@@ -22,20 +22,20 @@
 
 %% Metadatos del PDF.
 \hypersetup{  
-  pdftitle={Introducción a la administración de sistemas},
+  pdftitle={Tareas esenciales en la administración de sistemas},
   pdfauthor={Miguel Vidal},
   pdfcreator={GSyC/Libresoft},
   pdfproducer=PDFLaTeX,
-  pdfsubject={Introducción a la administración de sistemas},
+  pdfsubject={Curso arquitectura de servidores con software libre},
 }
 %%
 
 \begin{document}
 
-\title{Introducción a la administración de sistemas}
+\title{Tareas esenciales en la administración de sistemas}
 \subtitle{Arquitectura de servidores con software libre}
 \institute{\{mvidal,jfcastro\}@gsyc.urjc.es} 
-\author{Miguel Vidal, Jos\'{e} Castro}
+\author{Miguel Vidal, José Castro}
 %\date{\today}
 \date{25 de marzo de 2011}
 
@@ -70,11 +70,9 @@
 %  \begin{itemize}[<+->]
 \begin{enumerate}
 \item ¿Qué es un administrador de sistemas? 
-\item Tipos de sysadmin
 \item Deberes de un sysadmin. Cultura (\textsc{bofh}, Usenet\dots)
 \item Políticas y procedimientos
 \item Sistemas de seguimiento de incidencias
-\item Constelación de los sistemas operativos libres de Unix
 \item Asociaciones y organizaciones profesionales, certificaciones     
 \end{enumerate}
 
@@ -131,21 +129,6 @@ Todas estas tareas no necesariamente las lleva a cabo una sola persona. Pero al 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Habilidades, formación}
-
-\begin{itemize}
-\item La administración de sistemas implica más cambios de contextos en un solo día que la mayoría de trabajos en un año.
-
-\item Un sysadmin necesita habilidad para organizarse y gestionar su tiempo eficientemente.
-\item Habilidad para mantener felices a los usuarios en una situación \textit{win-win}.
-\item El ``queme'' en el trabajo de un sysadmins es creciente. La mayoría de los administradores duran solo unos cuantos años.
-\item A diferencia de otras profesiones, no existe una única vía para convertirse en sysadmin.
-\end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
 \frametitle{Habilidades}
 
 \begin{itemize}
@@ -155,11 +138,21 @@ Todas estas tareas no necesariamente las lleva a cabo una sola persona. Pero al 
 \end{itemize}
 \end{frame}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Tipos de sysadmin}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}
+\frametitle{Habilidades, formación}
+
+\begin{itemize}
+\item La administración de sistemas implica más cambios de contextos en un solo día que la mayoría de trabajos en un año.
+\item Un sysadmin necesita habilidad para organizarse y gestionar su tiempo eficientemente.
+\item Habilidad para mantener felices a los usuarios en una situación \textit{win-win}.
+\item El ``queme'' en el trabajo de un sysadmins es creciente. La mayoría de los administradores duran solo unos cuantos años.
+\item A diferencia de otras profesiones, no existe una única vía para convertirse en sysadmin.
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
 \frametitle{Tipos de sysadmin}
@@ -207,6 +200,7 @@ Todas estas tareas no necesariamente las lleva a cabo una sola persona. Pero al 
 	\item Están organizadas por secciones. 
 	\item Una misma orden puede estar en varias secciones.
 	\item No son howtos. 
+	\end{itemize}
 \item GNU Texinfo (Linux)
 \item Guías y documentación específica de cada sistema (ej. \textit{FreeBSD Handbook} o \texttt{docs.sun.com})
 \item Documentación específica del paquete: (ej. \texttt{/usr/share/doc})
@@ -247,14 +241,13 @@ Todas estas tareas no necesariamente las lleva a cabo una sola persona. Pero al 
 Algunas tareas comunes que suelen necesitar procedimientos:
 
 \begin{itemize}
-\item Adding a host
-\item Adding a user
-\item Setting up backups for a new machine
-\item Securing a new machine
-\item Upgrading the operating system
-\item Backing up and restoring files
-\item Performing emergency shutdowns
-\item Handling of security break-ins
+\item Añadir un \textit{host}
+\item Añadir un usuario
+\item Configurar los backups para una nueva máquina
+\item Securizar una nueva máquina
+\item Actualizar el sistema operativo
+\item Hacer respaldo y restauración de datos
+\item Ejecutar apagados de emergencia
 \end{itemize}
 \end{frame}
 
@@ -270,25 +263,25 @@ Políticas habituales:
 \item Políticas para los administradores (login, sudo, pfexec...)
 \item Acceso y políticas de usuario
 \item Política de privacidad
-\item Cuestiones legales: copyright (licencias y datos almacenados), cifrado, protección de datos personales...
+\item Cuestiones legales: copyright (licencias y datos almacenados), cifrado, protección de datos personales\dots
 \end{itemize}
 \end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Issue tracking system and trouble-reporting system}
+\section{Sistemas de seguimiento de incidencias}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \begin{frame}
-\frametitle{What is an issue tracking system}
+\frametitle{Sistemas de seguimiento de incidencias}
 
 \begin{itemize}
-\item Software to create, update, and resolve reported lists of issues. Similar to a "bugtracker".
-\item Contains a knowledge base with resolutions to common problems: invaluable resource for the sysadmin staff.
-\item Ticket/Issue: a file which contains information about support interventions made by technical support staff.
+\item Software para crear, actualizar y resolver listas de incidencias. Similar a una 
+"bugtracker". 
+\item Contiene una base de conocimientos con soluciones a problemas comunes: recurso de valor incalculable para el personal administrador de sistemas. 
+\item \alert{Ticket/incidencia:} una ficha que contiene información sobre las intervenciones de soporte realizadas por el personal técnico. 
 \item Trac (python), RT (Perl), Redmine (RoR), OTRS, Mantis...: \url{http://en.wikipedia.org/wiki/Comparison_of_issue_tracking_systems}
-
 \end{itemize}
 \end{frame}
 
@@ -296,15 +289,16 @@ Políticas habituales:
 
 
 \begin{frame}
-\frametitle{Common functions of trouble ticket systems}
+\frametitle{Funciones comunes de un sistema de gestión de incidencias}
 
-Managers can extract high-level information such as:
+Los responsables de proyecto pueden extraer valiosa información de alto nivel como:
+
 \begin{itemize}
-\item The number of open tickets
-\item The average time to close a ticket
-\item The productivity of sysadmins
-\item The percentage of unresolved tickets
-\item Workload distribution by time to solution
+\item El número de tickets abiertos 
+\item El tiempo medio en cerrarse un ticket
+\item La productividad de los sysadmins
+\item El porcentaje de tickets no resueltos
+\item Posibles desequilibrios en la distribución de la carga de trabajo
 
 \end{itemize}
 \end{frame}
@@ -313,13 +307,13 @@ Managers can extract high-level information such as:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Workflow}
+\frametitle{Flujo}
 
 \begin{itemize}
-\item User (or helpdesk) reports a problem.
-\item Operator verifies that the problem is real, and not just perceived. 
-\item Operator will also ensure that enough information about the problem is obtained from the user.
-\item After the issue has been fully addressed, it is marked as resolved/closed/wontfix/feedback...
+\item El usuario (o el \textit{helpdesk}) reporta un problema.
+\item El operador verifica que el problema es real y no solo una impresión.
+\item EL operador se asegura de obtener suficiente información sobre el problema por parte del usuario.
+\item La incidencia se asigna a la persona adecuada, que la marca como resuelta/cerrada/wontfix/feedback
 
 \end{itemize}
 \end{frame}
@@ -329,21 +323,19 @@ Managers can extract high-level information such as:
 \begin{frame}
 \frametitle{Redmine}
 
-Main features:
+Principales características:
 \begin{itemize}
-\item Multiple projects support
-\item ACL's: Flexible role-based access control
-\item Per project wiki 
-\item SCM integration (SVN, CVS, Git, Mercurial, Bazaar and Darcs)
-\item User self-registration support
-\item Gantt chart and calendar
-\item Feeds \& e-mail notifications.
+\item Soporte multi-proyecto
+\item ACLs: acceso basado en roles muy flexibles. 
+\item Wiki por proyecto
+\item Integración con SCM (SVN, CVS, Git, Mercurial, Bazaar y Darcs)
+\item Soporte para auto-registro
+\item Diagrama de Gantt y calendario
+\item Feeds y notificación por e-mail.
 \end{itemize}
 \end{frame}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Free/Open Unix-like constellation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
@@ -361,7 +353,7 @@ Main features:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{A brief history about Unix and SunOS/Solaris}
+\frametitle{Timeline de Unix}
 \begin{center}
   \includegraphics[height=2.5in]{figs/Unix_history-simple.png}
 \end{center}
@@ -370,55 +362,15 @@ Main features:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{A brief history about Unix and SunOS/Solaris}
+\frametitle{Timeline de Unix}
 \begin{center}
-  \includegraphics[height=2.7in]{figs/Unix_history.png}
+  \includegraphics[height=2.7in]{figs/2000px-Unix.png}
 \end{center}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Linux and Unix}
-
-\begin{itemize}
-\item Linux is a reimplementation and elaboration of UNIX. 
-\item It conforms to the POSIX standard, runs on several hardware platforms, and is compatible with most existing UNIX software.
-\item Linux incorporates technical refinements that did not exist in the original versions of UNIX, so it is more than just a UNIX clone.
-\item It is also a legally distinct entity and cannot be properly be referred to as ``UNIX''
-\item From the standpoint of applications, Linux software is UNIX software (thanks to GNU Project). 
-\end{itemize}
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Another free Unix-like systems}
-
-\begin{itemize}
-\item FreeBSD, NetBSD, and OpenBSD, from UC Berkeley. 
-\item It conforms to the POSIX standard, runs on several hardware platforms, and is compatible with most existing UNIX software.
-\item These OSes are comparable to Linux in features and reliability, although they enjoy somewhat less support from third-party software vendors.
-\end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Free Unix systems: OpenSolaris}
-
-\begin{itemize}
-\item A new FLOSS operating system based on source code of Solaris. 
-\item The bulk of the Solaris system code was released on June 14, 2005
-\item The only libre software SVR4 derivative available.
-\item An attempt to use a community development model to develop Solaris.
-\item Supported by Sun/Oracle. Future commercial versions of Solaris will based around OpenSolaris code!
-\item Unique features: ZFS, zones, crossbow...
-\end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Associations and professional organizations}
+\section{Asociaciones y organizaciones profesionales}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
@@ -450,24 +402,29 @@ Main features:
 \frametitle{LOPSA}
 
 \begin{itemize}
-\item LOPSA, the League of Professional System Administrators.
-\item In 2005, some of the old-timers in the SAGE organization formed a separate organization called LOPSA
-\item Mission: to advance the practice of system administration; to support, recognize, educate, and encourage its practitioners; and to serve the public through education and outreach on system administration issues.
-\item LOPSA seeks to provide legislative advocacy and to help mold legislative policy on issues effecting the profession. 
-\item SAGE and LOPSA cooperate on common goals such as the Code of Ethics and the LISA conference.
+\item LOPSA, League of Professional System Administrators.
+\item Se creó en 2005 por parte de algunos miembros de SAGE. 
+\item Misión: 
+	\begin{itemize}
+	\item promover la práctica de la administración de sistemas; 
+	\item apoyar, reconocer, educar y alentar a los sysadmins; 	
+ 	\item servir al público por medio de la educación y divulgación en temas relacionados con la administración de sistemas.
+	\end{itemize}
+\item LOPSA busca brindar apoyo legislativo a los temas que afectan a la profesión.
+\item SAGE y LOPSA cooperar en objetivos comunes, como el Código de Ética y la conferencia LISA.
+
 \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Unix Culture}
+\frametitle{Herencia de Unix}
 
 \begin{itemize}
-\item ``KISS'', ``Small is beautiful'', ``Make each program do one thing well'', ``Build a prototype as soon as possible'', ``Choose portability over efficiency'', ``Use shell scripts to increase leverage and portability'', ``Avoid captive user interfaces'', ``Make every program a filter''...
-\item ``Worse is better'': design style and simplicity is more important than correctness, consistency and completeness.
+\item ``KISS'', ``Small is beautiful'', ``Haz que cada programa haga bien una sola cosa'', ``Construye un prototipo tan pronto como sea posible'', ``Escoge la portabilidad sobre la eficiencia'', ``Usa scripts de shell scripts para incrementar la portabilidad'', ``Evita interfaces que hagan cautivos a los usuarios'', ``Haz de cada programa un filtro''...
 \item Usenet, Internet jargon... 
-\item System Administrator Appreciation Day (last Friday in July)
+\item System Administrator Appreciation Day (último viernes de julio)
 \item Bastard Operator From Hell (BOFH)
 \end{itemize}
 \end{frame}
@@ -478,7 +435,7 @@ Main features:
 \begin{frame}
 \frametitle{Código ético (1)}
 
-LOPSA, USENIX, y SAGE animan a que todo administrador se guía por un código ético:  
+LOPSA, USENIX y SAGE animan a que todo administrador se guía por un código ético:  
 
 \begin{itemize}
 \item Profesionalidad
