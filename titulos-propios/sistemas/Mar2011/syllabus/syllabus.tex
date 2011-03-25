@@ -1,0 +1,164 @@
+\documentclass[a4paper]{article}
+
+% Paquetes utilizados
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{url}
+% Fueras a que las notas al pie aparezcan abajo
+\usepackage[bottom]{footmisc}
+
+% Metadatos
+\title{\textbf{Curso ``Arquitectura de servidores \\ con software libre''} \\
+Virtualización, alta disponibilidad \\ y ``cloud computing'' \\
+%\author{Miguel Vidal \& Jose Castro}
+\date{Marzo - Junio 2011}
+\vspace{0.5cm}
+--- \\
+% \vspace{0.5cm}
+\normalsize{URJC - GSyC/LibreSoft} \\
+% \vspace{0.75cm}
+\small{\url{http://formacion.libresoft.es/cursos/sistemas}}}
+
+
+
+% Inicio del documento
+\begin{document}
+
+  % Título
+  \maketitle
+
+  % Resumen
+  \begin{abstract}
+Lo que sigue es el programa de "<Arquitectura de servidores con software libre">, un curso de formación continua y título propio de la Universidad Rey Juan Carlos (Madrid, España). 
+
+\medskip
+
+Este documento, a modo de \textit{syllabus}, se encuentra en desarrollo hasta que el curso finalice.
+  \end{abstract}
+  \newpage
+
+  % Índice
+  \tableofcontents
+
+  \newpage
+
+  \section{Objetivos}
+  %%%%%%%%%%%%%%%%%%%
+  Este curso pretende ofrecer una panorámica de las tareas relacionadas con el diseño, la planificación, el despliegue y la administración de servidores con software libre desde un punto de vista profesional.
+
+Se trata de mostrar las diversas destrezas, conocimientos y habilidades que actualmente requiere conocer un especialista en sistemas –desde las tareas de gestión de distintas plataformas de tipo Unix (Linux, BSD, derivados libres de Solaris) al diseño y despliegue de complejas arquitecturas virtualizadas–, y que normalmente no reciben atención académica específica. Puede resultar provechoso tanto a administradores noveles como a sysadmins experimentados que deseen ponerse al día con tecnologías en el estado del arte.
+
+  \section{Contenidos}
+  %%%%%%%%%%%%%%%%%%%
+  El temario del curso es el siguiente:
+  \begin{enumerate}
+    \item \textbf{Presentación del curso:} motivaciones y metodología.
+    \item \textbf{Tareas esenciales de la administración de sistemas:} gestión de incidencias, políticas, procedimientos, ética, aspectos legales, estándares, ITIL...
+    \item \textbf{Sistemas operativos libres para servidores}: Linux, BSD y familia Solaris (illumos, Nexenta, OpenSolaris).
+    \item \textbf{Homogeneización del CPD}: automatización, monitorización y mantenimiento del sistema
+    \item \textbf{Seguridad proactiva} (acciones preventivas, políticas de seguridad, control de desastres) y \textbf{herramientas criptográficas} (OpenSSH, GnuPG, CAcert, cifrado de particiones)
+    \item \textbf{Gestión de redes}: cortafuegos con OpenBSD Packet Filter, \textit{load balancing} y \textit{traffic managing}.
+    \item \textbf{Storage as a Service}: SAN/NAS, iSCSI, ZFS, backups, arrays (RAIDs, RAID-Z).
+    \item \textbf{Servicios de Internet}: servidores web, DNS, MTAs, listas de correo, UCE...
+    \item \textbf{Soluciones de virtualización} del sistema operativo (Xen, KVM, jails, zonas/containers, LDOMs/Sparc) y de red (Crossbow)
+    \item \textbf{Plataformas de alta disponibilidad}: clustering (Linux HA, OHAC) y open storage
+    \item \textbf{De la virtualización al cloud computing}: IaaS, PaaS y SaaS. OpenNebula.
+    \item \textbf{Estrategias de Cloud Computing} y Green IT
+  \end{enumerate}
+
+  \section{Horario y lugar}
+  %%%%%%%%%%%%%%%%%%%%%%%%%
+  Las clases se impartirán los \textbf{viernes} en horario de \textbf{16h30 a 20h30} en las instalaciones de \textbf{Madrid On Rails}\footnote{Las instalaciones de Madrid On Rails están en la C/Lago Titicaca, 10. 28032 Vicálvaro (Madrid)}.
+
+  \section{Metodología de trabajo}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    Temas a pensar y desarrollar:
+    \begin{itemize}
+      \item Moodle
+      \item Entradas en un blog personal
+      \item Etiqueta \#casul para Twitter
+      \item Entorno de prácticas: máquinas, bts...
+    \end{itemize}
+    \subsection{Calendario}
+    El calendario del curso es el siguiente: 
+
+\medskip
+
+    \begin{tabular}{| c | c | c | c |}
+      \hline
+      Marzo & Abril & Mayo & Junio \\
+      \hline
+      25 & 1 & 6 & 3 \\
+      & 8 & 13 & 10 \\
+      & 29 & 20 & \\
+      & & 27 & \\
+      \hline
+    \end{tabular}
+
+    \subsection{Sesiones}
+      Cada una de las sesiones se dividirá en varias partes:
+      \begin{itemize}
+        \item Test previo de autoevaluación (no evaluable)
+        \item Corrección de ejercicios propuestos (30 minutos)
+        \item Ponencia de un profesional (1 hora)
+        \item Descanso (15 minutos)
+        \item Sesión teórica (2 horas y 15 minutos)
+        \item Ejercicios y prácticas durante la semana (no llevará más de 1 hora)
+      \end{itemize}
+
+      \subsubsection{Sesión 1 - Introducción - Tareas esenciales de la administración de sistemas}
+         \input{lesson1}
+      \subsubsection{Sesión 2 -- Seguridad}
+         %\input{lesson2}
+      \subsubsection{Sesión 3 -- SOs libres, homogeneización}
+         %\input{lesson3}
+      \subsubsection{Sesión 4 -- Redes}
+         %\input{lesson4}
+      \subsubsection{Sesión 5 -- Storage as a Service}
+         %\input{lesson5}
+      \subsubsection{Sesión 6 -- Servicios de Internet}
+         %\input{lesson6}
+      \subsubsection{Sesión 7 -- Virtualización I}
+         %\input{lesson7}
+      \subsubsection{Sesión 8 -- Virtualización II}
+         %\input{lesson8}
+      \subsubsection{Sesión 9 -- Cloud Computing}
+         %\input{lesson9}
+      \subsubsection{Sesión 10 -- Clusters de Alta Disponibilidad}
+         %\input{lesson10}
+
+    \subsection{Práctica final}
+      Creación de una plataforma de HA virtualizada con un servidor web (podría ser un Cherokee y que tuvieran que desarrollar ellos el agente de recurso).
+      
+
+  \section{Evaluación}
+  %%%%%%%%%%%%%%%%%%%%
+
+Cada una de las actividades tiene una calificación mínima y máxima. Si la calificación mínima es de 0, la actividad es \textit{opcional}. De lo contrario, la actividad es 
+\textit{obligatoria} y tiene que alcanzarse al menos la mínima puntuación para aprobar el curso.
+
+\begin{itemize}
+\item \textbf{Ejercicios (respondidos en el Moodle)}. \\
+  Mínimo: 10 puntos, máximo: 40 puntos.
+
+  Ejercicios propuestos y respondidos en el Moodle a lo largo del curso. Se valorará también la participación general.
+
+\item \textbf{Práctica final}. \\
+  Mínimo: 10 puntos, máximo: 50 puntos
+
+  Práctica final. 
+
+\item \textbf{Entradas de blog}. \\
+  Mínimo: 0 puntos, máximo: 10 puntos
+
+  Entradas de blog relacionadas con la materia del curso y marcadas como tales. La etiqueta usada es \#casul. Actividad opcional. 
+\end{itemize} 
+
+\begin{itemize}
+\item Aprobado: 50-69
+\item Notable: 70-84
+\item Sobresaliente: 85-100
+\end{itemize}
+
+% Fin del documento
+\end{document}
