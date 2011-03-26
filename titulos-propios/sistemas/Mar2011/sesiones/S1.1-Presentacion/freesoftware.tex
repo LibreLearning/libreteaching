@@ -1,0 +1,294 @@
+%% introduction.tex
+%% 
+
+%
+% $Id: $
+%
+%
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer (paquete latex-beamer en Debian)
+%
+
+%
+% Gráficos:
+% Los gráficos pueden suministrarse en PNG, JPG, TIF, PDF, MPS
+% Los EPS deben convertirse a PDF (usar epstopdf)
+%
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={About Libre Software},
+  pdfauthor={Jesus M. Gonzalez-Barahona, Gregorio Robles},
+  pdfcreator={GSyC/LibreSoft, Universidad Rey Juan Carlos},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Systems Course},
+}
+%%
+
+\begin{document}
+
+\title{About Libre Software}
+\subtitle{Presentation of the Systems Course}
+\author{Gregorio Robles}
+\institute{grex@gsyc.urjc.es \\
+GSyC/LibreSoft, Universidad Rey Juan Carlos}
+
+\date{Madrid, March 25th 2011}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+
+% Si el titulo o el autor se quieren acortar para los pies de página
+% se pueden redefinir aquí:
+%\title{Titulo corto}
+%\author{Autores abreviado}
+
+
+% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
+\frame{
+~
+\vspace{4cm}
+
+\begin{flushright}
+\copyright 2002-2011 Jesus M. Gonzalez-Barahona, Gregorio Robles. \\
+
+Some rights reserved. This presentation is distributed under the
+``Attribution-ShareAlike 3.0'' license, by Creative Commons,
+available at \url{http://creativecommons.org/licenses/by-sa/3.0/}
+
+\end{flushright}
+}
+
+
+%\section{}
+
+
+
+%%---------------------------------------------------------------------
+%%---------------------------------------------------------------------
+
+\section{About Libre Software}
+
+%%---------------------------------------------------------------------
+\begin{frame}
+\frametitle{There is a new guy in town}
+
+\begin{itemize}
+\item GNU/Linux, Apache, GNOME, KDE, LibreOffice, etc. are very
+  important, but...
+\item The really new thing is the libre software model:
+  \begin{itemize}
+  \item Unprecedented combination of collaboration and competition.
+  \item Shift in emphasis from marketing to support and quality.
+  \item Classical assumptions about intellectual propriety are
+    questioned.
+  \item End-users recover the control (instead of big software providers)
+  \item A new model for a new (global, networked) world?
+  \end{itemize}
+\item Last years have shown the feasibility of the model.
+\end{itemize}
+
+\end{frame}
+
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{What is libre software?}
+
+In short free software guarantees:
+
+\begin{itemize}
+\item Freedom to use
+\item Freedom to study, and to adapt
+\item Freedom to redistribute
+\item Freedom to improve and release improvements
+\end{itemize}
+
+In other words, if you get it, you can...
+
+\begin{itemize}
+\item use it
+\item study and adapt it
+\item redistribute it
+\item improve it and release improvements
+\end{itemize}
+\vspace{.2cm}
+\begin{flushright}
+\url{http://www.gnu.org/philosophy/free-sw.html}
+\end{flushright}
+
+\end{frame}
+
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Free / libre / open source}
+
+\begin{itemize}
+\item The definition is from Free Software Foundation, for free
+  software (``Free Software Definition'')
+
+\item But same applies to open source software (``Open Source Definition'')
+
+\item To avoid discussion and missinterpretations, we will ``libre software''
+
+\item Important consequence: \\
+  To be able of modifying source code, it must be available.
+
+\item Lots of licenses: GPL, LGPL, BSD, Apache, MPL, etc.
+\end{itemize}
+
+\vspace{.2cm}
+
+\begin{flushright}
+\url{http://opensource.org/docs/osd}
+\end{flushright}
+
+\end{frame}
+
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{When libre software enters a new niche...}
+
+\begin{itemize}
+\item It can become one of the first choices (GNU/Linux in operating
+  systems, Apache in WWW servers, LibreOffice in office applications, etc.)
+\item It benefits from a lot of synergy (reuse of code, reuse of
+  knowledge, reuse of distribution channels, etc.)
+\item Users gain competitive advantage:
+  \begin{itemize}
+  \item Availability of source code makes improvements and
+    customization possible in large scale (by in-house or
+    subcontracted teams).
+  \item Standardization, but maintaining competition between
+    providers.
+  \item No more per-use licenses.
+  \item Much more and better support (ensured by competition).
+  \end{itemize}
+\item Competition is the name of the game.
+\end{itemize}
+
+\end{frame}
+
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Consequences for the software industry}
+
+The software business is changing upside down (still slowly, but
+gaining momentum):
+
+\begin{itemize} 
+\item Traditional software ``manufacturers'' will have to reinvent
+  themselves completely (no more per-copy incomes).
+\item A whole new industry (based in support and libre development)
+  will be needed as libre software gains market acceptance.
+\item It allows for (and encourages) competition in support, and even
+  in the evolution of a piece of software.
+\item Users are benefited in several ways. Therefore, big pressure
+  from end-users (including big companies) to switch to libre software.
+\end{itemize}
+
+\end{frame}
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Some specific impacts}
+
+\begin{itemize} 
+\item Cost: cost model radically different from proprietary software
+\item Openess: can be modified, can be inspected, can be studied
+\item Distribution: new distribution channels, new methods
+\item Development: ``surprising'' development models
+\item Maintenance and support: true competition
+\end{itemize}
+
+Mixture of two powerful mechanisms:
+
+\begin{itemize}
+\item Competition (using the same souce base)
+\item Cooperation (even non-voluntary)
+\end{itemize}
+
+\end{frame}
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Different actors, different visions}
+
+\begin{itemize}
+\item End users (persons, companies, public administrations, etc.)
+\item Developer (or software producer)
+\item Software integration
+\item Service provider
+\end{itemize}
+
+\end{frame}
+
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Libre software for (large) end users}
+
+\begin{itemize}
+\item Libre software is not necessarily better or worse. It is 
+  just different
+\item In several niches, we have already excelent products and
+  companies supporting them.
+\item In many cases, the most cost-effective way of producing
+  software.
+\item Special advantages when there is interest in long-term life
+  cycles, vendor independence, multiplatform support, adaption to
+  evolving technologies.
+\item If a powerful enough user (or group of users) needs to drive the
+  technology, this is probably the best way to go.
+\item Many things can be done to promote a competitive
+  libre software industry in a given niche. Many benefits
+  are derived of such a promotion.
+\end{itemize}
+\end{frame}
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Libre software for \emph{sysadmins}}
+
+\begin{itemize}
+\item Large variety of software tools
+\item State of the art
+\item Much of the Internet infrastructure is libre software
+\item Versatility is a must!
+\item High innovative
+\item Possibility of being part of all this!
+\end{itemize}
+
+\end{frame}
+
+
+\end{document}
