@@ -22,7 +22,7 @@
 
 %% Metadatos del PDF.
 \hypersetup{  
-  pdftitle={Tareas esenciales en la administración de sistemas},
+  pdftitle={El software libre y la administración de sistemas},
   pdfauthor={Miguel Vidal},
   pdfcreator={GSyC/Libresoft},
   pdfproducer=PDFLaTeX,
@@ -32,9 +32,9 @@
 
 \begin{document}
 
-\title{Tareas esenciales en la administración de sistemas}
+\title{El software libre y la administración de sistemas}
 \subtitle{Arquitectura de servidores con software libre}
-\institute{\{mvidal,jfcastro\}@gsyc.urjc.es} 
+\institute{\{mvidal,jfcastro\}@libresoft.es} 
 \author{Miguel Vidal, José Castro}
 %\date{\today}
 \date{25 de marzo de 2011}
@@ -46,46 +46,235 @@
 \end{center}
 }
 
-\frame{
-~
-\vspace{4cm}
+%% License slide
+\begin{frame}
+  \vspace{2cm}
+  \begin{flushright}
+    {\footnotesize \copyright{} 2009-2011 Miguel Vidal, Jose Castro.} \\
+%    \vspace{0.25cm}
+    \medskip
+    {\scriptsize Esta presentación se distribuye bajo \\ licencia Creative Commons Reconocimiento 3.0 España}
+%    \vspace{0.10cm}
+  \end{flushright}
+  \begin{center}
+    \href{http://creativecommons.org/licenses/by/3.0/es}{\includegraphics[width=2cm]{format/cc-by.png}} \\
+    {\tiny \url{http://creativecommons.org/licenses/by/3.0/es}}
+  \end{center}
+\end{frame}%%
 
-\begin{flushright}
-{\small
-(cc) 2009-2011 Miguel Vidal, José Castro. \\
-  Esta presentación se publica bajo una licencia Creative Commons Reconocimiento 3.0 España, disponible en 
-  \url{http://creativecommons.org/licenses/by/3.0/es/}
- 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\bigskip
+\begin{frame}
+\frametitle{¿Quiénes somos?}
 
-}
-\end{flushright}
-}
-%%
+\begin{itemize}
+\item \alert{Miguel Vidal} (\url{http://gsyc.es/~mvidal}): 
+
+
+	\begin{itemize}
+
+\footnotesize
+
+	\item Desplegó la actual infraestructura HA de \href{http://www.morfeo-project.org}{Morfeo} y ha colaborado en la administración y mantenimiento a bajo nivel de la plataforma \href{http://www.osor.eu}{OSO-R}. 
+	\item Administró los servidores de barrapunto.com durante seis años.
+	\item Coordinador del Máster de Software Libre (URJC) y profesor en la Escuela de Negocios EOI.
+	\item Responsable del proyecto de traducción al español de la \href{http://www.openbsd.org/translation.html\#WHO}{documentación de OpenBSD}.
+	\end{itemize}
+
+\normalsize
+
+\item \alert{José Castro} (\url{http://gsyc.es/~jfcastro}): 
+
+	\begin{itemize}
+
+\footnotesize
+
+	\item Responsable de sistemas de la plataforma HA de \href{http://www.morfeo-project.org}{Morfeo}. 
+	\item Parte del equipo técnico de la plataforma europea \href{http://www.osor.eu}{OSO-R}.
+	\item Coordinador de la asignatura de ``Implantación'' en el Máster oficial de software libre de la URJC.
+	\item Miembro fundador de Madrid-OSUG (comunidad de usuarios de OpenSolaris en Madrid).
+	\end{itemize}
+
+\end{itemize}
+\end{frame}
+
+\normalsize
 
 \begin{frame}
   \frametitle{Agenda}
 
 %  \begin{itemize}[<+->]
 \begin{enumerate}
-\item ¿Qué es un administrador de sistemas? 
-\item Deberes de un sysadmin. Cultura (\textsc{bofh}, Usenet\dots)
-\item Políticas y procedimientos
-\item Sistemas de seguimiento de incidencias
-\item Asociaciones y organizaciones profesionales, certificaciones     
+\item Software libre en servidores
+\item Tareas esenciales de un administrador de sistemas
 \end{enumerate}
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{¿Qué es un administrador de sistemas?}
+\section{Software libre en servidores}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
 
 \begin{center}
-\huge{¿Qué es un administrador de sistemas?}
+\huge{Software libre en servidores}
+\end{center}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Ventajas del software libre en servidores (I)}
+
+\begin{itemize}
+\item Libertad de uso, modificación y redistribución: 
+	\begin{itemize}
+	\item podemos \alert{instalarlo} en tantas máquinas como queramos.
+	\item podemos \alert{adaptarlo} a nuestras necesidades o las del cliente.
+	\item podemos revisar el código y \alert{corregir} errores sin esperar a que lo haga el fabricante.
+	\item podemos beneficiarnos de las mejoras y correcciones que hagan otros.
+	\end{itemize}
+
+\item  Corrección mas rápida y eficiente de fallos, y rápida resolución de dudas y problemas, gracias al \alert{modelo bazar} y a las fuertes comunidades que tiene detrás.
+
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Ventajas del software libre en servidores (II)}
+
+\begin{itemize}
+\item \alert{Independencia tecnológica}: no nos atamos a ningún proveedor en particular.
+\item Soporte y \alert{compatibilidad} a largo plazo: el fabricante no está forzado a ``vendernos'' continuamente nuevas versiones. 
+\item Fomento de la \alert{libre competencia} al basarse en servicios y no en licencias.
+\item Ausencia de secretismo tecnológico y de patentes (seguridad jurídica). 
+\item \alert{Formatos estándar}: facilitan la interoperabilidad y evitan incompatibilidades. 
+\item Métodos simples y unificados de gestión de software: las distribuciones evitan tener que acudir a buscar software de fuentes dudosas.
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Ventajas del software libre en servidores (y III)}
+
+\begin{itemize}
+\item Inmensa \alert{variedad} de soluciones muy \alert{maduras}: el software libre nace en entornos de servidores.
+\item Demanda de técnicos FLOSS en expansión, gracias a la creciente adopción por parte de las AA.PP. y de grandes empresas tecnológicas (Google, IBM, Sun/Oracle, etc.).
+\item Sistemas \alert{potencialmente más seguros}: hackers y empresas de seguridad de todo el mundo puedan auditar los programas.
+\item Aspectos económicos: más de mil millones de euros en licencias de Microsoft en España anuales (2006). Bajo TCO.
+\item Fiabilidad y rendimiento.
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Mercado de servidores con software libre}
+
+\begin{itemize}
+\item El mercado suele medirse por unidades vendidas o por beneficios
+\item Difícil de evaluar para el caso del FLOSS: sistemas libres son a menudo obtenidos sin coste e instalados sin contratar soporte.
+\item Muchas veces se instalan en máquinas que no fueron compradas con software libre precargado.
+\item El método que se usa suele ser mediante acceso a máquinas públicamente accesibles (como servidores web).
+\item Problema: este método no contempla las máquinas no accesibles públicamente.
+\end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Mercado de servidores}
+
+\begin{center}
+\includegraphics[width=11.0cm]{figs/servers-market.png}
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Compañías de hosting más fiables}
+
+\begin{center}
+\includegraphics[width=11.5cm]{figs/netcraft.png}
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{¿No hay desventajas?}
+
+\pause
+
+\begin{itemize}
+\item Necesidad de técnicos especializados (la gente se forma con SO privativos)
+\item Interfaces visuales (suelen ser privativos)
+\item No siempre hay soporte para todo tipo de hardware (patentes, drivers y especificaciones privativas).
+\item Suele ser necesario hacer \textit{advocacy} y plantear migraciones.
+\item ¿Mayor mercado laboral en sistemas privativos? (depende del sector)
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{¿Y qué hay de las GUIs?}
+
+\pause
+
+\begin{itemize}
+\item Muchas distros traen GUIs o herramientas visuales propias. 
+\item Son útiles y facilitan las tareas, sobre todo para sysadmins noveles.
+	\begin{itemize}
+	\item Suelen ser propietarias
+	\item O nos hacen dependientes de una distro en concreto
+	\item A veces poseen oscuros detalles en la forma de gestionar los recursos
+	\end{itemize}
+\item Nosotros veremos siempre en las tecnologías y métodos subyacentes
+\item Estos suelen ser comunes a todas las distros, incluso a todos los Unixes.
+\item La configuración manual es mejor: más rápida, más flexible, más fiable, más potente y más \textit{scriptable}.
+\end{itemize}
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{¿Es gratis el software libre? Algunos consejos}
+
+\pause
+
+\begin{itemize}
+\item La gratuidad no es el punto fuerte del software libre
+\item Insistir en la gratuidad supone minusvalorar el resto de ventajas (y es injusto para la gente que lo crea y lo mantiene).
+\item No comiences hablándoles de dinero a los que toman decisiones. 
+\item No hablar del FLOSS en abstracto (``Linux es mejor''): estudia costes de migración y trata de cubrir necesidades concretas que no están cubiertas o mejorar lo que hay.
+\item No seas impaciente: deja que el software libre crezca con los clientes, introduciendo mejoras de forma progresiva.
+\end{itemize}
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Tareas esenciales de un administrador de sistemas}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+\begin{center}
+\huge{Tareas esenciales de un administrador de sistemas}
 \end{center}
 
 \end{frame}
@@ -110,7 +299,7 @@ Tambien llamado \alert{sysadmin}, debe demostrar una mezcla de \alert{cualidades
 \frametitle{Tareas esenciales de la administración de sistemas}
 
 \begin{itemize}
-\item Istalación, soporte y mantenimiento de servidores o de otros sistemas informáticos.
+\item Instalación, soporte y mantenimiento de servidores o de otros sistemas informáticos.
 \item \textit{Scripting} o programación ligera. 
 \item Gestión de proyectos en proyectos relacionados con sistemas. 
 \item Supervisión y formación de operadores. 
@@ -147,7 +336,7 @@ Todas estas tareas no necesariamente las lleva a cabo una sola persona. Pero al 
 \item La administración de sistemas implica más cambios de contextos en un solo día que la mayoría de trabajos en un año.
 \item Un sysadmin necesita habilidad para organizarse y gestionar su tiempo eficientemente.
 \item Habilidad para mantener felices a los usuarios en una situación \textit{win-win}.
-\item El ``queme'' en el trabajo de un sysadmins es creciente. La mayoría de los administradores duran solo unos cuantos años.
+\item El ``queme'' en el trabajo de un sysadmin es creciente. La mayoría de los administradores duran solo unos cuantos años.
 \item A diferencia de otras profesiones, no existe una única vía para convertirse en sysadmin.
 \end{itemize}
 \end{frame}
@@ -174,13 +363,6 @@ Todas estas tareas no necesariamente las lleva a cabo una sola persona. Pero al 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Políticas y procedimientos}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 \begin{frame}
 
 \begin{center}
@@ -195,18 +377,9 @@ Todas estas tareas no necesariamente las lleva a cabo una sola persona. Pero al 
 \frametitle{Documentación}
 
 \begin{itemize}
-\item Páginas \texttt{man}: tradicional doc. online.
-	\begin{itemize}
-	\item Están organizadas por secciones. 
-	\item Una misma orden puede estar en varias secciones.
-	\item No son howtos. 
-	\end{itemize}
-\item GNU Texinfo (Linux)
-\item Guías y documentación específica de cada sistema (ej. \textit{FreeBSD Handbook} o \texttt{docs.sun.com})
-\item Documentación específica del paquete: (ej. \texttt{/usr/share/doc})
-\item Libros en papel (O'Reilly)
-\item Linux Documentation Project
-\item RFCs
+\item Lo último que quiere hacer un sysadmin es crear o mantener documentación. 
+\item Tarea ardua y poco valorada. 
+\item Tampoco suelen querer aprender herramientas como LaTeX, SGML o groff.
 \end{itemize}
 
 \end{frame}
@@ -220,17 +393,37 @@ Todas estas tareas no necesariamente las lleva a cabo una sola persona. Pero al 
 \begin{itemize}
 \item La documentación ayuda a la reproducibilidad. 
 \item La documentación ahorra tiempo. 
-\item La documentación reduce la propabilidad de puntos únicos de fallo (SPoF).
+\item La documentación facilitan el aprendizaje de nuevos administradores (algo que beneficia a todos). 
 \item Lo principal: la documentación mejora la inteligibilidad de un sistema y permite que
 	las modificaciones se hagan de un modo consistente.
 \item Escribe documentos cortos: de una página que cubran un solo tema.
-\item La documentación local debe guardarse en un solo punto bien definido (wiki, repo...).
+\item La documentación local debe guardarse en un solo punto bien definido y conocido (wiki, repo, sección de páginas\texttt{man}...).
 \end{itemize}
 
 \end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Recursos documentales}
+
+\begin{itemize}
+\item Páginas \texttt{man}: tradicional doc. online.
+	\begin{itemize}
+	\item Están organizadas por secciones. 
+	\item Una misma orden puede estar en varias secciones.
+	\item No son howtos. 
+	\end{itemize}
+\item GNU Texinfo (reemplazo del formateador nroff --privativo-- usado en AT\&T). Hoy tiene poco sentido, pero GNU las sigue apoyando. 
+\item Guías y documentación específica de cada sistema (ej. \textit{FreeBSD Handbook} o \texttt{docs.sun.com})
+\item Documentación específica del paquete: (ej. \texttt{/usr/share/doc})
+\item Libros en papel (O'Reilly)
+\item Linux Documentation Project
+\item RFCs
+\end{itemize}
+
+\end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -269,8 +462,14 @@ Políticas habituales:
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Sistemas de seguimiento de incidencias}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+\begin{center}
+\huge{Sistemas de seguimiento de incidencias}
+\end{center}
+
+\end{frame}
 
 
 \begin{frame}
@@ -339,41 +538,6 @@ Principales características:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Certificación UNIX}
-
-\begin{itemize}
-\item \textsc{UNIX}\texttrademark{} es una marca registrada propiedad del Open Group consortium (Fujitsu, Sun, Hitachi, HP, IBM, NEC, US DoD, la NASA y otros). 
-\item Open Group se encarga de conceder certificados SUS: Single UNIX Specification 
-\item Solaris, HP-UX, AIX y MacOS X tienen certificación SUS
-\item Tipo Unix (\textit{Unix-like}): Linux, BSD y OpenSolaris
-\end{itemize}
-\end{frame}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Timeline de Unix}
-\begin{center}
-  \includegraphics[height=2.5in]{figs/Unix_history-simple.png}
-\end{center}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Timeline de Unix}
-\begin{center}
-  \includegraphics[height=2.7in]{figs/2000px-Unix.png}
-\end{center}
-\end{frame}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Asociaciones y organizaciones profesionales}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
 
 \begin{center}
 \huge{Asociaciones y organizaciones profesionales}
@@ -389,7 +553,7 @@ Principales características:
 \begin{itemize}
 \item Es la primera organización internacional para sysadmins.
 \item Es un grupo de interés dentro de Usenix.
-\item Promueve la admnistración de sistemas como profesión y patrocina confenrencias y programas informales.
+\item Promueve la administración de sistemas como profesión y patrocina conferencias y programas informales.
 \item Organiza el mayor evento para sysadmins: la conferencia USENIX LISA (Large Installation System Administration) en otoño.
 \item SAGE se enfoca más a la investigación.
 \end{itemize}
@@ -442,7 +606,7 @@ LOPSA, USENIX y SAGE animan a que todo administrador se guía por un código ét
 \item Integridad personal
 \item Privacidad
 \item Leyes y políticas
-\item Communicación
+\item Comunicación
 \end{itemize}
 \end{frame}
 
@@ -454,8 +618,8 @@ LOPSA, USENIX y SAGE animan a que todo administrador se guía por un código ét
 \begin{itemize}
 \item Integridad de sistema
 \item Educación
-\item Responsibilidad social
-\item Responsibilidad ética
+\item Responsabilidad social
+\item Responsabilidad ética
 \end{itemize}
 
 \url{http://lopsa.org/CodeOfEthics}
