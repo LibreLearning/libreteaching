@@ -1,0 +1,267 @@
+%
+% $Id: $
+%
+%
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer (paquete latex-beamer en Debian)
+%
+
+%
+% Gráficos:
+% Los gráficos pueden suministrarse en PNG, JPG, TIF, PDF, MPS
+% Los EPS deben convertirse a PDF (usar epstopdf)
+%
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={About GSyC/LibreSoft},
+  pdfauthor={Jesus M. Gonzalez-Barahona, Gregorio Robles},
+  pdfcreator={GSyC/LibreSoft, Universidad Rey Juan Carlos},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Systems Course},
+}
+%%
+
+\begin{document}
+
+\title{About GSyC/LibreSoft}
+\subtitle{Presentation of the Systems Course}
+\author{Gregorio Robles}
+\institute{grex@gsyc.urjc.es \\
+GSyC/LibreSoft, Universidad Rey Juan Carlos}
+
+\date{Madrid, March 25th 2011}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+
+% Si el titulo o el autor se quieren acortar para los pies de página
+% se pueden redefinir aquí:
+%\title{Titulo corto}
+%\author{Autores abreviado}
+
+
+% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
+\frame{
+~
+\vspace{4cm}
+
+\begin{flushright}
+\copyright 2002-2011 Jesus M. Gonzalez-Barahona, Gregorio Robles. \\
+
+Some rights reserved. This presentation is distributed under the
+``Attribution-ShareAlike 3.0'' license, by Creative Commons,
+available at \url{http://creativecommons.org/licenses/by-sa/3.0/}
+
+\end{flushright}
+}
+
+
+%\section{}
+
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{The Universidad Rey Juan Carlos}
+
+\begin{itemize}
+\item Young public university
+\item Four \emph{campi} in Madrid: Vicálvaro, Alcorcón, Móstoles and Fuenlabrada
+\item Around 2,000 staff (1,200 academics); 27,000 students
+\item Structured in faculties: ours is the \emph{Escuela Superior de Ingenieros
+de Telecomunicación}
+\item Official degrees: now moving to the Bologna system
+\begin{itemize}
+  \item Degree (240 ECTS)
+  \item Master (60-120 ECTS)
+  \item PhD
+\end{itemize}
+\item Own titles
+\end{itemize}
+
+\begin{flushright}
+\url{http://www.urjc.es/}
+\end{flushright}
+
+\end{frame}
+
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Madrid On Rails (MoR)}
+
+\begin{itemize}
+\item Main goal: disseminate and promote the use of emerging technologies within small and medium companies in Madrid.
+\item Specific goals:
+\begin{itemize}
+  \item Become a center of international reference in technology, emerging applications and services based on Free Software.
+  \item Undertake innovation projects of national and international collaboration with universities, research institutes and companies
+  \item Provide specialized training to SMEs in the emerging disciplines of free software and web 2.0, both onsite and online.
+\end{itemize}
+\end{itemize}
+
+\begin{flushright}
+\url{http://madridonrails.com/}
+\end{flushright}
+
+\end{frame}
+
+
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{The GSyC/LibreSoft group}
+
+\begin{itemize}
+\item Research group in Uni. Rey Juan Carlos (Fuenlabrada, Spain)
+\item About 25 researchers and support staff (including students)
+\item Focus on libre (free, open source) technologies, from several
+  points of view
+\item Backgrounds on software development, data communications,
+  telecommunications, etc.
+\item Involvement in 6th and 7th FP projects (CALIBRE, FLOSSInclude,
+  FLOSSMETRICS, QUALOSS, QUALIPSO, Alert), national projects (Morfeo,
+  Vulcano), projects
+  funded by companies (Vodafone, Telefonica, Infojobs, Google, Andago) and competitive
+  tenders (European Commission, CENATIC)
+\end{itemize}
+
+\begin{flushright}
+\url{http://libresoft.es/}
+\end{flushright}
+
+\end{frame}
+
+
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Main activity lines (GSyC/LibreSoft)}
+
+\begin{itemize}
+\item Study of libre software development (quantitative, empirical
+  approach)
+\item Study of Wikipedia and other on-line communities
+\item Study and assessment of libre software communities (specially
+  those promoted by companies, or composed in part by companies)
+\item Technologies for software development (specially those designed
+  for practices found in libre software projects)
+\item Integration of mobile devices with the Internet
+\item Augmented reality in several fields
+\item Web 2.0 technologies and the social Internet
+\item {\bf Server architecture with free software: Virtualization, clustering and cloud computing}
+\end{itemize}
+
+\end{frame}
+
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Once upon a time...}
+
+\begin{itemize}
+\item Interest in libre software (since early 1990s) \\
+  e.g: PDSoft Interest Group in Madrid (circa 1992)
+\item Collaboration in the community (since mid 1990s) \\
+  e.g.: Talks a-la-carte, participation in projects,
+\item Education and training on libre software and libre software
+  technologies (since mid 1990s) \\
+  e.g.: Use of NetBSD in courses (circa 1993)
+\item Research on libre software (since early 2000s) \\
+  e.g.: Counting potatoes (circa 2001)
+\end{itemize}
+
+\end{frame}
+
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Education on libre software}
+
+\begin{itemize}
+\item Libre software has gained a lot of attention from companies,
+  public administrations, users of software in general
+\item Libre software is a complex (and new) world
+\item Many experts on libre software are needed
+\item Systems have always been related to libre software
+\end{itemize}
+
+\end{frame}
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Towards this course}
+
+\begin{itemize}
+\item GSyC/LibreSoft research group\\
+  (since 2003)
+\item Libre software PhD subject\\
+  (since 2003)
+\item ``Introducción al software libre''\\
+  (since 2004)
+\item MoLOS group, design of an European master\\
+  (since 2004)
+\item Master on libre software, thanks to Caixa Nova, Igalia
+  \\(since 2007)
+\item Master edition in Madrid\\
+  (since 2008)
+\item Bologna-master (``máster universitario'') in Madrid\\
+  (since 2010)
+\item Android and Systems course in Madrid\\
+  (since 2011)
+\end{itemize}
+
+\end{frame}
+
+
+%%---------------------------------------------------------------
+
+%\begin{frame}
+%\frametitle{Other participants and supporters}
+
+%\begin{itemize}
+%\item Caixa Nova: made this possible
+%\item Igalia: good real world experience about libre software
+%\item CENATIC: promotion of libre software practices
+%\item Medialab Prado: new approaches to libre software
+%\end{itemize}
+
+%Prospective supporters: ATI, Morfeo Community. 
+%Some other supporters being confirmed.
+
+%\begin{flushright}
+%\url{http://master.libresoft.es/}
+%\end{flushright}
+
+%\end{frame}
+
+%%---------------------------------------------------------------
+
+
+
+\end{document}
