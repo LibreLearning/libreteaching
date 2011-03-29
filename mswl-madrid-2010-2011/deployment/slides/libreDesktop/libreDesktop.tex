@@ -1,0 +1,649 @@
+%
+% $Id: $
+%
+%
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer (paquete latex-beamer en Debian)
+%
+
+%
+% Gráficos:
+% Los gráficos pueden suministrarse en PNG, JPG, TIF, PDF, MPS
+% Los EPS deben convertirse a PDF (usar epstopdf)
+%
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg-soft.png}}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={Brief introduction to git},
+  pdfauthor={Jesus M. Gonzalez-Barahona},
+  pdfcreator={GSyC/LibreSoft, Universidad Rey Juan Carlos},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Case studies I},
+}
+%%
+
+\begin{document}
+
+\title{Libre Desktops and Public Administrations}
+\subtitle{ Deployment of LibreSoftware / Master on libre software (URJC) \\
+\url{http://master.libresoft.es}}
+\author{Jose Gato Luis}
+\institute{jgato@libresoft.es \\
+GSyC/LibreSoft, Universidad Rey Juan Carlos}
+
+\date{April 2011}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+
+% Si el titulo o el autor se quieren acortar para los pies de página
+% se pueden redefinir aquí:
+%\title{Titulo corto}
+%\author{Autores abreviado}
+
+
+%% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
+\frame{
+~
+\vspace{3cm}
+
+\begin{flushright}
+\copyright 2011 Jose Gato Luis \\
+
+Some rights reserved. \\
+This document is distributed under the \\
+Creative Commons Attribution-ShareAlike 3.0 licence, \\
+available in \\
+\url{http://creativecommons.org/licenses/by-sa/3.0}
+
+The original version of this document is available at \\
+\url{http://master.libresoft.es}
+\end{flushright}
+}
+%%
+
+
+\begin{frame}
+\frametitle{LibreSoftware Success }
+
+\begin{itemize}
+\item Desktop is one of the most difficult scenarios to succeed. Users with different needs, Microsoft..
+\item Software libre is something dark, for hackers, freaks, and servers. FUD
+\item Allows to have mix solutions. Windows + OpenOffice. A good way to start?
+\item Great applications. Many people using Firefox dont matter about FLOSS.
+\item A lot of hard work to do
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{ Success in public administrations}
+
+\begin{itemize}
+
+\item Great success in public administrations
+\item Licences costs are a good point to start. But, there are other reasons...
+\item Extremadura and Andalucia world reference
+\item IDABC stands for Interoperable Delivery of European eGovernment Services to public Administrations, Businesses and Citizens. Now ISA
+\item Public Administrations and libre software, not only for desktops, but....
+
+\end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{ MAP, Miguel Angel Amutio}
+
+\begin{itemize}
+\item "Jefe de Area de Planificacion y Explotacion"
+\item 2005:
+\begin {itemize}
+	\item Freedom to choose: computer, software and services. Against propietary scenarios where public administration can not negotiate in good conditions (slave)
+	\item Investment Protection: one company giving services disappear. You can choose another. 
+	\item Better relation between prices and features: more competency
+	\item Interoperability
+\end {itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{ MAP, Miguel Angel Amutio}
+
+\begin{itemize}
+\item "Propuesta de recomendaciones a la Administracion General del Estado sobre utilizacion del software libre y de fuentes abiertas"
+\begin {itemize}
+	\item "Grupo de software libre en la Administracion General del Estado"
+	\item  MAP - 2005
+\end {itemize}
+\item Legal Aspects
+\begin {itemize}
+	\item Defensa del interes general:
+	\begin{quote} 
+	La Constitucion establece en su articulo 103 que La Administracion sirve con objetividad los intereses generales y actua de acuerdo con los principios de eficacia...
+	\end{quote}
+\end {itemize}
+\end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{ MAP, Miguel Angel Amutio}
+
+\begin{itemize}
+\item Legal Aspects
+\begin {itemize}
+	\item Transparencia de la actuacion administrativa
+	\begin{quote} 
+	La Ley 30/1992, de 26 de noviembre, de Regimen Juridico y del Procedimiento Administrativo Comun, en su preambulo,
+apartado V, se refiere a "garantizar la calidad y transparencia de la actuacion administrativa" y a la "tecnificacion y
+modernizacion de la actuacion administrativa en su vertiente de produccion juridica y a la adaptacion permanente al ritmo de las
+innovaciones tecnologicas".
+
+	\end{quote}
+\end {itemize}
+\end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{ MAP, Miguel Angel Amutio}
+
+\begin{itemize}
+\item Legal Aspects
+\begin {itemize}
+	\item Eficacia y eficiencia
+	\begin{quote} 
+La citada Ley 30/1992 en su articulo 3 "Principios Generales", se refiere a la "actuacion por los criterios de eficacia y
+servicio a los ciudadanos"
+
+	\end{quote}
+\end {itemize}
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{ MAP, Miguel Angel Amutio}
+
+\begin{itemize}
+\item Legal Aspects
+\begin {itemize}
+	\item Seguridad
+	\begin{quote} 
+El Real Decreto 263/1996, de 16 de febrero, por el que se regula la utilizacion de tecnicas electronicas, informaticas y telematicas
+por la Administracion General del Estado, modificado por el Real Decreto 209/2003, de 21 de febrero, por el que se regulan
+los registros y las notificaciones telematicas, asi como la utilizacion de medios telematicos para la sustitucion de la aportacion de
+certificados por los ciudadanos, establece en su articulo 4 la obligacion de adoptar medidas organizativas y tecnicas
+que aseguren la autenticidad, confidencialidad, integridad, disponibilidad y conservacion de la informacion para
+garantizar la restriccion de utilizacion, la prevencion de alteraciones y la proteccion de los procesos informaticos
+frente a manipulaciones no autorizadas.
+
+	\end{quote}
+\end {itemize}
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{ MAP, Miguel Angel Amutio}
+
+\begin{itemize}
+\item Legal Aspects
+\begin {itemize}
+	\item Conservacion
+	\begin{quote} 
+El citado Real Decreto 263/1996, establece en su articulo 4 la obligacion de adoptar medidas organizativas y
+tecnicas que aseguren la conservacion de la informacion
+
+	\end{quote}
+\end {itemize}
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{ MAP, Miguel Angel Amutio}
+
+\begin{itemize}
+\item Legal Aspects
+\begin {itemize}
+	\item Normalizacion e interoperabilidad
+	\begin{quote} 
+
+El Real Decreto 263/1996 se refiere en su articulo 4 a la conformidad con normas nacionales e internacionales
+exigibles; en su articulo 7 a la existencia de compatibilidad entre el emisor y el destinatario que permita
+tecnicamente las comunicaciones entre ambos, a la utilizacion de codigos y formatos o disenios de registro
+establecidos por la Administracion General del Estado; en su articulo 10 a la publicacion de la relacion de las
+aplicaciones, medios y soportes a traves de los cuales se podran efectuar las comunicaciones y notificaciones,
+especificando, en su caso, los formatos y codigos normalizados para su utilizacion.
+
+	\end{quote}
+\end {itemize}
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{ MAP, Miguel Angel Amutio}
+
+\begin{itemize}
+\item Legal Aspects
+\begin {itemize}
+	\item Accesibilidad
+	\begin{quote} 
+La Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Informacion y Comercio Electronico, establece en su
+disposicion adicional quinta que las Administraciones Publicas deberan adoptar las medidas necesarias para que
+la informacion disponible en sus respectivas paginas de Internet pueda ser accesible a personas con
+discapacidad y de edad avanzada, de acuerdo con los criterios de accesibilidad al contenido generalmente
+reconocidos, antes del 31 de diciembre de 2005. Asimismo, podran exigir que las paginas de Internet cuyo
+disenio o mantenimiento financien apliquen los criterios de accesibilidad antes mencionados.
+
+
+	\end{quote}
+\end {itemize}
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{ MAP, Miguel Angel Amutio}
+
+\begin{itemize}
+\item Legal Aspects
+\begin {itemize}
+	\item Accesibilidad
+	\begin{quote} 
+La Orden PRE/1551/2003, de 10 junio, por la que se desarrolla la disposicion final primera del Real Decreto 209/2003, de
+21de febrero de 2003, que regula los registros y las notificaciones telematicas, asi como la utilizacion de medios telematicos para la
+sustitucion de certificados por los ciudadanos, establece que el registro telematico y el servicio de notificacion telematica
+deberan cumplir los requerimientos en materia de accesibilidad establecidos por la Iniciativa para una Web
+Accesible (WAI) del Consorcio World Wide Web y en particular las especificaciones de la Recomendacion de 5
+de mayo de 1999 sobre Pautas de Accesibilidad del Contenido en la Web, version 1.0, en su nivel AA.
+
+
+	\end{quote}
+\end {itemize}
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{ MAP, Miguel Angel Amutio}
+
+\begin{itemize}
+\item Legal Aspects
+\begin {itemize}
+	\item Proteccion de las modalidades linguisticas
+
+	\begin{quote} 
+
+La Constitucion recoge la proteccion y garantia de las distintas modalidades linguisticas de Espania en los Titulos I de
+"De los derechos y deberes fundamentales" y Titulo VIII "De la Organizacion Territorial del Estado". En particular, los
+articulos 3 y 46 encomiendan a los poderes publicos que garanticen la proteccion y conservacion de las distintas
+modalidades linguisticas de Espania como patrimonio cultural de nuestro pais. A su vez, el articulo 149 en su
+apartado 2 configura como deber y atribucion del Estado el servicio de la cultura.
+
+	\end{quote}
+\end {itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{ MAP, Miguel Angel Amutio}
+
+\begin{itemize}
+\item Legal Aspects
+\begin {itemize}
+	\item Propiedad intelectual y patentes
+
+	\begin{quote} 
+El Real Decreto Legislativo 1/1996, de 12 de abril, por el que se aprueba el texto refundido de la Ley de Propiedad Intelectual,
+regularizando, aclarando y armonizando las disposiciones legales vigentes en la materia trata en sus articulos 95 a 104 la
+cuestion de los derechos de autor y los programas de ordenador. En relacion con el acceso al codigo fuente, es
+especialmente significativo el articulo 100 "Limites a los derechos de explotacion" que contempla la correccion de
+errores, el conocimiento del funcionamiento del programa, las copias de seguridad, el desarrollo de programas
+derivados y la obtencion de la informacion necesaria para la interoperabilidad.
+
+
+	\end{quote}
+\end {itemize}
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{MAP, Miguel Angel Amutio}
+
+\begin{itemize}
+\item Recommendations
+\begin{itemize}
+	\item To evaluate the different software solutions regarding licenses. Justify why to choose a privative solution when libre software is avaliable
+	\item To choose stable version of libre software
+	\item It is positive that software could be running on different platforms. Also, to have support from different companies
+	\item To study in depth the license (propietary or libre)
+	\item Increase in budgets for services, decrease in budgets for licenses
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{MAP, Miguel Angel Amutio}
+
+\begin{itemize}
+\item Recommendations
+\begin{itemize}
+	\item Electronic services:
+	\begin {itemize}
+		\item viewable, accessible and functionally operating from the browsers available
+		\item For the three most used browsers, or, at least one open browser
+		\item Citizens dont require an specific software
+		\item W3C standards
+	\end {itemize}
+	\item Documents for citizens:
+	\begin{itemize}
+		\item Format supported for several products
+		\item Citizens dont require an specific software
+	\end{itemize}
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{MAP, Miguel Angel Amutio}
+
+\begin{itemize}
+\item Recommendations
+\begin{itemize}
+	\item Software for citizens:
+	\begin {itemize}
+		\item Support several platforms
+		\item At least, one open platform. So, they dont require to acquire an specific software. 
+		\item To consider the free distribution of software developed for/by the public administration. Specially, if dont support several platforms. 
+	\end{itemize}
+	\item Software for/by public administration:
+	\begin {itemize}
+		\item Mandatory: software sources.
+		\item Free licenses for software and documentation
+	\end{itemize}
+	\item Interoperability: open specifications
+	\item Accessibility: W3C
+	\item Training 
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{ OpenSource Software for the growth of public administrations}
+
+\begin{itemize}
+\item 2008
+\item Cenatic: Libresoft + TiD
+\item Quantitative analysis of the public administration
+\item Based on the experience of government employees (interviews) 
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{ OpenSource Software for the growth of public administrations}
+
+\begin{itemize}
+\item Main reasons
+\begin{itemize}
+\item Social aspects  (costs)
+\item Interoperability
+\item Technology independence
+\item Technical support and maintenance
+\item Security
+\item Support on information life (ex: standards for documentation)
+\item Linguistic protection
+\item Total costs of property
+\item Intelectual property and patents
+
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{ OpenSource Software for the growth of public administrations}
+
+\begin{itemize}
+\item Laws aspects besides Mutios's recomendations
+\item 11/2007 22 June: Acceso electronico de los ciudadanos a los servicios publicos
+\begin{itemize}
+	\item Citizens rights to access to information and services from the public administration
+	\item "Ley estatal"
+\end{itemize}
+
+\item  Art. 4, Sect i
+\begin{itemize}
+	\item Mentions to "Neutralidad tecnologica"
+	\item Citizens and public administration have rights to choose the software and technology they want to use.
+	\item Public Administrations have to use open standards 
+\end{itemize}
+
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{ OpenSource Software for the growth of public administrations}
+
+\begin{itemize}
+\item 11/2007 22 June: Acceso electronico de los ciudadanos a los servicios publicos. 
+\begin{itemize}
+	\item Tittle 4: Cooperation between public entities for the growth of e-government 
+	
+	\item Tittle 4 - Chapter 2: Cooperation regarding interoperability between applications and systems. Art. 41
+	\begin {quote}
+		Art. 41. Interoperabilidad de los Sistemas de Informacion. Las
+Administraciones Publicas utilizaran las tecnologias de la informacion
+en sus relaciones con las demas Administraciones y con los
+ciudadanos, aplicando medidas informaticas, tecnologicas, organizativas, y de seguridad, que garanticen un adecuado nivel de
+interoperabilidad tecnica, semantica y organizativa y eviten
+discriminacion a los ciudadanos por razon de su eleccion tecnologica.
+
+	\end {quote}
+	
+\end{itemize}
+
+
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{ OpenSource Software for the growth of public administrations}
+
+\begin{itemize}
+\item 11/2007 22 June: Acceso electronico de los ciudadanos a los servicios publicos. 
+
+\begin{itemize}
+	\item Tittle 4 Chapter 3: Reuse of applications and knowledge transfer. Art. 45
+	\begin{itemize}
+		\item Public entities owners of rights over software could share this software with other entities without costs
+		\item This software could be consider as libre software in order to have a better transparency for the public entity and to promote the incorporation of citizens to information society
+	\end{itemize}
+
+\end{itemize}
+
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{ OpenSource Software for the growth of public administrations}
+
+\begin{itemize}
+\item 11/2007 22 June: Acceso electronico de los ciudadanos a los servicios publicos. 
+
+	\item Tittle 4 Chapter 3: Reuse of applications and knowledge transfer. Art. 46	
+	\begin{itemize}
+		\item Public administration will have updated software repositories 
+		\item Specially for the growth of e-government 
+		\begin{quote}
+La Administracion General del Estado, a traves de un centro
+para la transferencia de la tecnologia, mantendra un directorio
+general de aplicaciones para su reutilizacion, prestara asistencia
+tecnica para la libre reutilizacion de aplicaciones e impulsara el
+desarrollo de aplicaciones, formatos y estandares comunes de
+especial interes para el desarrollo de la Administracion
+Electronica en el marco de los esquemas nacionales de
+interoperabilidad y seguridad
+
+		\end{quote}
+	\end{itemize}
+
+
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Updated laws for libre software}
+
+\begin{itemize}
+\item Real Decreto 4/2010, 8 de enero
+\begin {itemize}
+\item Cap. 5 Art. 11.
+\begin{quote}
+Las Administraciones publicas usaran estandares abiertos, asi como, en su caso
+y de forma complementaria, estandares que sean de uso generalizado por los ciudadanos,
+al objeto de garantizar la independencia en la eleccion de alternativas tecnologicas por los
+ciudadanos y las Administraciones publicas y la adaptabilidad al progreso de la tecnologia..
+
+\end{quote}
+
+
+\end{itemize}
+
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Updated laws for libre software}
+
+\begin{itemize}
+\item Real Decreto 4/2010, 8 de enero
+\begin {itemize}
+
+\item Cap. 8 Art. 16. Promote the use of EUPL license 
+\item Cap. 10 Art. 23: 
+\begin {quote}
+Con el fin de garantizar la conservacion, el documento se conservara en el formato
+en que haya sido elaborado, enviado o recibido, y preferentemente en un formato
+correspondiente a un estandar abierto que preserve a lo largo del tiempo la integridad del
+contenido del documento, de la firma electronica y de los metadatos que lo acompanian
+
+\end{quote} 
+
+\end{itemize}
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Desktop Killers - Mozilla Firefox}
+
+\begin{itemize}
+\item jajaj
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Desktop Killers - Mozilla Thunderbird}
+
+\begin{itemize}
+\item jajaj
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Desktop Killers - OpenOffice}
+
+\begin{itemize}
+\item jajaj
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Desktop Killers - Gimp}
+
+\begin{itemize}
+\item jajaj
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{and of course.....}
+
+"Many, many people fighting to make this possible...."
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{}
+
+\begin{itemize}
+\item blblbl
+\end{itemize}
+
+\end{frame}
+
+\end{document}
