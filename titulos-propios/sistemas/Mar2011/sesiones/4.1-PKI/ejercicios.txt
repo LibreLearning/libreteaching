@@ -1,0 +1,85 @@
+1. Crear cuenta CACert
+
+Cada alumno se creará una cuenta CACert, indicando su nombre y apellidos
+completos (tal como aparezcan en el DNI).
+
+2. Creación del certificado de cliente.
+
+Cada alumno se creará un primer certificado de cliente con el navegador.
+
+Después repetiremos los mismos pasos usando openssl.
+
+Referencia para usar Openssl:
+
+http://wiki.cacert.org/EmailCertificates
+
+openssl req -nodes -newkey rsa:4096 -keyout my.key -out my.csr
+
+Los campos a rellenar son el "Common Name" y el "Email address".
+
+El csr lo enviaremos a cacert.org para que nos den en crt.
+
+Por último crearemos el fichero pkcs12 que une los ficheros crt y key.
+También hay que unir el certificado raíz (root.pem), si bien no es necesario
+hacerlo en versiones recientes de FF.
+
+openssl pkcs12 -export -in my.crt -inkey my.key -in root.pem -out my.p12
+
+Este certificado se puede importar para firmar correos desde Firefox y desde
+tu programa de correo (Evolution, Thunderbird).
+
+3. Certificado de servidor.
+
+Cada alumno se configurará un sitio web con el nombre:
+
+cursosist-20110429-alumnoX.libresoft.es
+
+Referencia: http://wiki.cacert.org/ServerCerts
+
+Creación del CSR:
+
+openssl req -nodes -newkey rsa:2048 -keyout website.key -out website.csr
+
+Rellenar los datos ... atención al campo donde nos pide el CommonName (que
+es el nombre DNS del sitio).
+
+Después podemos ver los datos del CSR con:
+
+openssl req -noout -text -in website.csr
+
+y de la clave privada:
+
+openssl rsa -noout -text -in website.key
+
+Alternativa: usar el script CSRGenerator
+
+Lo remitimos y yo les genero el certificado firmado con CACert (clase 3).
+
+Para instalar el certificado, usaremos la siguiente conf de apache:
+
+
+LoadModule ssl_module modules/mod_ssl.so
+
+Listen 443
+NameVirtualHost *:443
+
+<VirtualHost *:443>
+       ServerName cursosist-20110429-alumnoX.libresoft.es
+       SSLEngine On
+       SSLCertificateFile /etc/pki/tls/certs/certific.crt
+       SSLCertificateKeyFile /etc/pki/tls/private/clavepri.key
+       SSLCertificateChainFile /etc/pki/tls/certs/cacert-class3.crt
+
+# Aqui definir documentroot, etc
+
+</VirtualHost>
+
+Cambiar /etc/hosts para que apunte el nombre a 127.0.0.1
+
+Y lanzar el apache. Comprobar desde el navegador qué pasa... una vez vista la
+página segura, ver el certificado desde el navegador.
+
+Analizar el certificado con openssl:
+
+openssl x509 -in fichero.cert -noout -text
+
