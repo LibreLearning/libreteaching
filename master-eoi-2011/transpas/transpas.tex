@@ -1,0 +1,120 @@
+% tsai-main.tex
+% Asignatura: SAT, 3º URJC, Ingeniería Telecomunicación
+% Fichero principal de transparencias (incluye a todos los demás).
+
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer (paquete latex-beamer en Debian)
+%
+
+% Gráficos:
+% Los gráficos pueden suministrarse en PNG, JPG, TIF, PDF, MPS
+% Los EPS deben convertirse a PDF (usar epstopdf)
+%
+
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg-soft.png}}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={Máster de economía digital: Área TIC},
+  pdfauthor={Jesús M. González Barahona, Gregorio Robles},
+  pdfcreator={Universidad Rey Juan Carlos / EOI},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={},
+}
+%%
+
+\AtBeginSection[]
+{
+\begin{frame}<beamer>
+\begin{center}
+{\Huge \insertsection}
+\end{center}
+\end{frame}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% include-only                                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\includeonly{presentacion}
+\includeonly{motivacion}
+%\includeonly{licencias}
+%\includeonly{fundamentos}
+%\includeonly{modelos-negocio}
+%\includeonly{modelos-negocio_obras_libres}
+%\includeonly{modelos-negocio_ejercicio}
+%\includeonly{modelos-negocio,modelos-negocio_modelobras_libres,modelos-negocio_ejercicio}
+
+%\includeonly{casos,notas-finales}
+
+\begin{document}
+
+\title{Área TIC}
+\subtitle{Master de Economía Digital e Industrias Creativas, EOI}
+\author{Jesús M. González Barahona, Gregorio Robles, Felipe Ortega}
+\institute{{jgb,grex,jfelipe}@gsyc.es \\
+Universidad Rey Juan Carlos / EOI}
+
+\date{Mayo 2011}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+
+% Si el titulo o el autor se quieren acortar para los pies de página
+% se pueden redefinir aquí:
+%\title{Titulo corto}
+%\author{Autores abreviado}
+
+
+%% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
+\frame{
+~
+\vspace{4cm}
+
+\begin{flushright}
+\copyright 2002-2010 Jesús M. González Barahona, Gregorio Robles. \\
+
+Algunos derechos reservados. Este artículo se distribuye bajo
+la licencia ``Reconocimiento-CompartirIgual 3.0 España'' de Creative Commons,
+disponible en \url{http://creativecommons.org/licenses/by-sa/3.0/es/deed.es}
+
+Este documento (o uno muy similar) está disponible en \\
+\url{http://gsyc.es}
+\end{flushright}
+}
+%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% lista de temas                                               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\include{presentacion}
+\include{motivacion}
+%\include{licencias}
+%\include{fundamentos}
+%\include{modelos-negocio}
+%\include{modelos-negocio_obras_libres}
+%\include{modelos-negocio_ejercicio}
+%\include{casos}
+%\include{notas-finales}
+
+\end{document}
