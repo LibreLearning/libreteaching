@@ -10,7 +10,7 @@ pantalla.
 
 La minipractica consistira en cambiar y añadir layouts para conseguir
 otra configuración visual de la Activity. Por ejemplo añadir una
-imagen al lado, o arriba.
+imagen al lado, o arriba (Perfil de red social, etc).
 
 
 + Minipractica 2: Mapas y Geolocalización

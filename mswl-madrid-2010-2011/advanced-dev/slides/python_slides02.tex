@@ -1,0 +1,360 @@
+% Created 2011-03-16 Wed 19:07
+\documentclass[11pt]{beamer}
+
+      \mode<presentation>
+
+      \usetheme{Warsaw}
+
+      \usecolortheme{lily}
+
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg-soft.png}}
+      \beamertemplateballitem
+
+      \setbeameroption{show notes}
+      \usepackage[utf8]{inputenc}
+
+      \usepackage[T1]{fontenc}
+
+      \usepackage{hyperref}
+
+      \usepackage{color}
+      \usepackage{listings}
+      \lstset{numbers=none,language=[ISO]C++,tabsize=4,
+  frame=single,
+  basicstyle=\small,
+  showspaces=false,showstringspaces=false,
+  showtabs=false,
+  keywordstyle=\color{blue}\bfseries,
+  commentstyle=\color{red},
+  }
+
+      \usepackage{verbatim}
+
+      \institute{israel.herraiz@upm.es \\ Universidad Politécnica de Madrid}
+
+       \subject{Advanced Software Development}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{soul}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\providecommand{\alert}[1]{\textbf{#1}}
+
+\title{Documenting and releasing Python applications}
+\author{Israel Herraiz}
+\date{16 March 2011}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}
+\frametitle{Outline}
+\setcounter{tocdepth}{3}
+\tableofcontents
+\end{frame}
+
+\lstset{ %
+language=python,
+basicstyle=\footnotesize\ttfamily,       % the size of the fonts that are used
+numbers=none,                   % where to put the line-numbers
+numberstyle=\ttfamily,      % the size of the fonts that are used
+stepnumber=2,                   % the step between two
+numbersep=5pt,                  % how far the line-numbers are from
+showspaces=false,               % show spaces adding particular
+showstringspaces=false,         % underline spaces within strings
+showtabs=false,                 % show tabs within strings adding
+frame=none,                   % adds a frame around the code
+tabsize=2,                      % sets default tabsize to 2 spaces
+captionpos=b,                   % sets the caption-position to bottom
+breaklines=true,                % sets automatic line breaking
+breakatwhitespace=false,        % sets if automatic breaks should only
+title=\lstname,                 % show the filename of files included
+escapeinside={\%*}{*)},         % if you want to add a comment within
+morekeywords={*,...}            % if you want to add more keywords to
+}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+\section{How to document Python programs?}
+\label{sec-1}
+\begin{frame}[fragile]\frametitle{Listen to the classics}
+\label{sec-1_1}
+
+
+\hfill
+\begin{block}{}
+    Programs must be written for people to read, and only incidentally
+    for machines to execute.
+\begin{flushright}
+    —Abelson \& Sussman,\\ Structure and Interpretation of Computer
+    Programs
+\end{flushright}
+\end{block}
+\hfill
+\end{frame}
+\begin{frame}[fragile]\frametitle{Guides to read to become a Pythonista}
+\label{sec-1_2}
+
+
+\begin{itemize}
+\item PEP 8: Style guide for Python code
+
+\begin{itemize}
+\item \href{http://www.python.org/dev/peps/pep-0008/}{http://www.python.org/dev/peps/pep-0008/}
+\item PEP means \emph{Python Enhancement Proposal}
+\end{itemize}
+
+\item Code like a Pythonista: Idiomatic Python
+
+\begin{itemize}
+\item \href{http://python.net/~goodger/projects/pycon/2007/idiomatic/}{http://python.net/\~goodger/projects/pycon/2007/idiomatic/}
+\end{itemize}
+
+\end{itemize}
+\end{frame}
+\section{Conventions}
+\label{sec-2}
+\begin{frame}[fragile]\frametitle{Code style matters}
+\label{sec-2_1}
+
+
+\begin{itemize}
+\item Four space indentation
+
+\begin{itemize}
+\item Forget tabs!
+\item But if you cannot forget, \textbf{do not mix tab and spaces}
+\end{itemize}
+
+\item One blank line between functions
+\item Two blank lines between classes
+\item Add a space after ``,'' in dicts, lists, tuples, argument lists, and
+  after ``:'' in dicts, but not before.
+\item Put spaces around assignments and comparisons (except in argument
+  lists).
+\item No spaces just inside parentheses or just before argument lists.
+\item No spaces just inside docstrings.
+\end{itemize}
+\end{frame}
+\begin{frame}[fragile]\frametitle{Wrong example}
+\label{sec-2_2}
+
+
+\begin{lstlisting}
+class Wrong:
+   def __init__(self,x,y,z):
+      self.x=x
+      self.y=y
+      self.z=z
+   def another_function(self):
+     print "Hi there!"
+\end{lstlisting}
+\end{frame}
+\begin{frame}[fragile]\frametitle{Correct example}
+\label{sec-2_3}
+
+
+\begin{lstlisting}
+class Right:
+   def __init__(self, x, y, z):
+      self.x = x
+      self.y = y
+      self.z = z
+
+   def another_m(self):
+     print "Hi there!"
+
+   def yet_another_m(self):
+     pass
+
+
+class AnotherClass:
+   def __init__(self):
+     pass
+\end{lstlisting}
+\end{frame}
+\begin{frame}[fragile]\frametitle{How to name your entities}
+\label{sec-2_4}
+
+
+\begin{itemize}
+\item \texttt{joined\_lower} for functions, methods, attributes
+\item \texttt{ALL\_CAPS} for constants
+\item \texttt{InitialCaps} for classes
+\item Attributes:
+
+\begin{itemize}
+\item \texttt{public} (never use public attributes!)
+\item \texttt{\_internal}
+\item \texttt{\_\_private} (use discouraged)
+\end{itemize}
+
+\end{itemize}
+\end{frame}
+\begin{frame}[fragile]\frametitle{Long lines}
+\label{sec-2_5}
+
+
+\begin{itemize}
+\item Lines above 80 characters should be cut
+\end{itemize}
+
+\begin{lstlisting}
+def __init__(self, first, second, third,
+             fourth, fifth, sixth):
+    output = (first + second + third
+              + fourth + fifth + sixth)
+
+
+VeryLong.left_hand_side \
+    = even_longer.right_hand_side()
+\end{lstlisting}
+\end{frame}
+\section{Documenting and commenting your code}
+\label{sec-3}
+\begin{frame}[fragile]\frametitle{Docstrings and comments}
+\label{sec-3_1}
+
+
+\begin{itemize}
+\item Docstrings
+
+\begin{itemize}
+\item Tell how to use your code
+\end{itemize}
+
+\item Comments
+
+\begin{itemize}
+\item Tell how your code works
+\end{itemize}
+
+\item Docstrings explain external behavior, comments explain internal
+  behavior
+\item Docstrings conventions are included in the PEP 257
+
+\begin{itemize}
+\item \href{http://www.python.org/dev/peps/pep-0257/}{http://www.python.org/dev/peps/pep-0257/}
+\end{itemize}
+
+\end{itemize}
+\end{frame}
+\begin{frame}[fragile]\frametitle{Docstrings}
+\label{sec-3_2}
+
+
+\begin{itemize}
+\item String literal that occurs as the first statement of a module, class,
+ function, method
+\item It becomes the \texttt{\_\_doc\_\_} attribute of that element
+
+\begin{itemize}
+\item And therefore it is the text that appears after calling \texttt{help()}
+\end{itemize}
+
+\item No blank line after the docstring
+\item Period at the end of the help text
+\item Can also be multiline
+
+\begin{itemize}
+\item Multiline docstrings in scripts are the usage info of that script
+\end{itemize}
+
+\end{itemize}
+\end{frame}
+\begin{frame}[fragile]\frametitle{Sample docstrings}
+\label{sec-3_3}
+
+
+\begin{lstlisting}
+def add(x, y):
+   """Add two numbers x and y."""
+   return x + y
+
+def complex(real=0.0, imag=0.0):
+  """Form a complex number.
+
+  Keyword arguments:
+  real -- the real part (default 0.0)
+  imag -- the imaginary part (default 0.0)
+
+  """
+  if imag == 0.0 and real == 0.0: 
+    return complex_zero
+  else:
+    return -1
+\end{lstlisting}
+\end{frame}
+\begin{frame}[fragile]\frametitle{Comments}
+\label{sec-3_4}
+
+
+\begin{itemize}
+\item Comment lines start with \texttt{\#}
+\item Don't write comments beyond column 80
+\end{itemize}
+
+\begin{lstlisting}
+def add(x, y):
+   """Silly function."""
+   # This is a comment alone in a line
+   xx = 0
+   yy = 0
+   xx = x # This is a comment after some code
+   yy = y # Yet another comment
+   return x + y
+\end{lstlisting}
+\end{frame}
+\section{Releasing your app}
+\label{sec-4}
+\begin{frame}[fragile]\frametitle{External documentation: essential files}
+\label{sec-4_1}
+
+
+\begin{itemize}
+\item Provide always the following documentation with your code
+
+\begin{itemize}
+\item \texttt{README}
+\item \texttt{INSTALL} (optionally, it can be included in the \texttt{README})
+\item \texttt{NEWS}
+\item \texttt{AUTHORS} (give credit to contributors)
+\item \texttt{COPYING} (always include the license)
+\item \texttt{ChangeLog} (summary of the most important changes)
+\item \texttt{TODO} (if there is work to do so others can help)
+\end{itemize}
+
+\end{itemize}
+\end{frame}
+\begin{frame}[fragile]\frametitle{Release process}
+\label{sec-4_2}
+
+
+\begin{itemize}
+\item Make sure your code is ready for a release
+\item Decide your release number and update your code and doc accordingly
+\item Update your external docs
+\item Commit everything to the main branch of your repo
+\item Tag your head commit with the release number
+\item Provide tarballs in a downloads site
+
+\begin{itemize}
+\item Probably with checksums or cryptographic signatures
+\end{itemize}
+
+\item Spread the word!
+\end{itemize}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,350 @@
+\documentclass{beamer}
+% imprimir
+% \documentclass[handout]{beamer} 
+% \usepackage{pgfpages}
+% \pgfpagesuselayout{4 on 1}[a4paper,landscape,border shrink=5mm]
+
+\mode<presentation> {
+  \usetheme{Warsaw}
+  \setbeamercovered{invisible}
+}
+
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{figs/libresoft-bg.png}}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+%% Metadatos del PDF.
+\hypersetup{  
+  pdftitle={Homogeneización del CPD},
+  pdfauthor={Jose Castro, Miguel Vidal},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Arquitectura de servidores con software libre},
+}
+
+% Inicio de la presentación
+\begin{document}
+
+% Metadatos de la presentacion
+\title{Homogeneización del CPD}
+\subtitle{Arquitectura de servidores con software libre}
+\institute{\{jfcastro,mvidal\}@libresoft.es} 
+\author{Jose Castro, Miguel Vidal}
+\date{8 de abril de 2011}
+
+% Cover slide
+\frame{
+  \maketitle
+  \begin{center}
+    \includegraphics[width=6cm]{figs/gsyc-urjc}
+  \end{center}
+}
+
+%% License slide
+\begin{frame}
+  \vspace{2cm}
+  \begin{flushright}
+    {\footnotesize \copyright{2011} Jose Castro, Miguel Vidal.} \\
+    \vspace{0.25cm}
+    {\scriptsize Algunos derechos reservados. \\
+    Trabajo distribuido bajo una licencia Creative Commons Reconocimiento 3.0 España}\\
+    \vspace{0.10cm}
+  \end{flushright}
+  \begin{center}
+    \href{http://creativecommons.org/licenses/by/3.0/es}{\includegraphics[width=2cm]{figs/cc-by.png}} \\
+    {\tiny \url{http://creativecommons.org/licenses/by/3.0/es}}
+  \end{center}
+\end{frame}
+
+
+\section{Introducción}
+%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{}
+  \begin{center}
+    \Huge Introducción
+  \end{center}
+\end{frame}
+
+\subsection{Introducción}
+\begin{frame}
+  \frametitle{Introducción}
+  A medida que la empresa crece, va creciendo su infraestructura tecnológica:
+  \begin{itemize}
+    \item necesidad de almacenamiento
+    \item aumenta el número de servidores
+    \item diferentes sistemas operativos
+    \item necesidad de nuevos servicios
+    \item algunos servicios se convierten en servicios críticos
+    \item ...
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Introducción}
+  
+  \begin{center}
+    \alert{El resultado suele ser un conjunto heterogéneo}
+  \end{center}
+  \pause
+  Con los problemas que esto conlleva:
+  \begin{itemize}
+    \item aumenta el riesgo de errores
+    \item surgen problemas de escalabilidad
+    \item se incrementan los agujeros de seguridad
+  \end{itemize}
+  \pause
+  \begin{center}
+    \textbf{¡La administración se convierte en una tarea compleja!}
+  \end{center}
+\end{frame}
+
+\subsection{Beneficios}
+\begin{frame}
+  \frametitle{Beneficios}
+  Una buena homogeneización del Centro de Proceso de Datos (CPD) nos va a permitir:
+  \begin{itemize}
+    \item reducir el tiempo de administración y despliegue
+    \item aprovechar mejor los recursos hardware
+    \item minimizar considerablemente el riesgo de fallo
+    \item invertir en infraestructura más robusta y resistente a fallos
+    \item facilitar la escalabilidad a medida de las necesidades
+  \end{itemize} 
+\end{frame}
+
+\subsection{Etapas}
+\begin{frame}
+  \frametitle{Etapas}
+  La homogeneización del CPD la podemos encarar siguiendo estas etapas:
+  \begin{enumerate}
+    \item Automatización de tareas
+    \pause
+    \item Almacenamiento como servicio
+    \pause
+    \item Virtualización de servidores
+    \pause
+    \item Alta disponibilidad de servidores y servicios
+    \pause
+    \item Cloud Computing -- IaaS
+  \end{enumerate}
+\end{frame}
+
+
+\section{Automatización}
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{}
+  \begin{center}
+    \Huge Automatización
+  \end{center}
+\end{frame}
+
+\subsection{Introducción}
+\begin{frame}
+  \frametitle{Tareas de un administrador}
+  Las tareas de un administrador de sistemas se pueden clasificar en:
+  \begin{itemize}
+    \item Tareas repetitivas
+    \item Atención a usuarios
+    \item Eventos de alarmas o emergencias
+    \item Despliegues y tareas nuevas
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Automatización}
+  \begin{itemize}
+    \item Sólo hay que hacer las cosas una vez
+    \item Se reduce el tiempo en tareas aburridas
+    \item Minimizamos el riesgo de errores
+    \item Anticipación a los fallos y caídas
+    \item Muchos errores se pueden solucionar automáticamente sin necesidad de intervención
+  \end{itemize}
+\end{frame}
+
+\subsection{Métodos}
+\begin{frame}
+  \frametitle{Métodos -- Configuraciones}
+  Hay que parametrizar las configuraciones en función de:
+  \begin{itemize}
+    \item sistema operativo
+    \item distribuciones
+    \item shell
+    \item jerarquía de ficheros
+    \item comandos
+    \item servicios
+    \item versiones
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Métodos -- Actualizaciones}
+  Aviso automático de actualizaciones:
+  \begin{itemize}
+    \item Debian: \texttt{apticron}
+    \item Red Hat / CentOS: \texttt{/etc/yum/yum-updatesd.conf} \\
+      \texttt{emit\_via = email \\
+      email\_to = mail@example.com \\
+      email\_from = mail@example.com \\}
+    \item Ports: \texttt{pkg\_version -vIL=}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Métodos -- Logs}
+  Herramientas para facilitar la compresión de los ficheros de log:
+  \begin{itemize}
+    \item Replicación de logs: \texttt{syslog-ng}
+    \item Parseador de logs: scripts 
+    \item Analizadores de logs: \texttt{logwatch} y \texttt{splunk}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Métodos -- Sincronización}
+  \textbf{NTP}
+  \begin{itemize}
+    \item Muchos ficheros de log en diferentes máquinas
+    \item Permite tener los relojes de los servidores sincronizados
+  \end{itemize}
+  \vspace{0.5cm}
+  \textbf{Monitorización}
+  \begin{itemize}
+    \item Software especializado
+    \item scripts ad-hoc
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Métodos -- Lista daemons}
+  \begin{itemize}
+    \item Aviso de los sistemas y servicios por correo
+    \item Lista de poco tráfico
+    \item Tan sólo para mensajes de máquinas
+    \item Sólo correos de errores o anomalías
+    \item Buen uso de filtros: \texttt{procmail}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Métodos -- Registro}
+  \begin{itemize}
+    \item Logging de operaciones
+    \item Herramientas: \texttt{snoopy} y \texttt{rootsh}
+  \end{itemize}
+  \begin{itemize}
+    \item Seguimiento de incidencias y operaciones
+    \item Herramientas: \texttt{Trac} y \texttt{Redmine}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Métodos -- Documentación}
+  \begin{itemize}
+    \item Política de configuración de sistemas
+    \item Políticas de seguridad
+    \item Políticas de actualización
+    \item Procedimiento de tareas
+  \end{itemize}
+\end{frame}
+
+
+\section{Prácticas}
+%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{}
+  \begin{center}
+    \Huge Prácticas
+  \end{center}
+\end{frame}
+
+\subsection{unison}
+\begin{frame}
+  \frametitle{unison}
+  \begin{center}
+    \url{http://www.cis.upenn.edu/~bcpierce/unison/}
+  \end{center}
+  \begin{enumerate}
+    \item Instalación de la herramienta
+    \item Creación del repositorio principal
+    \item Detección de ficheros a sincronizar
+    \item Sincronizar desde el repositorio principal
+    \item Propagación al servidor
+    \item Propagación de los cambios a las máquinas
+  \end{enumerate}
+\end{frame}
+
+\subsection{Scripting}
+\begin{frame}
+  \frametitle{Scripting}
+  \textbf{Lecturas}
+  \begin{itemize}
+    \item ULSAH - Capítulo 2: Scripting and the shell
+  \end{itemize}
+  \vspace{1cm}
+  \textbf{Ejercicios}
+  \begin{itemize}
+    \item ULSAH - Ejercicio E2.7
+  \end{itemize}
+\end{frame}
+
+\subsection{Tareas repetitivas}
+\begin{frame}
+  \frametitle{Tareas repetitivas}
+  \textbf{Lecturas}
+  \begin{itemize}
+    \item ULSAH - Capítulo 9: Periodic processes
+  \end{itemize}
+  \vspace{1cm}
+  \textbf{Ejercicios}
+  \begin{itemize}
+    \item ULSAH - Ejercicio E9.4
+  \end{itemize}
+\end{frame}
+
+\subsection{Ficheros de log}
+\begin{frame}
+  \frametitle{Ficheros de log}
+  \textbf{Lecturas}
+  \begin{itemize}
+    \item ULSAH - Capítulo 11: Syslog and log files
+  \end{itemize}
+  \vspace{1cm}
+  \textbf{Ejercicios}
+  \begin{itemize}
+    \item ULSAH - Ejercicio E11.4
+  \end{itemize}
+\end{frame}
+
+\subsection{Mantenimiento del sistema}
+\begin{frame}
+  \frametitle{Mantenimiento del sistema}
+  \textbf{Lecturas}
+  \begin{itemize}
+    \item ULSAH - Chapter 12: Software installation and management
+      \begin{itemize}
+        \item Managing packages
+        \item Software localization and configuration: Linux and UNIX
+        \item Using configuration management tools
+      \end{itemize}
+  \end{itemize}
+  \vspace{1cm}
+  \textbf{Ejercicios}
+  \begin{itemize}
+    \item Estudio de las herramientas \texttt{cfengine} y \texttt{puppet}
+  \end{itemize}
+\end{frame}
+
+% Cover slide
+\frame{
+  \maketitle
+  \begin{center}
+    \includegraphics[width=6cm]{figs/gsyc-urjc}
+  \end{center}
+}
+
+% Fin del documento
+\end{document}
+

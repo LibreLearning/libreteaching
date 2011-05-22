@@ -1,0 +1,224 @@
+#+LaTeX_CLASS: beamer
+#+MACRO: BEAMERMODE presentation
+#+MACRO: BEAMERTHEME Warsaw
+#+MACRO: BEAMERCOLORTHEME lily
+#+MACRO: BEAMERSUBJECT Advanced Software Development
+#+MACRO: BEAMERINSTITUTE israel.herraiz@upm.es \\ Universidad Politécnica de Madrid
+#+TITLE: Documenting and releasing Python applications
+#+AUTHOR: Israel Herraiz
+
+#+BEGIN_LaTeX
+\lstset{ %
+language=python,
+basicstyle=\footnotesize\ttfamily,       % the size of the fonts that are used
+numbers=none,                   % where to put the line-numbers
+numberstyle=\ttfamily,      % the size of the fonts that are used
+stepnumber=2,                   % the step between two
+numbersep=5pt,                  % how far the line-numbers are from
+showspaces=false,               % show spaces adding particular
+showstringspaces=false,         % underline spaces within strings
+showtabs=false,                 % show tabs within strings adding
+frame=none,                   % adds a frame around the code
+tabsize=2,                      % sets default tabsize to 2 spaces
+captionpos=b,                   % sets the caption-position to bottom
+breaklines=true,                % sets automatic line breaking
+breakatwhitespace=false,        % sets if automatic breaks should only
+title=\lstname,                 % show the filename of files included
+escapeinside={\%*}{*)},         % if you want to add a comment within
+morekeywords={*,...}            % if you want to add more keywords to
+}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+#+END_LaTeX
+
+* How to document Python programs?
+
+** Listen to the classics
+
+#+BEGIN_LaTeX
+\hfill
+\begin{block}{}
+    Programs must be written for people to read, and only incidentally
+    for machines to execute.
+\begin{flushright}
+    —Abelson \& Sussman,\\ Structure and Interpretation of Computer
+    Programs
+\end{flushright}
+\end{block}
+\hfill
+#+END_LaTeX
+
+** Guides to read to become a Pythonista
+
+- PEP 8: Style guide for Python code
+ - [[http://www.python.org/dev/peps/pep-0008/]]
+ - PEP means /Python Enhancement Proposal/
+- Code like a Pythonista: Idiomatic Python
+ - [[http://python.net/~goodger/projects/pycon/2007/idiomatic/][http://python.net/~goodger/projects/pycon/2007/idiomatic/]]
+
+* Conventions
+
+** Code style matters
+
+- Four space indentation
+  - Forget tabs!
+  - But if you cannot forget, *do not mix tab and spaces*
+- One blank line between functions
+- Two blank lines between classes
+- Add a space after "," in dicts, lists, tuples, argument lists, and
+  after ":" in dicts, but not before.
+- Put spaces around assignments and comparisons (except in argument
+  lists).
+- No spaces just inside parentheses or just before argument lists.
+- No spaces just inside docstrings.
+
+** Wrong example
+
+#+BEGIN_LaTeX
+\begin{lstlisting}
+class Wrong:
+   def __init__(self,x,y,z):
+      self.x=x
+      self.y=y
+      self.z=z
+   def another_function(self):
+     print "Hi there!"
+\end{lstlisting}
+#+END_LaTeX
+
+** Correct example
+
+#+BEGIN_LaTeX
+\begin{lstlisting}
+class Right:
+   def __init__(self, x, y, z):
+      self.x = x
+      self.y = y
+      self.z = z
+
+   def another_m(self):
+     print "Hi there!"
+
+   def yet_another_m(self):
+     pass
+
+
+class AnotherClass:
+   def __init__(self):
+     pass
+\end{lstlisting}
+#+END_LaTeX
+
+** How to name your entities
+
+- =joined_lower= for functions, methods, attributes
+- =ALL_CAPS= for constants
+- =InitialCaps= for classes
+- Attributes:
+  - =public= (never use public attributes!)
+  - =_internal=
+  - =__private= (use discouraged)
+
+** Long lines
+
+- Lines above 80 characters should be cut
+
+#+BEGIN_LaTeX
+\begin{lstlisting}
+def __init__(self, first, second, third,
+             fourth, fifth, sixth):
+    output = (first + second + third
+              + fourth + fifth + sixth)
+
+
+VeryLong.left_hand_side \
+    = even_longer.right_hand_side()
+\end{lstlisting}
+#+END_LaTeX
+
+* Documenting and commenting your code
+
+** Docstrings and comments
+
+- Docstrings
+ - Tell how to use your code
+- Comments
+ - Tell how your code works
+- Docstrings explain external behavior, comments explain internal
+  behavior
+- Docstrings conventions are included in the PEP 257
+ - http://www.python.org/dev/peps/pep-0257/
+
+** Docstrings
+
+- String literal that occurs as the first statement of a module, class,
+ function, method
+- It becomes the =__doc__= attribute of that element
+ - And therefore it is the text that appears after calling =help()=
+- No blank line after the docstring
+- Period at the end of the help text
+- Can also be multiline
+ - Multiline docstrings in scripts are the usage info of that script
+
+** Sample docstrings
+
+#+BEGIN_LaTeX
+\begin{lstlisting}
+def add(x, y):
+   """Add two numbers x and y."""
+   return x + y
+
+def complex(real=0.0, imag=0.0):
+  """Form a complex number.
+
+  Keyword arguments:
+  real -- the real part (default 0.0)
+  imag -- the imaginary part (default 0.0)
+
+  """
+  if imag == 0.0 and real == 0.0: 
+    return complex_zero
+  else:
+    return -1
+\end{lstlisting}
+#+END_LaTeX
+
+** Comments
+
+- Comment lines start with =#=
+- Don't write comments beyond column 80
+
+\begin{lstlisting}
+def add(x, y):
+   """Silly function."""
+   # This is a comment alone in a line
+   xx = 0
+   yy = 0
+   xx = x # This is a comment after some code
+   yy = y # Yet another comment
+   return x + y
+\end{lstlisting}
+#+END_LaTeX
+
+* Releasing your app
+
+** External documentation: essential files
+
+- Provide always the following documentation with your code
+  - =README=
+  - =INSTALL= (optionally, it can be included in the =README=)
+  - =NEWS=
+  - =AUTHORS= (give credit to contributors)
+  - =COPYING= (always include the license)
+  - =ChangeLog= (summary of the most important changes)
+  - =TODO= (if there is work to do so others can help)
+
+** Release process
+
+- Make sure your code is ready for a release
+- Decide your release number and update your code and doc accordingly
+- Update your external docs
+- Commit everything to the main branch of your repo
+- Tag your head commit with the release number
+- Provide tarballs in a downloads site
+  - Probably with checksums or cryptographic signatures
+- Spread the word!

@@ -1,0 +1,198 @@
+  
+%
+% $Id: slides.tex 4228 2006-06-21 21:55:12Z jjamor $
+%
+%
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer (paquete latex-beamer en Debian)
+%
+
+
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+\usepackage{url}
+%\usepackage{html}
+%\usepackage{hthtml}
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={Presentacion},
+  pdfauthor={Roberto Calvo Palomino},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={nn},
+}
+%%
+
+
+\AtBeginSection[]
+{
+  \begin{frame}<presentation>
+    \frametitle{Index}
+    \tableofcontents[current]
+  \end{frame}
+}
+
+
+\begin{document}
+
+\title{Curso de Desarrollo en Android }
+\subtitle{Presentacion}
+\institute{\\rocapal@libresoft.es\\
+GSyC/Libresoft}
+\author{Roberto Calvo Palomino}
+\date{\today}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+
+%\title{Titulo corto}
+%\author{Autores abreviado}
+
+
+%% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
+\frame{
+~
+\vspace{4cm}
+
+\begin{flushright}
+{\tiny
+(cc) 2010 Roberto Calvo Palomino. \\
+Some rights reserved. This document is distributed under the Creative \\
+            Commons Attribution-ShareAlike 3.0 licence, available in \\
+            http://creativecommons.org/licenses/by-sa/3.0/
+
+
+}
+\end{flushright}
+}
+
+
+\section{Introducción}
+
+\begin{frame}
+\frametitle{Información General}
+\begin{itemize}
+\item Objetivo: Aprender a programar en dispositivos móviles
+\item Inicio: 4 de Marzo 2011 - Fin: 6 de Mayo 2011
+\item Horario: de 16:00 a 21:00 los viernes
+\item Lugar: Aula 007, Laboratorios II - URJC (Fuenlabrada)
+\item Material: Ordenador, móvil y libro de referencia
+\item Al finalizar, obtendréis el certificado de aprovechamiento del
+  curso.
+\end{itemize}
+\end{frame}
+
+\section{Temario}
+\begin{frame}
+\frametitle{Clases}
+\begin{itemize}
+\item Introduccion a Android. Filosofía
+\item Instalación y Configuración del SDK
+\item Entorno y anatomía de una app Android
+\item Layouts y Activity
+\item Tipos de Aplicaciones
+\item Mapas y Geolocalizacion
+\item Gestión de datos locales y remotos
+\item Audio y Video. Streaming
+\item Trabajando en background
+\item Integra en Facebook tu aplicación
+\item Como subir aplicaciones al Market
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Charlas}
+
+\begin{itemize}
+\item Fragmentación en Android (LibreSoft)
+\item Visión de una operadora: Movistar
+\item Crea tu propia ROM de Android (Ándago)
+\item Promociona tu aplicación móvil (Google)
+\end{itemize}
+
+\end{frame}
+
+
+\section{Metodología}
+\begin{frame}
+\frametitle{Clases}
+
+\begin{itemize}
+\item Clases muy prácticas. Desarrollo de código
+\item Libro de referencia
+\item En casa: leer libro y algo de código
+\item En clase: teoría, código y comentar código
+\item Traspas, código y foros en moodle
+\item Vuestro código: en github o google code
+\end{itemize}
+
+\begin{center}
+\htmladdnormallink{Moodle:
+  http://docencia.etsit.urjc.es/moodle/course/view.php?id=186 }{http://docencia.etsit.urjc.es/moodle/course/view.php?id=186}
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Equipos y Material}
+
+\begin{itemize}
+\item Puedes usar tu propio portátil
+\item Puedes usar los ordenadores del laboratorio
+\item WIFI para el entorno:
+\begin{itemize}
+\item ESSID: wireless-urjc  (auth web)
+\item usuario: congreso@urjc.es
+\item contraseña: c0ngres0
+\end{itemize}
+\item HashTag Twitter: \#clau (Curso Libresoft Android Urjc)
+\item Canal IRC: \#clau en irc.freenode.net
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Contacto}
+\begin{itemize}
+\item E-mail: rocapal@libresoft.es
+\item Twitter: @rocapal
+\item Moodle: \htmladdnormallink{http://docencia.etsit.urjc.es/moodle/course/view.php?id=186 }{http://docencia.etsit.urjc.es/moodle/course/view.php?id=186}
+\end{itemize}
+\end{frame}
+
+\begin {frame}
+\frametitle{Preguntas}
+\begin{center}
+\huge{PREGUNTAS/DUDAS}
+\end{center}
+\end{frame}
+
+\begin {frame}
+\frametitle{Preguntas}
+\begin{center}
+\huge{OS TOCA: PRESENTAROS!}
+\end{center}
+\end{frame}
+
+
+\end{document}

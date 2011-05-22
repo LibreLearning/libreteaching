@@ -1,0 +1,605 @@
+\documentclass[hyperref={pdfpagelabels=true},utf8x]{beamer}
+
+%\usetheme{Warsaw}
+\usetheme{GSyC}
+
+
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{../format/blank-bg.png}}
+
+
+\usepackage[spanish]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+\usepackage{fancyvrb}
+\usepackage{multicol}
+\usepackage{alltt}
+\usepackage{listings}
+
+
+
+
+\definecolor{darkred}{rgb}  {1.0, 0.0, 0.0}
+\definecolor{darkgreen}{rgb}{0.0, 0.4, 0.0}
+\definecolor{darkblue}{rgb} {0.0, 0.0, 0.8}
+
+% for resalted text
+\newcommand{\res}[1]{\textcolor{darkred}{#1}}
+% for different text
+\newcommand{\dif}{\textsl}
+% for reserved words
+\newcommand{\rw}[1]{\textrm{\textbf{#1}}}
+% for commands
+\newcommand{\com}[1]{\textrm{\textbf{#1}}}
+
+% for java code. Usage: \begin{java} java code... \end{java}
+\lstnewenvironment{java} 
+{\lstset{language=java,numbers=left,stepnumber=2}} 
+{} 
+
+% for xml code. Usage: \begin{xml} xml code... \end{xml}
+\lstnewenvironment{xml} 
+{\lstset{language=xml,numbers=left,stepnumber=2}} 
+{} 
+
+
+
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={Curso de Desarrollo en Android},
+  pdfauthor={GSyC/LibreSoft},
+  pdfcreator={GSyC},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Entorno y Anatomía de una aplicación},
+}
+%%
+
+
+
+%\pgfdeclareimage[height=0.5cm]{gsyc-logo}{../format/gsyc}
+%\logo{\pgfuseimage{gsyc-logo}}
+
+
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>{Contenidos}
+    \tableofcontents[currentsection,hideallsubsections]
+  \end{frame}
+}
+
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>{Contenidos}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+
+
+
+\begin{document}
+
+%% Entre corchetes como argumento opcional un título o autor abreviado
+%% para los pies de transpa
+
+\title{Entorno de una App Android: Hello World!}
+\subtitle{Curso de Desarrollo en Android}
+\author[GSyC/LibreSoft]{GSyC/LibreSoft}
+\date[2011]{Marzo de 2011}
+%\author{Departamento de Sistemas Telemáticos y Computación (GSyC)}
+%\date{Noviembre de 2008}
+
+\frame{
+\titlepage
+\begin{center}
+%\includegraphics[width=2cm]{../format/gsyc}
+\end{center}
+}
+
+
+
+
+%% LICENCIA DE REDISTRIBUCIÓN DE LAS TRANSPAS
+\frame{
+~
+\vspace{4cm}
+\begin{flushright}
+{\tiny
+\copyright 2011 GSyC/LibreSoft \\
+  Algunos derechos reservados. \\
+  Este trabajo se distribuye bajo la licencia \\
+  Creative Commons Attribution Share-Alike\\
+  disponible en http://creativecommons.org/licenses/by-sa/3.0/es\\
+}
+\end{flushright}
+}
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{Contenidos}
+  \tableofcontents[hideallsubsections]
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Creación y ejecución de  un primer proyecto: Hello World}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%
+\begin{frame}[shrink=55.9]
+\frametitle{Pasos para la creación y ejecución del proyecto Hello World}
+
+\begin{block}{1) Crear un proyecto para la primera aplicación:}
+Se creará automáticamente un proyecto que no está vacío: imprime una
+cadena de texto cuando arranca la aplicación.
+\end{block}
+
+\begin{itemize}
+    \item Seleccionar ''File'' $\rightarrow$ ''New'' $\rightarrow$ ''Project''
+    \item Seleccionar el wizard ``Android Project'' en la carpeta ``Android''
+    \item Pulsar ''Next''. Rellenar los datos siguientes:
+    \begin{itemize}
+          \item Project Name: Hello World
+          \item Build Target: Android 2.2
+          \item Application Name: Hello World
+          \item Package Name: com.clau.helloworld
+          \item Create Activity: HelloWorld
+    \end{itemize}
+    \item Pulsar ''Next'', pulsar ''Finish''.
+\end{itemize}
+
+\begin{block}{2) Crear la configuración de ejecución para este proyecto:}
+Se pueden crear varias configuraciones de ejecución, y configuraciones
+de depuración. Creamos una configuración de ejecución:
+\end{block}
+
+\begin{itemize}
+    \item Seleccionar ''Run'' $\rightarrow$ ''Run Configurations''
+    \item Pulsar con el botón derecho sobre ''Android Application'' y seleccionar ''New''. Rellenar los datos siguientes:
+      \begin{itemize}
+      \item Name: Hello World
+      \item Project: Hello World
+      \end{itemize}
+    \item Pulsar la pestaña ''Target''
+    \item Pulsar ''Manager...''
+    \item Pulsar ''New'' para crear un nuevo Android Virtual Device (AVD). Rellenar los siguientes datos
+      \begin{itemize}
+      \item Name: MyAndroid
+      \item Target: Android 2.2 - API Level 8
+      \end{itemize}
+    \item Pulsar ''Create AVD'' y esperar a que una ventana confirme la creación
+    \item Cerrar la ventana ''Android SDK''
+    \item Esperar a que en el panel aparezca el nuevo AVD con nombre ''MyAndroid''
+    \item Activar la casilla del AVD ''MyAndroid'', pulsar ''Apply'', pulsar ''Close''.
+\end{itemize}
+
+\begin{block}{3) Ejecutar la aplicación:}
+Se puede pulsar directamente el botón Run, o hacerlo a través de una de las configuraciones de ejecución preexistentes:
+\end{block}
+
+Seleccionar la configuración de ejecución ''Hello World'' recién creada en ''Run'' $\rightarrow$ ''Run Configurations''
+
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%
+\begin{frame}[fragile]
+ \frametitle{Pasos para la creación y ejecución}
+
+ \begin{itemize}
+ \item Cuando desde Eclipse, con el plugin de Android instalado, se
+   ejecuta una aplicación a través de una configuración de ejecución o
+   de depuración, Eclipse hace lo siguiente:
+   \begin{enumerate}
+     \item Compila la aplicación, generando un ejecutable para dalvik (\verb|.dex|)
+     \item Empaqueta el ejecutable y otros recursos externos en un paquete Android (\verb|.apk|)
+     \item Arranca el emulador (si no estaba ya arrancado)
+     \item Instala el paquete de la aplicación (\verb|.apk|) en el emulador
+     \item Arranca la aplicación en el emulador
+   \end{enumerate}
+
+ \item Si se utiliza una configuración de depuración el depurador de
+   Eclipse se conecta a la aplicación, pudiéndose depurar entonces
+   desde la \res{perspectiva de depuración de Eclipse}
+
+ \end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Carpetas y ficheros generados para un proyecto}
+
+\begin{tiny}
+\begin{tabular}{|p{3cm}|p{7cm}|}
+\hline
+\res{Ficheros Android}           &	\res{Descripción} \\
+&\\\hline\hline
+\verb|AndroidManifest.xml| & Fichero que describe la aplicación: permisos, capacidades que exporta, cómo correrá.\\\hline
+&\\
+\verb|default.properties| & Fichero generado automáticamente. Define cómo construir la aplicación.  \\\hline
+&\\
+Carpeta \verb|src|  & Código fuente de la aplicación.\\\hline
+&\\
+\verb|src/com.clau.helloworld/|
+\verb|HelloWorld.java| & Fichero  con el código de la \dif{Activity} \verb|HelloWorld| de esta aplicación. Es el punto de entrada a la aplicación.\\\hline
+&\\                         
+
+Carpeta \verb|gen|  &  Carpeta en la que se almacenan  ficheros relacionados con recursos autogenerados.\\\hline
+&\\
+\verb|gen/com.clau.helloworld/|
+\verb|R.java|  & Fichero fuente para manejar recursos desde la aplicación: no debe modificarse.\\\hline
+&\\
+Carpeta \verb|res| 	&  Recursos de la aplicación: animaciones, imágenes, ficheros de \emph{layout}, ficheros XML, strings, y otros ficheros.\\\hline
+&\\
+\verb|res/drawable/icon.png|	& Icono de la aplicación que se muestra en el lanzador de aplicaciones del teléfono.\\\hline
+&\\
+\verb|res/layout/main.xml|	& Fichero XML que define el \emph{layout}.\\\hline
+&\\
+\verb|res/values/strings.xml|	& Fichero XML con los \emph{Strings} de la aplicación.\\\hline
+\end{tabular}
+\end{tiny}
+
+\end{frame}
+
+
+
+
+
+%%%%%%%%%%%%%
+\begin{frame}[fragile, shrink=27]
+\frametitle{Explicación de la aplicación Hello World}
+
+\begin{block}{Actividad HelloWorld ({\tiny src/com.clau.helloworld/HelloWorld.java})}
+\begin{java}
+package com.clau.helloworld;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+public class HelloWorld extends Activity {
+  /** Called when the activity is first created. */
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.main);
+  }
+}
+\end{java}
+\end{block}
+
+\begin{itemize}
+\item En la línea 6 (l-6) se extiende la clase \res{Activity}, clase
+  utilizada en una aplicación para soportar tareas que requieren una
+  interfaz gráfica
+\item El punto de entrada es el método \verb|onCreate()|, que se
+  redefine (l-9)
+\item En el código Java no vemos ni el \dif{string} ni la \res{View}
+  (el componente visual que se utiliza para mostrarlo en pantalla): se
+  han definido como \res{recursos} externos
+\item En l-11 se \dif{infla} la interfaz gráfica a partir de los
+  recursos definidos en el fichero \verb|res/layout/main.xml|
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%
+\begin{frame}[fragile,shrink=17.18]
+\frametitle{Recursos de la aplicación Hello World}
+
+\begin{itemize}
+\item Definir en XML los aspectos visuales permite desacoplarlos de la
+  lógica de la aplicación
+\item Los recursos están en la carpeta \verb|res| del proyecto, con
+  subcarpetas \verb|drawable|, \verb|layout| y \verb|values|
+\item Desde el programa se puede acceder a los recursos externos a
+  través de la \res{variable \com{R}}
+\item El fichero \verb|res/layout/main.xml| define el \dif{layout} de
+  la vista de la actividad:
+\end{itemize}
+
+\begin{block}{res/layout/main.xml}
+\begin{tiny}
+\begin{xml}
+<?xml version=''1.0'' encoding=''utf-8''?> 
+<LinearLayout xmlns:android=''http://schemas.android.com/apk/res/android''
+  android:orientation=''vertical''
+  android:layout_width=''fill_parent''
+  android:layout_height=''fill_parent''> 
+  <TextView  
+    android:layout''width=''fill_parent'' 
+    android:layout_height=''wrap_content''
+    android:text=''@string/hello''
+  /> 
+</LinearLayout> 
+\end{xml}
+\end{tiny}
+\end{block}
+
+En la l-9 de \verb|main.xml| se referencia un \dif{string} definido en la l-3 de \verb|res/values/strings.xml|:
+
+\begin{block}{res/values/strings.xml}
+\begin{tiny}
+\begin{xml}
+<?xml version=''1.0'' encoding=''utf-8''?>
+<resources>
+  <string name=''hello''>Hello World, HelloWorld!</string>
+  <string name=''app_name''>Hello World</string>
+</resources>
+\end{xml}
+\end{tiny}
+\end{block}
+
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Identificación de recursos de la aplicación Hello World}
+
+Para acceder a los elementos de la interfaz en el código se pueden añadir atributos \verb|id| en XML (ver l-3):
+
+
+\begin{tiny}
+\begin{block}{res/layout/main.xml (modificado respecto al original)}
+\begin{xml}
+...
+<TextView  
+  android:id=''@+id/myTextView''
+  android:layout_width=''fill_parent''
+  android:layout_height=''wrap_content''
+  android:text=''Hello World, HelloWorld''
+/> 
+...
+\end{xml}
+\end{block}
+\end{tiny}
+
+
+Luego, desde el código Java se podría utilizar el método \verb|findViewById|
+para obtener una referencia al  elemento cuyo id se ha definido en la l-3:
+
+
+\begin{tiny}
+\begin{block}{HelloWorld.java (modificado respecto al original)}
+\begin{java}
+...
+TextView myTextView = (TextView)findViewById(R.id.myTextView); 
+...
+\end{java}
+\end{block}
+\end{tiny}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%
+\begin{frame}[fragile,shrink=32.47]
+\frametitle{HelloWorld sin la interfaz definida externamente en los recursos}
+
+Alternativamente se podrían crear los elementos gráficos de la
+actividad HelloWorld en Java (no recomendado):
+
+
+\begin{block}{HelloWorld.java (modificado respecto al original)}
+\begin{java}
+public void onCreate(Bundle savedInstanceState) { 
+  super.onCreate(savedInstanceState); 
+  LinearLayout.LayoutParams lp; 
+  lp = new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT, 
+                                     LayoutParams.FILL_PARENT); 
+  LinearLayout.LayoutParams textViewLP; 
+  textViewLP = new LinearLayout.LayoutParams
+                           (LayoutParams.FILL_PARENT, 
+                            LayoutParams.WRAP_CONTENT); 
+  LinearLayout ll = new LinearLayout(this); 
+  ll.setOrientation(LinearLayout.VERTICAL); 
+  TextView myTextView = new TextView(this); 
+  myTextView.setText(``Hello World, HelloWorld''); 
+  ll.addView(myTextView, textViewLP); 
+  this.addContentView(ll, lp); 
+} 
+\end{java}
+\end{block}
+
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Depuración de aplicaciones en el emulador}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Las perspectivas de Eclipse para depuración}
+
+\begin{itemize}
+\item Para depurar se selecciona una configuración preexistente en el
+  menú Run $\rightarrow$ Debug Configurations. También puedes pulsar
+  directamente el botón de depuración (dibujo de un \emph{bug})
+
+\item Eclipse tiene varias \res{perspectivas}, cada una con diferentes
+paneles. La perspectiva por omisión es la de Java. 
+
+\item Arriba a la derecha aparecen botones para acceder a otras
+  perspectivas, como la de depuración, en la que se pueden poner
+  puntos de parada (\dif{breakpoints}), ver la información de Log
+  (LogCat) y depurar (ejecución paso a paso,...)
+
+\item Hay otra perspectiva: DDMS (Dalvik Debug Monitor Service)
+  permite monitorizar y manipular el estado del emulador (procesos
+  arrancados en el emulador p.ej.)
+
+\end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%
+\begin{frame}[fragile,shrink=33.83]
+\frametitle{Ejercicio de depuración}
+
+\begin{itemize}
+\item Añade en un fichero el siguiente método:
+
+\lstset{language=java}
+\begin{lstlisting}
+public void forceError() {
+    if(true) {
+        throw new Error("Error generado adrede");
+    }
+}
+\end{lstlisting}
+
+\item Añade una llamada a \verb|forceError()| en algún lugar del código (por
+ejemplo cuando se va a añadir un elemento en la lista, tras haber
+pulsado el botón del teléfono).
+
+\item Ejecuta la aplicación: se producirá una excepción en el lugar en el
+que hayas incluido esta llamada, y la aplicación en el emulador parará
+con un mensaje en pantalla.
+
+\item Depura la aplicación: para depurar se selecciona una configuración
+preexistente en el menú Run $\rightarrow$ Debug
+Configurations. También puedes pulsar directamente el botón de
+depuración (dibujo de un \emph{bug})
+
+Aparecerá un mensaje en Android para pasar a la perspectiva de depuración
+
+\item Desde la perspectiva de depuración se puede observar en el panel
+LogCat este mensaje (dentro del LogCat, mira el filtro que tiene un E
+en rojo): \verb|AndroidRuntime error: java.lang.Error: Error generado adrede|
+
+\item Añade ahora un breakpoint en la línea desde la que llamas a
+\verb|forceError()|: con el botón derecho pulsa en la columna de la
+izda. de la línea
+
+\item Vuelve a depurar. Cuando la ejecución pare en el breakpoint, ejecuta
+paso a paso hasta llegar a la línea que lanza la excepción. 
+
+\item Puedes ver el contenido de la excepción en el panel de Variables de la
+perspectiva de depuración
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%
+\begin{frame}[fragile,shrink=33.83]
+\frametitle{Generación de mensajes en LogCat}
+
+\begin{itemize}
+\item En el panel LogCat aparecen mensajes informativos. Hay varios filtros representados por círculos arriba a la derecha. 
+\item Desde la aplicación se pueden generar mensajes de logging
+  utilizando la clase \verb|android.util.Log|:
+
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Método} &	\textbf{Propósito}\\\hline\hline
+\verb|Log.e()|  & Log errors\\\hline
+\verb|Log.w()|	& Log warnings\\\hline
+\verb|Log.i()|	& Log informational messages\\\hline
+\verb|Log.d()|	& Log Debug messages\\\hline
+\verb|Log.v()|	& Log Verbose messages\\\hline
+\end{tabular}
+\end{itemize}
+
+\begin{block}{Ejercicio}
+\begin{itemize}
+\item Añade la siguiente ĺínea: \verb|import android.util.Log;| 
+\item Añade a la clase este String:
+  \verb|private static final String DEBUG_TAG= "MiTag";|
+\item Añade llamadas del tipo
+  \verb|Log.i(DEBUG_TAG, "Testing informational message 1 ");|
+\item Corre la aplicación y busca el el panel del LogCat (filtro I) tus mensajes
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+% Run -> Debug Configurations -> Debug
+
+% Aparece la perspectiva de depuración de Eclipse android (2: android y ddms). Puedes conmutar entre ésta y la perspectiva de Java con botones arriba a la derecha
+
+% LogCat te da info
+
+% Sale lista de procesos
+
+
+% Añadimos fallo aposta: 
+% public void forceError() {
+%     if(true) {
+%         throw new Error("Whoops");
+%     }
+% }
+
+% Añadimos llamada en algún sitio: 
+
+% Prueba a poner un breakpoint pulsando con el botón derecho en la 1ª columna de la fila seleccionada
+
+
+
+
+
+%% Incorporar a las transpas las explicaciones sobre cómo crear proyecto HelloWorld (de hoja moodle)
+%% Explicación de Hello World (del PAAD)
+%% 
+%% TODO list example (hacerlo, contarlo)
+%%
+%% Depuración y Logging de TODO list (del WAAD)
+%%
+%% Tipos de apps Android (del PAAD)
+%% Desarrollando para móviles (del PAAD)
+%% Componentes: DDMS... del PAAD y WAAD
+%%
+%% Deberes: depura todo_list, carga aplicaciones de samples (snake,...)
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Bibliografía}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Bibliografía}
+
+\begin{itemize}
+\item Capítulos 1 y 2 de \dif{Professional Android Application
+  Development}. Reto Meier. Ed. Wrox, 2009.
+\item Capítulos 1 y 2 de \dif{Wireless Android Application
+  Development}. Shane Conder, Lauren Darcey. Ed. Addison Wesley
+  Professional, 2009.
+\item Documentación del Android SDK: en la carpeta \verb|docs| del
+  directorio del SDK, o en
+  \verb|http://developer.android.com/guide/index.html|
+\item Documentación sobre Android (tutoriales, vídeos,...): 
+  \verb|http://developer.android.com|
+\item Hay instrucciones para la instalación del SDK de Android y de
+  Eclipse en la página web de la asignatura
+\end{itemize}
+\end{frame}
+
+
+
+
+
+
+\end{document}
+
+
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

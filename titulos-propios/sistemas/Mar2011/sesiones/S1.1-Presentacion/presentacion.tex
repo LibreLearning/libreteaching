@@ -1,0 +1,362 @@
+\documentclass{beamer}
+% imprimir
+% \documentclass[handout]{beamer} 
+% \usepackage{pgfpages}
+% \pgfpagesuselayout{4 on 1}[a4paper,landscape,border shrink=5mm]
+
+\mode<presentation> {
+  \usetheme{Warsaw}
+  \setbeamercovered{transparent}
+}
+
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+%% Metadatos del PDF.
+\hypersetup{  
+  pdftitle={Presentación del curso},
+  pdfauthor={Miguel Vidal, Jose Castro},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Arquitectura de servidores con software libre},
+}
+
+% Inicio de la presentación
+\begin{document}
+
+% Metadatos de la presentacion
+\title{Presentación del curso}
+\subtitle{Arquitectura de servidores con software libre}
+\institute{\{mvidal,jfcastro\}@libresoft.es} 
+\author{Miguel Vidal, Jose Castro}
+\date{25 de marzo de 2011}
+
+% Cover slide
+\frame{
+  \maketitle
+  \begin{center}
+    \includegraphics[width=6cm]{format/gsyc-urjc}
+  \end{center}
+}
+
+%% License slide
+\begin{frame}
+  \vspace{2cm}
+  \begin{flushright}
+    {\footnotesize \copyright{2009-2011} Miguel Vidal, Jose Castro.} \\
+    \vspace{0.25cm}
+    {\scriptsize Algunos derechos reservados. \\
+    Esta presentación se distribuye bajo una licencia Creative Commons Reconocimiento 3.0 España}\\
+    \vspace{0.10cm}
+  \end{flushright}
+  \begin{center}
+    \href{http://creativecommons.org/licenses/by/3.0/es}{\includegraphics[width=2cm]{format/cc-by.png}} \\
+    {\tiny \url{http://creativecommons.org/licenses/by/3.0/es}}
+  \end{center}
+\end{frame}
+
+
+\section{Introducción}
+
+\begin{frame}
+\frametitle{Información general}
+\textbf{Objetivo}\\
+\hspace{0.3cm}Ofrecer una panorámica de las soluciones que ofrece el software libre para construir complejas arquitecturas virtualizadas.\\
+\textbf{Fechas}\\
+\hspace{0.3cm}Inicio: 25 de marzo 2011 -- Fin: 10 de junio 2011\\
+\textbf{Horario}\\
+\hspace{0.3cm}Viernes de 16:30h a 20:30h\\
+\textbf{Lugar}\\
+\hspace{0.3cm}Madrid On Rails\\
+\textbf{Material}\\
+\hspace{0.3cm}Ordenador y libro de referencia\\
+\textbf{Título}\\
+\hspace{0.3cm}Título propio de la URJC.\\
+\hspace{0.3cm}Se obtendrá el certificado de aprovechamiento del curso.
+\end{frame}
+
+\section{Temario}
+\begin{frame}
+\frametitle{Clases}
+\begin{enumerate}
+\item \textbf{Introduccion}
+\item \textbf{Seguridad}
+\item \textbf{Sistemas operativos libres}
+\item \textbf{Redes}
+\item \textbf{Storage as a Service (StaaS)}
+\item \textbf{Servicios de Internet}
+\item \textbf{Virtualización I}
+\item \textbf{Virtualización II}
+\item \textbf{Cloud Computing}
+\item \textbf{Clusters de Alta Disponibilidad}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Introducción}
+  \textbf{Fecha}\\
+  \hspace{0.3cm}25 de marzo\\
+  \textbf{Conferencia}
+    \begin{itemize}
+      \item \textit{Invitado:} Gregorio Robles -- Director del curso
+      \item \textit{Conferencia:} Introducción al software libre
+    \end{itemize}
+  \textbf{Sesión}
+    \begin{itemize}
+      \item Metodología del curso
+      \item \textit{Profesores:} Jose Castro
+    \end{itemize}
+    \begin{itemize}
+      \item Introducción a la administración de sistemas
+      \item \textit{Profesores:} Miguel Vidal
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Seguridad}
+  \textbf{Fecha}\\
+  \hspace{0.3cm}1 de abril\\
+  \textbf{Conferencia}
+    \begin{itemize}
+      \item \textit{Invitado:} Eva Castro -- Ph.D. URJC
+      \item \textit{Conferencia:} IPv6
+    \end{itemize}
+  \textbf{Sesión}
+    \begin{itemize}
+      \item Seguridad proactiva
+      \item \textit{Profesores:} Pedro Coca 
+    \end{itemize}
+    \begin{itemize}
+      \item Criptografía de clave pública
+      \item \textit{Profesor:} Israel Herráiz -- Ph.D. UCM
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Sistemas operativos libres}
+  \textbf{Fecha}\\
+  \hspace{0.3cm}8 de abril\\
+  \textbf{Conferencia}
+    \begin{itemize}
+      \item \textit{Invitado:} David Villanueva -- Ártica
+      \item \textit{Conferencia:} Monitorización con Pandora
+    \end{itemize}
+  \textbf{Sesión}
+    \begin{itemize}
+      \item Sistemas operativos libres
+      \item \textit{Profesores:} Miguel Vidal, Jose Castro
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Redes}
+  \textbf{Fecha}\\
+  \hspace{0.3cm}29 de abril\\
+  \textbf{Conferencia}
+    \begin{itemize}
+      \item \textit{Invitado:} Juan José Amor -- Notario de CACert
+      \item \textit{Conferencia:} Certificación con CACert
+    \end{itemize}
+  \textbf{Sesión}
+    \begin{itemize}
+      \item Redes
+      \item \textit{Profesores:} Miguel Vidal, Jose Castro
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Storage as a Service}
+  \textbf{Fecha}\\
+  \hspace{0.3cm}6 de Mayo\\
+  \textbf{Conferencia}
+    \begin{itemize}
+      \item \textit{Invitado:} Javier Turégano -- Ándago
+      \item \textit{Conferencia:} La experiencia con software libre en empresas TIC
+    \end{itemize}
+  \textbf{Sesión}
+    \begin{itemize}
+      \item Storage as a Service
+      \item \textit{Profesores:} Miguel Vidal, Jose Castro
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Servicios de Internet}
+  \textbf{Fecha}\\
+  \hspace{0.3cm}13 de mayo\\
+  \textbf{Conferencia}
+    \begin{itemize}
+      \item \textit{Invitado:} Álvaro Lopez Ortega -- Líder del proyecto Cherokee
+      \item \textit{Conferencia:} Servidor Web Cherokee
+    \end{itemize}
+  \textbf{Sesión}
+    \begin{itemize}
+      \item Servicios de Internet
+      \item \textit{Profesores:} Miguel Vida, Jose Castro
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Virtualización I}
+  \textbf{Fecha}\\
+  \hspace{0.3cm}20 de mayo\\
+  \textbf{Conferencia}
+    \begin{itemize}
+      \item \textit{Invitado:} Víctor Fernández -- SIA Group
+      \item \textit{Conferencia:} Evolución del CPD, convergencia de almacenamiento y virtualización
+    \end{itemize}
+  \textbf{Sesión}
+    \begin{itemize}
+      \item Virtualización I
+      \item \textit{Profesores:} Miguel Vidal, Jose Castro
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Virtualización II}
+  \textbf{Fecha}\\
+  \hspace{0.3cm}27 de mayo\\
+  \textbf{Conferencia}
+    \begin{itemize}
+      \item \textit{Invitado:} Juan José Amor -- OpenSistemas \& Gnome Hispano
+      \item \textit{Conferencia:} Virtualización en SPARC con LDOMs
+    \end{itemize}
+  \textbf{Sesión}
+    \begin{itemize}
+      \item Virtualización II
+      \item \textit{Profesores:} Miguel Vidal, Jose Castro
+    \end{itemize}
+    \begin{itemize}
+      \item De la virtualización al Cloud Computing
+      \item \textit{Profesores:} Pedro Coca
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cloud Computing}
+  \textbf{Fecha}\\
+  \hspace{0.3cm}3 de junio\\
+  \textbf{Conferencia}
+    \begin{itemize}
+      \item \textit{Invitado:} Constantino Vázquez -- Desarrollador OpenNebula
+      \item \textit{Conferencia:} OpenNebula
+    \end{itemize}
+  \textbf{Sesión}
+    \begin{itemize}
+      \item Tutorial de OpenNebula
+      \item \textit{Profesores:} Constantino Vázquez
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Alta disponibilidad}
+  \textbf{Fecha}\\
+  \hspace{0.3cm}10 de junio\\
+  \textbf{Conferencia}
+    \begin{itemize}
+      \item \textit{Invitado:} Flor Grinberg -- Departamento jurídico de Google
+      \item \textit{Conferencia:} Aspectos legales del Cloud Computing
+    \end{itemize}
+  \textbf{Sesión}
+    \begin{itemize}
+      \item Clusters de alta disponibilidad
+      \item \textit{Profesores:} Miguel Vidal, Jose Castro
+    \end{itemize}
+\end{frame}
+
+
+\section{Metodología}
+\begin{frame}
+  \frametitle{Metodología}
+  \begin{center}
+    \textbf{Moodle} -- \url{http://moodle.libresoft.es}
+  \end{center}
+  \begin{itemize}
+    \item Material del curso: transpas, referencias...
+    \item Ejercicios
+    \item Foro de dudas
+    \item Noticias y avisos
+  \end{itemize}
+  \vspace{0.15cm}
+  \begin{center}
+    \textbf{Syllabus}\\
+  \end{center}
+  \begin{itemize}
+    \item Se irá completando durante el curso
+    \item Información más completa de las sesiones
+    \item Ejercicios y prácticas
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Clases}
+  \begin{enumerate}
+    \item Test previo de autoevaluación {\small (no evaluable)}
+    \item Conferencia de un profesional -- {\small 1 hora}
+    \item Resolución de ejercicios propuestos -- {\small 30 minutos}
+    \item Descanso -- {\small 15 minutos}
+    \item Sesión teórica -- {\small 2 horas y 15 minutos}
+    \item Ejercicios y prácticas durante la semana -- {\small no más de 1 hora}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Equipos y material}
+  \begin{itemize}
+    \item Puedes traer tu propio portátil
+    \item WIFI para el entorno:
+      \begin{itemize}
+        \item ESSID:   
+        \item contraseña: 
+      \end{itemize}
+    \item Twitter: \textit{\#casul} {\small (Curso Arquitectura Sistemas URJC Libresoft)}
+    \item Canal IRC: \textit{\#casul} en irc.freenode.net
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Evaluación}
+  \begin{itemize}
+    \item Ejercicios Moodle -- 40\%
+    \item Práctica final -- 50\%
+    \item Entradas en el blog -- 10\% \textit{(opcional)}
+    \item Participación y asistencia
+  \end{itemize}
+\end{frame}
+
+
+\section{Contacto}
+\begin{frame}
+  \frametitle{Contacto}
+  \textbf{Correo}\\
+  \hspace{0.3cm}\{mvidal,jfcastro\}@libresoft.es\\
+  \vspace{0.3cm}
+  \textbf{Twitter}\\
+  \hspace{0.3cm}@mvidallopez y @jfcastroluis\\
+  \vspace{0.3cm}
+  \textbf{IRC}\\
+  \hspace{0.3cm}\textit{\#casul} en irc.freenode.net\\
+  \vspace{0.3cm}
+  \textbf{Moodle}\\
+  \hspace{0.3cm}\url{http://moodle.libresoft.es}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Preguntas}
+  \begin{center}
+    \huge{¿Preguntas y dudas?}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Presentación}
+  \begin{center}
+    \huge{Os toca presentaros}
+  \end{center}
+\end{frame}
+
+% Fin del documento
+\end{document}
