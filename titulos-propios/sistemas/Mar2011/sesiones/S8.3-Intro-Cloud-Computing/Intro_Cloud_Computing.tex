@@ -1,0 +1,343 @@
+%
+% $Id: Calidad_FLOSS.tex 2011-05-25 pcoca $
+%
+%
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer (paquete latex-beamer en Debian)
+%
+
+%
+% Gráficos:
+% Los gráficos pueden suministrarse en PNG, JPG, TIF, PDF, MPS
+% Los EPS deben convertirse a PDF (usar epstopdf)
+%
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+\usepackage{url}
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={Intro to Cloud Computing},
+  pdfauthor={Pedro Coca},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={nn},
+}
+%%
+
+
+\AtBeginSection[]
+{
+  \begin{frame}<presentation>
+    \frametitle{Index}
+    \tableofcontents[current]
+  \end{frame}
+}
+
+
+\begin{document}
+
+\title{Introduction to Cloud Computing}
+\subtitle{Arquitectura de servidores con software libre}
+\institute{\\pcoca@libresoft.es\\
+GSyC/Libresoft}
+\author{Pedro Coca}
+\date{\today}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+
+% Si el titulo o el autor se quieren acortar para los pies de página
+% se pueden redefinir aquí:
+%\title{Titulo corto}
+%\author{Autores abreviado}
+
+
+%% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
+\frame{
+~
+\vspace{4cm}
+
+\begin{flushright}
+{\tiny
+(cc) 2011 Pedro Coca. \\
+Some rights reserved. This document is distributed under the Creative \\
+            Commons Attribution-ShareAlike 3.0 licence, available in \\
+            http://creativecommons.org/licenses/by-sa/3.0/
+
+}
+\end{flushright}
+}
+%%
+
+%%%%%%
+%Transpas separadas por \begin{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction to Cloud Computing}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Introduction to Cloud Computing}
+\begin{itemize}
+  \item Main idea behing cloud computing is not new
+  \item John McCarthy in "The Challenge of the Computer Utility" (1966) already envisioned that concept:
+    \begin{itemize}
+    \item \begin{em} Utility computing involves organizing and providing a wide range of computing-related services as public utilities. Much like water, gas, electricity and telecommunications. \end {em}
+    \end{itemize}
+  \item The term cloud was used in the 1990s to describe large ATM networks.
+  \item 2006: Googles's CEO Eric Schmidt was already using the term "Cloud" describing the business model of providing services across the internet.
+\end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Introduction to Cloud Computing}
+\begin{itemize}
+  \item \begin{em} Cloud computing is a pay-per-use model for enabling available, convenient, on-demand network access to a shared pool of configurable computing resources (e.g., networks, servers, storage, applications, services) that can be rapidly provisioned and released with minimal management effort or service provider interaction. This cloud model promotes availability and is comprised of five key characteristics, three delivery models, and four deployment models." \end{em} (NIST definition)
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Cloud computing key characteristics}
+\begin{itemize}
+  \item On-demand self-service 
+  \item Ubiquitous network access
+  \item Location independent resource pooling
+  \item Rapid elasticity (Surge computing)
+  \item Pay per use
+\end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Cloud computing Delivery scheme}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Cloud computing Delivery scheme: SPI Model}
+\begin{itemize}
+  \item SPI: acronym for the most common cloud computing delivery models 
+     \begin{itemize}
+     \item Software as a Service (SaaS)
+     \item Platform as a Service (PaaS) 
+     \item Infrastructure as a Service (IaaS)
+     \end{itemize}
+  \item But better get used to XaaS (anything as a service)
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Software as a Service (SaaS)}
+\begin{itemize}
+  \item Software distribution model 
+  \item Applications are hosted by a vendor / service provider
+  \item Available to customers over a network 
+  \item Customers do not manage ANY aspect of the Software (or data)
+  \item Sometimes customers do not even manage the application configuration
+  \item Many everyday examples: gmail
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Platform as a Service (PaaS)}
+\begin{itemize}
+  \item Delivering operating systems (and/or associated services)
+  \item No downloads, no installations
+  \item Available to customers over a network
+  \item Consumer is able to deploy onto the cloud infrastructure consumer-created applications (using the cloud tools/APIs/Framework)
+  \item Example: Google App Engine. 
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Infrastructure as a Service (IaaS)}
+\begin{itemize}
+  \item Outsourcing the equipment used to support operation
+  \item Hardware, networking, storage, etc
+  \item Raw compute power and storage offered as a service
+  \item AWS is the most important example of IaaS
+  \item What about if you need dedicated servers? (Regulation)
+  \item Hybrid approach (Virtualization + Dedicated resources)
+     \begin{itemize}
+     \item Rackspace, Gogrid
+     \end{itemize}
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Infrastructure as a Service (IaaS)}
+\begin{itemize}
+  \item Amazon Web Services: Elastic Cloud Compute (EC2)
+  \item API to manage the servers inside the cloud
+  \item Customised Xen solution (Paravirtualization)
+  \item You can boot up a virtual server in the Amazon cloud using an AMI
+  \item Storage associated with the node (and it's life time) 
+  \item Persistent storage (Amazon Single Storage Server: S3)
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Infrastructure as a Service (IaaS)}
+\begin{itemize}
+  \item Amazon Web Services
+  \item Open Nebula
+  \item Open Stack
+  \item Ubuntu Enterprise Cloud Services
+  \item ...
+  \item As infrastructure get more and more commoditized, IaaS providers will move up the stack and offer services at the platform layer.
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Cloud computing Deployment Models}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Cloud Computing Deployment Models}
+\begin{itemize}
+  \item Public Clouds
+  \item Private Clouds
+  \item Community Clouds
+  \item Hybrid Clouds
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Cloud Computing Security}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Cloud Security Security}
+\begin{itemize}
+  \item Gartner identified seven cloud-computing security risks (2008)
+    \begin{itemize}
+    \item Privileged user access
+    \item Regulatory compliance
+    \item Data location
+    \item Data segregation
+    \item Recovery
+    \item Investigative support
+    \item Long-term viability
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Cloud Security Alliance}
+\begin{itemize}
+  \item Other entities like the CSA, set several domains in C.Computing security
+    \begin{itemize}
+    \item NIST Definition of Cloud Computing (Essential Characteristics, Cloud Service Models, Cloud Deployment Models) 
+    \item Cloud Computing Architectural Framework
+    \item Governance and Enterprise Risk Management
+    \item Legal and Electronic Discovery
+    \item Compliance and Audit
+    \item Information Lifecycle Management
+    \item Portability and Interoperability
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Cloud Security Alliance}
+\begin{itemize}
+  \item CSA domains in Cloud Computing security (continuation)
+    \begin{itemize}
+    \item Traditional Security, Business Continuity, and Disaster Recovery
+    \item Data Center Operations
+    \item Incident Response, Notification, and Remediation
+    \item Application Security
+    \item Encryption and Key Management
+    \item Identity and Access Management
+    \item Virtualization
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Cloud Security Alliance}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Cloud Security Alliance}
+\begin{itemize}
+\item To promote the use of best practices for providing security assurance within Cloud Computing, and provide education on the uses of Cloud Computing to help secure all other forms of computing.
+   \begin{itemize}
+      \item Certificate of Cloud Security Knowledge (CCSK)
+      \item Several chapters around the world
+      \item Spanish Chapter already set up
+   \end{itemize}
+\end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{CCSK}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Certificate of Cloud Security Knowledge (CCSK)}
+ \begin{itemize}
+ \item Recently set up (September 2010)
+ \item 50 multiple choice questions in 60 minutes
+ \item 80\% correct answers to pass
+ \item Based on
+    \begin{itemize}
+    \item CSA Security guidance for critical Areas of focus in Cloud computing (70\%)
+        \begin{itemize}
+        \item \url{http://cloudsecurityalliance.org/guidance/csaguide.v2.1.pdf}
+        \end{itemize}
+    \item ENISA report “Cloud Computing: Benefits, Risks and Recommendations for Information Security” (20\%)
+       \begin{itemize}
+       \item European Network and Information Security Agency
+       \item \url{http://www.enisa.europa.eu/act/rm/files/deliverables/cloud-computing-risk-assessment}
+       \end{itemize}
+    \item Best practices (10\%)
+    \end{itemize}
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Certificate of Cloud Security Knowledge (CCSK)}
+ \begin{itemize}
+ \item Few CCSK occurrences in the main US job portals
+ \item Still a young certificate
+ \item Dependency on the cloud computing paradigm adoption
+ \end{itemize}
+\end{frame}
+
+
+\end{document}
