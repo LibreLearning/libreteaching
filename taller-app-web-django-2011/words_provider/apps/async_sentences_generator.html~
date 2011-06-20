@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+   <head>
+       <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+       <style type="text/css" media="screen">
+         body{
+           padding:0;
+           margin:50px auto;
+           text-align:center;
+           font:100% Verdana;
+         }
+         h1 {
+           font-size: 1.5em;
+         }
+         h2 {
+           font-size: 2em;
+            margin-top:0;
+         }
+         #sentence {
+           font-size: 4em;
+         }
+         #another {
+           font-size: 2em;
+         }
+         footer {
+           font-size: 0.75em;
+         }
+       </style>
+       <title>Stupid sentences generator (async version)</title>
+       <meta name="robots" content="index, follow" />
+       <meta name="keywords" content="Generation sentence" />
+       <meta name="description" content="Generator of stupid sentences" />
+   </head>
+   <body>
+     <h1>Stupid sentences generator (async version)</h1>
+     <p>Current stupid sentence:</p>
+     <p id="sentence"></p>
+     <p id="another"><a href="javascript:document.location.reload()">Another one!</a></p>
+     <footer>
+       <p>Based on <a href="https://github.com/stefanw/Infoobator">The Drumbeat Infoobator</a>, by the <a href="http://opendatalabs.org">Open Data Labs</a>.</p>
+     </footer>
+     <script type="text/javascript" charset="utf-8">
+       (
+       var req = null;
+       function(){
+         var req = new XMLHttpRequest();
+         var newwords = [];
+         req.open('GET', 'http://localhost:1234/first', false);
+         req.send(null);
+         newwords.push(req.responseText);
+         req.open('GET', 'http://localhost:1234/second', false);
+         req.send(null);
+         newwords.push(req.responseText);
+         req.open('GET', 'http://localhost:1234/third', false);
+         req.send(null);
+         newwords.push(req.responseText);
+         var sentence = document.getElementById("sentence");
+         sentence.innerHTML = newwords.join(" ");
+       }
+       function StateChanged(){
+       var output = document.getElementById("sentence");
+       switch (req.readyState) {
+            case 0:
+                output.innerHTML += "The httpRequest object is not initialized.<br/>";
+                break;
+            case 1:
+                output.innerHTML += "Waiting for the send method.<br/>";
+                break;
+            case 2:
+                output.innerHTML += "The send method has been called, but no content is available at this time.<br/>";
+                break;
+            case 3:
+                output.innerHTML += "Partial data has been received, but this content is not available yet.<br/>";
+                break;
+            case 4:
+                output.innerHTML += "All data has been received:<br/><span style='margin-left:30px; color:blue'>" + httpRequest.responseText + "</span><br/>";
+                break;
+            };
+       sentence.innerHTML = newwords.join(" ");
+       });
+     </script>
+   </body>
+</html>

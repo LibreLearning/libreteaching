@@ -1,0 +1,8 @@
+For testing it, you can use
+
+user: jgb
+passwd: XXX
+
+You can enter in this account via de Django admin app:
+
+http://localhost:1234/admin/

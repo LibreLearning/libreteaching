@@ -1,0 +1,279 @@
+%
+% $Id: $
+%
+%
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer (paquete latex-beamer en Debian)
+%
+
+%
+% Gráficos:
+% Los gráficos pueden suministrarse en PNG, JPG, TIF, PDF, MPS
+% Los EPS deben convertirse a PDF (usar epstopdf)
+%
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg-soft.png}}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={Desarrollo de aplicaciones web con Python y Django},
+  pdfauthor={Jesús M. González Barahona},
+  pdfcreator={GSyC/LibreSoft, Universidad Rey Juan Carlos},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Taller con alumnos del IES La Arboleda},
+}
+%%
+
+\begin{document}
+
+\title{Desarrollo de aplicaciones web con Python y Django}
+\subtitle{De cero a ciento y pico en poco tiempo}
+\author{Jesús M. González Barahona}
+\institute{jgb@gsyc.es \\
+\url{http://identi.ca/jgbarah} \url{http://twitter.com/jgbarah} \\
+GSyC/LibreSoft, Universidad Rey Juan Carlos}
+
+\date{Fuenlabrada, 20 de junio de 2011}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+
+% Si el titulo o el autor se quieren acortar para los pies de página
+% se pueden redefinir aquí:
+%\title{Titulo corto}
+%\author{Autores abreviado}
+
+
+% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
+\frame{
+~
+\vspace{4cm}
+
+\begin{flushright}
+\copyright 2011 Jesús M. González Barahona. \\
+
+  Algunos derechos reservados.\\
+  Este artículo se distribuye bajo
+  la licencia \\
+  ``Reconocimiento-CompartirIgual 3.0 España'' de Creative Commons, \\
+  disponible en \\
+  \url{http://creativecommons.org/licenses/by-sa/3.0/es/deed.es}
+\end{flushright}
+}
+
+
+%\section{}
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{¿En qué vamos a malgastar la próxima hora?}
+
+\begin{itemize}
+\item Haremos un servidor web sencillito
+\item Hablaremos con él
+\item Lo complicaremos un poco
+\item Esconderemos la complicación, complicando más las cosas
+\item Volveremos a hablarle
+\item Si da tiempo, haremos Ajax y todo...
+\end{itemize}
+
+\end{frame}
+
+%%---------------------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{Un servidor web muuuuuuy sencillo}
+
+\begin{itemize}
+\item \url{servidor-http-simple.py}
+
+\begin{verbatim}
+import socket
+mySocket = socket.socket(socket.AF_INET,
+                         socket.SOCK_STREAM)
+mySocket.bind(('localhost', 1234))
+mySocket.listen(5)
+while True:
+    (recvSocket, address) = mySocket.accept()
+    print recvSocket.recv(1024)
+    recvSocket.send("HTTP/1.1 200 OK\r\n\r\n" +
+      "<html><body><h1>Hello!</h1></body></html>" +
+      "\r\n")
+    recvSocket.close()
+\end{verbatim}
+
+\item Para ejecutarlo:
+
+\begin{verbatim}
+python servidor-http-simple.py
+\end{verbatim}
+
+\end{itemize}
+
+\end{frame}
+
+%%---------------------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{¿Cómo hablamos con él?}
+
+\begin{itemize}
+\item Pues desde un navegador... (probamos con Firefox)
+\item O desde un plugin específico (probamos Web Developer de Firefox)
+\item Pero también podemos ver qué nos dice
+
+\item O hablar HTTP ``a pelo'' (desde un telnet)
+\begin{verbatim}
+telnet localhost 1234
+\end{verbatim}
+
+\item O pedirle al amigo curl que hable por nosotros
+\begin{verbatim}
+curl http://localhost:1234/
+\end{verbatim}
+
+\item O al amigo wget
+\begin{verbatim}
+wget http://localhost:1234/
+\end{verbatim}
+
+\item Y podemos espiar cualquier conversación con wireshark...
+\end{itemize}
+
+\end{frame}
+
+
+%%---------------------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{Un caza-robots}
+
+\begin{itemize}
+\item \url{servidor-http-random.py}
+
+\begin{small}
+\begin{verbatim}
+import socket
+import random
+mySocket = socket.socket(socket.AF_INET,
+                         socket.SOCK_STREAM)
+mySocket.bind(('localhost', 1234))
+mySocket.listen(5)
+random.seed()
+while True:
+   (recvSocket, address) = mySocket.accept()
+   print recvSocket.recv(1024)
+   nextPage = str (random.randint (0,10000))
+   nextUrl = "http://localhost:"+str(myPort)+"/"+nextPage
+   htmlBody = "<p>Next page: <a href="' \
+      + nextUrl + '">' + nextPage + "</a></p>"
+   recvSocket.send("HTTP/1.1 200 OK \r\n\r\n" +
+      "<html><body>" + htmlBody + "</body></html>" +
+      "\r\n")
+   recvSocket.close()
+\end{verbatim}
+\end{small}
+\end{itemize}
+
+\end{frame}
+
+
+%%---------------------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{Y ahora con Django 1.2.3}
+
+\begin{verbatim}
+export PATH=/usr/local/django/django/bin:$PATH
+export PYTHONPATH=/usr/local/django:$PATH
+cd myproject
+python manage.py runserver 1234
+\end{verbatim}
+
+\begin{itemize}
+\item Una aplicación realmente simple: \url{myproject} \\
+\url{http://localhost:1234/} \\
+\url{http://localhost:1234/hello} \\
+\url{http://localhost:1234/bye/Maria} \\
+\url{http://localhost:1234/number/3}
+
+\item Un gestor de contenidos bien simple: \url{cms_users}
+
+\end{itemize}
+
+\end{frame}
+
+
+%%---------------------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{Y el no va más: ¡un poco de Ajax!}
+
+\begin{itemize}
+\item Una página que genera frases: \\
+  \url{sentences_generator.html}
+  \begin{itemize}
+  \item JavaScript encastrado en el HTML
+  \item Se ejecuta en el navegador al cargar la página
+  \end{itemize}
+\item Una aplicacioncilla Ajax (bien simple): \\
+  \url{words_provider} \\
+  {\small \url{http://localhost:1234/apps/sentences_generator.html}}
+  \begin{itemize}
+  \item Sevidor Django que sirve:
+    \begin{itemize}
+    \item Una página HTML con JavaScript encastrado
+    \item Un canal con partes de frases
+    \end{itemize}
+  \item Se ejecuta el JavaScript en el navegador
+  \item Pide partes de frases al servidor
+  \item Muestra el resultado
+  \end{itemize}
+
+\end{itemize}
+
+\end{frame}
+
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Algunas URLs}
+
+\begin{itemize}
+\item Python: \url{http://python.org}
+\item Django: \url{http://djangoproject.com}
+\item Para aprender Python (por ejemplo): \\
+  Dive into Python \\
+  \url{http://diveintopython.org}
+\item Para aprender Django (por ejemplo): \\
+  The Django Book \\
+  \url{http://djangobook.com/}
+\item ``Tecnologías y Servicios para Aplicaciones en Internet'', \\
+  asignatura con materiales libremente accesibles, \\
+  su temario incluye el contenido de esta presentación \\
+\end{itemize}
+  {\small \url{http://docencia.etsit.urjc.es/moodle/course/view.php?id=3}}
+
+\end{frame}
+
+
+
+\end{document}

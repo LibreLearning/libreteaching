@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+   <head>
+       <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+       <style type="text/css" media="screen">
+         body{
+           padding:0;
+           margin:50px auto;
+           text-align:center;
+           font:100% Verdana;
+         }
+         h1 {
+           font-size: 1.5em;
+         }
+         h2 {
+           font-size: 2em;
+            margin-top:0;
+         }
+         #sentence {
+           font-size: 4em;
+         }
+         #another {
+           font-size: 2em;
+         }
+         footer {
+           font-size: 0.75em;
+         }
+       </style>
+       <title>Stupid sentences generator</title>
+       <meta name="robots" content="index, follow" />
+       <meta name="keywords" content="Generation sentence" />
+       <meta name="description" content="Generator of stupid sentences" />
+   </head>
+   <body>
+     <h1>Stupid sentences generator</h1>
+     <p>Current stupid sentence:</p>
+     <p id="sentence"></p>
+     <p id="another"><a href="javascript:document.location.reload()">Another one!</a></p>
+     <footer>
+       <p>Based on <a href="https://github.com/stefanw/Infoobator">The Drumbeat Infoobator</a>, by the <a href="http://opendatalabs.org">Open Data Labs</a>.</p>
+     </footer>
+     <script type="text/javascript" charset="utf-8">
+       (function(){
+         var req = new XMLHttpRequest();
+         var newwords = [];
+         req.open('GET', 'http://localhost:1234/first', false);
+         req.send(null);
+         newwords.push(req.responseText);
+         req.open('GET', 'http://localhost:1234/second', false);
+         req.send(null);
+         newwords.push(req.responseText);
+         req.open('GET', 'http://localhost:1234/third', false);
+         req.send(null);
+         newwords.push(req.responseText);
+         var sentence = document.getElementById("sentence");
+         sentence.innerHTML = newwords.join(" ");
+       }());
+     </script>
+   </body>
+</html>

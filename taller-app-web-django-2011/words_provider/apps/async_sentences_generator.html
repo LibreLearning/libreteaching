@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+   <head>
+       <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+       <style type="text/css" media="screen">
+         body{
+           padding:0;
+           margin:50px auto;
+           text-align:center;
+           font:100% Verdana;
+         }
+         h1 {
+           font-size: 1.5em;
+         }
+         h2 {
+           font-size: 2em;
+            margin-top:0;
+         }
+         #sentence {
+           font-size: 4em;
+         }
+         #another {
+           font-size: 2em;
+         }
+         footer {
+           font-size: 0.75em;
+         }
+       </style>
+       <title>Stupid sentences generator (async version)</title>
+       <meta name="robots" content="index, follow" />
+       <meta name="keywords" content="Generation sentence" />
+       <meta name="description" content="Generator of stupid sentences" />
+   </head>
+   <body>
+     <h1>Stupid sentences generator (async version)</h1>
+     <p>Current stupid sentence:</p>
+     <p id="sentence"><span id="first"></span> <span id="second"></span> <span id="third"></span></p>
+     <p id="state"><span id="statefirst">.</span> <span id="statesecond">.</span> <span id="statethird">.</span></p>
+     <p id="showanother"><a href="javascript:GetFraction(1)">One</a> <a href="javascript:GetFraction(2)">Two</a> <a href="javascript:GetFraction(3)">Three</a></p>
+     <footer>
+       <p>Based on <a href="https://github.com/stefanw/Infoobator">The Drumbeat Infoobator</a>, by the <a href="http://opendatalabs.org">Open Data Labs</a>.</p>
+     </footer>
+     <script type="text/javascript" charset="utf-8">
+       var req = new XMLHttpRequest();
+       var newwords = [];
+       var parts = ['first', 'second', 'third']
+       var partno;
+       function StateChanged(){
+         var output = document.getElementById("state" + parts[partno-1]);
+         output.innerHTML =  req.readyState;
+         if (req.readyState == 4) {
+           output = document.getElementById(parts[partno-1]);
+           output.innerHTML = req.responseText;
+         }
+       }
+       function GetFraction(part){
+         partno = part;
+         req.open('GET', '/' + parts[part-1], true);
+         req.onreadystatechange = StateChanged;
+         req.send(null);
+       }
+       setTimeout("GetFraction(1)", 1000);
+       setTimeout("GetFraction(2)", 2000);
+       setTimeout("GetFraction(3)", 3000);
+     </script>
+   </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+   <head>
+       <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+       <style type="text/css" media="screen">
+         body{
+           padding:0;
+           margin:50px auto;
+           text-align:center;
+           font:100% Verdana;
+         }
+         h1 {
+           font-size: 1.5em;
+         }
+         h2 {
+           font-size: 2em;
+            margin-top:0;
+         }
+         #sentence {
+           font-size: 4em;
+         }
+         #another {
+           font-size: 2em;
+         }
+         footer {
+           font-size: 0.75em;
+         }
+       </style>
+       <title>Stupid sentences generator (async version)</title>
+       <meta name="robots" content="index, follow" />
+       <meta name="keywords" content="Generation sentence" />
+       <meta name="description" content="Generator of stupid sentences" />
+   </head>
+   <body>
+     <h1>Stupid sentences generator (async version)</h1>
+     <p>Current stupid sentence:</p>
+     <p id="sentence"></span></p>
+     <p id="waiting">State first: <span id="first"></span><br/>
+       State second: <span id="second"></span><br/>
+       State third: <span id="third"></p>
+     <p id="another"><a href="javascript:document.location.reload()">Another one!</a></p>
+     <footer>
+       <p>Based on <a href="https://github.com/stefanw/Infoobator">The Drumbeat Infoobator</a>, by the <a href="http://opendatalabs.org">Open Data Labs</a>.</p>
+     </footer>
+     <script type="text/javascript" charset="utf-8">
+       var req = new XMLHttpRequest();
+       var newwords = [];
+       var fraction = null;
+       var parts = ['first', 'second', 'third']
+       function StateChanged(part){
+         var output = document.getElementById("first");
+         output.innerHTML += "State: " + req.readyState;
+         switch (req.readyState) {
+            case 1:
+                output.innerHTML += "Waiting for the send method...";
+                output.innerHTML += String (part);
+                break;
+            case 4:
+                output.innerHTML += "done.";
+                output.innerHTML += req.responseText;
+                newwords.push[part] = req.responseText;
+                break;
+            };
+       }
+       function GetFraction(part){
+         req.open('GET', '/' + parts[part-1], true);
+         req.onreadystatechange = StateChanged(part);
+         req.send(null);
+       }
+       setTimeout("GetFraction(1)", 1000);
+     </script>
+   </body>
+</html>
