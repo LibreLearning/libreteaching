@@ -164,37 +164,37 @@ Date:   Mon Nov 19 16:14:01 2007 +0100
 
 \end{frame}
 
-\begin{frame}
-  \frametitle{Git internals}
+% \begin{frame}
+%   \frametitle{Git internals}
 
-  \begin{itemize}
-  \item The whole history of the repository is stored by Git in files
-    referenced by its contents (SHA1) rather than a file name. 
-  \item Such files are the ``objects'' that form the Git Object Model.
-  \item Every object consists of a type, a size and its contents.
-  \item Four types of objects:
-    \begin{itemize}
-    \item {\bf blob} is just a file
-    \item {\bf tree} is a container of pointers to blobs and other
-      tree objects
-    \item {\bf commit} is a link to a physical state of a tree with a
-      description of how we got there and why
-    \item {\bf tag} is used to mark commit objects with a label
-    \end{itemize}
-  \end{itemize}
-\end{frame}
+%   \begin{itemize}
+%   \item The whole history of the repository is stored by Git in files
+%     referenced by its contents (SHA1) rather than a file name. 
+%   \item Such files are the ``objects'' that form the Git Object Model.
+%   \item Every object consists of a type, a size and its contents.
+%   \item Four types of objects:
+%     \begin{itemize}
+%     \item {\bf blob} is just a file
+%     \item {\bf tree} is a container of pointers to blobs and other
+%       tree objects
+%     \item {\bf commit} is a link to a physical state of a tree with a
+%       description of how we got there and why
+%     \item {\bf tag} is used to mark commit objects with a label
+%     \end{itemize}
+%   \end{itemize}
+% \end{frame}
 
-\begin{frame}
-  \frametitle{The Git Object Model (Example)}
-  \begin{center}
-    \includegraphics[width=7cm]{figs/objects-example.png}
-  \end{center}
+% \begin{frame}
+%   \frametitle{The Git Object Model (Example)}
+%   \begin{center}
+%     \includegraphics[width=7cm]{figs/objects-example.png}
+%   \end{center}
 
-{\Tiny
-Image from Git Community Book
-(\url{http://book.git-scm.com/index.html})
-}
-\end{frame}
+% {\Tiny
+% Image from Git Community Book
+% (\url{http://book.git-scm.com/index.html})
+% }
+% \end{frame}
 
 \section{Branching and Merging}
 
