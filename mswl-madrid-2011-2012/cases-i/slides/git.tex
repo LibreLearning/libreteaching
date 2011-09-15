@@ -132,13 +132,17 @@ $ git commit
 \end{verbatim}
 
 \begin{itemize}
-\item add marks files to commit (adds them to the index)
-\item diff to know what is about to be commited
-\item status to get a general idea of the current state
-\item commit really adds changes to files in the index
+\item add: marks files to commit (adds them to the index)
+\item diff: to know what is about to be commited
+\item status: to get a general idea of the current state
+\item commit: really adds changes to files in the index
 \item Special shortcut for committing
 \begin{verbatim}
 $ git commit -a
+\end{verbatim}
+\item Anything can be limited to a directiory (here, ``.'')
+\begin{verbatim}
+$ git commit -a .
 \end{verbatim}
 \end{itemize}
 
@@ -156,11 +160,11 @@ content that will be affected by a commit
   \item {\it git log}
     {\scriptsize
 \begin{verbatim}
-commit ce6ddeac2200225b173c52e2509ffcc01b2b4a1d
-Author: Carlos Garcia Campos <carlosgc@gnome.org>
-Date:   Mon Nov 19 16:14:01 2007 +0100
+commit 801f4a4c28ef86c47e3d82cad720c9f91f0e0761
+Author: Jesus M. Gonzalez-Barahona <jgb@gsyc.es>
+Date:   Thu Sep 15 15:00:29 2011 +0200
 
-    Initial commit
+    Copying files from 2010-2011 as a starting point.
 \end{verbatim}
     }
 
@@ -221,6 +225,9 @@ To probe further:
 \item The Git Community Book \\
   \url{http://book.git-scm.com/}
 \end{itemize}
+
+Git repository with all documents for the master: \\
+\url{git://git.libresoft.es/git/libreteaching}
 
 \end{frame}
 
