@@ -1,0 +1,639 @@
+%
+% $Id: slides.tex 4228 2006-06-21 21:55:12Z jjamor $
+
+%
+%
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer (paquete latex-beamer en Debian)
+%
+
+%
+% Gráficos:
+% Los gráficos pueden suministrarse en PNG, JPG, TIF, PDF, MPS
+% Los EPS deben convertirse a PDF (usar epstopdf)
+%
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/blank-bg.png}}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={Representación de la información},
+  pdfauthor={Gregorio Robles y Agustín Santos},
+  pdfcreator={Master EOI},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Introducción.},
+}
+%%
+
+\begin{document}
+
+\title{Fundamentos de las nuevas tecnologías}
+\subtitle{Representación de la información}
+\institute{ }
+\author{Gregorio Robles y Agustín Santos}
+\date{\today}
+
+\frame{
+\maketitle
+\begin{center}
+%\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+
+% Si el titulo o el autor se quieren acortar para los pies de página
+% se pueden redefinir aquí:
+%\title{Titulo corto}
+%\author{Autores abreviado}
+
+
+%% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
+\frame{
+~
+\vspace{4cm}
+
+\begin{flushright}
+{\tiny
+(cc) 2007 Grupo de Sistemas y Comunicaciones. \\
+  Algunos derechos reservados. Este trabajo se entrega bajo la
+  licencia Creative Commons Attribution-ShareAlike. Para obtener la
+  licencia completa, véase
+  http://creativecommons.org/licenses/by-sa/2.1/es. Tambi\'{e}n puede
+  solicitarse a Creative Commons, 559 Nathan Abbott Way, Stanford,
+  California 94305, USA.
+}
+\end{flushright}
+}
+%%
+
+\section{¿Qué hacen los ordenadores?}
+
+\begin{frame}
+	\frametitle{¿Qué hacen los ordenadores?}
+	\begin{itemize}
+  		\item Un ordenador trabaja únicamente con \alert{información}. Cuatro funciones básicas: 
+    			\begin{itemize}
+				\item Recibe \alert{información}.
+				\item Procesa la \alert{información} recibida (entrada).
+				\item Almacena la \alert{información}.
+				\item Produce \alert{información} (salida).
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+%%
+
+%%\begin{frame}
+%%	\frametitle{¿Cómo están formados los ordenadores?}
+%%	\begin{itemize}
+%%		\item Hardware y Software.
+%%    		\item Los ordenadores cuentan con componentes hardware (es decir, %%elementos físicos)  
+%%			especializados en realizar ciertas tareas
+%%    			\begin{itemize}
+%%     				 \item Dispositivos de entrada
+%%     				 \item Procesador o Unidad Central de Proceso (UCP/CPU)
+%%     				 \item Memoria principal y dispositivos de almacenamiento %%secundario.
+%%				 \item Dispositivos de salida
+%%			\end{itemize}
+%%        \end{itemize}
+%%\end{frame}
+
+%%
+
+\section{Sobre la información}
+
+\begin{frame}
+	\frametitle{En este tema intentaremos responder a:}
+	\begin{itemize}
+		\item ¿Cómo definimos \alert{información}?
+		\item ¿Qué tipo de información se puede \alert{almacenar y procesar}?
+    	\item ¿La información tiene \alert{"tamaño"}?.
+		\item ¿Qué significa que "ocupa" más o menos?
+		\item ¿Es lo mismo hablar de \alert{datos} que de \alert{programas}?
+      \item ¿Una misma información se puede representar de varias formas?
+      \item ¿Es mejor una representación que otra?
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Sobre la información}
+	\begin{itemize}
+		\item El ordenador \alert{no entiende} de noticias, música o arte. El ordenador se alimenta de 
+			datos para posteriormente procesar y almacenar la información obtenida.
+		\item Cuando un ordenador almacena una determinada información lo que hace 
+			es transformar ésta a una representación que pueda procesar.
+	\end{itemize}
+\end{frame}
+
+%%Hacemos un truco de magia con el juego de los números binarios
+\begin{frame}
+	\frametitle{Un pequeño truco de magia}
+	\begin{itemize}
+		\item Antes de continuar vamos a ver un pequeño truco.
+		\item Martin Gardner lo propuso en como pasatiempo matemático.
+		\item ¿Hemos adivinado el truco?
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{El truco}
+	\begin{itemize}
+		\item Representamos conjuntos de elementos utilizando 0 y 1.
+		\item ¿Por qué 0 y 1?
+		\item Definición de \alert{bit}
+	\end{itemize}
+\end{frame}
+
+%%
+
+\begin{frame}
+	\frametitle{Sobre la información}
+	\begin{itemize}
+		\item ¿Qué podemos representar mediante bits?
+		\begin{itemize}
+			\item Números
+			\item Caracteres
+			\item Imágenes
+			\item Sonidos
+			\item Imágenes + sonidos = vídeo
+			\item ...
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+
+%%
+
+
+\begin{frame}
+	\frametitle{Bytes}
+	\begin{itemize}
+    		\item Una agrupación de 8 bits se denomina byte u octeto. 
+		\item ¿Por qué 8 bits?
+   		\item ¿Cuántos valores pueden representarse con n bits?
+	\end{itemize}
+\end{frame}
+
+
+%%
+
+
+\begin{frame}
+\frametitle{Representación de la información}
+ 	\begin{itemize}
+     		\item ¿Cómo podemos representar datos con bits?
+		\item ¿Por qué importan las convenciones?
+   		\item El ordenador no entiende la asociación entre una representación binaria y el concepto de la vida real que representa dicho valor
+	\end{itemize}
+\end{frame}
+
+
+
+%%
+
+\begin{frame}
+\frametitle{Los números binarios}
+	\begin{itemize}
+		\item Un número es un concepto, que representamos de una forma determinada.
+		\item ¿Por qué contamos en base 10?
+		\item Los ordenadores utilizan dos dígitos: el 0 y el 1 (o blanco y negro o sí y no o...) $\rightarrow$ base 2.
+	\end{itemize}
+\end{frame}
+
+
+%%
+
+
+\begin{frame}
+\frametitle{Los números binarios}
+	\begin{table}[htbp]
+  	\centering
+  	\begin{tabular}{c|c}
+		Número & Representación \\
+		\hline
+		0 & 0 \\
+		1 & 1 \\
+		2 & 10 \\
+		3 & 11 \\
+		4 & 100 \\
+		5 & 101 \\
+	\end{tabular}
+ 	\caption{Representación binaria de los primeros 6 números.}
+  	\label{tab:representacionNumeros}
+	\end{table}
+\end{frame}
+
+%%
+
+\begin{frame}
+\frametitle{Los números binarios}
+	\begin{itemize}
+		\item De decimal a binario: método de las divisiones.
+		\item De binario a decimal: método del polinomio equivalente.
+	\end{itemize}
+\end{frame}
+
+
+%%
+
+\begin{frame}
+\frametitle{Ejercicio en grupo de 2 o 3 personas}
+	\begin{itemize}
+   		 \item Desarrollar una representación para las letras del alfabeto.
+			\item Para no complicar el asunto nos limitamos a las minúsculas. 
+   		 \item Escribir algo (vuestro nombre, el nombre de la mascota, vuestro equipo de futbol preferido, etc.) utilizando para ello vuestra representación.
+			\item Pedid a un grupo vecino que os diga lo que habéis escrito. El grupo vecino debe utilizar su propio esquema de representación.     		
+  	\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Caracteres: letras, dígitos y símbolos}
+	\begin{itemize}
+   		 \item ¿Qué es un caracter?
+   		 \item ¿Cómo se suelen almacenar los caracteres? Con tablas.    		
+		 \item Muchos tipos: ASCII, extensiones ISO-8859, UTF-8...
+  	\end{itemize}
+\end{frame}
+
+
+%%
+
+\begin{frame}
+\frametitle{Caracteres}
+	\begin{itemize}
+   		 \item ¿Cuántos bits nos hacen falta?
+		 \item 26 + 1 letras (¿ñ?) 
+		 \item Mayúsculas, minúsculas 27 x 2 = 54
+		 \item Símbolos ¿?!¡\#\%...
+		 \item Caracteres no imprimibles.
+  	\end{itemize}
+\end{frame}
+
+%%
+
+
+\begin{frame}
+\frametitle{Caracteres: ASCII, 1960s}
+	\begin{itemize}
+   		 \item American Standard Code for Information Interchange.
+		 \item 7 bits para codificar.
+		 \item 1 bit de sobra, redundancia.
+		 \item 95 caracteres imprimibles 0..31 y 128
+		 \item Problemas ¿ó? ¿ñ?
+  	\end{itemize}
+\end{frame}
+
+
+%%
+
+
+\begin{frame}
+\frametitle{Caracteres: Extensiones ISO-8859, 1990s }
+	\begin{itemize}
+		 \item 8 bits para codificar.
+   		 \item Los primeros 128 caracteres, como ASCII
+		 \item ``Compatible hacia atrás''
+		 \item Griego, cirílico, etc...
+		 \item En España: ISO-8859-1 e ISO-8859-15.
+		 \item ¿Es suficiente?
+  	\end{itemize}
+\end{frame}
+
+
+%%
+
+\begin{frame}
+\frametitle{Caracteres: UNICODE, 1990s}
+	\begin{itemize}
+		 \item Más de 65000 caracteres.
+   		 \item UTF-8:  1 byte, 2 bytes, 3 ó 4 bytes.
+		 \item UTF-16: 2 bytes ó  4 bytes.
+		 \item Griego, cirílico, etc... ¡hasta Klingon! $\rightarrow$ rechazado :(
+		 \item ¿Es suficiente? Esperemos que sí.
+  	\end{itemize}
+\end{frame}
+
+
+%%
+
+\begin{frame}
+\frametitle{Caracteres}
+	\begin{itemize}
+		 \item Texto plano vs. texto con formato.
+   		 \item Editor de texto vs. procesador de texto.
+		 \item ¿'7' es lo mismo que 7? 
+		 \item   0110111  $\ne$ 111 ¿Qué está pasando?
+  	\end{itemize}
+\end{frame}
+
+
+%%
+
+\begin{frame}
+\frametitle{Instrucciones}
+\begin{itemize}
+	\item La CPU tiene un conjunto de operaciones: 
+	\begin{itemize}
+      		\item Aritméticas (suma, multiplica, etc.)
+		\item Lógicas (compara este valor con otro, etc.) 
+		\item Movimiento de información dentro del ordenador, etc.
+	\end{itemize}
+	\item Los programas que usamos son secuencias de este tipo de instrucciones.
+	\item Dependen del fabricante de la CPU (Intel, AMD, Motorola, IBM...).
+\end{itemize}
+\end{frame}
+
+
+%%
+
+
+\begin{frame}
+	\frametitle{Medidas de información (tradicionales)}
+	\begin{itemize}
+		\item Bit: La unidad de información.
+		\item Byte: Un conjunto de 8 bits.
+		\item Kilobyte: Se representa por KB y es el equivalente de 1024 bytes. $2^{10}$.
+		\item Megabyte: Se representa por MB y es el equivalente de 1024 KB. $2^{20}$.
+		\item Gigabyte: Se representa por GB y es el equivalente de 1024 MB. $2^{30}$.
+		\item Terabyte: Se representa por TB y es el equivalente de 1024 GB. $2^{40}$.
+	\end{itemize}
+\end{frame}
+
+%%
+
+
+\begin{frame}
+	\frametitle{Medidas de información (tradicionales)}
+	\begin{itemize}
+		\item Cuando queremos pasar de una unidad inferior a otra 
+			superior debemos dividir por 1024.
+		\item Cuando queremos pasar de una unidad superior a 
+			otra inferior debemos multiplicar por 1024.
+	\end{itemize}
+\end{frame}
+
+
+%%
+
+\begin{frame}
+	\frametitle{Medidas de información: ejercicio de ejemplo}
+	\begin{itemize}
+		\item He comprado un disco duro con 512 MB. 
+		¿Cuántos ficheros de 150 bytes puedo almacenar en él?
+	\end{itemize}
+\end{frame}
+
+%%
+
+\begin{frame}
+	\frametitle{Medidas de información: ejercicio de ejemplo}
+	\begin{center}
+	$ 512 MB = 512 *1024 * 1024 = 536870912 $ Bytes \\ 
+	$ 536870912 / 150  =  3579139 $ ficheros
+	\end{center}
+\end{frame}
+
+
+\section{Ficheros}
+
+\begin{frame}
+\frametitle{Ficheros (archivos)}
+	 \begin{itemize}
+		\item Secuencia de bytes en un dispositivo de almacenamiento.
+		\item Independientes entre sí, por lo que podemos tratarlos de 
+			manera individual (copia, mover, borrado, etc.).
+		\item Contiene los datos en un formato dado, dependiendo del
+			programa que lo generó
+		\item Hay formatos comunes, usados por muchos programas (p.e. UNICODE).
+		\item Otros son propietarios y cerrados (p.e. Mapas de los GPS).
+	\end{itemize}
+\end{frame}
+ 
+ 
+ 
+ %%
+ 
+ 
+\begin{frame}
+\frametitle{Ficheros (archivos)}
+\begin{itemize}
+	\item Se identifican mediante un nombre, que puede tener extensión.
+ 	\item A veces el tipo de fichero se refleja en la extensión, pero no siempre.
+	\item Otras veces, se añade información del tipo al propio fichero (cabeceras, número mágico...).
+	\item Sistema de ficheros (del Sistema Operativo).
+	\item Atributos: fecha y hora de creación, modificación, permisos.
+ 	\end{itemize}
+\end{frame}
+ 
+
+%%
+
+
+\begin{frame}
+\frametitle{Compresión}
+\begin{itemize}
+  	\item Compresor: programa empleado para reducir el tamaño de un fichero.
+    	\item Existen dos tipos de compresión:
+    	\begin{itemize}
+    		\item Sin pérdida: rar, zip...
+        		\item Con pérdida: jpeg, mp3...
+	\end{itemize}
+	\item ¿Cuándo podemos usar cada uno? 
+\end{itemize}	
+\end{frame}
+
+
+%%
+
+
+\begin{frame}
+ 	\frametitle{Analógico y digital}
+	\begin{itemize}
+		\item Información en forma de señal eléctrica.
+		\item Señal Analógica: Señal que puede tomar cualquier valor (continuo).
+		\item Señal Digital: Señal  que sólo  puede tomar una serie de valores definidos (discreto).
+		\item Digitalización: pasar de analógico a digital, ejemplo: audio.
+		\end{itemize}
+\end{frame}
+
+%%
+		
+\begin{frame}
+ 	\frametitle{Analógico y digital}
+	\begin{itemize}		
+		\item Hoy en día los computadores son digitales: representan 
+			los datos con valores discretos (bit).
+		\item Computadoras analógicas: representan la información 
+			(p.e. números) mediante mediciones de cantidades 
+			físicas continuas (p.e. voltaje, ángulos, longitudes). 
+			No son comunes desde 1960.
+	\end{itemize}
+\end{frame}
+
+
+%%
+
+
+
+%%
+
+
+\section{Hardware}
+
+\begin{frame}
+\frametitle{¿Cómo se hace el hardware?}
+\begin{center} 
+  	Conmutadores (interruptores). \\
+	$\downarrow$\\
+    	Puertas lógicas.\\
+	$\downarrow$\\
+	Sumadores, divisores...\\
+	$\downarrow$\\
+	...
+\end{center} 
+\end{frame}
+
+
+%%
+
+\begin{frame}
+\frametitle{Primera Generación}
+\begin{itemize}
+  	\item Conmutadores: Válvulas de vacío.
+	\item Poco fiables.
+    	\item Un barracón, 30 toneladas.
+	\item Potencia de cálculo: menos que una calculadora de bolsillo.
+	\item Un chip actual de 0.5 mm de lado tiene la misma capacidad de cálculo.
+	\item Ejemplo: ENIAC, construido para la II G.M., único.
+	\item 1940s y 1950s.
+\end{itemize}	
+\end{frame}
+
+
+%%
+
+\begin{frame}
+\frametitle{ENIAC}
+	\includegraphics[width=0.65\textwidth]{figs/eniac.jpg}
+\end{frame}
+
+
+
+%%
+
+\begin{frame}
+\frametitle{Segunda Generación}
+\begin{itemize}
+  	\item Conmutadores: Transistores.
+    	\item Una habitación.
+	\item Ejemplo: IBM 7090, \$ 2.900.000 en el mercado.
+	\item 1950s y 1960s.
+\end{itemize}	
+\end{frame}
+
+%%
+
+\begin{frame}
+\frametitle{IBM 7090}
+	\includegraphics[width=0.65\textwidth]{figs/ibm7090.jpg}
+\end{frame}
+
+
+%%
+
+\begin{frame}
+\frametitle{Tercera Generación}
+\begin{itemize}
+  	\item Circuitos Integrados, decenas de transistores.
+    	\item Una habitación.
+	\item Ejemplo: IBM 360, \$ 2.000.000 en el mercado.
+	\item 1960s y 1970s.
+\end{itemize}	
+\end{frame}
+
+%%
+
+\begin{frame}
+\frametitle{IBM 360}
+	\includegraphics[width=0.40\textwidth]{figs/ibm360.jpg}
+\end{frame}
+
+
+%%
+
+\begin{frame}
+\frametitle{Cuarta Generación}
+\begin{itemize}
+  	\item Microchip, millones de transistores.
+    	\item Actuales: escritorio, maleta, o bolsillo.
+	\item Desde 400 euros aprox.
+\end{itemize}	
+\end{frame}
+
+%%
+
+\begin{frame}
+\frametitle{Regla General}
+\begin{itemize}
+	\item Con el tiempo:
+	\begin{itemize}
+  		\item Se reduce el tamaño.
+    		\item Se incrementa la potencia de cálculo y almacenamiento.
+		\item Se incrementa su fiabilidad.
+		\item Se reduce el precio.
+	\end{itemize}	
+	\item Economía de escala.
+	\item Ley de Moore: el número de transistores en un procesador se
+	 duplica cada 18-24 meses.
+\end{itemize}
+\end{frame}
+
+%%
+
+\begin{frame}
+\frametitle{Ley de Moore}
+	\includegraphics[width=0.80\textwidth]{figs/moore.png}
+\end{frame}
+
+%% 
+
+\begin{frame}
+\frametitle{Clasificación según tamaño y potencia}
+\begin{itemize}
+  	\item Superordenadores y {\it mainframes}.
+	\item Servidores.
+    	\item Estaciones de trabajo y PCs de sobremesa.
+	\item Portátiles. 
+	\item De mano (Handhelds, PDAs, Smartphones...).
+	\item Invisibles: electrónica de consumo, transporte, maquinaria,
+		etc.
+\end{itemize}	
+¡Cada tipo tiene su aplicación!
+\end{frame}
+
+%%
+
+\section{Vocabulario}
+\begin{frame}
+\frametitle{Vocabulario}
+\begin{center}
+Entrada, Salida, CPU, Memoria principal (RAM), 
+Memoria Secundaria, bit, byte, binario, decimal, ASCII, UNICODE, ISO-8859, texto plano, editor de textos, KB, MB, GB,TB, analógico, digital, digitalizar, RAR, ZIP, MP3, JPG, extensión, comprimir, chip,
+microprocesador.
+\end{center}	
+\end{frame}
+
+
+
+\end{document}
