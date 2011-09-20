@@ -1,0 +1,165 @@
+%
+% $Id: slides.tex 4228 2006-06-21 21:55:12Z jjamor $
+%
+%
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer (paquete latex-beamer en Debian)
+%
+
+%
+% Gráficos:
+% Los gráficos pueden suministrarse en PNG, JPG, TIF, PDF, MPS
+% Los EPS deben convertirse a PDF (usar epstopdf)
+%
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/blank-bg.png}}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={Ejercicio},
+  pdfauthor={Gregorio Robles y Agustín Santos},
+  pdfcreator={Master EOI},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Repaso.}
+}
+%%
+
+\begin{document}
+
+\title{Problema}
+\subtitle{Master EOI}
+\institute{ }
+\author{Gregorio Robles y Agustín Santos}
+\date{\today}
+
+\frame{
+\maketitle
+\begin{center}
+%\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+
+% Si el titulo o el autor se quieren acortar para los pies de página
+% se pueden redefinir aquí:
+%\title{Titulo corto}
+%\author{Autores abreviado}
+
+
+%% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
+\frame{
+~
+\vspace{4cm}
+
+\begin{flushright}
+{\tiny
+(cc) 2007-11 Grupo de Sistemas y Comunicaciones. \\
+  Algunos derechos reservados. Este trabajo se entrega bajo la
+  licencia Creative Commons Attribution-ShareAlike. Para obtener la
+  licencia completa, véase
+  http://creativecommons.org/licenses/by-sa/2.1/es. Tambi\'{e}n puede
+  solicitarse a Creative Commons, 559 Nathan Abbott Way, Stanford,
+  California 94305, USA.
+}
+\end{flushright}
+}
+%%
+
+\section{Tipos}
+
+\begin{frame}
+	\frametitle{PROBLEMA}
+	Vamos a encontrar una palabra de \alert{cinco} letras trabajando en equipo, pero..
+	\begin{itemize}
+  		\item No podemos hablar entre nosotros, ni usar chat.
+%    	\item Únicamente podemos utilizar VisibleTweets.com.
+		\item Os vamos a dejar pistas. 
+      \item Os podéis repartir el trabajo de encontrar la respuesta a cada pista.
+	\end{itemize}
+\end{frame}
+
+%% ENIAC
+
+\begin{frame}
+	\frametitle{Primera Letra}
+%	Utiliza la arquitectura G que hemos visto en clase. Calcula el resultado, la representación en ASCII es la respuesta.
+%	\begin{itemize}
+%		\item Registro vale cero y recordad que tiene 8 bits.
+%		\item 00000001 00000100
+%		\item 00000100 00000100
+%		\item 00000100 00001000
+%		\item 00000010 00000101
+%    	\end{itemize}
+
+   \begin{itemize}
+     \item Tenemos el siguiente valor:
+     \item 00000110 11000010
+     \item Codificado con 16 bits
+     \item Rango de frecuencias: entre 0 y 20 KHz
+     \item Obtener el nombre de la nota musical de la frecuencia obtenida
+     \item Transformar a nomenclatura de nota musical anglosajona
+     \item Tomar la letra dos posisiciones más adelante
+   \end{itemize}
+
+\end{frame}
+	
+	
+%% N
+
+
+\begin{frame}
+	\frametitle{Segunda Letra}
+	Para que no sea muy difícil, en ésta os damos pista: Está en la misma posición que en el nombre del estándar.
+\end{frame}
+
+%% I
+
+\begin{frame}
+	\frametitle{Tercera Pista}
+	\begin{enumerate}
+		\item La traducción latina de un libro escrito por Al-Khwarizmi dio nombre a un concepto explicado hoy. 
+		\item Busca en la Wikipedia (en inglés) ese concepto.
+		\item Descarga a tu ordenador la imágen que hay a la derecha de la página (su nombre empieza por 220px).
+	\item Encuentra el número de veces que puedes comprimir ese fichero sin incrementar el tamaño.
+	\item Escribe ese número en números romanos.
+    \end{enumerate}
+\end{frame}
+
+%% A
+
+\begin{frame}
+	\frametitle{Cuarta Letra}
+La cuarta letra es la inicial de un programador famoso.
+	\begin{itemize}
+		\item Encuentra el nombre de un ordenador muy conocido de una película de ciencia ficción.
+		\item Encuentra el nombre de una compañía que estaba una posición más retrasada.
+		\item Encuentra el año en el que se fundó esa compañia y resta 51.
+		\item En ese año se creó el ordenador en el que nuestro personaje desconocido hizo su programa.
+    \end{itemize}
+\end{frame}
+
+%% C
+
+\begin{frame}
+	\frametitle{Quinta Letra}
+Número romano de lo que ocupa en memoria en Kb la composición de un texto plano en ASCII de 64.000 caracteres (de los cuales 16.250 son con tilde), a la que se le unen 24.000 instrucciones de un procesador que puede computar 64 instrucciones diferentes, más 3.200 estados binarios y 20.000 números en ASCII.
+	\begin{itemize}
+		\item (No se agrupan los bits por palabras!)
+\item Debe salir una cantidad exacta.
+    \end{itemize}
+\end{frame}
+
+%%
+
+\end{document}
