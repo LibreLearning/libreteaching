@@ -1,0 +1,634 @@
+%
+% $Id: slides.tex 4228 2006-06-21 21:55:12Z jjamor $
+%
+%
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer (paquete latex-beamer en Debian)
+%
+
+%
+% Gráficos:
+% Los gráficos pueden suministrarse en PNG, JPG, TIF, PDF, MPS
+% Los EPS deben convertirse a PDF (usar epstopdf)
+%
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/blank-bg.png}}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={Informática Básica},
+  pdfauthor={Gregorio Robles y Agustín Santos},
+  pdfcreator={EOI},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Fundamentos de las Nuevas Tecnologías},
+}
+%%
+
+\begin{document}
+
+\title{Tema: Redes e Internet}
+\subtitle{Fundamentos de Nuevas Tecnologías}
+\institute{ }
+\author{Master EOI}
+\date{\today}
+
+\frame{
+\maketitle
+%\begin{center}
+%\includegraphics[width=6cm]{format/gsyc-urjc}
+%\end{center}
+}
+
+
+% Si el titulo o el autor se quieren acortar para los pies de página
+% se pueden redefinir aquí:
+%\title{Titulo corto}
+%\author{Autores abreviado}
+
+
+%% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
+\frame{
+~
+\vspace{4cm}
+
+\begin{flushright}
+{\tiny
+(cc) 2008 Grupo de Sistemas y Comunicaciones. \\
+  Algunos derechos reservados. Este trabajo se entrega bajo la
+  licencia Creative Commons Attribution-ShareAlike. Para obtener la
+  licencia completa, véase
+  http://creativecommons.org/licenses/by-sa/2.1/es. Tambi\'{e}n puede
+  solicitarse a Creative Commons, 559 Nathan Abbott Way, Stanford,
+  California 94305, USA.
+}
+\end{flushright}
+}
+
+
+\section{Introducción}
+
+\begin{frame}
+	\frametitle{¿Qué es una red?}
+	Una red de ordenadores es un sistema informático 
+	que enlaza dos o más ordenadores (Nodos).
+	
+	Componentes esenciales de una red:
+	\begin{itemize}
+		\item Hardware (ordenadores, cables, antenas, etc.).
+		\item Software (programas, protocolos).
+		\item Personas (usuarios que se comunican).
+	\end{itemize}
+\end{frame}
+
+
+%%
+
+\begin{frame}
+	\frametitle{Ejemplo de protocolo de comunicaciones (entre humanos)}
+	Quieres copiar en un test:
+	\begin{itemize}
+		\item Le envías una nota con la posición  de la pregunta
+			que quieres que te chive, empezando desde la primera.
+		\item Te devuelve la nota con la la posición de la opción
+			correcta empezando desde arriba.
+	\end{itemize}
+	¿Y si rompemos la sintaxis? ¿Y la semántica?
+\end{frame}
+
+%%
+
+\begin{frame}
+	\frametitle{Protocolo de comunicaciones}
+	\begin{itemize}
+		\item Conjunto de mensajes y formatos que se pueden intercambiar
+		para comunicar sistemas (homogéneos y heterogéneos).
+		\item Definen la sintaxis y semántica de los mensajes.
+		\item Definen la sincronización entre los nodos.
+		\item En resumen, una convención.
+	\end{itemize}
+\end{frame}
+
+
+%%
+
+\begin{frame}
+	\frametitle{¿Por qué son importantes las redes?}
+	\begin{itemize}
+		\item Coste: permite que la gente comparta hardware.
+		\item Eficiencia y productividad: permite que la gente 
+			comparta datos y software.
+		\item Oportunidad: permite que la gente colabore de 
+			formas que sin ellas serían difíciles o imposibles
+			(sinergia). Ejemplos: juegos en red, wikipedia.
+	\end{itemize}
+\end{frame}
+
+%%
+
+\section{Tipos de redes}
+
+\begin{frame}
+	\frametitle{Tipos de redes}
+	Según su extensión:
+	\begin{itemize}
+		\item Una LAN es una red en la que los ordenadores están físicamente 
+		cercanos unos a otro. 
+		\item Normalmente comparten 
+		periféricos (como impresoras y discos de servidores).
+		\item Cada ordenador y cada periférico
+		directamente conectado es un nodo de la LAN.
+	\end{itemize}
+\end{frame}
+
+%%
+
+\begin{frame}
+	\frametitle{Tipos de redes}
+	Según su extensión:
+	\begin{itemize}
+		\item Una WAN es una red en la que los ordenadores 
+		están separados por grandes distancias. Las conexiones se 
+		hacen mediante líneas telefónicas, satélites y/o torres 
+		repetidoras de microondas.
+		\item Habitualmente las WAN están compuestas por 
+		una agrupación de LAN.
+		\item Internet es una WAN.
+	\end{itemize}
+\end{frame}
+
+%%
+
+\begin{frame}
+	\frametitle{Tipos de redes}
+	Según su extensión (otras):
+	\begin{itemize}
+		\item PAN: redes de área personal.
+		\item CAN: redes de área de campus.
+		\item MAN: redes de  área metropolitana.
+	\end{itemize}
+\end{frame}
+
+%%
+
+\begin{frame}
+	\frametitle{Tipos de redes}
+	Según su topología:
+	\begin{itemize}
+		\item En estrella.
+		\item En anillo.
+		\item En bus.
+		\item En malla.
+		\item Punto a punto.
+	\end{itemize}
+\end{frame}
+
+%%
+
+\begin{frame}
+	\frametitle{Otras denominaciones}
+	Según tecnología y capacidad de acceso:
+	\begin{itemize}
+		\item Intranets: redes autocontenidas de una organización, 
+			diseñadas usando la misma tecnología que Internet.
+		\item Extranets: diseñadas para el uso ``desde fuera'' (clientes, socios de negocios).
+		\item Para crear estas redes se usan cortafuegos  (firewalls):			
+			se usan para evitar las comunicaciones no autorizadas y
+			 para asegurar los datos internos. 
+			Hay cortafuegos hardware y software. 
+	\end{itemize}
+\end{frame}
+
+%%
+
+\section{Relación entre ordenadores}
+
+\begin{frame}
+	\frametitle{El modelo cliente-servidor}
+
+	\begin{itemize}
+		\item El nodo cliente hace 
+			peticiones al nodo servidor.
+
+		\item El nodo servidor responde a las 
+			peticiones del  nodo cliente.
+			
+		\item Un servidor, muchos clientes.
+		
+		\item Def. Software servidor, software cliente.
+			
+		\item Ejemplos: impresoras en red, web, correo, sistemas de ficheros en red.
+	\end{itemize}
+\end{frame}
+
+%%
+
+\begin{frame}
+	\frametitle{El modelo cliente-servidor}
+
+	\begin{itemize}
+		\item Problema: si el servidor falla, todo falla.
+
+		\item El servidor tiene que ser muy potente si hay muchos clientes (p.e. google).
+			
+		\item Ventaja: buscar la información o el servicio deseado es fácil.
+	\end{itemize}
+\end{frame}
+
+
+%%
+
+
+\begin{frame}
+	\frametitle{El modelo igual a igual}
+
+	\begin{itemize}
+		\item El modelo igual a igual (Peer-to-Peer o P2P) permite que 
+			cada ordenador de la red sea a la vez cliente y servidor.
+		
+		\item Todos los nodos de la red son {\it iguales}.
+		
+		\item Muchos clientes/servidores al mismo tiempo.
+
+	\end{itemize}
+\end{frame}
+
+%%
+
+\begin{frame}
+	\frametitle{El modelo igual a igual}
+
+	\begin{itemize}
+		\item Inconveniente: encontrar la información es difícil.
+		
+		\item Ventaja: el servicio no depende de un único ordenador.
+		
+		\item Ventaja: podemos conjugar la potencia de muchos ordenadores
+			poco potentes (PCs) para realizar tareas muy complejas.
+
+	\end{itemize}
+\end{frame}
+
+%%
+
+\begin{frame}
+	\frametitle{Modelo híbrido}
+
+	\begin{itemize}
+		\item Cliente-servidor para registrarse y realizar búsquedas.
+		
+		\item Peer-to-Peer para obtener el servicio deseado de uno de los 
+			nodos que lo ofrezca.
+	\end{itemize}
+	
+\end{frame}
+
+
+
+%%
+\section{Conexión a la red}
+
+
+\begin{frame}
+	\frametitle{Conexión a la red}
+
+	\begin{itemize}
+		\item Tiene que realizarse mediante un dispositivo o periférico. 
+		
+		\item Esos dispositivos necesitan una dirección de red.
+	\end{itemize}
+\end{frame}
+
+%%
+
+\begin{frame}
+	\frametitle{Direcciones de red}
+	\begin{itemize}
+		\item Las direcciones son numéricas: ejemplo de direcciones IP: 212.128.9.2
+			(cuatro números de 1 byte cada uno).
+			
+		\item Direcciones estáticas y direcciones dinámicas.
+	
+		\item Los mensajes se parten en paquetes de datos.
+		
+		\item Puede haber más de un camino para llegar al destino.
+		
+		\item Los paquetes tienen toda la información necesaria para llegar al destino.
+		 La red encamina los paquetes en base a la dirección de destino.
+	
+			
+	\end{itemize}
+\end{frame}
+	
+%%	
+		
+		
+\begin{frame}
+	\frametitle{Direcciones y nombrado}
+	\begin{itemize}		
+		\item Los programas usan bien las direcciones numéricas.
+		
+		\item Los humanos no, pero usamos bien los nombres.
+		
+	\end{itemize}
+\end{frame}
+
+
+%%
+
+\begin{frame}
+	\frametitle{Direcciones y nombrado: DNS}
+	\begin{itemize}
+		\item Organizamos los nombres por dominios, subdominios y nombre de máquina.
+		
+		\begin{center}
+					máquina.subdominio.dominio-principal \\
+					ronin.lsub.org
+		\end{center}
+		
+		\item Un dominio es un conjunto de ordenadores relacionados según un
+			criterio (país, gobierno, pertenencia al ejercito, compañías, medios de comunicación...).
+	\end{itemize}
+\end{frame}
+
+%%		
+			
+\begin{frame}
+	\frametitle{Direcciones y nombrado: DNS}
+	\begin{itemize}		
+				
+		\item A un nombre le corresponde una dirección de red.
+		
+		\item Los programas siguen usando las direcciones numéricas: piden a un servidor
+			de DNS que traduzca de nombre a dirección. 
+			
+		\item ¿Qué pasa si falla la traducción?
+		
+	\end{itemize}
+\end{frame}
+
+
+%%
+
+\begin{frame}
+	\frametitle{Direcciones y nombrado: aplicaciones/protocolos}
+	\begin{itemize}
+		\item Cada aplicación/protocolo usa los nombres ``a su manera'':
+		\begin{itemize}
+			\item Web: URLs
+				\begin{center}
+					esquema:autoridad/ruta \\
+					http://www.cct.urjc.es/presentacion/presentacion.htm 
+				\end{center}
+			\item Correo:
+				\begin{center}
+					usuario@dominio \\
+					pepe@cct.urjc.es
+				\end{center}
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+
+%%
+
+
+\begin{frame}
+	\frametitle{Ancho de banda}
+	Cantidad de datos que se pueden transmitir por unidad de tiempo.
+
+	\begin{itemize}
+		\item  Se mide en KBit/s o MBit/s  (a veces también en KB/s o  MB/s).
+			
+		\item El ancho de banda se ve afectado por la cantidad de tráfico en la red, 
+			por los protocolos software y por el tipo de conexión
+
+		\item ¡Normalmente contratamos ancho de banda en el primer salto, pero todos son importantes!
+			El enlace más lento determina la velocidad de la conexión.
+	\end{itemize}
+
+\end{frame}
+
+%%
+
+\section{Hardware de red}
+
+
+\begin{frame}
+	\frametitle{Hardware: NIC (Network Interface Controller)}
+	\begin{itemize}
+		\item  Tarjetas que añaden un nuevo puerto (de red) al ordenador.
+			
+		\item El ordenador se conecta directamente a una LAN. 
+		
+		\item Siempre está conectado.
+
+		\item La tarjeta de red convierte los datos al tipo de señal de la red.
+		
+		\item También controla el flujo de información entre la memoria RAM
+			y el cable de red.			
+	\end{itemize}
+\end{frame}
+
+
+%%
+
+\begin{frame}
+	\frametitle{Hardware: NIC (Network Interface Controller)}
+	\begin{itemize}
+		\item  Integradas o PCI, USB y PCMCIA.			
+		
+		\item Con cable: Ethernet (10 MBit/s), Fast-Ethernet (100 MBit/s) y Gigabit-Ethernet (1000 MBit/s).
+		
+		\item Inalámbricas: WiFi (2,11,23,54 MBit/s).
+		
+		\item También podemos usar Bluetooth (1 Mbit/s).
+	\end{itemize}
+\end{frame}
+
+%%
+
+
+\begin{frame}
+	\frametitle{Hardware: módem}
+	\begin{itemize}
+		\item MO-DEM: Modulador/Demodulador.
+
+		\item Convierte la señal digital del ordenador a una señal analógica que se
+			transmite por la red telefónica. Al otro lado otro módem hace lo contrario.
+
+		\item Nos conectamos punto a punto a un ordenador del ISP que hace de 
+			puente hacia Internet.
+			
+		\item No podemos hablar por teléfono mientras estamos conectados.
+		
+		\item Integrados, USB, puerto serie.
+		
+		\item Velocidad: 56 KBit/s.
+	\end{itemize}
+\end{frame}
+
+%%
+
+\begin{frame}
+	\frametitle{Hardware: banda ancha, ADSL}
+	\begin{itemize}
+		\item Usa ciertas frecuencias para voz (300-3400 Hz), 
+			las restantes para datos (y TV digital).
+
+		\item Necesitamos un filtro o {\it splitter} en la línea.
+
+		\item Asimétrico: el ancho de banda de bajada es mayor que
+			el de subida.
+
+		\item Velocidad: 4-20 MBit/s (bajada), 1-2MBit/s (subida).
+	\end{itemize}
+\end{frame}
+
+%%
+
+
+\begin{frame}
+	\frametitle{Hardware: otras alternativas}
+	\begin{itemize}
+		\item Cable-módem.
+		
+		\item Telefonía móvil: GPRS (300 KBit/s), UMTS/3G (2 MBit/s),  HSDPA/3.5G (14MBit/s).
+	\end{itemize}
+\end{frame}
+
+%%
+
+\begin{frame}
+	\frametitle{Hardware de comunicaciones}
+	\begin{itemize}
+		\item Concentradores (hub, switch).
+		
+		\item Puntos de acceso (access point).
+		
+		\item Routers o encaminadores.
+		
+		\item Firewalls.
+		
+		\item En casa: 
+		
+				router + módem adsl = router adsl
+				
+				router + módem adsl + concentrador = router {\it multipuesto}
+			 
+			 	router + módem adsl + access point = router adsl WiFi
+		\end{itemize}
+\end{frame}
+
+
+%%
+
+\section{Software de comunicaciones}
+
+\begin{frame}
+	\frametitle{Software de comunicaciones}
+	\begin{itemize}
+		\item Software de protocolos de bajo nivel (sistema operativo).
+
+		\item Software de protocolos de alto nivel (aplicaciones, programas servidores).
+	\end{itemize}
+\end{frame}
+
+
+%%
+
+\section{Internet}
+
+\begin{frame}
+	\frametitle{¿Qué es Internet?}
+
+	\begin{itemize}
+		\item Internet es una red que interconecta miles de 
+		redes en instituciones académicas, de investigación, 
+		gubernamentales y en empresas. 
+
+		\item Es una WAN con millones de nodos que se 
+			extiende por todo el mundo: la red de redes.
+	\end{itemize}
+\end{frame}
+
+%%
+
+\begin{frame}
+	\frametitle{Servicios de Internet}
+
+Internet proporciona a los científicos, ingenieros, estudiantes, hombres de negocios y a todo el mundo una gran cantidad de servicios como:
+
+	\begin{itemize}
+		\item Correo electrónico (envío y recepción de mensajes de correo ... y {\it spam})
+		\item Acceso remoto (telnet, acceso a otros ordenadores)
+		\item Transferencia de ficheros (ftp, acceso a ficheros de datos)
+		\item Grupos de noticias (Usenet, discusiones públicas en línea)
+		\item World Wide Web (colección de documentos multimedia)
+		\item ...
+	\end{itemize}
+
+\end{frame}
+
+%%
+
+\begin{frame}
+	\frametitle{Web 2.0}
+
+	\begin{itemize}
+		\item Más social
+		\item Más intuitivo
+		\item Más interactivo (el cliente ya no es ``tonto'')
+		\item Modelo ``Pull'' vs. Modelo ``Push''.
+		\item Ej.: Blogs, wikis,  foros, redes sociales, youtube, agregadores RSS/ATOM, etc.
+	\end{itemize}
+\end{frame}
+
+
+%%
+
+\section{Vocabulario}
+\begin{frame}
+\frametitle{Vocabulario}
+\begin{center}
+
+ADSL,
+Ancho de banda, 
+KBit/s, 
+MBit/s,
+Conexión directa, 
+Descarga (Download),
+Ethernet, 
+Internet,
+Modelo Cliente/servidor, 
+Modelo Peer-to-peer, 
+Modem,
+Puerto ,
+Protocolo ,
+Router, 
+Red de área local (LAN), 
+Red de área extensa (WAN),
+Señal digital y analógica, 
+Servidor, 
+Spam,
+Subida, 
+TCP/IP, 
+Wireless, WiFi, Bluetooth, Concentrador, Dirección IP, dominio, URL..
+
+
+\end{center}	
+\end{frame}
+
+
+
+\end{document}

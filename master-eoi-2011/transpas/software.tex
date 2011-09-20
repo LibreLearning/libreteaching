@@ -1,0 +1,636 @@
+%
+% $Id: slides.tex 4228 2006-06-21 21:55:12Z jjamor $
+%
+%
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer (paquete latex-beamer en Debian)
+%
+
+%
+% Gráficos:
+% Los gráficos pueden suministrarse en PNG, JPG, TIF, PDF, MPS
+% Los EPS deben convertirse a PDF (usar epstopdf)
+%
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/blank-bg.png}}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={Software},
+  pdfauthor={Gregorio Robles y Agustín Santos},
+  pdfcreator={Master EOI},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Software.}
+}
+%%
+
+\begin{document}
+
+\title{Tema: Software}
+\subtitle{Informática Básica}
+\institute{ }
+\author{Grupo de Sistemas y Comunicaciones}
+\date{\today}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+
+% Si el titulo o el autor se quieren acortar para los pies de página
+% se pueden redefinir aquí:
+%\title{Titulo corto}
+%\author{Autores abreviado}
+
+
+%% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
+\frame{
+~
+\vspace{4cm}
+
+\begin{flushright}
+{\tiny
+(cc) 2007 Grupo de Sistemas y Comunicaciones. \\
+  Algunos derechos reservados. Este trabajo se entrega bajo la
+  licencia Creative Commons Attribution-ShareAlike. Para obtener la
+  licencia completa, véase
+  http://creativecommons.org/licenses/by-sa/2.1/es. Tambi\'{e}n puede
+  solicitarse a Creative Commons, 559 Nathan Abbott Way, Stanford,
+  California 94305, USA.
+}
+\end{flushright}
+}
+%%\includegraphics[width=0.80\textwidth]{figs/qwerty.png}
+
+%\section{¿Qué es el SW?}
+
+\begin{frame}
+	\frametitle{El software}
+
+	\begin{itemize}
+		\item Conjunto de instrucciones que le indican a la CPU lo
+		que debe hacer.
+		\item Objetivo: resolver problemas.
+    		\item Separación: Datos + Instrucciones
+		\item Totalmente flexible.
+	\end{itemize}
+\end{frame}
+
+%%
+
+\begin{frame}	
+	\frametitle{Con el tiempo...}
+
+	\begin{itemize}
+		\item Hardware: 
+			\begin{itemize}
+					\item Mejora: fiabilidad, rapidez.
+			\end{itemize}
+		
+    		\item Software:
+			\begin{itemize}
+					\item Mejora: utilidad, facilidad de uso, accesibilidad, pero también sube su complejidad.
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+%%
+\section{¿Cómo se hace el SW?}
+
+\begin{frame}	
+	\frametitle{Algoritmos}
+
+	\begin{itemize}
+		\item Conjunto de pasos o procedimientos a realizar para llevar a cabo una
+		tarea.
+		\item Generalmente expresado en lenguaje natural.
+		\item Ambiguo.
+	\end{itemize}
+\end{frame}
+
+%%
+
+\begin{frame}	
+	\frametitle{Ejemplo de Algoritmo: El chef automático}
+
+	\begin{enumerate}
+		\item Mezclar 2 huevos {\it levemente} batidos  con una {\it cucharadita}  de
+			vainilla,media de canela y una {\it taza} de leche.
+		\item {\it Mojar} 6 rebanadas de pan en la mezcla.
+		\item Freir un {\it  poco} de mantequilla {\it hasta que se doren}.
+		\item Servir el pan con {\it  un poco de sirope} de caramelo.
+	\end{enumerate}
+	Todo lo que está en cursiva es ambiguo.
+\end{frame}
+
+%%
+
+\begin{frame}	 
+	\frametitle{Programas}
+
+	\begin{itemize}
+		\item Descripción formal de un algoritmo expresado en un lenguaje 
+			de programación.
+		\item Se comienza con un algoritmo y se acaba con un programa.		
+		\item Los programas tienen que ser precisos.
+		\item Ambigüedad: fuente de errores en los programas informáticos.
+		\item Es común que tengan errores (bug). 
+		\item Se prueban y validan (depuración, debug).
+	\end{itemize}
+\end{frame}
+
+
+%%
+
+\begin{frame}
+	\frametitle{Lenguajes de programación}
+
+	\begin{itemize}
+		\item Lenguajes para implementar algoritmos y crear programas.
+		\item Según nivel de abstracción:
+			\begin{itemize}
+				\item Lenguajes de bajo nivel: código máquina, ensamblador.				
+				\item Lenguajes de alto nivel: Java, C, C++, ADA, PHP, Python...
+			\end{itemize}
+		\item Cuanto más nivel de abstracción, más se alejan de la máquina y 
+			más se acercan al lenguaje natural.
+	\end{itemize}
+\end{frame}
+
+%%
+
+\begin{frame}	
+	\frametitle{Código máquina y ensamblador}
+
+	\begin{itemize}
+		\item Se usa directamente el conjunto de instrucciones de la CPU.
+		\item Ejemplo, código máquina: 11000100001010010100010
+		\item Ejemplo, ensamblador: 	add \$s0 \$1 \$2
+		\item ¡Muy cercano a la máquina!
+	\end{itemize}
+\end{frame}
+
+%%
+
+\begin{frame}	
+	\frametitle{Lenguajes de alto nivel (I)}
+
+	\begin{itemize}
+		\item Permiten al programador centrarse en la implementación del
+			algoritmo y olvidarse de las particularidades de la máquina.
+		\item Ejemplo, C : a = b + c;
+		\item Menos complejos, menos propensos a errores.
+	\end{itemize}
+\end{frame}
+
+%%
+
+\begin{frame}	
+%	\frametitle{Ejemplo de código}
+\begin{center}
+	\includegraphics[width=9cm]{figs/ejemploCodigo.png}
+\end{center}
+\end{frame}
+
+%%
+
+
+%%
+
+\begin{frame}	
+	\frametitle{Lenguajes de alto nivel (y II)}
+
+	\begin{itemize}
+		\item Programas que traducen del lenguaje de programación al
+		código máquina: Compiladores.
+		\item Código fuente: el programa escrito en el lenguaje de programación.
+		\item Para {\it portar} un programa a una CPU, necesitamos un compilador para su arquitectura.
+	\end{itemize}
+	\begin{center}
+	Código fuente  $\longrightarrow$ COMPILADOR  $\longrightarrow$ Código objeto  
+	
+	Texto  $\leadsto \leadsto \leadsto \leadsto \leadsto  \leadsto \leadsto \leadsto \leadsto$ Binario
+	\end{center}
+\end{frame}
+
+%%
+
+
+\section{El sistema operativo}
+
+\begin{frame}	
+	\frametitle{El sistema operativo (SO)}
+
+		Si mi programa funciona con un ratón USB, ¿tengo que volver a escribirlo para poder
+		usarlo con un \emph{touchpad}? 
+		
+	\begin{itemize}	
+		\item Abstracción de la máquina: ofrece los dispositivos de la máquina a las aplicaciones
+			ofreciendo abstracciones (ficheros, procesos, dispositivos, etc.).
+		\item Reparto de recursos: hace que múltiples aplicaciones puedan usar la máquina {\it al
+			mismo tiempo}.
+	\end{itemize}
+\end{frame}
+
+%%
+
+\begin{frame}		
+	\frametitle{Aplicaciones para un sistema operativo}
+
+	\begin{itemize}	
+		\item Las aplicaciones están construidas para interactuar con un SO en concreto.		
+		\item Un programa construido para un SO no puede ejecutar en un SO no-compatible.
+		\item Puede haber versiones de un programa para SO incompatibles, pero no son realmente
+			el mismo programa (aunque su parte fundamental sí lo sea).
+	\end{itemize}
+\end{frame}
+
+%%
+
+\begin{frame}		
+	\frametitle{Clasificaciones}
+
+	\begin{itemize}	
+		\item Monousuario / Multiusuario.		
+		\item Monotarea / Multitarea.
+		\item Puede haber versiones de un programa para SO incompatibles, pero no son realmente
+			el mismo programa (aunque su parte fundamental sí lo sea).
+	\end{itemize}
+\end{frame}
+
+%%
+
+\begin{frame}		
+	\frametitle{Familias de sistemas operativos}
+
+	\begin{itemize}	
+		\item UNIX: Irix, HP-UX, AIX, Solaris.
+		\item UNIX clones: Linux, FreeBSD.
+		\item Windows: 95, 98, NT, 2000, XP, Vista.
+		\item Mac OS: Mac OS 9, Mac OS X.
+	\end{itemize}
+\end{frame}
+
+%%
+
+\begin{frame}		
+	\frametitle{Tareas del sistema operativo}
+
+	\begin{itemize}	
+		\item Comunicación con periféricos/dispositivos (\emph{drivers}).
+		\item Gestión de memoria principal (memoria virtual).
+		\item Concurrencia de procesos (planificación).
+		\item Monitorización y seguridad (permisos, registros, etc.).
+		\item Gestión de almacenamiento (sistemas de ficheros).
+		\item Coordinación de comunicaciones (gestión de la red).
+	\end{itemize}
+\end{frame}
+
+%%
+
+\begin{frame}		
+	\frametitle{Sistemas de ficheros}
+	\begin{itemize}	
+		\item Estructura jerárquica en forma de árbol.
+		\item Directorios y ficheros.
+		\item Formato de un disco o partición.
+		\item Tipos de formatos: NTFS, HFS+, EXT3, FAT.
+		\item Metadatos: dependen del tipo de sistema de ficheros.
+		\item Defragmentar.
+	\end{itemize}
+\end{frame}
+
+
+%%
+
+\begin{frame}		
+	\frametitle{Emulación y máquinas virtuales}
+
+	\begin{itemize}	
+		\item Sirven para usar otro sistema operativo {\it dentro} del sistema
+			real que usamos.
+		\item Se crea una máquina virtual.
+		\item El sistema de dentro se cree que es una máquina real.
+		\item Emulación vs. virtualización.
+	\end{itemize}
+\end{frame}
+
+%% 
+
+%\section{Interfaces de usuario}
+\begin{frame}		
+	\frametitle{Interfaces de usuario}
+
+	\begin{itemize}	
+		\item La manera de comunicarse con el ordenador.
+		\item En general, lo que el usuario ve en la pantalla y los dispositivos
+			que usa para manejarlo.
+		\item Dos clases: basadas en caracteres y basadas en gráficos.
+	\end{itemize}
+\end{frame}
+
+%% 
+
+
+\begin{frame}		
+	\frametitle{Interfaces de usuario basadas en caracteres}
+\begin{center}
+		\includegraphics[width=8cm]{figs/bash.png}
+\end{center}
+\end{frame}
+
+%%
+
+
+\begin{frame}		
+	\frametitle{Interfaces de usuario basadas en caracteres}
+	\begin{itemize}	
+		\item El usuario se comunica y da las órdenes mediante el teclado (y puede
+		que con el ratón también).
+		\item Las órdenes se introducen en forma de comandos (shell), un intérprete
+		de comandos se encarga de interpretarlas y ejecutarlas.
+	\end{itemize}
+{\it demo!}
+\end{frame}
+
+%%
+
+\begin{frame}		
+	\frametitle{Interfaces de usuario basadas en caracteres}
+	\begin{itemize}	
+		\item Son difíciles de usar: complejos e incómodos.
+		\item Las órdenes tienen una sintaxis fija e inflexible.
+		\item En realidad, es un lenguaje de programación.
+		\item Muy potentes para usuarios expertos (administradores y programadores).
+	\end{itemize}
+\end{frame}
+
+
+
+%% 
+
+
+\begin{frame}		
+	\frametitle{Interfaces de usuario basadas en gráficos}
+\begin{center}
+		\includegraphics[width=0.35\textwidth]{figs/alto.jpg}
+\end{center}
+\end{frame}
+
+%%
+
+
+\begin{frame}		
+	\frametitle{Interfaces de usuario basadas en gráficos}
+\begin{center}
+		\includegraphics[width=0.80\textwidth]{figs/aqua.png}
+\end{center}
+\end{frame}
+
+%%
+
+
+\begin{frame}		
+	\frametitle{Interfaces de usuario basadas en gráficos}
+	\begin{itemize}	
+		\item El usuario se comunica siempre con el teclado y un dispositivo apuntador.
+		\item Aparecieron al principio de los 80s.
+		\item GUI: Graphical User Interface.
+		\item En la pantalla se dibujan gráficos basados en píxeles.
+		\item Modelo WIMP: Windows + Icons + Menus + Pointing Devices.
+	\end{itemize}
+\end{frame}
+	
+	
+%%
+
+
+\begin{frame}		
+	\frametitle{Interfaces de usuario basadas en gráficos}
+	\begin{itemize}	
+		\item Cómodas e intuitivas.
+		\item Consistentes.
+		\item Condescendientes.
+		\item Protectoras.
+		\item Flexibles.
+		\item Mejor aspecto: la guerra del  {\it eye-candy}.
+		\item Ejemplos: Windows Vista, Mac OS X, Gnome, KDE.
+	\end{itemize}
+\end{frame}
+	
+	
+	%%
+
+
+\begin{frame}		
+	\frametitle{Elementos de las GUI}
+	\begin{itemize}	
+		\item Puntero.
+		\item Iconos.
+		\item Ventanas.
+		\item Menús (contexto, desplegable, aplicación).
+		\item Barras de desplazamiento.
+		\item Barras de tareas.
+		\item ...
+	\end{itemize}
+\end{frame}
+	
+	
+	%%
+	
+%\section{Aplicaciones de usuario}
+
+\begin{frame}		
+	\frametitle{Aplicaciones de usuario}
+	\begin{itemize}	
+		\item Aplicaciones finales (bases de datos, procesadores de texto,
+		hojas de cálculo, gráficos, etc.).
+		\item Software integrado.
+		\item Software a medida (mercados verticales).
+	\end{itemize}
+\end{frame}
+
+%%
+	
+\begin{frame}		
+	\frametitle{Software Integrado (suites)}
+	\begin{itemize}	
+		\item Programas que tienen un aspecto similar.
+		\item Se manejan de forma parecida.
+		\item Intercambian datos fácilmente.
+	\end{itemize}
+\end{frame}
+		
+%%
+
+\section{Software dañino}
+		
+\begin{frame}		
+	\frametitle{Software {\it peligroso}}
+	\begin{itemize}	
+		\item Virus: programa {\it pegado} a otro software 
+		que se instala sin nuestro consentimiento, se 
+		modifica para evitar su detección y se propaga clonándose.
+		\item Los hay inofensivos, pero también los hay muy dañinos.
+		\item Transportes favoritos: correos, aplicaciones gratuitas, floppys.
+	\end{itemize}
+\end{frame}
+			
+
+%%
+
+\begin{frame}		
+	\frametitle{Software {\it peligroso}}
+	\begin{itemize}	
+		\item Troyano: programa dañino disfrazado de software común. Además de hacer
+		lo que se supone que hace, se dedica a {\it otras cosas}.
+		\item Gusano: programa dañino que se  replica y propaga por la red de forma
+		automática aprovechando fallos en el software.
+		\item Antivirus: programa que tiene una base de datos con los virus conocidos
+			y sabe como desinstalarlos de nuestro sistema.	\end{itemize}
+\end{frame}
+
+%%
+
+%\section{Documentación, garantía y mejoras}
+
+\begin{frame}		
+	\frametitle{Documentación, garantía y mejoras}
+	\begin{itemize}	
+		\item Documentación: guías, manuales, manuales en línea, foros de usuario, etc.
+		\item Garantía: normalmente 'as is'. 
+		\item Versiones: según se van mejorando los programas se van creando nuevas
+			versiones, que normalmente siguen una numeración que indica el tipo de mejora.
+			(mayores, menores, Beta, Alpha). 
+		\item ¡Ojo! Puede haber incompatibilidades entre distintas
+			versiones.
+	\end{itemize}
+\end{frame}
+
+%%
+
+\section{Licencias}
+
+
+\begin{frame}		
+	\frametitle{Licencias}
+	Copyright: Conjunto de normas y principios que regulan los derechos
+			morales y patrimoniales que la ley concede a los autores por el hecho
+			de la creación de una obra literaria, artística o científica, tanto publicada
+			como por publicar. El titular goza de los siguientes derechos exclusivos:
+	\begin{itemize}	
+		\item Reproducción de copias.
+		\item Preparación de obras derivadas.
+		\item Distribución y venta.
+		\item Presentación pública.
+	\end{itemize}
+\end{frame}
+
+%%
+
+\begin{frame}		
+	\frametitle{Licencias de software}
+	Se rigen por la ley del copyright.
+	Contratos que determina la cesión por parte del autor al usuario del derecho de uso
+	de sus bienes. Determina:
+	\begin{itemize}	
+		\item Copia.
+		\item Instalación.
+		\item Transferencia a terceros.
+		\item Modificación.
+		\item Acceso al fuente.
+	\end{itemize}
+\end{frame}
+
+%%
+
+
+\begin{frame}		
+	\frametitle{Licencias de software libre}
+	Garantiza cuatro libertades básicas usando las leyes del copyright.
+	\begin{itemize}	
+		\item Libertad 0: usarlo para cualquier fin.
+		\item Libertad 1: modificar y estudiar el programa.
+		\item Libertad 2: copiarlo y distribuirlo.
+		\item Libertad 3: distribuir trabajos derivados.
+	\end{itemize}
+
+	¡Ojo! libre NO significa gratuito. 
+
+	Una licencia de software libre puede ser \emph{copyleft} cuando obliga a que todas las versiones futuras del software tengan que tener una licencia de software libre.
+
+\end{frame}
+
+%%
+
+\begin{frame}		
+	\frametitle{Tipos de licencia de software}
+	\begin{itemize}	
+		\item Privativa.
+  	        \begin{itemize}	
+		  \item ... (la de MS Windows, MS Office, Photoshop...)
+		  \item Shareware.
+		  \item Freeware.
+		\end{itemize}
+		\item Libre.
+	\end{itemize}
+\end{frame}
+
+%%
+
+\begin{frame}		
+	\frametitle{Licencias libres (información)}
+	Licencias libres para documentos e información:
+	\begin{itemize}	
+		\item Las licencias de software libre no son aplicables a textos, música, etc.
+		\item Son licencias equivalentes para información en general, un complemento a
+		las licencias de software libre.
+		\item Creative Commons: {\it Algunos derechos reservados}.
+		\item Son una serie de licencias marco. 
+	\end{itemize}
+\end{frame}
+
+%%
+
+\begin{frame}		
+	\frametitle{Licencias libres (información)}
+	CC: Cuatro derechos que el autor puede retener o no:
+	\begin{itemize}	
+		\item Reconocimiento: se permite copia, distribución, muestra y representación
+		siempre que le dé crédito.
+		\item No comercial: '' ''  siempre que tengan fines
+		no comerciales. 
+		\item No trabajos derivados:   '' ''  pero no de los trabajos  derivados.
+		\item Compartir bajo las mismas condiciones: se permite la redistribución de
+		trabajos derivados siempre que se mantenga la licencia con la que lo reciben.
+	\end{itemize}
+\end{frame}
+
+%%
+
+%\section{Vocabulario}
+\begin{frame}
+\frametitle{Vocabulario}
+\begin{center}
+Lenguaje natural, Lenguaje de programación, Programa, Código Fuente, , Actualizar , Licencia, Algoritmo, Linux, Memoria virtual, Bug , MS-Windows, Compilador, Open Source Software, Copyright, Paquete integrado (apl. Suite), Directorios o Carpetas, Parche, Documento, Shareware, Emulación , Shell, Sistema operativo, Escritorio, UNIX, Ficheros , Defragmentar, Formatear, Iconos, Interfaces de usuario.
+
+\end{center}	
+\end{frame}
+
+
+
+\end{document}
