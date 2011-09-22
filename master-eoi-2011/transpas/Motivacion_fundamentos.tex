@@ -1,0 +1,199 @@
+%
+% $Id: slides.tex 4228 2006-06-21 21:55:12Z jjamor $
+
+%
+%
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer (paquete latex-beamer en Debian)
+%
+
+%
+% Gráficos:
+% Los gráficos pueden suministrarse en PNG, JPG, TIF, PDF, MPS
+% Los EPS deben convertirse a PDF (usar epstopdf)
+%
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/blank-bg.png}}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={Introducción y Motivación},
+  pdfauthor={Gregorio Robles y Agustín Santos},
+  pdfcreator={Master EOI},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Introducción y Motivación.},
+}
+%%
+
+\begin{document}
+
+\title{Fundamentos de las nuevas tecnologías}
+\subtitle{Introducción y Motivación}
+\institute{ }
+\author{Gregorio Robles y Agustín Santos}
+\date{\today}
+
+\frame{
+\maketitle
+\begin{center}
+%\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+
+% Si el titulo o el autor se quieren acortar para los pies de página
+% se pueden redefinir aquí:
+%\title{Titulo corto}
+%\author{Autores abreviado}
+
+
+%% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
+\frame{
+~
+\vspace{4cm}
+
+\begin{flushright}
+{\tiny
+(cc) 2007 Grupo de Sistemas y Comunicaciones. \\
+  Algunos derechos reservados. Este trabajo se entrega bajo la
+  licencia Creative Commons Attribution-ShareAlike. Para obtener la
+  licencia completa, véase
+  http://creativecommons.org/licenses/by-sa/2.1/es. Tambi\'{e}n puede
+  solicitarse a Creative Commons, 559 Nathan Abbott Way, Stanford,
+  California 94305, USA.
+}
+\end{flushright}
+}
+%%
+
+\section{Introducción y Motivación}
+
+\begin{frame}
+	\frametitle{¿Qué vamos a ver?}
+	\begin{itemize}
+		\item Aplicaciones útiles
+  		\item Representación de la información
+		\item Hardware
+      \item Software
+      \item Redes
+		\item Internet y Web
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Aplicaciones útiles}
+	\begin{itemize}
+  		\item Algunas aplicaciones de apoyo a la docencia (p.e. Moodle)
+		\item FaceBook, Twitter,..
+		\item Aplicaciones Google
+		\item Spotify,..
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Representación de la información}
+	\begin{itemize}
+  		\item Algunos conceptos básicos: bit, byte, Kb, Mb, etc.
+		\item Compresión de la información
+      \item Formatos
+      \item Conceptos de imagen, sonido, etc. (por ejemplo resolución, pixel, etc.)
+		\item Preparación para el tema de cifrado y seguridad 
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Hardware}
+	\begin{itemize}
+  		\item ¿Cómo funcionan los ordenadores? (no queremos convertirnos en ingenieros)
+		\item ¿Funcionan igual un ordenador portátil y el móvil? ¿y una consola de juegos? ¿y un controlador de temperatura del frigorífico?
+		\item Algunos dispositivos de entrada/salida básicos
+      \item ¿Qué cambia al tener un ordenador en red? 
+      \item ¿Qué podemos quitarle a un ordenador para que siga siendo un ordenador? ¿Podemos quitarle el disco? ¿y el teclado?
+      \item Conceptos básicos: CPU, memoria, almacenamiento, etc
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Software}
+	\begin{itemize}
+  		\item ¿Qué es un programa?
+		\item ¿Por qué no es compatible mi programa?
+      \item ¿Es importante el Sistema Operativo?
+	   \item ¿Cómo se hace un programa?
+		\item ¿Es diferente un algoritmo de un programa? ¿Es relevante?
+      \item Conceptos básicos: código fuente, compilación, librerias, etc.
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Redes}
+	\begin{itemize}
+  		\item ¿Qué es una red? 
+		\item ¿Todas las redes son tipo Internet? ¿Qué significa esto?
+      \item ¿Qué alternativas hay a Internet?
+		\item Conceptos básicos: ancho de banda, WAN, LAN, etc.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Internet y Web}
+	\begin{itemize}
+      \item ¿Qué hace diferente a Internet?
+	   \item ¿Cómo funciona Internet?
+      \item ¿Internet es lo mismo que Web?
+      \item Conceptos básicos: TCP/IP, paquetes, Http, Intranet/Internet, etc.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Ejercicio}
+	\begin{itemize}
+	   \item Buscad en la wikipedia los siguientes conceptos (o temas):
+\begin{itemize}
+      \item  Bit y Byte
+      \item  Compresión
+      \item  Imagen
+      \item  Hardware
+      \item  Sistema operativo
+      \item  Desarrollo software
+      \item  Redes de ordenadores
+\end{itemize}
+      \item Cread ocho grupos de trabajo. Usad herramientas colaborativas para organizaros (Intentad hacerlo sin hablar).
+		\item Cada grupo debe elegir uno de estos puntos sin repetirse.
+      \item Preparad un documento en Google Docs que motive ese concepto.
+      \item Tenemos 15 minutos para preparanos. Al terminar se lo contaremos a nuestros compañeros en público (Tendremos el tiempo limitado).
+      \item Habrá una pequeña recompensa al que mejor nos motive :-)
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Ejercicio}
+	Cosas que podríamos contar para motivar a nuestros compañeros:
+	\begin{itemize}
+	   \item  ¿Por qué puede interesarnos este concepto o tema en este máster?
+		\item  Mostrar un caso, ejemplo, producto, polémica o juicio relacionado con el concepto.
+ 		\item Existen aspectos externos a la tecnología que hace interesante el concepto (por ejemplo aspectos legales, sociales, etc.)
+		\item Relación con otros conceptos del temario (tener un conocimiento de este concepto nos permite entender ..)
+		\item ¿Crees que la tecnología asociada a dicho concepto puede cambiar con el tiempo? ¿Por qué? ¿Qué podemos esperar en el futuro?.
+		\item Ha habido o podría haber futuras oportunidades de negocio relacionadas con ese tema.
+	\end{itemize}
+\end{frame}
+
+%%
+
+
+\end{document}
