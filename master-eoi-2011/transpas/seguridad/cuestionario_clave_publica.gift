@@ -1,0 +1,125 @@
+¿Qué enfoques existen para certificar la identidad en comunicaciones
+electrónicas cifradas? {
+= Cadena de confianza y autoridades de certificación. Las cadenas de
+confianza son completamente descentralizadas, y las autoridades de
+certificación contienen un repositorio centralizado de identidades
+verificadas.
+~ PGP y SSL. PGP se usa en correo electrónico, y SSL en la web.
+~ RSA y PKI. RSA es un sistema más antiguo, aunque todavía se sigue
+usando, y PKI ha surgido sobre todo con la web 2.0
+}
+
+Muchas webs usan SSL solo para la autenticación del usuario, de modo
+que sea imposible capturar el password en texto claro. Luego, el
+tráfico continúa sin cifrar ¿Hay algún problema con este enfoque?
+{
+= Sí, porque después de autenticar al usuario, crea una cookie de
+sesión que puede ser capturada, e instalada en otro navegador para
+suplantar al usuario.
+~ No, porque al viajar el password siempre cifrado, es imposible que
+la cuenta del usuario quede comprometida.
+~ No, porque una vez autenticado, y mientras el usuario no salga del
+sistema, solo se puede acceder a la web con ese usuario desde el mismo
+ordenador y navegador
+}
+
+¿Por qué motivo se firman las claves públicas de otras personas?
+{
+~ Es una manera de socializar, de modo que se popularice el uso de la
+criptografía y deje de percibirse como una afición minoritaria y
+extraña.
+~ Porque solo pueden enviarse mensajes de manera segura y certificada
+si nos hemos cifrado las claves mutuamente con el receptor del
+mensaje.
+= Porque es imprescindible certificar la identidad de los miembros de
+la web segura, de modo que tengamos comunicaciones seguras y
+certificadas con tantas personas como sea posible.
+}
+
+¿Por qué se pide un documento de identidad al firmar una clave
+pública?
+{
+= Porque nuestra firma supone una confirmación de la identidad de esa
+persona, y por tanto debemos estar seguros de que es quien dice ser.
+~ Para evitar firmar las claves de ciudadanos de países que no
+respetan los derechos humanos.
+~ Por motivos legales, por si la persona usa nuestra firma para
+cometer un delito.
+}
+
+¿Por qué no se usa un esquema simple de cifrado simétrico en las
+comunicaciones electrónicas?
+{
+= Porque requiere haber compartido un secreto previamente, que se usa
+para cifrar y descifrar los mensajes.
+~ Porque es mucho más débil, y haría posible romper el cifrado de una
+comunicación.
+~ Porque es mucho más costosa desde un punto de vista computacional, y
+haría que los servidores en Internet funcionaran mucho más lentamente.
+}
+
+¿Cuál es la principal diferencia entre la criptografía de clave
+pública y la criptografía simétrica?
+{
+= La criptografía de clave pública permite establecer comunicaciones
+seguras entre dos personas que no han tenido contacto previo, y que se
+comunican a través de un canal inseguro.
+~ La criptografía de clave pública permite a cada persona tener una
+clave personal, sin necesidad de tener que usar una misma clave por
+varias personas.
+~ La criptografía de clave pública ha puesto a disposición general la
+tecnología de cifrado simétrico que estaba bajo secreto en manos
+militares.
+}
+
+Desde un punto de vista matemático, ¿qué es más seguro, la
+criptografía de clave pública o la simétrica?
+{
+= Matemáticamente, todos los mensajes obtenidos con criptografía de
+clave pública son descifrables usando un algoritmo conocido. Los de
+clave simétrica no, excepto con un algoritmo de fuerza bruta (probar
+todas las claves del mundo).
+~ El cifrado simétrico es más inseguro, porque la criptografía de
+clave pública tiene una parte privada, y por tanto no conocida, que
+hace imposible descifrar el mensaje usando cualquier algoritmo.
+~ El cifrado simétrico es más inseguro, porque la función que
+descifra y cifra es siempre la misma.
+}
+
+¿Por qué se dice que con la computación cuántica la criptografía de
+clave pública ya no servirá?
+{
+= En la actualidad, con computación digital (binaria), los algoritmos
+de descomposición en factores primos requieren muchas operaciones, que
+hace el problema intratable en la práctica. Con computación cuántica,
+esos algoritmos no requieren tantas operaciones, y el problema es
+mucho más simple.
+~ Porque la computación cuántica hace que las claves privadas se
+conviertan en públicas, y ya no tiene sentido la criptografía de clave
+pública.
+~ La computación cuántica permite hacer varias operaciones matemáticas
+a la vez, en vez de manera secuencial como en la computación
+binaria. Eso reduce el tiempo para realizar cualquier operación
+matemática, y por tanto es más sencillo descifrar mensajes.
+}
+
+¿Por qué es mejor tener claves públicas más largas? ¿Y cuál es
+inconveniente? {
+= Cuanto más larga es, más tiempo se necesita para descifrar un
+mensaje. Aunque también se necesita más capacidad de computo para
+generar las claves, y para cualquier otra operación legítima.
+~ Porque permite cifrar mensajes más largos. Pero requiere más
+capacidad de cómputo a la hora de generar las claves.
+~ Porque a la hora de firmar y certificar la identidad, la firma será
+más segura, aunque la firma requiere más capacidad de cómputo.
+}
+
+¿Por qué es más débil una cadena de firmas lineal que firmarse las
+claves entre todos los miembros del grupo? {
+= Porque si una sola persona realiza una identificación incorrecta, ya
+se rompe la cadena y hay miembros que no se pueden comunicar entre sí
+teniendo certeza de sus identidades.
+~ Porque el número total de firmas es mucho más pequeño.
+~ Porque al haber menos firmas, es más fácil romper mensajes que se
+envíen entre miembros de la cadena.
+}
