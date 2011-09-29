@@ -1,0 +1,253 @@
+\documentclass[a4paper]{article}
+%\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+\usepackage[pdfborder=0 0 0]{hyperref}
+%\usepackage{html}
+%\usepackage{hthtml}
+\usepackage{geometry}
+
+% Comments (optional argument is author of comment)
+\newcommand{\comments}[2][?]{
+  \begin{quote}
+    \textbf{Comment (#1):} {\em #2}
+  \end{quote}
+  }
+
+% \name is for ``special names'', like procedure or variable names.
+\newcommand{\name}[1]{\texttt{\hturl{#1}}}
+
+% Just a shortcut for links where the url appears as footnote.
+\newcommand{\htflink}[2]{\htmladdnormallinkfoot{#1}{#2}}
+
+\title{MSWL Projects Evaluation \\
+Master on libre software \\
+URJC - GSyC/Libresoft \\
+\url{http://master.libresoft.es}}
+
+\author{Daniel Izquierdo, Pedro Coca}
+\date{November 2010}
+
+\sloppy
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Course syllabus and learning program for the course ``Evaluation of libre software projects'', 
+of the Master on libre software of the Universidad Rey Juan Carlos (Fuenlabrada, Spain).
+
+[This is an evolving document, until the course is finished and graded]
+\end{abstract}
+
+\tableofcontents
+
+
+\section{Sessions}
+
+\subsection{Session 1 (Friday November 18, 2011)}
+
+\begin{itemize}
+ \item \textbf{Lecturers}: Daniel Izquierdo
+ \item \textbf{Summary}: Introduction to the evaluation of libre software projects: data sources.
+ \item \textbf{Content}:
+
+    \begin{itemize}
+      \item Presentation of the course
+      \item Activity:
+        \begin{itemize}
+          \item How do you evaluate projects?
+        \end{itemize}
+      \item Activity:
+        \begin{itemize}
+          \item Work in groups to create a list of key point to be taken into account when comparing projects.
+          \item Give a small talk by group with the results.  
+        \end{itemize}
+      \item Introduction to libre software data sources
+      \item Activity:
+        \begin{itemize}
+          \item Discussion about types of information that are retrieved using different data sources
+        \end{itemize}
+       \item Retrieving "metrics" from data sources
+       \item Activity:
+         \begin{itemize} 
+           \item Create an entry in the blog related to one of the data sources (homeworks).
+         \end{itemize}
+    \end{itemize}
+
+   
+\end{itemize}
+
+
+\subsection{Session 2 (Friday November 25, 2011)}
+
+\begin{itemize}
+ \item \textbf{Lecturers}: Daniel Izquierdo
+ \item \textbf{Summary}: Introduction to the evaluation of libre software projects: practical approach.
+ \item \textbf{Content}:
+
+    \begin{itemize}
+      \item Evaluating projects: a practical approach
+      \item Activity:
+        \begin{itemize}
+          \item Selection of basic metrics to compare
+        \end{itemize}
+      \item Activity:
+        \begin{itemize}
+          \item Using matplotlib to create charts.
+        \end{itemize}
+      \item How to create a potential comparison model
+      \item Activity:
+         \begin{itemize}
+           \item Create an entry in the blog related to one of the data sources (homeworks).
+         \end{itemize}
+    \end{itemize}
+
+
+\end{itemize}
+
+
+
+
+
+\subsection{Session 3 (Friday, Decembet 2, 2011)}
+
+\begin{itemize}
+ \item \textbf{Lecturers}: Pedro Coca.
+ \item \textbf{Summary}: Introduction to light-weight quality models in libre software.
+ \item \textbf{Content}:
+
+ \begin{itemize}
+      \item Activity:
+        \begin{itemize}
+          \item Create a collaborative document where important aspect of the libre software world
+          have not been taken in previous quality models seen in session 1. This document should 
+          be updated with new ideas during the rest of the subject.
+        \end{itemize}
+      \item Introduction to OpenBRR
+      \item Activity: 
+        \begin{itemize}
+          \item Divided students in groups of two/three people and work on a specified quality attribute from OpenBRR
+          in a given libre software project.
+          \item Students, should later aggregate all the results in a final spreadsheet with all the results.
+        \end{itemize}
+       \item Introduction to QSoS
+       \item Activity:
+         \begin{itemize}
+           \item Discussion about main differences between openbrr and qsos.
+           \item Students, should later aggregate all the results in a final spreadsheet with all the results.
+         \end{itemize}
+       \item Activity:
+         \begin{itemize}
+          \item Read paper where a comparison between OpenBRR and QSoS is done.
+        \end{itemize}
+
+ \end{itemize}    
+
+\end{itemize}
+
+\subsection{Session 4 (Thursday, December 16, 2011)}
+
+\begin{itemize}
+ \item \textbf{Lecturers}: Daniel Izquierdo
+ \item \textbf{Summary}: Introduction to QualOSS, SQO-OSS and meta repositories of information
+ \item \textbf{Content}:
+
+ \begin{itemize}
+      \item Introduction to QualOSS
+      \item Introduction to SQO-OSS and Alitheia Core
+      \item Activity:
+        \begin{itemize}
+          \item Community metrics in Ohloh
+        \end{itemize}
+      \item Activity:
+        \begin{itemize}
+          \item Tools to analyze FLOSS projects
+        \end{itemize}
+      \item Introduction to FLOSS meta-repositories
+      \item Activity:
+       \begin{itemize}
+         \item Metrics for FLOSS projects
+         \item Tools for FLOSS projects
+       \end{itemize}
+      \item Activity:
+       \begin{itemize}
+         \item Automation of FLOSS projects metrics
+       \end{itemize}
+
+ \end{itemize}
+
+\end{itemize}
+
+
+\subsection{Session 5 (Thursday, December 23, 2011)}
+
+\begin{itemize}
+ \item \textbf{Lecturers}: Pedro Garcia and Pedro Coca.
+ \item \textbf{Summary}: Introduction to Libre software testing. Case study: Mozilla Community: Thunderbird
+ \item \textbf{Content}:
+
+    \begin{itemize}
+
+     \item Free Software QA and Free software testing
+
+      \begin{itemize}
+       \item Tools in Free Software Testing
+      \end{itemize}
+
+     \item Case Study: Mozilla Thunderbird
+
+        \begin{itemize}
+         \item Mozilla QA and Testing
+         \item Thunderbird testing process
+         \item Thunderbird testing tools and example
+        \end{itemize}
+
+    \end{itemize}
+   
+
+\end{itemize}
+
+\section{Grading plan}
+
+Each activity contributing to the grading of the course has its own evaluation criteria, 
+as described below. Each of these activities has a minimum and maximum grading. If the 
+minimum grading is 0, the activity is optional. Otherwise, the activity is mandatory, 
+and has to be graded at least with the minimum to pass the course. Each activity has 
+also a description, and when possible, some general grading criteria. In any case, 
+the final grade for the course will also depend on the continuous observation of the 
+instructors on the outcomes and progress of students.
+
+Students should ask instructors about any detail which may not be clear to them, either 
+about the general grading plan, or about specific aspects of the activities. As a general
+ rule, evaluation will have into account how the activity and its results show that the 
+student has come close to the competences, knowledge and skills expected for the course.
+
+The student can consider that the next table will be used as a (minimum) guideline for 
+assigning marks:
+
+\begin{itemize}
+\item Pass (``aprobado''): 120
+\item Good (``notable''): 250
+\item Excellent (``sobresaliente): 350
+\end{itemize}
+
+\begin{itemize}
+\item \textbf{Exercises (answered in forum)}. \\
+  Minimum: 30 points, maximum: 100 points.
+
+  Exercises proposed and answered in the the forum of the course.
+
+\item \textbf{Blog entries}. \\
+  Minimum: 20 points, maximum: 80 points
+
+  Blog entries specifically related to the course, and marked as such. The tag used for that is mswl-eval.
+
+\item \textbf{Case Study - Libre SCM Tools: Bazaar, Mercurial and Git}. \\
+  Minimum: 50 points, maximum: 100 points
+
+\item \textbf{Other activities}. \\
+  Minimum: 0 points, maximum: 100 points
+
+\end{itemize}
+
+\end{document}
