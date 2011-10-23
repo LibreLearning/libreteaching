@@ -1,0 +1,29 @@
+=== Ejemplo 1 Cert. web no incluido en browsers - Página de la policía: ===
+1. policia.es -> certificado autofirmado
+2.ejemplo: denuncia por Internet:
+https://www.policia.es/denuncias/
+3. instalar certificado raiz DGP
+http://www.policia.es/certs/AcRaizCNP.crt
+4. Recargar https://www.policia.es/denuncias/
+
+=== Ejemplo 2 Cert web no incluido - Página del DNI ===
+1. https://www.citapreviadnie.es/
+2. Revisar problema
+3. Incluir certificado raíz del DNI
+http://www.dnielectronico.es/seccion_integradores/auto_cert_sub.html
+
+== Ejemplo 3 FNMT y acceso con cert. personal ==
+1. fnmt hacienda (bookmarks)
+2. instalar certificado raiz fnmt:
+http://www.cert.fnmt.es/index.php?cha=adm&sec=1&page=199
+3. revisar el certificado y los propósitos
+4. recargar pagina de hacienda (bookmarks)
+5. importar certificado personal (.p12)
+6. reiniciar firefox
+7. página de hacienda (bookmarks)
+8. página de tráfico
+http://www.dgt.es/portal/es/oficina_virtual/permiso_por_puntos/
+
+---------------------------------------------
+
+
