@@ -1,0 +1,337 @@
+\documentclass{beamer}
+
+\mode<presentation> {
+  \usetheme{Warsaw}
+  \setbeamercovered{transparent}
+}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+
+%% Metadatos del PDF.
+\hypersetup{  
+  pdftitle={Introducción a las shells},
+  pdfauthor={José Castro},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Máster Software Libre 2011-2012},
+}
+
+\begin{document}
+
+\title{Introducción a las shells}
+\subtitle{Máster Software Libre 2011-2012}
+\institute{GSyC/Libresoft -- URJC} 
+\author{José Castro \\ --- \\ \tiny{jfcastro@libresoft.es \\ @jfcastroluis}}
+\date{October 14th, 2011}
+
+\frame{
+\maketitle
+}
+
+\frame{
+~
+\vspace{4cm}
+
+\begin{flushright}
+{\footnotesize
+\copyright{2011} José Castro. \\
+  Algunos derechos reservados. Este trabajo está licenciado bajo Creative
+  Commons Reconocimiento 3.0 España, disponible en
+  \url{http://creativecommons.org/licenses/by/3.0/es/}
+ 
+
+\bigskip
+
+}
+\end{flushright}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introducción}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \begin{center}
+    \huge{Introducción}
+  \end{center}
+\end{frame}
+
+\subsection{Inicio del sistema}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{Inicio del sistema}
+  \begin{enumerate}
+    \item Arrancamos el PC
+    \item La BIOS toma el control: comprueba dispositivos y busca instrucciones en el MBR
+    \item El MBR apunta al cargador de arranque (GRUB o LILO)
+    \item El cargador de arranque inicia el kernel
+    \item Lo primero que hace el kernel es ejecutar el proceso \texttt{init}
+    \item En función del nivel de ejecución, se van lanzando más scripts y servicios
+    \item Por último, aparece la pantalla de \texttt{login}
+  \end{enumerate}
+\end{frame}
+
+\subsection{Fichero /etc/passwd}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{Fichero /etc/passwd}
+  \begin{block}{/etc/passwd}
+    \texttt{\tiny{jfcastro:x:1000:1000:Jose Castro,,,:/home/jfcastro:/bin/bash}}
+  \end{block}
+  \medskip
+  \begin{itemize}
+    \item El \texttt{login} lee este fichero para proporcionar (o no) acceso
+    \medskip
+    \item Comprueba el usuario y la pass en \texttt{/etc/shadow}
+    \item Si son correctos, ejecuta la aplicación de shell en \texttt{\$HOME}
+  \end{itemize}
+\end{frame}
+
+\subsection{Definición de shell}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{Definición de shell}
+  \begin{itemize}
+    \item Simplemente una aplicación más
+    \item Primera aplicación que se ejecuta cuando se inicia sesión
+    \medskip
+    \item Permite la interacción entre el usuario y el sistema operativo
+    \item Ejecuta otras aplicaciones en primer o segundo plano
+    \medskip
+    \item Las shells modernas permiten sentencias elaboradas (pipes, redirecciones, variables...) y programación para ellas mismas (scripts de shells)
+    \medskip
+    \item También se conoce como intérprete de comandos o intérprete de órdenes
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Código shell}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{Código shell}
+
+  \begin{block}{pyshell.py}
+    \small{\texttt{python pyshell.py}}\\
+    \medskip
+    \small{\texttt{\#!/usr/bin/env python\\
+    \medskip
+    import os\\
+    \medskip
+    prompt = "\$ "\\
+    \medskip
+    while True:\\
+    \ \ line = raw\_input(prompt)\\
+    \ \ os.system(line)}}
+  \end{block}
+\end{frame}
+
+\subsection{Shell vs GUI}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{Shell vs GUI}
+    \includegraphics[width=5cm]{camara-reflex.jpg}
+    \includegraphics[width=5cm]{camara.png}
+  \begin{center}
+    \huge{¿Están las shells obsoletas?}
+  \end{center}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Tipos de shells}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \begin{center}
+    \huge{Tipos de shells}
+  \end{center}
+\end{frame}
+
+\subsection{Thompson shell}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{Thompson shell}
+  \begin{itemize}
+    \item Desarrollada por Ken Thompson en 1971
+    \item Fue la primera shell de Unix
+    \medskip
+    \item Era un simple intérprete de comandos
+    \item No permitía variables ni scripting
+    \medskip
+    \item Era posible hacer redirecciones y \texttt{pipes}
+    \medskip
+    \item Precursora de las futuras shells de Unix
+  \end{itemize}
+\end{frame}
+
+\subsection{Bourne shell (sh)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{Bourne shell (sh)}
+  \begin{itemize}
+    \item Desarrollada por Stephen Bourne en AT\&T Bell Laboratories en 1977
+    \item Sustituye a Thompson shell en Unix version 7
+    \medskip
+    \item Permitía scripting, variables, control de señales...
+    \medskip
+    \item Actualmente es la shell por defecto del usuario \texttt{root} en muchos Unix
+  \end{itemize}
+\end{frame}
+
+\subsection{C shell (csh)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{C shell (csh)}
+  \begin{itemize}
+    \item Desarrollada por Bill Joy en la Universidad de California a finales de los 70
+    \item Independiente de la plataforma
+    \medskip
+    \item Añade mejoras: historial de comandos, aliases, completado...
+    \medskip
+    \item Licencia BSD
+  \end{itemize}
+\end{frame}
+
+\subsection{Tenex C shell (tcsh)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{Tenex C shell (tcsh)}
+  \begin{itemize}
+    \item Desarrollada por Ken Green en la Universidad Carnegie Mellon en 1975
+    \item Basada en C shell con mejoras: autocompletado, Unicode...
+    \medskip
+    \item Es la shell por defecto de FreeBSD, DragonFly BSD y DesktopBSD
+    \medskip
+    \item Licencia BSD
+  \end{itemize}
+\end{frame}
+
+\subsection{Korn shell (ksh)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{Korn shell (ksh)}
+  \begin{itemize}
+    \item Desarrollada por David Korn en AT\&T Bell Laboratories en 1983
+    \item Respeta el estándar \textit{Shell Language Standard} (POSIX 1003.2)
+    \medskip
+    \item Hasta el año 2000, era software propietario de AT\&T
+    \item Se crearon varias alternativas libres: pdksh, mksh...
+    \medskip
+    \item Actualmente \texttt{pdksh} es la shell por defecto de OpenBSD
+  \end{itemize}
+\end{frame}
+
+\subsection{Bourne-again shell (bash)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{Bourne-again shell (bash)}
+  \begin{itemize}
+    \item Escrita por Bryan Fox en 1987
+    \item Forma parte del proyecto GNU
+    \medskip
+    \item Incluye ideas de \texttt{ksh} y \texttt{csh}: historial, autocompletado...
+    \item Es posible programar funciones, argumentos por defecto...
+    \medskip
+    \item Ampliamente utilizada porque es la shell por defecto en sistemas GNU/Linux
+    \medskip
+    \item Licencia GPL
+  \end{itemize}
+\end{frame}
+
+\subsection{Z shell (zsh)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{Z shell (zsh)}
+  \begin{itemize}
+    \item Escrita por Paul Flastad en la Universidad de Princeton en 1990
+    \item El nombre viene de Zhong Shao (zsh), profesor de Paul Flastad
+    \medskip
+    \item Incorpora mejoras destacadas: corrección automática
+    \item Es completamente configurable
+    \medskip
+    \item Muy utilizada por programadores
+    \medskip
+    \item Licencia MIT-like
+  \end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Ejercicios}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \begin{center}
+    \huge{Ejercicios}
+  \end{center}
+\end{frame}
+
+\subsection{Ejercicio 1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{Ejercicio 1}
+  \begin{itemize}
+    \item Instalación de algunas de estas shells:
+    \begin{itemize}
+      \item csh
+      \item tcsh
+      \item zsh
+      \item pdksh
+    \end{itemize}
+    \item Análisis de funcionalidades y características particulares
+  \end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Scripting}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \begin{center}
+    \huge{Scripting}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Scripting}
+  Cuando se programan scripts hay que tener en cuenta:
+  \begin{itemize}
+    \item hacerlos multiplataforma
+    \item invocar al intérprete correcto en la cabecera
+    \item las peculiaridades de cada shell
+    \medskip
+    \item hay vida más allá de \texttt{bash} !!!
+  \end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Referencias}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \begin{center}
+    \huge{Referencias}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Referencias}
+  \begin{itemize}
+    \item \url{http://en.wikipedia.org/wiki/Comparison\_of\_command\_shells}
+  \end{itemize}
+\end{frame}
+
+
+\end{document}
