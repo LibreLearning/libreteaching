@@ -1,0 +1,335 @@
+
+vernance in Debian
+de Felipe Ortega - martes, 2 de noviembre de 2010, 14:33
+ 	
+The new proposed exercise is to search for documentation about governance in Debian. Try to focus your answers on the following points:
+
+    * Can you find information the decision making process in Debian?
+    * Are there different roles officially recognized in Debian? Which are the most important ones for the project continuity?
+    * Are there any rules or guidelines about the merits that one should adquire before promoting to a role involving higher responsibility in Debian? Take for example the case of becoming a Debian developer.
+    * Are there any roles specifically devoted to non-technical tasks? Search for roles focusing on community nurturing and facilitating smooth communication between Debian members.
+    * Do you have to publicly adhere to any kind of ethic guidelines or rules of conduct? Why?
+
+Editar | Borrar | Responder
+Imagen de Manuel Muiña	
+Re: Governance in Debian
+de Manuel Muiña - miércoles, 3 de noviembre de 2010, 18:51
+ 	
+Ok, So after a whole afternoon of Googling, here are my Answers to the Questions.
+
+    * Can you find information the decision making process in Debian?
+
+
+The Debian Project adopted a constitution for a decision making process in December 12th, 1998, which can be viewed at http://www.debian.org/devel/constitution. The highlights of the constitution include the creation of the Technical Committee, the Project Leader position, the Project Secretary position, Leader Delegate positions and a voting procedure. The constitution was proposed in September 1998, and after a discussion period the vote took place in December 1998. It was virtually unanimously in favor with 86 valid votes.
+The discussion about the constitution began in early 1998 and was carried out on the Debian mailing lists. Most of the discussion can be found in the archives of the debian-devel mailing list at http://lists.debian.org/. Details of the vote can be found at http://www.debian.org/vote/1999/vote_0000.
+
+The constitution describes the organisational structure for formal decisionmaking within the Debian Project. As Debian continues to grow, this will be a valuable document to ensure that Debian continues to evolve and grow with the input and contributions from its membership.
+
+    * Are there different roles officially recognized in Debian? Which are the most important ones for the project continuity?
+
+
+
+If you go to: http://www.debian.org/devel/constitution, you can watch the point 2, where you can read the following:
+“2. Decision-making bodies and individuals
+Each decision in the Project is made by one or more of the following six entities:
+
+   1. The Developers, by way of General Resolution or an election;
+   2. The Project Leader;
+   3. The Technical Committee and/or its Chairman;
+   4. The individual Developer working on a particular task;
+   5. Delegates appointed by the Project Leader for specific tasks;
+   6. The Project Secretary.
+
+
+“
+So, these six people or bodies are the important ones for the project continuity.
+
+    * Are there any rules or guidelines about the merits that one should adquire before promoting to a role involving higher responsability in Debian? Take for example the case of becoming a Debian Developer.
+
+
+If you read this document you can read the following:
+
+“Joining: After you have contributed for some time and are sure about your involvement in the Debian project, you can join Debian in a more official role. There are two different roles in which you might join Debian:
+
+    * Debian Maintainer (DM): The first step in which you can upload packages to the Debian archive yourself some Debian Developer has previously sponsored for you.
+    * Debian Developer (DD): The traditional full membership role in Debian. A DD can upload any package and can participate in Debian elections. Before applying as DD, you should have been a DM for about six months.”
+
+
+
+So, yes, there you have the merits you must have in case you want to became a Debian Developer.
+
+You can also find all the papers and all the documentation needed to become a Debian Developers (and a lot of usefull advices too) in the next Link:
+http://www.debian.org/devel/join/newmaint
+    * Are there any roles specifically devoted to non-technical tasks? Search for roles focusing on community nurturing and facilitating smooth communication between Debian members.
+
+
+There are lots of non Technical tasks you can do in the Debian Project. You can aid by contributing to the writing of documentation, doing web site maintenance, translation (i18n & l10n), publicity, legal support or other roles in the Debian community. The Quality Assurance site lists several other possibilities.
+
+As you can read here ( http://www.debian.org/devel/leader.en.html ), the Debian Project Leader “should talk to other Debian developers, especially to the delegates, to see how they can assist their work. A main task of the Project Leader therefore involves coordination and communication”
+As you can read in the Platform for Martin Michlmayr to be re-elected as Debian Project Leader
+“I am fully a part of this community and understand the needs of the members of Debian”.
+
+So this role is the one that answers the question.
+
+    * Do you have to publicly adhere to any kind of ethic guidelines or rules of conduct? Why?
+
+As you can read in this debian document about registering as a Debian Developer.
+Point 2.3.
+“Before you decide to register with Debian GNU/Linux, you will need to read all the information available at the New Maintainer's Corner. It describes in detail the preparations you have to do before you can register to become a Debian developer. For example, before you apply, you have to read the Debian Social Contract. Registering as a developer means that you agree with and pledge to uphold the Debian Social Contract; it is very important that maintainers are in accord with the essential ideas behind Debian GNU/Linux. Reading the GNU Manifesto would also be a good idea. ”
+
+So, yes, You have to agree with Debian Social Contract and be ok with the Free Software Philosofy, that implies to agree with licenses such as GPL, BSD, or Artística, which are some examples that what Debian condiser as Free Licences.
+
+The reason of all these things is because this contract, conceived by Bruce Perens, makes the basis of the Open Source Contract, in which a lot of distributions are based. But the Debian Project makes special enphasys in this.
+
+You can learn more by reading the Wikipedia article:
+http://en.wikipedia.org/wiki/Debian_Free_Software_Guidelines
+Mostrar mensaje anterior | Editar | Partir | Borrar | Responder
+Imagen de Juan Pablo Zafra	
+Re: Governance in Debian
+de Juan Pablo Zafra - jueves, 4 de noviembre de 2010, 11:09
+ 	
+p { margin-bottom: 0.21cm; }a:link { }
+
+a)
+
+http://www.debian.org/vote/
+
+http://es.wikipedia.org/wiki/Debian
+
+The Debian Project has a vote system (Debian VOTE Engine [devotee]) that gives the current status of the General Resolutions and the votes.
+
+The status of the General Resolutions including the proposal and the list of sponsors, important dates and the rules needed to be done. It also include the following points:
+
+    *
+
+      Proposal - Waiting for suggestions or improvements.
+    *
+
+      Discussion - In a maximum of two weeks.
+    *
+
+      Voting - The voting process that is taking place.
+    *
+
+      Closed - Voting ended.
+
+Debian uses the Condorcet method to make general decisions binding on a resolution or a general election. This method is summarized as follows:
+
+    *
+
+      Sort the candidates in order of preference. It allows the tie, for example, give the same preference for two candidates if no one has a special interest in any of them.
+    *
+
+      Compare each candidate on the ballot with each of the other. The one with highest preference scores a point.
+    *
+
+      Add up the wins for each candidate. The candidate who each candidate has won more times than he has lost is the favorite and win the election.
+
+An interesting characteristic of this method is that you may win a candidate who has not been the darling of any voter. The Condorcet method choose a candidate, which most people don't dislike, but not his favorite.
+
+b)
+
+The debian project structure can be detailed on the following link:
+
+http://www.debian.org/intro/organization#distribution
+
+The roles related to "Help and infrastructure" are necessary for the continuity of the project.
+
+c)
+
+http://es.wikipedia.org/wiki/Debian#Reclutamiento.2C_motivaci.C3.B3n_y_renuncia_de_los_desarrolladores
+
+The Debian project has a steady stream of people who want to be a developer. These people must pass an elaborate review process that establishes your identity, motivation, understanding of project objectives (grouped in the Debian Social Contract) and technical skills.
+
+http://www.debian.org/devel/join/newmaint#DAM
+
+It should have a history of previous contributions to Debian before toask for the developer's request. Before getting involved as a developer, you should be familiar with the role of Maintainer of Debian.
+
+Steps to take for candidates:
+
+    *
+
+      Step 1: Request
+    *
+
+      Step 2: Verification of identity
+    *
+
+      Step 3: Philosophy and procedures
+    *
+
+      Step 4: Tasks and Skills
+    *
+
+      Step 5: Recommendation
+    *
+
+      Step 6: Checking receipt
+    *
+
+      Step 7: Checking the account manager and account creation.
+
+In this site, there are more details for each of the steps:
+
+http://www.debian.org/devel/join/nm-step1
+
+The process is summarized as follows:
+
+The applicant should read the Social Contract and DFSG understand and accept them to work as a DD. Then they have to get a key GPG (or PGP) signed by an existing DD who should help the applicant to upload official packages. Then you must send the application form and perform various tests (philosophy and skills) needed to complete the New Maintainer process, these tests are reviewed by the Application Manager who will recommend to the applicant before the Tech committee. This committee evaluates the request and accept it.
+
+d)
+
+There are some roles devoted to non-technical tasks. These roles are related to advertising, documentation, translation or legality, but in Debian you can help other ways without being a developer: testing, adaptation, cash donations and the use of machines for development and connectivity.
+
+http://www.debian.org/intro/organization
+
+http://www.debian.org/devel/join/
+
+http://www.debian.org/intro/help
+
+http://www.debian.org/devel/join/
+
+e)
+
+The Debian Social Contract is a document that represents the moral agenda of Debian. Know, understand and to carry out it is essential when entering into Debian
+
+http://en.wikipedia.org/wiki/Debian_Social_Contract
+
+http://www.debian.org/social_contract
+
+
+
+
+
+Mostrar mensaje anterior | Editar | Partir | Borrar | Responder
+Imagen de Teresa Carapeto	
+Re: Governance in Debian
+de Teresa Carapeto - jueves, 4 de noviembre de 2010, 13:43
+ 	
+- Can you find information the decision making process in Debian?
+
+The Debian Constitution describes the organisational structure for formal decision-making in the Project [1]. The last version of this document was ratified on on October 7th, 2007 and the first draft was proposed on March 19th, 1998 [2].
+
+Ian Jackson became Debian Project Leader in January 1998 and as he had previously announced in his 'Manifesto for the Debian Project leadership election', he wanted to put in place formal decisionmaking processes in at least two areas: technical decisions would be taken by a technical committee and political decisions would be made either by direct polling of the developers, or by a political committee elected directly by the developers [3].
+
+
+[1] - http://www.debian.org/devel/constitution
+[2] - http://lists.debian.org/debian-devel/1998/03/msg01716.htm
+[3] - http://lists.debian.org/debian-devel/1997/11/msg00246.html
+
+- Are there different roles officially recognized in Debian? Which are the most important ones for the project continuity?
+
+A contributor doesn't need to be an official Debian Developer to contribute on different tasks such as writing documentation, translations, maintaining packages or web site maintenance. Existing Debian Developers acting as sponsors can integrate contributor's work into the project. [4]
+
+A contributor can join Debian after spending some time helping. There are two official roles in the Debian Project:
+
+1. Debian Maintainer (DM): Debian Maintainers (DMs) are people who have a restricted ability to upload packages to the Debian archive. They can maintain packages without a sponsor [5].
+2. Debian Developer (DD): A Debian developer (DD) is a Debian Project member, who has gone through the Debian New Maintainers process and had their application accepted [6].
+
+[4] - http://www.debian.org/devel/join/index.en.html
+[5] - http://wiki.debian.org/DebianMaintainer
+[6] - http://wiki.debian.org/DebianDeveloper
+
+Debian Developer is the most important role in Debian as they can act as sponsors/mentors, take decisions with regard to their own work and vote on General Resolutions and in Leadership elections.
+
+- Are there any rules or guidelines about the merits that one should adquire before promoting to a role involving higher responsibility in Debian? Take for example the case of becoming a Debian developer.
+
+To become a Debian developer you must have been a Debian Maintainer for six months [6]. To apply to the Debian New Maintainers process there are some prerequisites, some of them most important ones are listed below:
+
+- Agree with Debian's Philosophy: read the Social Contract and the Debian Free Software Guidelines and agree to abide by them in their Debian-related work.
+- To have an Advocate (A Debian Member that advocates an application. They should know the Applicant fairly well and should be able to give an overview of the Applicant's work, interests and plans. Advocates are often the Sponsors of an Applicant.) [7].
+
+[7] - http://www.debian.org/devel/join/nm-step1.en.html
+
+
+- Are there any roles specifically devoted to non-technical tasks? Search for roles focusing on community nurturing and facilitating smooth communication between Debian members.
+
+I couldn't find any role specifically devoted to non-technical tasks. Almost all the communicaction in the project happens in the official mailing lists.
+
+- Do you have to publicly adhere to any kind of ethic guidelines or rules of conduct? Why?
+
+Yes, to become a DM or DD you need to agree with the Social Contract and the Debian Free Software Guidelines. This is necessary for being a member of the Debian community as it is built around the philosophy of Free Software. What Debian understands as "free" and how this is applied is explained in the Social Contract and the Debian Free Software Guidelines. They think that it is important to the stability of such a large and amorphous project that all participants work within the same set of basic principles and beliefs. [8]
+
+[8] - http://www.debian.org/devel/join/nm-step3.en.html
+
+Mostrar mensaje anterior | Editar | Partir | Borrar | Responder
+Imagen de Teresa Carapeto	
+Re: Governance in Debian
+de Teresa Carapeto - martes, 9 de noviembre de 2010, 10:32
+ 	
+Hello,
+
+I found more information about one of the question posed for this exercise ( Are there any roles specifically devoted to non-technical tasks?) and I will like to share it:
+
+Debian Project has decided to formally acknowlege the contribution made by many people who help Debian in ways other than maintaining packages - by opening up the process of becoming an officially recognised Debian Developer.
+
+This decision was taken last month: http://www.debian.org/News/2010/20101019
+
+
+Mostrar mensaje anterior | Editar | Partir | Borrar | Responder
+Imagen de Hilmar Delgado	
+Re: Governance in Debian
+de Hilmar Delgado - jueves, 11 de noviembre de 2010, 13:57
+ 	
+1). Each decision in the Project is made by one or more of the following:
+a) The Developers, by way of General Resolution or an election;
+b) The Project Leader;
+c) The Technical Committee and/or its Chairman;
+d) The individual Developer working on a particular task;
+e) Delegates appointed by the Project Leader for specific tasks;
+f) The Project Secretary.
+The powers of a person or body may be subject to review and/or limitation by others; in this case the reviewing body or person's entry will state this. In the list above, a person or body is usually listed before any people or bodies whose decisions they can overrule or who they (help) appoint - but not everyone listed earlier can overrule everyone listed later.
+In addition, developers can make general decisions binding on a resolution or a general election. All voting is done by the Schulze method, a method of Condorcet de vote.
+
+2)- Developers and user and there are the following teams:
+
+• Alioth - The administrators of alioth.debian.org and related services ({svn,bzr,arch,git,hg}.debian.org)
+• Auditor - The Debian Auditor(s)
+• DAM - The Debian Account Manager(s)
+• Debbugs - The bugs.debian.org and debbugs maintainers
+• Debian CD - CD and DVD production
+• DSA - The Debian System Administrators
+• DPL - The Debian Project Leader
+• FrontDesk - The Debian front desk for prospective developers
+• FTPMaster - FTP Masters
+• KeyringMaint - Keyring maintainers
+• Mirrors - Debian Mirrors Administrators
+• ListMaster - Debian List Masters (page under construction)
+• Policy - The Debian Policy team
+• Press & Publicity - The press & publicity team
+• QA - The Quality Assurance team
+• Release Team
+• Security - The security team
+• TestingSecurity - The testing security team
+• Webmaster - The web team
+
+
+3.) Step 1: Application
+First read read the Applicant's Checklist and the application page.
+Before applying to the Debian New Maintainers process :
+• you should have been a Debian Maintainer for six months (see the Applicant's Checklist and the Identification page).
+• You have read the developer documentation.
+• You have an Advocate.
+• Be sure to have enough free time.
+Step 2: Work with the Application Manager
+Once your application has been accepted you must wait for an Application Manager's assignment. He will
+• control your knowledge of Debian. (see Philosophy and Procedures)
+• control the work you have done for Debian. (see Tasks and Skills)
+• write an AM report for you on http://lists.debian.org/debian-newmaint (see recommendation)
+Step 3: Account creation
+Then you will have to wait for
+• Front Desk approval
+• DAM approval
+• the creation of the account
+
+4) . Because Is really necesary have a certain rules for work in one of this comunity and Due Debian has grown through development distributed worldwide and the majority of submissions made by mail, so this code of conduct is useful.
+
+
+Reference
+http://es.wikipedia.org/wiki/Debian
+http://www.debian.org/devel/constitution
+http://wiki.debian.org/Teams
+http://www.debian.org/vote/
+http://wiki.debian.org/DebianDeveloper#BecomingaDebianDeveloper
+http://www.debian.org/MailingLists/#codeofconduct
+
