@@ -1,0 +1,127 @@
+%
+% $Id: $
+%
+%
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer (paquete latex-beamer en Debian)
+%
+
+%
+% Gráficos:
+% Los gráficos pueden suministrarse en PNG, JPG, TIF, PDF, MPS
+% Los EPS deben convertirse a PDF (usar epstopdf)
+%
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg-soft.png}}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={Economic Aspects of Libre Software / Master on Libre Software (URJC)},
+  pdfauthor={Jesus M. Gonzalez-Barahona, Felipe Ortega},
+  pdfcreator={GSyC/LibreSoft, Universidad Rey Juan Carlos},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={},
+}
+%%
+
+\includeonly{presentation}
+\includeonly{introduction}
+%\includeonly{innovation}
+%\includeonly{oss-business-models}
+%\includeonly{economic-impact}
+%\includeonly{sustainability}
+% \includeonly{control-steering-mechanisms}
+% \includeonly{rejuvenetion-community-floss}
+% \includeonly{single-vendor-community-floss}
+%\includeonly{oracle-sun-case-study}
+
+\includeonly{oss-business-models-statements,questions-video-benkler}
+%\includeonly{questions-video-leadbeater}
+%\includeonly{oss-business-models-exercise, open-core-debate, build-oss-business-model}
+
+\AtBeginSection[]
+{
+\begin{frame}<beamer>
+\begin{center}
+{\Huge \insertsection}
+\end{center}
+\end{frame}
+}
+
+\begin{document}
+
+\title{Economic Aspects of Libre Software }
+\subtitle{Master on Libre Software (URJC) \\
+\url{http://master.libresoft.es}}
+\author{Jesus M. Gonzalez-Barahona, Felipe Ortega}
+\institute{jgb@gsyc.es jfelipe@libresoft.es\\
+@jgbarah @felipe
+GSyC/LibreSoft, Universidad Rey Juan Carlos}
+
+\date{November 2011}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+
+% Si el titulo o el autor se quieren acortar para los pies de página
+% se pueden redefinir aquí:
+%\title{Titulo corto}
+%\author{Autores abreviado}
+
+
+%% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
+\frame{
+~
+\vspace{3cm}
+
+\begin{flushright}
+\copyright 2010, 2011 Jesus M. Gonzalez-Barahona, Felipe Ortega. \\
+
+Some rights reserved. \\
+This document is distributed under the \\
+Creative Commons Attribution-ShareAlike 3.0 licence, \\
+available in \\
+\url{http://creativecommons.org/licenses/by-sa/3.0}
+
+The original version of this document is available at \\
+\url{http://master.libresoft.es}
+\end{flushright}
+}
+% Slides
+
+\include{presentation}
+\include{introduction}
+\include{innovation}
+\include{oss-business-models}
+\include{economic-impact}
+\include{sustainability}
+\include{control-steering-mechanisms}
+\include{rejuvenetion-community-floss}
+\include{single-vendor-community-floss}
+\include{oracle-sun-case-study}
+
+% Assignments and activities
+\include{oss-business-models-statements}
+\include{questions-video-benkler}
+\include{questions-video-leadbeater}
+\include{oss-business-models-exercise}
+\include{open-core-debate}
+\include{build-oss-business-model}
+
+\end{document}
