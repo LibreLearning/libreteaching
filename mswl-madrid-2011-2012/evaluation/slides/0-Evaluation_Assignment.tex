@@ -1,0 +1,182 @@
+\documentclass{beamer}
+\usepackage{moreverb} 
+\usepackage{listings}
+\usepackage{mflogo}
+% imprimir
+% \documentclass[handout]{beamer} 
+% \usepackage{pgfpages}
+% \pgfpagesuselayout{4 on 1}[a4paper,landscape,border shrink=5mm]
+
+\mode<presentation> {
+  \usetheme{Warsaw}
+  \setbeamercovered{transparent}
+}
+
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+% \usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% alert for highlighting
+%% textit for Italic
+%% texttt for URLs, etc
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Metadatos del PDF.
+\hypersetup{  
+  pdftitle={Project Evaluation Assignment},
+  pdfauthor={Daniel Izquierdo, Pedro Coca},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Master on Free Software},
+}
+%%
+
+\defbeamertemplate*{footline}{shadow theme}
+{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm plus1fil,rightskip=.3cm]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertframenumber\,/\,\inserttotalframenumber\hfill\includegraphics[scale=0.40]{format/cc-by-80x15.png} \hspace{0.1cm}\insertshortauthor 
+% \usebeamerfont{author in head/foot} \includegraphics[width=0.7cm]{format/cc-by.png} \hfill\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle%
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\title{Project evaluation assignment}
+\subtitle{Master on Libre Software 2011-12}
+\institute{\texttt{http://master.libresoft.es} \\ Identi.ca - Twitter: \texttt{@mswl}}
+\author{Daniel Izquierdo, Pedro Coca} 
+%\date{\today}
+\date{November 11th, 2011}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+%% License slide
+\begin{frame}
+  \vspace{2cm}
+  \begin{center}
+    {\small (cc) 2011 Daniel Izquierdo, Pedro Coca, LibreSoft} \\
+%    \vspace{0.25cm}
+    \medskip
+    {\scriptsize This work is licensed under \\ a Creative Commons Attribution 3.0 License}
+%    \vspace{0.10cm}
+  \end{center}
+  \begin{center}
+    \href{http://creativecommons.org/licenses/by/3.0/es}{\includegraphics[width=2cm]{format/cc-by.png}} \\
+    {\tiny \url{http://creativecommons.org/licenses/by/3.0}}
+  \end{center}
+\end{frame}%%
+
+\usebackgroundtemplate{}
+
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>{Table of Contents}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+p
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Assignment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Project evaluation}
+
+\begin{frame}
+\frametitle{Project evaluation}
+
+\begin{itemize}
+\item Analise several FLOSS tools 
+\item Use a lightweight evaluation framework
+\begin{itemize}
+	\item OpenBRR
+	\item QSOS
+\end{itemize}
+
+\item Source Code Management tools:
+   \begin{itemize}
+   \item Subversion
+   \item Git
+   \item Mercurial
+   \end{itemize}
+
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\subsection{Role Play}
+
+\begin{frame}
+\frametitle{Role Play}
+
+\begin{itemize}
+\item Based on the evaluation performed with the SCM tools
+\item Role: "Head of Development Department" 
+\item Short report justifying what SCM will be the solution for your department
+\item State any assumptions considered relevant for your decision: 
+\begin{itemize}
+	\item Programming language team expertise 
+	\item Integration with other tools
+	\item ...
+\end{itemize}
+
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{References}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame} 
+\frametitle{References}
+
+\begin{itemize}
+
+\item SCM tools definition
+        \begin{itemize}
+	\item \tiny{\url{http://en.wikipedia.org/wiki/Source\_Code\_Control\_System}}
+        \end{itemize}
+
+\item Source Code Management tools websites:
+
+        \begin{itemize}
+        \item Subversion: \small{\url{http://subversion.apache.org/}}
+        \item Mercurial: \small{\url{http://mercurial.selenic.com/}}
+        \item Git: \small{\url{http://git-scm.com/}}
+        \end{itemize}
+
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Final slide
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg}}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+\end{document}
+
