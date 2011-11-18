@@ -1,0 +1,341 @@
+% Recommended papers: Tools and datasets for mining libre software repositories
+%			The promises and perils of mining git
+%
+%
+%
+%
+%
+
+% $Id: slides.tex 4228 2006-06-21 21:55:12Z jjamor $
+%
+%
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer (paquete latex-beamer en Debian)
+%
+
+%
+% Gráficos:
+% Los gráficos pueden suministrarse en PNG, JPG, TIF, PDF, MPS
+% Los EPS deben convertirse a PDF (usar epstopdf)
+%
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+\usepackage{url}
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={FLOSS Data Sources},
+  pdfauthor={Daniel Izquierdo},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={nn},
+}
+%%
+
+
+\AtBeginSection[]
+{
+  \begin{frame}<presentation>
+    \frametitle{Index}
+    \tableofcontents[current]
+  \end{frame}
+}
+
+
+\begin{document}
+
+\title{Introduction to FLOSS Data Sources}
+\subtitle{Master on Free Software}
+\institute{\\dizquierdo@libresoft.es\\
+GSyC/Libresoft}
+\author{Daniel Izquierdo}
+\date{\today}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+
+% Si el titulo o el autor se quieren acortar para los pies de página
+% se pueden redefinir aquí:
+%\title{Titulo corto}
+%\author{Autores abreviado}
+
+
+%% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
+\frame{
+~
+\vspace{4cm}
+
+\begin{flushright}
+{\tiny
+(cc) 2011 Daniel Izquierdo. \\
+Some rights reserved. This document is distributed under the Creative \\
+            Commons Attribution-ShareAlike 3.0 licence, available in \\
+            http://creativecommons.org/licenses/by-sa/3.0/
+
+%  Este documento (o uno muy similar) está disponible en \\
+%  \url{http://gsyc.escet.urjc.es/~jjamor/}
+}
+\end{flushright}
+}
+%%
+
+%%%%%%
+%Transpas separadas por \begin{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%\end{frame}
+
+\section{Introduction}
+
+\begin{frame}
+\frametitle{}
+\begin{itemize}
+\item Global software development implies a distributed environment of work
+\item In the specific case of FLOSS projects, specific infrastructure is 
+used as communication channels.
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{}
+ \begin{itemize}
+ \item That infrastructure is generally speaking, publicly available
+ \item Thanks to this open nature of the repositories of information, it 
+ is possible to study them
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Data Sources}
+\begin{frame}
+ \frametitle{Main data sources}
+ \begin{itemize}
+  \item Source code management system
+  \item Mailing lists
+  \item Bug tracking system
+  \item Source code
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+ \frametitle{Main data sources: SCM}
+ \begin{itemize}
+ \item This is used to manage file versions during the development process
+ \item It is possible to obtain the state of the source code at any time during its history
+ \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+ \frametitle{Main data sources: SCM}
+ \begin{itemize}
+ \item Its main pieces of information are the following:
+  \begin{itemize}
+  \item Who:  Author/Committer
+  \item When: Date of commit
+  \item What: Files and lines \emph{touched}
+  \end{itemize}
+ \end{itemize}
+
+
+\end{frame}
+
+
+
+\begin{frame}
+ \frametitle{Main data sources: SCM}
+ \begin{itemize}
+ \item There are two main types: centralized and distributed
+ \item Centralized: CVS or SVN
+ \item Distributed: Git or Mercurial
+ \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+ \frametitle{Main data sources: SCM}
+ \begin{itemize}
+ \item \emph{git log | hg log | svn log ...}
+ \item \emph{git diff | hg diff | ...}
+ \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+ \frametitle{Main data sources: Mailing lists}
+ \begin{itemize}
+ \item Used to organized libre software projects
+ \item Asynchronous way of communication
+ \item Basically, those forward received e-mail messages to subscribed e-mail addresses
+ \item Usually stored in specific formats such as RFC 4155
+
+ \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{Main data sources: Mailing lists}
+ \begin{itemize}
+ \item Some interesting headers:
+  \begin{itemize}
+   \item From: this field indicates the sender of the e-mail
+   \item To: this field indicates the receiver of the e-mail
+   \item Message-ID: unique identifier of the email
+   \item In-Reply-To: indicates who is the \emph{father} of this e-mail (will refer to the Message-ID field)
+   \item List-id: distribution list
+  \end{itemize}
+
+ \end{itemize}
+
+
+\end{frame}
+
+\begin{frame}
+ \frametitle{Main data sources: Mailing lists}
+ \begin{itemize}
+ \item This type of tool is also used as a peer review process of the changes done in the SCM
+   \begin{itemize}
+     \item Lists of Commits-watchers
+     \item Patches attached 
+   \end{itemize}
+
+ \end{itemize}
+
+
+\end{frame}
+
+\begin{frame}
+ \frametitle{Main data sources: Bug tracking system}
+ \begin{itemize}
+ \item This tool is used to manage the evolution of the several errors detected in the source code
+
+
+ \end{itemize}
+
+
+\end{frame}
+
+\begin{frame}
+ \frametitle{Main data sources: BTS}
+ \begin{itemize}
+ \item Some examples:
+   \begin{itemize}
+    \item Bugzilla
+    \item Sourceforge tracker
+    \item GNATS: used by the FSF
+    \item Jira
+    \item Mantis
+   \end{itemize} 
+
+
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Main data sources: BTS}
+ \begin{itemize}
+ \item Life cycle: \url{http://www.bugzilla.org/docs/2.18/html/lifecycle.html}
+
+ \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+ \frametitle{Main data sources: BTS}
+ \begin{itemize}
+ \item Some interesting fields:
+   \begin{itemize}
+    \item Bug id: unique identifier
+    \item Description
+    \item Opened: date when the bug report was sent
+    \item Status: current status of the report - new, assigned, reopened, needinfo, verified, etc...
+    \item Resolution: invalid, wontfix, notabug, fixed, and others...
+ \end{itemize}
+
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Main data sources: Source code}
+ \begin{itemize}
+ \item Generally obtained by means of the releases of source code
+ \item bug also from the trunk or master branch of the SCMs
+
+ \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+ \frametitle{Main data sources: Source code}
+ \begin{itemize}
+ \item There exist a hierarchical structure
+ \item It is possible to discriminate by type of file (translation, source code, binary, makefile, etc).
+ \item Definitively, several types of files, and not all of them are useful for evaluating software!
+
+ \end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}
+ \frametitle{Main data sources: Source code}
+ \begin{itemize}
+ \item Also interesting to evaluate the copyright and authors of 
+  the several files
+ \item This makes possible similar studies about ownership in the source code as done in the SCM
+ \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{Main data sources: Source code}
+ \begin{itemize}
+ \item Also interesting to study licenses (in the end, the license is found
+ in the source code).
+ \item Between the source code and what a developer claims, the source code will 
+ provide the actual information.
+ \end{itemize}
+
+\end{frame}
+
+\section{References}
+
+\begin{frame}
+ \frametitle{References}
+ \begin{itemize}
+ \item Producing OSS by \textit{Karl Fogel}
+ \item Tools and datasets for mining libre software repositories, by
+ \textit{Gregorio Robles, Jes\'us M. Gonz\'alez-Barahona, Daniel Izquierdo-Cort\'azar and Israel Herraiz}
+ \item The promises and perils of mining git by
+ \textit{Christian Bird, Peter Rigby, Earl Barr, David Hamilton, Daniel German, and Premkumar Devanbu}
+ \end{itemize}
+
+\end{frame}
+
+\end{document}
