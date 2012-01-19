@@ -1,0 +1,21 @@
+
+P1. ¿Qué modelo de negocio implanta Apple en todos sus productos: iPhone, iPads, Apple Store?
+
+P2. Con la información que tienes actualmente ¿A qué atribuyes la caída de couta de mercado de iPhone este último año?
+
+P3. Imagina que encontramos un bug/fallo en iPhone. Buscar y describir cuales serían los pasos a seguir (si es que existen) para notificar un fallo a Apple.
+
+P4. ¿Qué licencia tiene iOS? ¿En qué sistema operativo se basa?
+
+P5. ¿Además de FLASH, que otra tecnología importante no incorpora iOS? ¿A qué crees que es debido? 	
+
+P6. Enumera dos ventajas y dos inconvenientes de la "App Store" de Apple
+
+P7. Busca y enumera (con urls) proyectos de software libre alrededor de iPhone o aplicaciones libres en iPhone. 
+
+P8. Busca y enumera (con urls) proyectos o iniciativas en iPhone referentes a educación.
+
+P9. Describe y justifica brevemente si utilizarías o utilizas iPhone/iOS en tu centro, tanto en proyectos de futuro como en los actuales.
+
+P10. Resume en un twitt (140 caracteres) tu opinión de iPhone/Apple en el contexto que nos ocupa (educación FP). Además, si lo posteas en twitter con #fpentumovil lo bordas!
+
