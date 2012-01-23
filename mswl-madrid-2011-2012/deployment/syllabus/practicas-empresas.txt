@@ -1,0 +1,38 @@
+
+
+Pritek Solutions
+================
+
+La empresa priteksolutions es líder en el mercado de soluciones informáticas. La empresa cuenta con alrededor de 30 trabajadores, de los cuales 20 son de perfil puramente tecnológico. Su producto estrella e-Services se trata de un portal electrónico para los ciudadanos. e-Services está desarrollado usando .net con varias tecnologías web y Oracle para el soporte de base de datos. Ya hace tiempo un comercial de Oracle, les ofreció esta solución al tener como objetivo un proyecto con una muy fuerte carga de datos, ya que debe ser capaz de manejar ágilmente, la información de millones de usuarios. Desde que empezó la empresa, el IDE oficial de desarrollo es Microsoft Visual Studio y Microsoft Visual Source Safe como herramienta de desarrollo colaborativa y control de versiones. 
+
+Con la entrada en la empresa del gerente de soluciones informaticas Jesus Nahoraba, un nuevo aire fresco entra en la empresa. Este nuevo gerente conoce perfectamente las virtudes del software libre y quiere introducirlo de forma progresiva en la empresa. De manera que las soluciones ofrecidas por pritekSolutions tiendan a usar software libre. De hecho, e-Services esta licenciado de forma privativa y Nahoraba quiere plantear la posibilidad de ofrecerlo con alguna licencia libre, ya sea el producto entero, o alguna de sus partes.
+
+
+Empresa gestora/oficinas LiberSol
+========================================
+
+Una empresa gestora con oficinas en el centro de madrid trabaja desde hace muchos años usando las siguientes herramientas:
+
+ * Microsoft Office: Word, PowerPoint, Excell y Outlook
+ * Internet Explorer 6
+ * Contaplus
+
+Últimamente han oído hablar de las virtudes del software libre y del ahorro en licencias que podrían conseguir. Desgraciadamente, nadie en LiberSol tiene un conocimiento mínimo como para poder acometer una migración sin problemas. Por ello, se ponen en contacto con el grupo Libresoft para que les asesore con los pasos a seguir.
+
+Design4Future
+==============
+
+Design4Future es una empresa de marketing y diseño con sede en Sevilla. Esta empresa se encarga de ofrecer distintas soluciones de diseño: logos, diseños web, anuncios comerciales e incluso soporte en películas y cortos de animación. En la actualidad, quieren introducirse en el mundo de la animación en 3D. 
+
+Esto les llevará a un fuerte cambio en su modelo de negocio y se trata de una gran apuesta. Desgraciadamente, no poseen nuevas fuentes de ingresos para acometer tal labor, ya que se trata de una apuesta personal. Una forma de abaratar costes para entrar en este mundo, es el ahorro en las carísimas licencias que poseen y el software libre les ha abiertos los ojos. Algunas de las herramientas que utilizan en la actualidad:
+
+ * Photoshoop
+ * 3D Studio
+ * blblbl de edición de vídeo
+ * Pro tools
+
+Design4Future ha puesto a Jose ManStall, uno de sus trabajadores, a cargo de realizar un estudio de alternativas libres, que cumplan con todos los requisitos que tienen en la actualidad. Con un ahorro en licencias suficiente, podrían apostar por el mundo de la animación 3D, por lo que también necesitarían una herramienta libre para tal cometido.
+
+
+Ayuntamiento de Fuenlabrada
+===========================

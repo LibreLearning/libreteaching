@@ -1,0 +1,305 @@
+\documentclass[a4paper]{article}
+%\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+\usepackage[hypertex,colorlinks]{hyperref}
+%\usepackage{html}
+%\usepackage{hthtml}
+\usepackage{geometry}
+
+% Comments (optional argument is author of comment)
+\newcommand{\comments}[2][?]{
+  \begin{quote}
+    \textbf{Comment (#1):} {\em #2}
+  \end{quote}
+  }
+
+% \name is for ``special names'', like procedure or variable names.
+\newcommand{\name}[1]{\texttt{\hturl{#1}}}
+
+% Just a shortcut for links where the url appears as footnote.
+\newcommand{\htflink}[2]{\htmladdnormallinkfoot{#1}{#2}}
+
+\title{MSWL Deployment of Libre Software \\
+Master on libre software \\
+URJC - GSyC/Libresoft \\
+\url{http://master.libresoft.es}}
+
+\author{Jose Gato Luis, Jose Francisco Castro}
+\date{March 2011}
+
+\sloppy
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Course syllabus and learning program for the course ``Deployment of Libre Software'', of the Master on libre software of the
+Universidad Rey Juan Carlos.
+
+[This is an evolving document, until the course is finished and graded]
+\end{abstract}
+
+\tableofcontents
+
+%%----------------------------------------------------------------
+\section{Course topics and schedule}
+
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+\subsection{00 - Presentation of the course}
+
+Presentation of the main aspects of the course, and specially those
+related to administrative issues, evaluation, etc.
+
+%%----------------------------------------------------------------
+\subsubsection{March 25, 2011 (1 hours)}
+
+\subsection{01 - How to migrate from private environments to Libre Software}
+
+Eduardo Romero, from Zaragoza's city council, will talk to us about a real experience making a migration to Libre Software in a public institution and the process they follow to succeed. 
+
+%%----------------------------------------------------------------
+\subsubsection{March 25, 2011 (2 hours)}
+
+\begin{itemize}
+\item \textbf{Lecturers:} Eduardo Romero
+\item \textbf{Presentation:} ``Practice experience migrating to Libre Software environment'
+  \begin{itemize}
+  \item \textbf{Discussion:} Best practices to succeed making a libre software migration. 
+  \item \textbf{Supporting material:} Slides ``Migrating to Libre Software''
+  \end{itemize}
+\item \textbf{Assignment (results in website):} A blog entry talking about the difficulties of making a migration in a public institution. 
+\end{itemize}
+
+\subsection{02 - Final practice objectives}
+
+During this session the objectives for the final practice will be explained. You can read a detailed explanation of the final practice at the end of this document
+
+%%----------------------------------------------------------------
+\subsubsection{March 25, 2011 (1 hours)}
+
+\begin{itemize}
+\item \textbf{Lecturers:} Jose Gato, Jose Castro
+\item \textbf{Presentation:} ``Final practice objectives''
+  \begin{itemize}
+  \item \textbf{Discussion:} Objectives of the final practice. Several practice scenarios will be presented. The students will be organized in different groups, in order to prepare the final practice regarding a selected scenario. 
+  \item \textbf{Supporting material:} Slides ``Deployment Practice''
+  \end{itemize}
+\item \textbf{Assignment (results in website):} No assignments 
+\end{itemize}
+
+
+
+\subsection{03 -Libre software in desktops}
+
+Different software alternatives to the main needs in a desktop computer. The most relevant programs will be studied and analyzed in order to have a global vision of the current situation of libre software desktops. 
+
+%%----------------------------------------------------------------
+\subsubsection{April 1, 2011 (2 hours)}
+
+\begin{itemize}
+\item \textbf{Lecturers:} Jose Gato Luis
+\item \textbf{Presentation:} ''Libre Software in Desktops''
+  \begin{itemize}
+  \item \textbf{Discussion:} Does this applications covers the needs of different users? What experience do you have using this applications?
+  \item \textbf{Supporting material:} Slides ''Libre Software in Desktops''
+  \end{itemize}
+\item \textbf{Assignment (results in website):} A blog entry talking about your experience using libre software in desktop environment and the features they still need to cover. 
+\end{itemize}
+
+\subsection{04 - Libre Software in servers}
+
+Different software alternatives to the main needs in a server computer. The most relevant sevices will be studied and analyzed in order to have a global vision of the current situation of libre software servers. 
+
+%%----------------------------------------------------------------
+\subsubsection{April 1, 2011 (2 hours)}
+
+\begin{itemize}
+\item \textbf{Lecturers:} Jose Castro
+\item \textbf{Presentation:} ``Libre software in Servers''
+  \begin{itemize}
+  \item \textbf{Discussion:} What is a server application? Does these applications covers needs of sysadmins and users?
+  \item \textbf{Supporting material:} Slides ``Libre software in Servers''
+  \end{itemize}
+\item \textbf{Assignment (results in website):} A blog entry talking about any interest project server application.
+\end{itemize}
+
+
+
+\subsection{05 - Costs analysis }
+
+Study of the different costs to have into account to make a libre software deployment. 
+
+%%----------------------------------------------------------------
+\subsubsection{April 8, 2011 (2 hours)}
+
+\begin{itemize}
+\item \textbf{Lecturers:} Pablo Ruiz Muzquiz 
+\item \textbf{Presentation:} "Costs analysis in libre software deployments"
+  \begin{itemize}
+  \item \textbf{Discussion:} Economic impact, benefits and issues in libre software deployments
+  \item \textbf{Supporting material:} Slides ``Costs analysis in libre software deployments''
+  \end{itemize}
+\item \textbf{Assignment (results in website):} A blog entry talking about the most important economic aspects in libre software deployment.
+\end{itemize}
+
+
+\subsection{06 - The importance of a good training plan }
+
+In this session will be studied how to mitigate the users problems using new software, thanks to a good training plan.  
+
+%%----------------------------------------------------------------
+\subsubsection{April 8, 2011 (2 hours)}
+
+\begin{itemize}
+\item \textbf{Lecturers:} Pedro Coca
+\item \textbf{Presentation:} "The importance of a good training plan"
+  \begin{itemize}
+  \item \textbf{Discussion:} How to design a good training plan. 
+  \item \textbf{Supporting material:} Slides ``The importance of a good training plan''
+  \end{itemize}
+\item \textbf{Assignment (results in website):} A blog entry talking about how important is training during a libre software deployment. 
+\end{itemize}
+
+
+\subsection{07 - Infraestructure deployment with free technologies}
+
+Analysis and implementation of different schema for each specific needs. Panoramic view of successful cases of migration to libre software and free technologies for deployment. 
+
+%%----------------------------------------------------------------
+\subsubsection{Abril 15, 2011 (4 hours)}
+
+
+\begin{itemize}
+\item \textbf{Lecturers:} Jose Castro, Miguel Vidal
+\item \textbf{Presentation:} ``Infraestructure deployment''
+  \begin{itemize}
+  \item \textbf{Discussion:} What need a company to deploy?
+  \item \textbf{Supporting material:} Slides ``Infraestructure deployment''
+  \end{itemize}
+\item \textbf{Assignment (results in website):} Infraestructure needs and analisys deployment of a company
+\end{itemize}
+
+
+
+
+\subsection{08 - Presentation of work}
+
+The students will made a presentation of the work done until the moment and the expected outcomes of the final practice (to be submitted before 11th May). 
+
+%%----------------------------------------------------------------
+\subsubsection{April 29, 2011 (4 hours)}
+
+\begin{itemize}
+\item \textbf{Lecturers:} Jose Gato, Jose Castro
+\item \textbf{Presentation:} ``Presentation of work''
+\item \textbf{Assignment (results in website):} No assignments
+\end{itemize}
+
+
+
+
+
+\section{Grading}
+
+This section details the criteria for grading the course, the
+deadlines for the different activities, and the submission details for
+the activities that require them.
+
+\subsection{Evaluation criteria}
+\label{sub:evaluation-criteria}
+
+Each activity contributing to the grading of the course has its own
+evaluation criteria, as described below. Each of these activities has
+a minimum and maximum grading. If the minimum grading is 0, the
+activity is optional. Otherwise, the activity is mandatory, and has to
+be graded al least with the minimum to pass the course. Each activity
+has also a description, and when possible, some general grading
+criteria. In any case, the final grade for the course will also depend
+on the continuous observation of the instructors on the outcomes and
+progress of students.
+
+Students should ask instructors about any detail which may not be
+clear to them, either about the general grading plan, or about
+specific aspects of the activities. As a general rule, evaluation will
+have into account how the activity and its results show that the
+student has come close to the competences, knowledge and skills
+expected for the course.
+
+The student can consider that the next table will be used as a
+(minimum) guideline for assigning marks:
+
+\begin{itemize}
+\item Pass (``aprobado''): 150
+\item Good (``notable''): 250
+\item Excellent (``sobresaliente''): 350
+\end{itemize}
+
+\begin{itemize}
+\item \textbf{Blog entries}. \\
+  Minimum: 40 points, maximum: 80 points
+
+  Blog entries specifically related to the course, and marked as such. The tag used for that is mswl-deploy
+
+
+\item \textbf{Final practice (document)}. \\
+  Minimum: 60 points, maximum: 350 points
+
+
+
+\end{itemize}
+
+\subsection{Submission deadlines}
+
+All activities to be graded in May must be completed and submitted by 11th May 2011. For the final evaluation in June/July the date limit will be the 1st of July (please contact coordinators for further information)
+
+\subsection{Submission details}
+
+Please, consider the details below for submitting the different activities for evaluation (for those not specified in this list, nothing special is needed for submission).
+
+\begin{itemize}
+\item As a summary of all the activities, a ``Summary of activities for evaluation'' should be sent. This summary should be uploaded to the corresponding resource in the Moodle site for this course, and should include the following data:
+  \begin{itemize}
+  \item \textbf{Name:} Full name of the student (as ``family name'', ``given name'')
+  \item \textbf{Blog entries:} Url of the blog entries for this course (HTML, not RSS version).
+  \item \textbf{Final practice document} The final document about the practice.  
+  \end{itemize}
+\end{itemize}
+
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+\section{Assignments and activities}
+
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+\subsection{Final practice}
+
+After listen the experience of Eduardo Romero the students will have to make a similar exercise. This work will consist in a "complete" study to present to a company that wants to migrate his infrastructures to a libre software environment. 
+
+The students will work in pairs and they will have to choose between six different scenarios (companies, public administrations, etc). These different scenarios will show the "realty" of an environment needing to change to a better (libre) alternative. 
+
+Each pair of students will write a document to present to the selected company with a complete study of "How to make a Libre Software Deployment and succeed". Each document will contain the next important points:
+
+\begin{itemize}
+\item Analysys of the software used in the company and the requirements. Ex: "They use a graphical editor because they need to design logos"
+\item Software costs
+\item Study of libre software alternatives. For each piece of libre software alternative:
+	\begin{itemize}
+	\item Software description
+	\item Requirements that covers this software
+	\item Requirements that does not covers and it should be
+	\item Solutions to mitigate this fails
+	\end{itemize}
+\item New economic plan
+\item Training plans 
+\item Conclusion
+
+\end{itemize}
+
+
+%%----------------------------------------------------------------
+%\subsubsection{Statements about economic aspects of libre software}
+%\label{sub:statements-eco}
+
+\end{document}
