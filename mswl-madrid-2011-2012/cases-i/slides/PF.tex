@@ -1,0 +1,861 @@
+\documentclass{beamer}
+\usepackage{moreverb} 
+\usepackage{listings}
+\usepackage{mflogo}
+\usepackage{alltt}
+% imprimir
+% \documentclass[handout]{beamer} 
+% \usepackage{pgfpages}
+% \pgfpagesuselayout{4 on 1}[a4paper,landscape,border shrink=5mm]
+
+\mode<presentation> {
+  \usetheme{Warsaw}
+  \setbeamercovered{transparent}
+}
+
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+%% Metadatos del PDF.
+\hypersetup{  
+  pdftitle={Cortafuegos con software libre. Diez años de PF},
+  pdfauthor={Miguel Vidal},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Master on Free Software},
+}
+%%
+
+\setbeamercovered{invisible} % evita que se vea en el /pause
+\defbeamertemplate*{footline}{shadow theme}
+{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm plus1fil,rightskip=.3cm]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertframenumber\,/\,\inserttotalframenumber\hfill\includegraphics[scale=0.40]{format/cc-by-80x15.png} \hspace{0.1cm}\insertshortauthor 
+% \usebeamerfont{author in head/foot} \includegraphics[width=0.7cm]{format/cc-by.png} \hfill\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle%
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\title{Cortafuegos con software libre. Diez años de PF}
+\subtitle{Master oficial en Software Libre}
+\institute{\texttt{http://gsyc.urjc.es/\~{}mvidal} \\ Twitter: \texttt{@mvidallopez}}
+\author{Miguel Vidal} 
+\date{17 de noviembre de 2011}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+%% License slide
+\begin{frame}
+  \vspace{2cm}
+  \begin{flushright}
+    {\small \copyright{} 2011 Miguel Vidal} \\
+%    \vspace{0.25cm}
+    \medskip
+    {\scriptsize This work is licensed under \\ a Creative Commons Attribution 3.0 License}
+%    \vspace{0.10cm}
+  \end{flushright}
+  \begin{flushright}
+    \href{http://creativecommons.org/licenses/by/3.0/es}{\includegraphics[width=2cm]{format/cc-by.png}} \\
+    {\tiny \url{http://creativecommons.org/licenses/by/3.0}}
+  \end{flushright}
+\end{frame}%%
+
+
+\usebackgroundtemplate{}
+
+\AtBeginSection[]
+{
+\begin{frame}<beamer>
+\begin{center}
+{\LARGE \insertsection}
+\end{center}
+\end{frame}
+}
+
+
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>{Tabla de contenidos}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Cortafuegos y filtrado de paquetes TCP/IP}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{¿Qué es un cortafuegos?}
+
+\begin{frame}
+\frametitle{¿Qué es un cortafuegos?}
+
+\begin{itemize}
+\item Un equipo protegido y fiable que funciona como punto de regulación entre un grupo de redes (normalmente una red privada y una red pública).
+\item Todo el tráfico de red entre las redes involucradas se encamina a través del cortafuegos.
+\item En grandes corporaciones incluso puede haber cortafuegos dentro de la red corporativa para aislar las zonas importantes de la organización.
+\item Crear cortafuegos es un arte: exige comprender muy bien la tecnología de red subyacente, pero también la filosofía de diseño de cortafuegos.
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{¿Qué es un cortafuegos?}
+
+\begin{itemize}
+\item Firewall (FW): término usado para referirse a cosas muy dispares en los últimos años.
+\item Se llama igual al FW casero que ponen en tu línea ADSL o al que le cuesta miles de dólares a una empresa.
+\item ¿Qué diferencias hay?
+
+	\begin{itemize}
+	\item Funcionalidades que ofrece.
+	\item Hardware en el que corre.
+	\item Robustez y fiabilidad de su software.
+	\end{itemize}
+
+\end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{¿Qué es un cortafuegos?}
+
+\begin{itemize}
+\item Un cortafuegos se configura mediante un conjunto de reglas que determina qué tráfico puede pasar y cuál será bloqueado (con respuesta) o desechado (sin respuesta).
+\item Los cortafuegos pueden situarse de formas distintas: 
+	\begin{itemize}
+	\item La forma más simple (e insegura) es un solo equipo que además proporciona otros servicios.
+	\item La forma más sofisticada son las DMZ (o red perimetral), que puede involucrar a varios equipos cortafuegos. 
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Diseños de cortafuegos}
+
+\begin{frame}
+\frametitle{Diseño de cortafuegos con un solo firewall}
+
+\begin{figure}[h]
+
+\begin{center}
+  \centering
+  \includegraphics[height=2.7in]{figs/500px-DMZ_network_diagram_1_firewall.png}
+  %\caption{Diseño sencillo de UN FW. \textit{Fuente:} Wikipedia.}
+\end{center}
+\end{figure}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Diseño de cortafuegos con 2 firewalls (DMZ)}
+
+\begin{figure}[h]
+
+\begin{center}
+  \centering
+  \includegraphics[height=2.7in]{figs/500px-DMZ_network_diagram_2_firewall.png}
+%  \caption{2 firewalls. \textit{Fuente:} Wikipedia.}
+\end{center}
+\end{figure}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Procesado y filtrado de paquetes}
+
+\begin{frame}
+\frametitle{Tipos de procesado de paquetes}
+
+\begin{itemize}
+\item \alert{Filtrado:} decidir en distintos momentos del flujo si un paquete pasa o es bloqueado.
+\item \alert{Modificación:} modificación mientras se mueve el flujo de paquetes
+\item \alert{Traducción (NAT)}: permite redirigir el tráfico de forma transparente mediante la modificación de la fuente, el destino o los puertos.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{¿Qué es el filtrado IP?}
+
+El filtrado IP consiste en decidir qué paquetes se procesarán y cuáles serán rechazados. Algunos criterios posibles para filtrar:
+
+\begin{itemize}
+\item Tipo de protocolo: TCP, UDP, ICMP, etc.
+\item Número de puerto (para TCP/UDP)
+\item Tipo de paquete: SYN/ACK, datos, petición de eco ICMP...
+\item Origen del paquete
+\item Destino del paquete
+\end{itemize}
+
+Los conjuntos de reglas (\textit{rulesets}) se componen mediante combinación de algunos de estos criterios.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{¿Qué es el filtrado de IP?}
+
+\begin{itemize}
+\item El filtrado IP es una utilidad de capa de red (layer-3).
+\item No conoce nada de las aplicaciones que usan las conexiones de red.
+\item Por ejemplo, si filtramos por puerto, ese mismo servicio podría ejecutarse en otro puerto y el firewall no lo impediría.
+\item Para solucionar esto, se usan \alert{servidores proxy}, que gestionan la conexión y sí comprenden el servicio.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Conceptos básicos}
+
+\begin{itemize}
+\item \textit{default accept} versus \textit{default deny}.
+\item Inspección de paquetes: \textit{Stateful} vs \textit{stateless}  
+\item En los FW de primera generación no habia estado, lo que facilitaba el \textit{spoofing}.
+\item La inspección de estado guarda registros de todas las conexiones de red que pasan por el cortafuegos.
+\item Establecimiento de la comunicación TCP en tres pasos (\textit{Three-way handshake}):
+
+\begin{itemize}
+	\item \alert{SYN packet}: solicitud de sincronización
+	\item \alert{SYN+ACK packet}: sincronización y acuse de recibo del servidor
+	\item \alert{ACK packet}: acuse de recibo (\textit{acknowledgment}) del cliente.
+\end{itemize}
+
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Filtrado de paquetes}
+
+\begin{itemize}
+\item Un firewall avanzado puede hacer más cosas además de bloquear. 
+\item Realiza otras funcionalidades importantes: enmascaramiento, NAT, auditorías, gestión de ancho de banda, balanceo de carga, filtrado por criterios específicos, redundancia...
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Herramientas libres para filtrado de paquetes}
+
+\begin{itemize}
+\item \alert{\texttt{iptables}}: Linux
+\item \alert{\texttt{ipfilter}}: *Solaris, illumos, FreeBSD, NetBSD, Linux, HP-UX, IRIX
+\item \alert{\texttt{PF (Packet Filter)}}: OpenBSD (nativo), FreeBSD, NetBSD, DragonFly.
+\end{itemize}
+
+Comparativa: \url{http://en.wikipedia.org/wiki/Comparison_of_firewalls}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Diez años de Packet Filter (PF)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{¿Qué es PF?}
+
+\begin{itemize}
+\item Es un filtro de paquetes (o firewall) de tráfico TCP/IP basado en configuración dinámica (\textit{stateful rules}). 
+\item Considerado el mejor software libre para cortafuegos, balanceo de carga y gestión de tráfico de red.
+\item Comparable en funcionalidad a las soluciones privativas más caras (Cisco, Juniper, etc., $>$ 50K dólares).
+\item Desarrollado y mantenido por el equipo de desarrollo de OpenBSD (portado también a otros BSD). 
+\item Equivalente (aunque mucho más funcional) a \texttt{iptables} en Linux.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{¿Qué es PF?}
+\begin{frame}
+\frametitle{¿Qué es PF?}
+
+\begin{itemize}
+\item PF es parte de la pila de red del kernel.
+\item No solo protege de ataques, sino que permite redundancia (HA) y escalabilidad (combinado con CARP y pfsync).
+\item También NAT y control de ancho de banda: calidad del servicio (QoS) y ALTQ (priorización de colas).
+\item Busca la sencillez de las reglas, la consistencia y la legibilidad.
+\item Filtra basándose en cualquier paquete o conexión: dirección de origen o destino, protocolo, puerto, etc.
+\item A partir de estos criterios, PF ejecuta la acción que especifiquemos.
+\end{itemize}
+\end{frame}
+
+
+\subsection{Antes de PF}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Antes de PF: Sobre BSD}
+
+\begin{itemize}
+\item \alert{BSD} es el acrónimo de Berkeley Software Distribution.
+\item Originalmente se refiere a un conjunto de software para Unix desarrollado en la Universidad de Berkeley (1975-1990).
+\item Por ejemplo, FFS o la implementación más popular de TCP/IP (llamada Net/2). 
+\item Con el tiempo se convirtió en Unix \alert{libre} completo: 4.4BSD. 
+\item Dio lugar a una familia de sistemas Unix: FreeBSD, NetBSD, OpenBSD, DragonFly BSD, y, para algunas definiciones, Mac OS X de Apple.
+\item \alert{PF} nace en el ámbito del proyecto OpenBSD.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Antes de PF: ipfilter}
+
+\begin{itemize}
+\item OpenBSD era ya en los 90 el BSD más orientado a seguridad.
+\item OpenBSD usaba un subsistema llamado \alert{IPFilter}, escrito por Darren Reed.
+\item Su código usaba una \textit{extraña} variante de la licencia BSD.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Licencia de ipfilter (2000)}
+
+\begin{alltt}
+\footnotesize
+/* \\
+ * Copyright (C) 1993-2000 by Darren Reed. \\
+ * \\
+ * The author accepts no responsibility for the use of this software \\
+ * and provides it on an ``as is'' basis without express or implied \\
+ *  warranty. \\
+ * \\
+ * Redistribution and use in source and binary forms are permitted \\
+ * provided that this notice is preserved and due credit is given \\
+ * to the original author and the contributors. \\
+ * \\
+ * This program is distributed in the hope that it will be useful, \\
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of \\
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. \\
+ * \\
+ * I hate legaleese, don't you ? \\
+ */
+
+\end{alltt}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Antes de PF: ipfilter}
+
+\begin{itemize}
+\item Se le pide a su autor, Darren Reed, que ``clarifique'' la licencia.
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Aclaración a la licencia de ipfilter (2001)}
+
+\begin{alltt}
+\footnotesize
+/* \\
+/* Copyright (C) 1993-2001 by Darren Reed. \\
+ * \\
+ * The author accepts no responsibility for the use of this software \\
+ * and provides it on an ``as is'' basis without express or implied \\
+ *  warranty. \\
+ * \\
+ * Redistribution and use in source and binary forms are permitted \\
+ * provided that this notice is preserved and due credit is given \\
+ * to the original author and the contributors. \\
+ * \\
+ * \alert{Yes, this means that derivitive or modified works are not} \\ 
+ * \alert{permitted without the author's prior consent.} \\
+ * \\
+ * This program is distributed in the hope that it will be useful, \\
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of \\
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. \\
+ * /
+
+\end{alltt}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Antes de PF: ipfilter}
+
+\begin{itemize}
+\item En 2001, aclara que esta variante no permitía modificar el código \alert{sin permiso} de Darren. ¡\alert{No} era software libre!
+\item El 30 de mayo de 2001 ipfilter se borra del árbol principal de OpenBSD.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Theo de Raadt anuncia que IPFilter será reemplazado}
+
+\begin{alltt}
+\footnotesize
+
+
+Date: Tue, 29 May 2001 19:13:11 -0600 \\
+From: Theo de Raadt <deraadt@cvs.openbsd.org> \\
+Subject: ipf \\
+
+sometime in the next 20 hours, i will be removing ipf from the source tree since it does not meet our freedom requirements, as have been outlined in policy.html and goals.html since the start of our project. \\
+
+we will have to work on an alternative.
+
+\end{alltt}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Auditoría de licencias}
+
+\begin{itemize}
+\item OpenBSD decidió auditar las licencias del árbol de código al completo.
+\item Se encontraron un buen número de licencias problemáticas.
+\item La mayoría se resolvieron hablando con el autor.
+\item Unas cuantas se resolvieron reescribiendo el código o eliminándolo.
+\item ¡El ``drama'' de la licencia de IPFilter se resolvió con un nuevo firewall y con fiabilidad de la licencias en el sistema base!
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Origen y adopción de PF}
+\begin{frame}
+\frametitle{Origen de PF}
+
+\begin{itemize}
+\item En paralelo al problema con la licencia de ipfilter (2001), Daniel Hartmeier inició un proyecto de filtrado de paquetes.
+\item En junio de 2001 ya tenía un prototipo (24 de junio, primer commit).
+\item Durante varias semanas, OpenBSD-current no dispuso de software para firewall.
+\item \alert{1 de diciembre: primera versión de PF} (OpenBSD 3.0)
+\item Inicialmente era casi un clon de ipf.
+\item La compatibilidad con ipfilter dejó de ser una prioridad una vez que los usuarios de OpenBSD habían migrado.
+\item Hoy no debe asumirse compatibilidad con ipfilter (requiere trabajo de conversión).
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Origen de PF}
+
+\begin{itemize}
+\item PF fue escrito desde cero por desarrolladores expertos en seguridad. 
+\item \textit{Paper} de Harmeier en USENIX con comparativas de rendimiento (2002). 
+\item PF 3.1 se comportaba igual o mejor bajo estrés que IPFilter, ambos en OpenBSD.
+\item También superaba a iptables de Linux.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Adopción de PF}
+
+\begin{itemize}
+\item Despertó la curiosidad de otros BSD y Unix.
+\item FreeBSD lo adoptó gradualmente: primero como paquete y luego ($>$5.3) en sus sistema base junto a ipfilter.
+\item También fue incorporado por NetBSD y DragonFly BSD.
+\item \alert{pfSense:} distro de FreeBSD con PF, y con una GUI muy sofisticada que permite gestionar los conjuntos de reglas gráficamente.  
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{GUIs: pfSense}
+
+\begin{figure}
+	\includegraphics[scale=0.20,clip=true]{figs/pfsense-dashboard_0.png} 
+\end{figure}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Adopción de PF: ¿Y Linux?}
+
+\begin{itemize}
+\item Intentos de portarlo sin éxito.
+\item Desarrollo profundamente integrado con la pila de red de OpenBSD.
+\item Exigiría reescribir grandes partes de PF.
+\item Otros BSD conservan un origen común con OpenBSD, lo que permitió portarlo.
+\item ¡Hay software libre más allá de Linux!
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Funcionalidades de PF}
+\begin{frame}
+\frametitle{Funcionalidades de PF}
+
+\begin{itemize}
+\item Network Address Translation (NAT) 
+\item Gestión de ancho de banda (QoS), priorización de colas (vía ALTQ)
+\item Balanceo de carga
+\item ftp-proxy  
+\item \textit{Logging} y estadísticas
+\item pfsync y CARP para Alta Disponibilidad
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conjuntos de reglas con PF}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Conjuntos de reglas (rulesets)}
+
+\begin{frame}
+\frametitle{Un conjunto mínimo de reglas}
+
+\begin{block}{Un conjunto mínimo de reglas}
+block in all \\
+pass out all keep state
+\end{block}
+
+En OpenBSD 4.1 y superiores: \texttt{keep state} por defecto (se deja por legibilidad)
+
+\begin{block}{Cargar las reglas}
+\$ sudo pfctl -ef /etc/pf.conf
+\end{block}
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Macros}
+
+Se pueden definir variables (\alert{macros}) para que las reglas sean más legibles y 
+manejables:
+
+\begin{block}{Ejemplos de Macros}
+webserver = 192.0.2.12 \\
+webport = 80
+\end{block}
+
+\begin{block}{Macros dentro de una regla}
+pass in proto tcp from any to \alert{\$webserver} port \alert{\$webport}
+\end{block}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Listas}
+
+Las listas son dos o más objetos del mismo tipo agrupables en una regla:
+
+\begin{block}{Ejemplo de Lista}
+pass proto tcp to port \{ 22 80 443 \}
+\end{block}
+
+\{ 22 80 443 \} es una \alert{lista}.
+
+\begin{block}{Macros y listas pueden combinarse}
+\texttt{web\_servers=``\{ 192.0.2.12,192.0.2.13,192.0.2.14 \}''} \\
+\texttt{web\_ports=``\{ 80 443 \}''}
+\end{block}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Tablas}
+
+Las tablas (entre $< \hspace{2mm} >$) sirven para agrupar direcciones IPv4 o IPv6:
+
+\begin{block}{Ejemplo de Tabla}
+\tt table $<$goodguys$>$ { 192.0.2.0/24, !192.0.2.5 } \\
+table $<$spammers$>$ persist file ``/etc/spammers'' \\
+pass  in on fxp0 from \alert{$<$goodguys$>$} to any \\
+block in on fxp0 from \alert{$<$spammers$>$} to any
+\end{block}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Traducción de Direcciones de Red (NAT)}
+
+\begin{itemize}
+\item Permite mapear redes enteras
+\item Necesario cuando tenemos IPs públicas limitadas por ISP
+\item Nos permite aprovechar las direcciones RFC 1918 (rangos privados):
+	\begin{itemize}
+	\item	10.0.0.0/8   \hspace{4mm}    (10.0.0.0 - 10.255.255.255)
+	\item	172.16.0.0/12   \hspace{4mm} (172.16.0.0 - 172.31.255.255)
+	\item	192.168.0.0/16 \hspace{4mm}  (192.168.0.0 - 192.168.255.255)
+	\end{itemize}
+\end{itemize}
+
+\begin{block}{Ejemplo de NAT}
+\tt pass out on em0 from 192.168.1.0/24 to any nat-to 24.5.0.5
+\end{block}
+
+\footnotesize
+Hace NAT en la interfaz em0 para cualquier paquete que venga de 192.168.1.0/24, y sustituye la dirección IP de origen con 24.5.0.5.
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Redireccionamiento de tráfico}
+
+Permite acceder desde el exterior a servicios de la red interna.
+
+\begin{block}{Ejemplo de redireccionamiento}
+\tt pass in on em0 proto tcp from any to any port 80 \textbackslash \\
+\hspace{7mm} rdr-to 192.168.1.10
+\end{block}
+\footnotesize
+Se redirecciona el tráfico TCP del puerto 80 (un servidor web) a una máquina dentro de la red interna (192.168.1.10). 
+
+\bigskip
+\normalsize
+\begin{center}
+El redireccionamiento tiene \alert{implicaciones de seguridad}. El sistema expuesto al exterior se suele aislar en una \alert{DMZ}.
+\end{center}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Antispoofing}
+
+Previene la \alert{falsificación} de la dirección IP de origen (con el propósito de esconder la dirección real o de suplantar otro nodo en la red):
+
+\begin{block}{Filtrado de paquetes falsificados por interfaz}
+\tt antispoof for em0
+\end{block}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Balanceo de carga}
+
+Tipos de balanceo de carga mediante reserva de IPs (\textit{address pooling}):
+
+\begin{itemize}
+\item \alert{round-robin}: rotación secuencial. Modo por defecto. 
+\item \alert{random}: envía cada conexión a una IP aleatoria.
+\item \alert{source-hash}: usa un hash de la IP para asignar una conexión del pool de IPs.  
+\item \alert{bitmask}: un modo de hacer NAT entre dos bloques de direcciones IPs de igual tamaño.
+\end{itemize} 
+
+\begin{block}{Ejemplo de balanceo de carga entrante}
+\small
+\tt web\_servers = ``\{ 10.0.0.10, 10.0.0.11, 10.0.0.13 \}'' \\
+match in on \$ext\_if proto tcp to port 80 rdr-to \textbackslash \\
+\hspace{7mm} \$web\_servers \alert{round-robin} 
+\end{block}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Comandos básicos}
+
+
+\begin{block}{Control de PF con pfctl}
+\alert{pfctl -e} \hspace{4mm} \#activa PF  \\
+\alert{pfctl -f /etc/pf.conf} \hspace{2mm} \#carga las reglas \\
+\alert{pfctl -nf /etc/pf.conf} \#chequea sintaxis de las reglas sin cargarlas \\
+\alert{pfctl -vf /etc/pf.conf} \#modo verboso, vemos expansión de reglas\\
+\alert{pfctl -s rules} \hspace{2mm} \#ver reglas actuales \\
+\alert{pfctl -s all} \hspace{2mm} \#ver todos los parámetros \\
+\alert{pfctl -d} \hspace{2mm} \#desactiva PF
+
+\alert{sysctl net.inet.ip.forwarding=1} \hspace{2mm} \#Gateway. En /etc/sysctl.conf \\
+
+\end{block}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{/etc/pf.conf}
+
+Todo se configura y controla desde \texttt{/etc/pf.conf}. Este debe ser el orden de procesamiento de las reglas:
+
+\begin{itemize}
+\item Macros
+\item Tablas
+\item Opciones
+\item Normalización de tráfico (scrubbing)
+\item Gestión de ancho de banda
+\item Traducción (NAT)
+\item Redirección
+\item Filtrado de paquetes
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Registros de bitácora}
+
+\begin{itemize}
+\item Demonio pflogd, por defecto /var/log/pflog. 
+\item Logs en formato binario, legibles por \texttt{tcpdump -r}.
+\end{itemize}
+
+\begin{block}{Activar log de estadísticas en iface externa}
+set loginterface em0
+\end{block}
+
+\begin{block}{Leer los logs}
+\$ sudo tcpdump -n -ttt -r /var/log/pflog \\
+\$ sudo tcpdump -nettti pflog0  \hspace{4mm} \# tráfico en vivo 
+\end{block}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+% \frametitle{Un ejemplo de conjunto de reglas}
+\vspace{-0.4cm}
+
+\begin{block}{Un ejemplo completo de conjunto de reglas}
+\footnotesize
+\tt \# Macros y listas pueden combinarse \\
+\alert{int\_if=``em1''} \\
+\alert{tcp\_services=``\{ 22, 113 \}''} \\
+\alert{udp\_services=``\{ domain \}''} \\
+\alert{icmp\_types=``echoreq''} \\
+
+\# Opciones \\
+
+\alert{set block-policy return} \\
+\alert{set loginterface em0} \\
+\alert{set skip on lo} \\
+
+\# NAT \\
+\alert{match out on egress inet from !(egress) to any nat-to (egress:0)} \\
+
+\# Filtrado - lo primero bloqueamos trafico en todas direcciones \\
+\alert{block in log} \\
+\alert{pass out quick} \\
+
+\alert{antispoof quick for \{ lo \$int\_if \}} \#Antispoofing \\
+
+\# Permitimos paso a protocolos y puertos autorizados \\
+\alert{pass in on egress inet proto tcp from any to port \$tcp\_services} \\   
+\alert{pass proto udp to port \$udp\_services} \\
+
+\alert{pass in inet proto icmp all icmp-type \$icmp\_types} \#ping \\
+
+\alert{pass in on \$int\_if} \# confiamos en tráfico de interfaz interno
+
+\end{block}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Referencias}
+
+\begin{itemize}
+\item Peter N.M. Hansteen, \textit{The Book of PF}, 2nd Edition, No Starch, 2011.
+\item Daniel Hartmeier, ``Design and Performance of the OpenBSD Stateful Packet Filter (pf)'' (Usenix paper, 2002) \url{http://www.benzedrine.cx/pf-paper.html}
+\end{itemize}
+
+\end{frame}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+
+\end{document}
+
+
+pass in proto tcp from any to 192.168.1.5 port 22
+
+

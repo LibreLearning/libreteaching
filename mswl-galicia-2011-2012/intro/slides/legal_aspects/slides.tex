@@ -1,0 +1,112 @@
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer 
+%
+
+\documentclass{beamer}
+\usepackage{moreverb} 
+\usepackage{alltt} 
+\usepackage{listings}
+\usepackage{mflogo}
+% imprimir
+% \documentclass[handout]{beamer} 
+% \usepackage{pgfpages}
+% \pgfpagesuselayout{4 on 1}[a4paper,landscape,border shrink=5mm]
+
+\mode<presentation> {
+  \usetheme{Warsaw}
+%  \setbeamercovered{transparent}
+  \setbeamercovered{invisible}
+}
+
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+% \usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+%% Metadatos del PDF.
+\hypersetup{  
+  pdftitle={Legal Aspects},
+  pdfauthor={Miguel Vidal},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Master on Free Software},
+}
+%%
+
+\defbeamertemplate*{footline}{shadow theme}
+{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm plus1fil,rightskip=.3cm]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertframenumber\,/\,\inserttotalframenumber\hfill\includegraphics[scale=0.40]{format/cc-by-80x15.png} \hspace{0.1cm}\insertshortauthor 
+% \usebeamerfont{author in head/foot} \includegraphics[width=0.7cm]{format/cc-by.png} \hfill\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle%
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\title{Legal Aspects}
+\subtitle{Master on Libre Software (URJC)}
+\institute{\texttt{http://gsyc.urjc.es/\~{}mvidal} \\ Twitter: \texttt{@mvidallopez}}
+\author{Miguel Vidal} 
+%\date{\today}
+\date{October-November 2011}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+%% License slide
+\begin{frame}
+  \vspace{2cm}
+  \begin{flushright}
+    {\small \copyright{} 2011 Miguel Vidal, LibreSoft} \\
+%    \vspace{0.25cm}
+    \medskip
+    {\scriptsize This work is licensed under \\ a Creative Commons Attribution 3.0 License}
+%    \vspace{0.10cm}
+  \end{flushright}
+  \begin{flushright}
+    \href{http://creativecommons.org/licenses/by/3.0/es}{\includegraphics[width=2cm]{format/cc-by.png}} \\
+    {\tiny \url{http://creativecommons.org/licenses/by/3.0}}
+  \end{flushright}
+\end{frame}%%
+
+\usebackgroundtemplate{}
+
+\AtBeginSection[]
+{
+\begin{frame}<beamer>
+\begin{center}
+{\huge \insertsection}
+\end{center}
+\end{frame}
+}
+
+
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>{Table of Contents}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+%%
+
+\normalsize
+
+\input{presentation}
+\input{introPI}
+\input{copyrightONsoftware}
+\input{licensesSL}
+\input{other_works_licenses}
+\input{lic_prac}
+
+\end{document}

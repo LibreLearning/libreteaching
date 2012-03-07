@@ -1,0 +1,286 @@
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg-soft.png}}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{
+  pdftitle={Evaluation of Libre Software Projects / Master on Libre Software (URJC)},
+  pdfauthor={Daniel Izquierdo Cortazar},
+  pdfcreator={GSyC/LibreSoft, Universidad Rey Juan Carlos},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Evaluation},
+}
+%%
+
+%\includeonly{presentation}
+%\includeonly{introduction}
+%\includeonly{history}
+%\includeonly{consequences}
+%\includeonly{public_administrations}
+%\includeonly{trials,myths}
+
+\AtBeginSection[]
+{
+\begin{frame}<beamer>
+\begin{center}
+{\Huge \insertsection}
+\end{center}
+\end{frame}
+}
+
+\begin{document}
+
+\title{Evaluation of Libre Software Projects}
+\subtitle{Master on Libre Software (URJC) \\
+\url{http://master.libresoft.es}}
+\author{Daniel Izquierdo-Cortazar}
+\institute{dizquierdo@libresoft.es \\
+GSyC/LibreSoft, Universidad Rey Juan Carlos}
+
+\date{November 2011}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+
+% Si el titulo o el autor se quieren acortar para los pies de página
+% se pueden redefinir aquí:
+%\title{Titulo corto}
+%\author{Autores abreviado}
+
+
+%% LICENCIA DE REDISTRIBUCION DE LAS TRANSPAS
+\frame{
+~
+\vspace{3cm}
+
+\begin{flushright}
+\copyright 2011 Daniel Izquierdo Cortazar. \\
+
+Some rights reserved. \\
+This document is distributed under the \\
+Creative Commons Attribution-ShareAlike 3.0 licence, \\
+available in \\
+\url{http://creativecommons.org/licenses/by-sa/3.0}
+
+The original version of this document is available at \\
+\url{http://master.libresoft.es}
+\end{flushright}
+}
+%%
+
+
+
+%% presentation.tex
+%%
+%% Presentation of the course ``Introduction'' of the Official Master on Libre Software (URJC)
+%% http://master.libresoft.es
+%%
+
+%%---------------------------------------------------------------------
+%%---------------------------------------------------------------------
+
+\section{Introduction to Evaluation of FLOSS Projects}
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Why is this important?}
+
+\begin{itemize}
+\item The evaluation of projects is a critical task for IT managers
+\item The costs of selecting the wrong technology could be later unapproachable
+\end{itemize}
+\end{frame}
+
+
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{General questions made}
+
+\begin{itemize}
+\item Which software fits best my current requirements?
+\item Requirements such as:
+ \begin{itemize}
+  \item Functional requirements: looking for specific functionality
+  \item Technical requirements: looking for specific technologies
+ \end{itemize}
+\end{itemize}
+\end{frame}
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{More requirements}
+
+\begin{itemize}
+\item Safety, security, reliability, robustness, testability
+\item adaptability, complexity, maintainability, portability
+
+\end{itemize}
+\end{frame}
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Even more}
+
+\begin{itemize}
+\item Reusability, installability, efficiency,
+\item correctness, modularity
+\end{itemize}
+\end{frame}
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{And FLOSS projects?}
+
+\begin{itemize}
+\item Is the license included above?
+\item Social networks: territoriality, hubs of people (or knowledge)
+\item Others...
+\end{itemize}
+\end{frame}
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Selecting proprietary systems}
+
+\begin{itemize}
+\item Some limitations due to depend on proprietary software:
+ \begin{itemize}
+  \item Cost: generally higher
+  \item Closed source code: some requirements could not been measured: e.g. quality of the software
+  \item There is not influence in the roadmap at all
+  \item Formats
+  \item Others
+ \end{itemize}
+\end{itemize}
+\end{frame}
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Selecting FLOSS systems}
+
+\begin{itemize}
+\item Some limitations when selecting FLOSS projects:
+ \begin{itemize}
+  \item Limitless options
+  \item In some cases there is not professional support (as requested by companies)
+  \item Longevity (although this is also a problem in proprietary software)
+  \item Stability: following a ``release often, release early'' may be seen as a weak point by companies
+ \end{itemize}
+\end{itemize}
+\end{frame}
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Thus...}
+
+\begin{itemize}
+\item If you need a specific technology then it is clear the option
+\item However it is not clear if there are some potential products that fit your requirements
+\item How to select them?
+\end{itemize}
+\end{frame}
+
+%%---------------------------------------------------------------
+\section{Initial Assessment}
+
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{FLOSS Assessments}
+
+\begin{itemize}
+\item Light-weight: OpenBRR or QSoS
+\item Heavy-weight: QualOSS
+\item Those will be studied in following lessons
+\end{itemize}
+\end{frame}
+
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{FLOSS Assessments}
+
+\begin{itemize}
+\item However, what type of data do they retrieve?
+ \begin{itemize}
+   \item Programming language
+   \item Quality of the source code
+   \item General architecture
+   \item License
+   \item Specific functionality
+   \item Support
+ \end{itemize}
+\end{itemize}
+\end{frame}
+
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{How to proceed?}
+
+\begin{itemize}
+\item Following specific methodologies that facilitate this process (e.g.: Goal-Question-Metric).
+\item Following specific quality models (that define methodologies)
+\end{itemize}
+\end{frame}
+
+\section{Exercises}
+
+\begin{frame}
+\frametitle{Exercise}
+
+\begin{itemize}
+\item Goal: We have to install 5,000 FLOSS e-mail clients in a company. Specific development and
+translations will be needed in any case. We will re-sell the product and provide support.
+\item Specific mission: Select five requirements that you think are important when selecting this e-mail client.
+\item Other considerations: This should be made based on your current and personal experience.
+\item Methodology: Create an initial methodology to be followed for other people.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Exercise}
+
+\begin{itemize}
+\item Improve the previous exercise with a GQM approach
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Exercise}
+
+\begin{itemize}
+\item Improve the previous exercise adding info from the ISO 9126 that could be useful
+\end{itemize}
+\end{frame}
+
+
+\end{document}
