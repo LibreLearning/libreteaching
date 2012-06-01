@@ -1,0 +1,67 @@
+the sources of slides is libresoft git: libreteaching/titulos-propios/android/2011/sesiones/
+
+
+
+== Session 1 ==
+
+ - Syllabus
+ - Intro Android
+ - Discussion about fragmentation
+ - Install eclipse and android sdk
+ - Hello World
+ - Layouts
+
+Exercise: Layout of social network
+
+
+== Session 2 ==
+
+  - widgets: XML to JAVA
+  - SetOnClickListener
+  - Intents
+  - Send params between activities
+
+  - ListActivity: Simple and Medium
+
+
+Exercise: Advanced List Activity with Intents
+
+
+== Sesion 3 ==
+
+   - Google Maps & Geolocation
+   - Overlays
+   - /home/rocapal/androiMenus
+   - Sign Android Application
+
+   - HTTP Connections and XML Parser
+   - Logs
+   - http://www.earthpublisher.com/georss.php
+   - http://earthquake.usgs.gov/earthquakes/catalogs/eqs7day-M5.xml
+
+Exercise: Improve GeoRSS parser, and build a ListActivity with this
+info
+
+
+== Sesion 4 ==
+
+   - ProgressDialog
+   - Notification Manager (*)
+   - Services
+   - AsyncTask
+
+   - Extra Time: Study source code of AdvancedList3
+
+Exercise: Add processDialog and AsyncTask to HelloMap (GeoRSS)
+
+
+== Sesion 5 ==
+
+   - Notifcation Manager
+   - Example of async List
+   - Sign the android application
+   - Explain the final work
+
+Execise: The final work
+
+

@@ -1,0 +1,7 @@
+
+- Dia 1:
+  	  * Lectura Intro Android
+
+- Dia 2,3,4:
+  	  * Instalacion eclipse/android/plugin/jaga
+	  * Materiales: Video y links
