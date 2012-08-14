@@ -1,0 +1,318 @@
+%% presentation.tex
+%%
+%% Presentation of the course ``System Integration'' of the Official Master on Libre Software (URJC)
+%% http://master.libresoft.es
+%%
+
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer 
+%
+
+\documentclass{beamer}
+\usepackage{moreverb} 
+\usepackage{listings}
+\usepackage{mflogo}
+% imprimir
+% \documentclass[handout]{beamer} 
+% \usepackage{pgfpages}
+% \pgfpagesuselayout{4 on 1}[a4paper,landscape,border shrink=5mm]
+
+\mode<presentation> {
+  \usetheme{Warsaw}
+  \setbeamercovered{opaque}
+}
+
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+% \usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+%% Metadatos del PDF.
+\hypersetup{  
+  pdftitle={System Integration},
+  pdfauthor={Miguel Vidal},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Master on Free Software},
+}
+%%
+
+\defbeamertemplate*{footline}{shadow theme}
+{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.1cm plus1fil,rightskip=.2cm]{author in head/foot}%
+\includegraphics[scale=0.40]{format/cc-by-80x15.png} \hspace{0.05cm}
+	Miguel Vidal / Jose Castro
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle%
+    \hspace{3.25cm} \usebeamerfont{author in head/foot}\insertframenumber\,/\,\inserttotalframenumber\hfill
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+
+\begin{document}
+
+\title{System Integration}
+\subtitle{Master on Libre Software (URJC)}
+% \institute{\texttt{http://gsyc.urjc.es/\~{}mvidal} \\ Twitter: \texttt{@mvidallopez}}
+\author{Miguel Vidal, Jose Castro} 
+\date{\footnotesize{Fuenlabrada (Madrid) \\ March-April, 2012}}
+\author{Miguel Vidal \hspace{1cm} Jose Castro \\
+\hspace{0.5mm} {\tiny Twitter: @mvidallopez \hspace{1.1cm}Twitter: @jfcastroluis}
+}
+
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+%% License slide
+\begin{frame}
+  \vspace{2cm}
+  \begin{flushright}
+    {\small \copyright{} 2010-2012 Miguel Vidal, Jose Castro} \\
+%    \vspace{0.25cm}
+    \medskip
+    {\scriptsize This work is licensed under \\ a Creative Commons Attribution 3.0 License}
+%    \vspace{0.10cm}
+  \end{flushright}
+  \begin{flushright}
+    \href{http://creativecommons.org/licenses/by/3.0/es}{\includegraphics[width=2cm]{format/cc-by.png}} \\
+    {\tiny \url{http://creativecommons.org/licenses/by/3.0}}
+  \end{flushright}
+\end{frame}%%
+
+\usebackgroundtemplate{}
+
+\AtBeginSection[]
+{
+\begin{frame}<beamer>
+\begin{center}
+{\huge \insertsection}
+\end{center}
+\end{frame}
+}
+
+
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>{Table of Contents}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+%%
+
+\normalsize
+
+%%---------------------------------------------------------------------
+%%---------------------------------------------------------------------
+
+\begin{frame}
+  \frametitle{Course Contents}
+
+%  \begin{itemize}[<+->]
+  \begin{itemize}
+    \item \alert{Session 0: Presentation of the Course}
+    \item Session 1: Introduction to free software on Servers
+    \item Session 2: Storage as a Service
+    \item Session 3: The Art of Virtualization
+    \item Session 4: From Virtualization to Cloud Computing
+    \item Session 5: High Availability Clusters
+  \end{itemize}
+
+\end{frame}
+
+
+\section{Presentation of the course}
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Administrative data}
+
+\begin{itemize}
+\item Second semester, 3 ECTS credits
+\item Lecturers:
+  \begin{itemize}
+  \item \alert{Miguel Vidal} (\texttt{mvidal at gsyc.urjc.es})
+  \item \alert{Jose Castro} (\texttt{jfcastro at libresoft.es})
+  \end{itemize}
+\item Schedule: \alert{Fridays, 17:00-21:00}
+  \begin{itemize}
+  \item Classroom 227, Departamental I, campus at Fuenlabrada
+%  \item Lab 7, Laboratorios II, campus at Fuenlabrada
+  \end{itemize}
+\item Moodle course: \\
+  {\footnotesize\url{http://gsyc.escet.urjc.es/moodle/course/view.php?id=130}}
+\end{itemize}
+\end{frame}
+
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Free Software basis}
+
+\pause
+\begin{itemize}
+    \item Development
+\pause
+    \item Legal issues
+\pause
+    \item Economics / Business Models
+\pause
+    \item Community
+\pause
+    \item \alert{Systems!} 
+\end{itemize}
+
+\end{frame}
+
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Systems Integration?}
+
+\begin{itemize}
+   \item Linking together hardware/software subsystems into a whole (one system or ``\alert{platform}'').
+   \item Broad range of techniques: computer networking, enterprise application integration, system administration or programming.
+   \item System integration engineer: Broad range of skills. Challenging problems.
+   \item Systems from a professional standpoint. 
+   \item In short: ``\alert{pulls it all together.}'' 
+\end{itemize}
+
+\end{frame}
+
+
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Main topics addressed}
+
+\begin{itemize}
+   \item Overview about some advanced tasks that System Administrators and Network Engineers are typically expected to perform with free software. 
+   \item We will learn from design issues to integrate and deployment some complex architectures.
+   \item Focus in current SA skills: \alert{Virtualization} (servers, storage, networks) and \alert{clustering}.   
+\end{itemize}
+
+\end{frame}
+
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Sessions}
+
+\begin{enumerate}
+\item \alert{March 23rd:} Introduction to free software on Servers
+\item \alert{March 30th:} Storage as a Service
+\item \alert{April 13rd:} The Art of Virtualization
+\item \alert{April 20th:} From Virtualization to Cloud Computing
+\item \alert{April 27th:} High Availability Clusters
+\end{enumerate}
+
+\end{frame}
+
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Evaluation criteria}
+
+\begin{itemize}
+\item \alert{\textsc{Final Practice}} will represent \alert{100\% of final evaluation}.
+\end{itemize}
+\end{frame}
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Grades}
+
+\begin{itemize}
+\item \textbf{0--4.9: Fail} (``Suspenso'', SS)
+\item \textbf{5--6.9: Pass} (``Aprobado'', AP)
+\item \textbf{7--8.9: Good} (``Notable'', NT)
+\item \textbf{9--10: Excellent} (``Sobresaliente'', SB)
+\end{itemize}
+
+\end{frame}
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Final Practice}
+
+\vspace{-1cm}
+
+\begin{center}
+\includegraphics[width=6.5cm]{../practica-2012.pdf}
+\end{center}
+
+\end{frame}
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Final Practice}
+
+\begin{itemize}
+\item  \alert{+1 point:} deploying VMs with two differents free Operating Systems (instead of Linux).
+\item  \alert{+1 point:} VMs will have to mount LVM filesystems. So different volumes (LVMs) for different VM mountpoints:
+	\begin{itemize}
+	\item \texttt{/var/lib/www} volume mounted in \texttt{ws01}
+	\item \texttt{/var/lib/mysql} volume mounted in \texttt{db01}
+	\end{itemize}
+\item  \alert{+1 point:} Doing Moodle exercises and being proactive in classroom.
+\item  \alert{+0.5 point:} a web server different to Apache for \texttt{ws01}, such as nginx or Cherokee.
+\item  \alert{+0.5 point:} \textsc{https} support in web server (\texttt{ws01}). You'll have to open (and forward) 443 port in your firewall host to \texttt{ws01}.
+\end{itemize}
+\end{frame}
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Submission deadline}
+
+\begin{itemize}
+\item For May evaluation: \alert{May 12th 2012}. 
+\item For June/July evaluation: the date limit will be the \alert{29th of June}.
+\end{itemize}
+
+\end{frame}
+
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Some general references}
+
+\begin{itemize}
+\item Course Website: \\
+  {\footnotesize \url{http://gsyc.escet.urjc.es/moodle/course/view.php?id=130}}
+\item \textsc{Evi Nemeth et al.}, \textit{Unix and Linux System Administration Handbook} (4th Edition), Prentice Hall, July 2010.
+\item \textsc{Aeleen Frisch}, \textit{Essential System Administration} (3rd Edition), O'Reilly, August 2002.
+\item \textsc{Thomas A. Limoncelli} \textit{The Practice of System and Network Administration} (2nd Edition) Addison-Wesley, 2007. 
+\item \textsc{Thomas A. Limoncelli}, \textit{Time Management for System Administrators} (3rd Edition), O'Reilly, August 2005.
+
+\end{itemize}
+
+\end{frame}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+\end{document}

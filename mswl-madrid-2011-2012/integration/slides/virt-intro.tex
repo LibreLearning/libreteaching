@@ -1,0 +1,793 @@
+\documentclass{beamer}
+\usepackage{moreverb} 
+\usepackage{listings}
+\usepackage{mflogo}
+% imprimir
+% \documentclass[handout]{beamer} 
+% \usepackage{pgfpages}
+% \pgfpagesuselayout{4 on 1}[a4paper,landscape,border shrink=5mm]
+
+\mode<presentation> {
+  \usetheme{Warsaw}
+  \setbeamercovered{opaque}
+}
+
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+%% Metadatos del PDF.
+\hypersetup{  
+  pdftitle={Virtualización con software libre},
+  pdfauthor={Miguel Vidal},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Master on Free Software},
+}
+%%
+
+\defbeamertemplate*{footline}{shadow theme}
+{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.1cm plus1fil,rightskip=.2cm]{author in head/foot}%
+\includegraphics[scale=0.40]{format/cc-by-80x15.png} \hspace{0.05cm}
+	Miguel Vidal / Jose Castro
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle%
+    \hspace{2cm} \usebeamerfont{author in head/foot}\insertframenumber\,/\,\inserttotalframenumber\hfill
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+
+\begin{document}
+
+\title{Virtualización con software libre}
+\subtitle{System Integration}
+% \institute{\texttt{http://gsyc.urjc.es/\~{}mvidal} \\ Twitter: \texttt{@mvidallopez}}
+\author{Miguel Vidal, Jose Castro} 
+\date{\footnotesize{Master on Free Software \\ April 13rd, 2012}}
+\author{Miguel Vidal \hspace{1cm} Jose Castro \\
+\hspace{0.5mm} {\tiny Twitter: @mvidallopez \hspace{1.1cm}Twitter: @jfcastroluis}
+}
+
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+%% License slide
+\begin{frame}
+  \vspace{2cm}
+  \begin{flushright}
+    {\small \copyright{} 2010-2012 Miguel Vidal, Jose Castro} \\
+%    \vspace{0.25cm}
+    \medskip
+    {\scriptsize This work is licensed under \\ a Creative Commons Attribution 3.0 License}
+%    \vspace{0.10cm}
+  \end{flushright}
+  \begin{flushright}
+    \href{http://creativecommons.org/licenses/by/3.0/es}{\includegraphics[width=2cm]{format/cc-by.png}} \\
+    {\tiny \url{http://creativecommons.org/licenses/by/3.0}}
+  \end{flushright}
+\end{frame}%%
+
+\usebackgroundtemplate{}
+
+\AtBeginSection[]
+{
+\begin{frame}<beamer>
+\begin{center}
+{\huge \insertsection}
+\end{center}
+\end{frame}
+}
+
+
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>{Índice}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Qué es la virtualización}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Qué es la virtualización}
+
+% \begin{definition}
+\begin{block}{Definición}
+Es la combinación de hardware y software que permite a un \alert{recurso físico} (como un servidor, un sistema operativo o un dispositivo de almacenamiento) funcionar como \alert{múltiples recursos lógicos}.
+% \end{definition}
+\end{block}
+
+\begin{itemize}
+\item También se puede definir como la \alert{abstracción} de los recursos de una máquina.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Orígenes}
+
+\begin{frame}
+\frametitle{Virtualización: Orígenes remotos}
+
+\begin{itemize}
+\item Término acuñado en los años 60 (también conocido como ``pseudo máquina'').
+\item El proyecto M44/44X (mediados de los 60): el objetivo era evaluar los conceptos de los sistemas de tiempo compartido.
+\item En los 70 se desarrollaron varios sistemas de máquinas virtuales basadas en IBM.
+\item Un componente llamado \alert{Virtual Machine Monitor (VMM)} corría directamente sobre el hardware ``real''.
+\item Se podían crear varias máquinas virtuales y cada instancia ejecutaba su propio sistema operativo.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Antecedentes modernos}
+
+\begin{itemize}
+\item \alert{1999}: VMware introduce el primer producto de virtualización x86, VMware Virtual Platform.
+\item \alert{2005}: VMWare distribuye gratuitamente virtualización para escritorio.
+\item \alert{Finales de 2005}: Intel introduce VT-x. \alert{2006}: AMD-V.
+\item \alert{2006}: Parche de Xen para kernel Linux 2.6.18.
+\item \alert{2007}: KVM aparece en la rama oficial del kernel Linux 2.6.20.
+\item \alert{2007}: Sun publica LDOM para Sparc. 
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Conceptos básicos}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Conceptos básicos}
+
+\begin{itemize}
+\item \alert{anfitrión} (\textit{host}): el SO que ejecuta el software de virtualización.
+	\begin{itemize}
+	\item El anfitrión controla el hardware real.
+	\end{itemize}
+\item \alert{invitado} o \alert{huésped} (\textit{guest}): el SO virtualizado.
+	\begin{itemize}
+	\item Puede haber varios invitados en un mismo anfitrión. 
+	\item Los anfitriones no deben interferir entre ellos ni con el anfitrión.
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}
+\frametitle{Conceptos de virtualización}
+
+\begin{itemize}
+\item Al software de virtualización se le llama:
+	\begin{itemize}
+	\item  \alert{Hipervisor}.
+	\item  \alert{Virtual Machine Manager} or \alert{VMM}.
+	\end{itemize}
+\item El VMM o Hipervisor corre como parte del sistema operativo del anfitrión (o es el anfitrión).
+\item A una instancia del hardware virtualizado se la conoce como \alert{Máquina Virtual} o \alert{VM}.
+\item Los sistemas operativos huéspedes corren dentro de una VM.
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Hipervisor (I)}
+
+\begin{itemize}
+\item Los \textit{Virtual Machine Monitors} (\textit{aka} \alert{hipervisores}) permiten que diferentes SOs, tareas y configuraciones de software coexistan en una misma máquina física.
+\item Abstrae los recursos físicos de la máquina anfitriona para las distintas ``máquinas virtuales''.
+\item Garantizan nivel de aislamiento entre los invitados.
+\item También proporcionan una interfaz única para el hardware.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Hipervisor (y II)}
+
+Dos clases de hipervisores:
+
+\begin{itemize}
+\item \alert{Tipo 1} (o ``nativo'', ``bare-metal''): el hipervisor es una capa entre el hardware y el sistema operativo. 
+\begin{itemize}
+\item Al sistema operativo se le llama Dominio de Control  y corre sobre el hipervisor.
+\item Los guests son ``Dominios Lógicos''.
+\end{itemize}
+
+\item \alert{Tipo 2} (o ``hosted''): el hipervisor es una capa de software que corre sobre el sistema operativo anfitrión.
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Extensiones de virtualización para x86}
+
+\begin{itemize}
+\item 2005: Intel y AMD añaden soporte hardware para la virtualización.
+\item Intel Virtualization Technology (VT) \textit{codename} Vanderpool
+\item AMD Virtualization (AMD-V) \textit{codename} Pacifica
+\item Añaden una funcionalidad específica para permitir a los hipervisores un rendimiento mayor en virtualización completa.
+\item La virtualización completa es más sencilla de implementar.
+\end{itemize}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Razones}
+
+\begin{frame}
+\frametitle{Razones para virtualizar (1)}
+
+\begin{itemize}
+\pause
+\item Permite el \alert{aislamiento} de aplicaciones y usuarios sobre la misma máquina para que no se interfieran entre sí.
+\item \alert{Consolidación}: fusiona varios servidores o servicios en una misma máquina (email, web, dns, etc.).
+\item Ejecutar diferentes sistemas operativos o software específico para un tipo de CPU.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Razones para virtualizar (y 2)}
+
+\begin{itemize}
+\item \alert{Entornos de prueba} sencillos y seguros: depuración, desarrollo y aislamiento para estudiar virus, etc.
+\item \alert{Fácil desarrollo} de software utilizando aplicaciones de software virtuales. Desde la perspectiva del negocio, es posible reducir los costes totales de propiedad (TCO).
+\item \alert{Minimiza el consumo de energía} y la infraestructura de refrigeración en los \textit{datacenters}.
+\end{itemize}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Virtualización y Cloud Computing}
+
+\begin{itemize}
+\item El Cloud Computing (IaaS) \alert{no} es lo mismo que la gestión de la virtualización.
+\item Pero es cierto que la mayoría de los entornos de Cloud Computing hacen uso de la virtualización.
+\item La gestión del hardware está totalmente abstraída.
+\item La capacidad de la infraestructura en Cloud Computing es elástica (tanto para crecer como para menguar).
+\end{itemize}
+
+\begin{center}
+\alert{El cloud (IaaS) son recursos hardware convertidos en un \\ ``\textit{pool} de recursos''}
+\end{center}
+
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Tipos de virtualización}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}[<+->]
+\frametitle{Tipos de virtualización}
+
+El objetivo es crear la impresión de tener hardware separado en un único sistema físico. Hay \alert{4 maneras} de hacer esto:
+
+\begin{enumerate}
+\item \alert{Emulación}
+\item \alert{Virtualización completa}
+\item \alert{Paravirtualización} 
+\item \alert{Virtualización a nivel de sistema operativo}
+\end{enumerate}
+
+\pause
+¿Alguno más?
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Emulación}
+
+\begin{frame}
+\frametitle{Emulación}
+
+\begin{itemize}
+\item La máquina virtual simula el hardware completo.
+\item Huéspedes sin modificar de diferentes arquitecturas hardware corren dentro de una VM.
+\item Utilizado para \alert{sandboxes} o para desarrollar software sin que el hardware esté disponible físicamente.
+\item \alert{Ejemplos:} Qemu; basilisk II (un emulador de Mac (m68k) para x86).
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Emulación: arquitectura}
+\begin{center}
+\includegraphics[scale=0.35,clip=false]{figs/emulation.png}
+\end{center}
+
+\begin{itemize}
+\item \alert{Ventajas:} Simular hardware que no está físicamente disponible.
+\item \alert{Desventajas:} Bajo rendimiento y baja densidad (coste alto).
+\end{itemize}
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Completa}
+
+
+\begin{frame}
+\frametitle{Virtualización completa}
+
+\begin{itemize}
+\item Parecido a la emulación, anfitriones sin modificar.
+\item Se diferencia de la emulación en que los sistemas operativos a virtualizar están diseñados para correr en la misma arquitectura que el anfitrión.
+\item Combinado con hardware: CMT, IntelVT, AMD-V, estas CPUs controlan el acceso a instrucciones de virtualización.
+\item \alert{Ejemplos:} KVM, VirtualBox, Xen + Intel VT. 
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Virtualización completa: arquitectura}
+\begin{center}
+\includegraphics[scale=0.35,clip=false]{figs/fullvirt.png}
+\end{center}
+
+\begin{itemize}
+\item \alert{Ventajas:} Flexibilidad, ejecuta diferentes sistemas operativos de distintos fabricantes.
+\item \alert{Desventajas:} No se pueden emular otras arquitecturas. Rendimiento (en CPUs estándar).
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Paravirtualización}
+
+\begin{frame}
+\frametitle{Paravirtualización}
+
+\begin{itemize}
+\item El hipervisor ofrece una versión modificada del anfitrión.
+\item La VM ofrecida tiene la misma arquitectura que el anfitrión.
+\item \alert{Ejemplo:} Xen con CPUs estándar.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Paravirtualización: arquitectura}
+\begin{center}
+\includegraphics[scale=0.35,clip=false]{figs/paravirt.png}
+\end{center}
+
+\begin{itemize}
+\item \alert{Ventajas:} Rendimiento (ligero y rápido), escalabilidad y facilidad de gestión; fuerte aislamiento; permite virtualizar sin necesidad de CPUs especiales. 
+\item \alert{Desventajas:} Para la misma arquitectura. Requiere modificar el SO del invitado.
+\end{itemize}
+
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Ligera}
+
+\begin{frame}
+\frametitle{Virtualización ligera}
+
+\begin{itemize}
+\item También conocida como \alert{virtualización a nivel de SO} o \textit{virtual hosts}.
+\item La virtualización se hace instanciando la imagen del SO (sin hipervisor).
+\item El SO está modificado para permitir múltiples procesos en diferentes espacios de usuario aislados unos de otros, cada uno con su configuración de red.
+\item \alert{Ejemplos:} Jaulas de FreeBSD, zonas/contenedores de OpenSolaris, Linux VServers. 
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Virtualización ligera: arquitectura}
+\begin{center}
+\includegraphics[scale=0.50,clip=false]{figs/armitage2.png}
+\end{center}
+
+\begin{itemize}
+\item \alert{Ventajas:} Rápida, capa ligera de virtualización. Rendimiento cercano al nativo. Densidad.
+\item \alert{Desventajas:} Es difícil implementar el aislamiento fuerte. Tampoco se pueden (a priori) virtualizar distintos SO.
+\end{itemize}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Otros tipos de virtualización (1)}
+
+\begin{itemize}
+\item \alert{Virtualización de bibliotecas:} biblioteca \textbf{Wine} (subconjunto de la API de Win32 para poder ejecutar aplicaciones Windows)
+\item \alert{Virtualización de aplicación:} entorno de ejecución virtual (con una API para la ejecución en diferentes plataformas). \textit{Ejemplo:} \textbf{Java Virtual Machine}.
+\item \alert{Virtualización de escritorio:} se implementa el escritorio como servicio. \textit{Ejemplo:} \textbf{SunVDI}.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Otros tipos de virtualización (y 2)}
+
+\begin{itemize}
+\item \alert{Virtualización de almacenamiento:} \textit{arrays} y \textit{pools} de discos. \textit{Ejemplos:} \textbf{LVMs} en Linux y \textbf{ZFS} en OpenSolaris. También los FS distribuidos (\textbf{OCFS2}, \textbf{GFS}).
+\item \alert{Virtualización de red:} \textbf{Crossbow} (nativa de OpenSolaris) permite crear switches e interfaces de red virtuales.
+\item Memoria virtual, particiones de bases de datos...
+\end{itemize}
+
+\end{frame}
+
+
+\section{Tecnologías de virtualización}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Xen}
+
+
+\begin{frame}
+\frametitle{Xen: Características (1)}
+
+\begin{itemize}
+\item Xen utiliza \alert{paravirtualización}.
+\item El sistema operativo huésped tiene que estar modificado para usar el hipervisor.
+\item También admite virtualización completa (con Intel VT o AMD-V): 
+	\begin{itemize}
+	\item huéspedes sin modificar 
+	\item permite que sistemas operativos privativos (como Windows) puedan ser virtualizados.
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Xen: Características (2)}
+
+\begin{itemize}
+\item Es capaz de hacer \alert{migración} de máquinas virtuales.
+\item Xen (HV) se ejecuta en el anillo de protección 0 mientras que los dominios se ejecutan en el anillo 1 o anillo 3.
+
+\begin{figure}
+  \centering
+\includegraphics[scale=0.40,clip=false]{figs/rings-xen.png}
+  \caption{\footnotesize{Anillos: dominios de protección jerárquica (x86)}}
+\end{figure}
+
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Xen: Prestaciones (1)}
+\begin{itemize}
+
+\item \alert{Independencia} entre los sistemas virtualizados. Se puede reiniciar y crear independientemente.
+\item \alert{Uso mejorado del hardware}: balanceo de recursos. Una máquina virtual puede hacer uso de los recursos que no utilizan las otras máquinas virtuales.
+\item \alert{Backup sencillo}. Sólo con copiar la máquina virtual se puede levantar en un nuevo servidor. Xen también permite la migración en caliente, siendo muy flexible y minimizando el tiempo de recuperación en caso de fallo.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Xen: Prestaciones (2)}
+\begin{itemize}
+
+\item Se pueden \alert{modificar parámetros} como la RAM, el número de CPUs y el espacio en disco para cada necesidad específica de cada máquina virtual.
+\item \alert{Entornos de prueba} y desarrollo: múltiples máquinas virtuales en un único servidor físico para probar y desarrollar.
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Xen: Cómo funciona}
+\begin{center}
+\includegraphics[width=9cm]{figs/XEN-schema.png}
+\end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{¿Xen integrado en Linux?}
+
+\vspace{-0.25cm}
+\begin{center}
+\includegraphics[width=5.5cm]{figs/xen-kernel-support.png} \\
+\end{center}
+
+\begin{flushright}
+\includegraphics[width=5.5cm]{figs/xen-kernel-support3.png} \\
+\end{flushright}
+
+\begin{center}
+\includegraphics[width=5cm]{figs/xen-kernel-support2.png} 
+\end{center}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Xen: Linux 3.0}
+\begin{itemize}
+
+\item En Linux 3.0 los \alert{drivers paravirtualizados de Xen} se integran en el kernel oficialmente.
+\item Ahora pueden usarse Dom-0 (host) y DomU sin modificar/hackear el kernel.
+\item El hipervisor Xen sigue siendo un proyecto desarrollado aparte de Linux.
+\item KVM sigue siendo el único hipervisor integrado en el kernel Linux.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Xen en kernel Linux 2.x}
+\begin{center}
+\includegraphics[width=9cm]{figs/xen-old-kernels.png}
+\end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Xen en kernel Linux 3.x}
+\begin{center}
+\includegraphics[width=9cm]{figs/xen-new-kernel.png}
+\end{center}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{KVM}
+
+
+\begin{frame}
+\frametitle{Linux: Kernel-based Virtual Machine (1)}
+
+\begin{itemize}
+\item KVM es un infraestructura de virtualización específica del kernel Linux.
+\item Virtualización nativa (completa) utilizando los micros Intel VT y AMD-V.
+\item La primera versión fue incluida en Linux 2.6.20 (febrero 2007).
+\item Ha sido portada por Joyent a illumos (fork libre de OpenSolaris).
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Linux: Kernel-based Virtual Machine (2)}
+
+\begin{itemize}
+\item Muchos SOs funcionan virtualizados con KVM: Linux, BSD, Solaris, Windows, Haiku, ReactOS y  MacOS X.
+\item No requiere emulación: un programa en espacio de usuario (Qemu) utiliza la interfaz \texttt{/dev/kvm} para configurar el espacio de direcciones de las VMs hospedadas.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{KVM: arquitectura}
+
+\begin{center}
+\includegraphics[scale=0.40,clip=false]{figs/kvm_architecture.png}
+\end{center}
+
+Dos componentes:
+\begin{enumerate}
+\item Un driver del kernel Linux (\texttt{/dev/kvm}).
+\item Un componente en espacio de usuario para emular el hardware del PC (Qemu).
+\end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{KVM: Virtualización completa en Linux}
+\begin{center}
+\includegraphics[scale=0.2,clip=false]{figs/kvm.png}
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{KVM: SmartOS (illumos)}
+\vspace{-0.25cm}
+\begin{figure}
+\includegraphics[width=10cm]{figs/KVM-xp-booted.png}
+\caption{KVM en SmartOS, virtualizando Windows XP.}
+\end{figure}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Jails}
+
+
+\begin{frame}
+\frametitle{FreeBSD: Jails}
+
+\begin{center}
+\includegraphics[scale=0.50,clip=false]{figs/armitage3.png}
+\end{center}
+
+\begin{itemize}
+\item Instancias (réplicas) del kernel FreeBSD aisladas, cada una con su IP, cuentas de usuario, etc.
+\item Virtualización ligera (un solo kernel).
+\end{itemize}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{OpenSolaris}
+
+\begin{frame}
+\frametitle{Proyectos xVM OpenSolaris}
+
+\begin{itemize}
+\item \alert{VirtualBox}: VMs para todo. Diferentes plataformas.
+\item \alert{xVM server}: Xen en Opensolaris 2009.06.
+\item Dominios lógicos (\alert{LDOMs}): Hipervisor tipo 1, ``completo'', para plataformas SPARC.
+\item \alert{Zonas}: virtualización ligera para OpenSolaris.
+\item Otros: Sun XVM Ops Center, Sun xVM VDI.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Contenedores y zonas}
+
+\begin{itemize}
+\item Tipo de virtualización que ejecuta varias instancias del mismo sistema operativo (y el mismo kernel).
+\item Zona Global y Zonas Locales: no se puede acceder al sistema de ficheros global (un \texttt{chroot} mejorado).
+\item Sin hipervisor ni hardware específico para virtualización.
+\item Despliegue y administración muy simple: \texttt{zonecfg} y \texttt{zoneadm}.
+\item x86: con soporte para ``branding''.
+\item Desde 2005 forma parte de Solaris 10 (y OpenSolaris).
+\item Parecido a las jaulas de FreeBSD, OpenVZ (contenedores Linux) o Linux-VServer.
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Virtualización con LDOMs}
+
+\begin{itemize}
+\item ``Virtualización completa'', basada en un hipervisor tipo 1.
+\item Requiere CPUs especiales (Chip Multithreading = CMT).
+\item Cada dominio es una máquina virtual completa con un conjunto configurable de recursos.
+\item Los sistemas operativos que corren dentro del Dominio Lógico pueden iniciarse, pararse y reiniciarse de forma independiente.
+\item OS base: Solaris 10 / Opensolaris 2009.06
+\item OS de máquina virtual: Solaris 10, Opensolaris 2009.06, Sparc Linux y otros que soporten estan arquitectura.
+\item Pero por ahora, tan solo SunOS está soportado.
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Chip Multithreading (CMT)}
+
+\begin{itemize}
+\item UltraSparc T1 / T2.
+\item \alert{Multithread}: Un \textit{thread} es similar a una CPU.
+\item Ejemplo: T1 tiene 8 cores con 4 threads/core.
+\item SSL directamente soportado por el hardware (1 MAU/core).
+\item LDOMs pueden asignar cores a las VMs.
+\item El hipervisor ejecuta en el firmware del servidor.
+\item Free/Open Hardware: \url{http://www.opensparc.net}
+\item Sun Fire T / Enterprise T / Blade T servers.
+\end{itemize}
+
+\begin{center}
+\includegraphics[width=6cm,clip=false]{figs/sparcT1.png}
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}
+\frametitle{Referencias}
+
+\begin{itemize}
+
+\item Amit Singh ``An Introduction to Virtualization'' (2004): \\
+\url{http://www.kernelthread.com/publications/virtualization/}
+\item Comparison of platform virtual machines: \url{http://en.wikipedia.org/wiki/Comparison_of_platform_virtual_machines}
+\item Jeanne Matthews \textit{et al.} \textit{Running Xen}. Prentice Hall, 2008 (Chapter 1: ``Background and Virtualization Basics'')
+
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+
+
+

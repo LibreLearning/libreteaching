@@ -1,0 +1,403 @@
+\documentclass{beamer}
+\usepackage{moreverb} 
+\usepackage{listings}
+\usepackage{mflogo}
+% imprimir
+% \documentclass[handout]{beamer} 
+% \usepackage{pgfpages}
+% \pgfpagesuselayout{4 on 1}[a4paper,landscape,border shrink=5mm]
+
+\mode<presentation> {
+  \usetheme{Warsaw}
+  \setbeamercovered{opaque}
+}
+
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+%% Metadatos del PDF.
+\hypersetup{  
+  pdftitle={Almacenamiento: ejercicios},
+  pdfauthor={Miguel Vidal},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Master on Free Software},
+}
+%%
+
+\defbeamertemplate*{footline}{shadow theme}
+{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.1cm plus1fil,rightskip=.2cm]{author in head/foot}%
+\includegraphics[scale=0.40]{format/cc-by-80x15.png} \hspace{0.05cm}
+	Miguel Vidal / Jose Castro
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle%
+    \hspace{2cm} \usebeamerfont{author in head/foot}\insertframenumber\,/\,\inserttotalframenumber\hfill
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+
+\begin{document}
+
+\title{Almacenamiento: ejercicios}
+\subtitle{System Integration}
+% \institute{\texttt{http://gsyc.urjc.es/\~{}mvidal} \\ Twitter: \texttt{@mvidallopez}}
+\author{Miguel Vidal, Jose Castro} 
+\date{\footnotesize{Master on Free Software \\ March 30th, 2012}}
+\author{Miguel Vidal \hspace{1cm} Jose Castro \\
+\hspace{0.5mm} {\tiny Twitter: @mvidallopez \hspace{1.1cm}Twitter: @jfcastroluis}
+}
+
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+%% License slide
+\begin{frame}
+  \vspace{2cm}
+  \begin{flushright}
+    {\small \copyright{} 2010-2012 Miguel Vidal, Jose Castro} \\
+%    \vspace{0.25cm}
+    \medskip
+    {\scriptsize This work is licensed under \\ a Creative Commons Attribution 3.0 License}
+%    \vspace{0.10cm}
+  \end{flushright}
+  \begin{flushright}
+    \href{http://creativecommons.org/licenses/by/3.0/es}{\includegraphics[width=2cm]{format/cc-by.png}} \\
+    {\tiny \url{http://creativecommons.org/licenses/by/3.0}}
+  \end{flushright}
+\end{frame}%%
+
+\usebackgroundtemplate{}
+
+\AtBeginSection[]
+{
+\begin{frame}<beamer>
+\begin{center}
+{\huge \insertsection}
+\end{center}
+\end{frame}
+}
+
+
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>{Índice}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+%%
+
+\normalsize
+
+% Inicio de la presentacion
+
+\section{VirtualBox}
+\begin{frame}
+  \frametitle{VirtualBox}
+
+  \begin{block}{¿Qué es una VM?}
+Un proceso en el host que maneja un fichero con una configuración de dispositivos emulados: memoria, red, sonido...
+  \end{block}
+
+  \begin{itemize}
+    \item Los discos en Virtualbox tienen formato VDI y están asociados a una VM. No son más que un fichero del host.
+    \item Los discos pueden ser \alert{dynamically allocated} (asignados dinámicamente) o \alert{Fixed size} (imagen de tamaño fijo)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{VirtualBox: configuración de red de una VM}
+
+Los tipos de red en Virtualbox:
+
+  \begin{itemize}
+    \item \alert{NAT:} la máquina sale hacia afuera pero no es accesible ni desde fuera ni desde el host.
+    \item \alert{Bridge:} se asocia con un bridge a una interfaz y es una máquina más de la red.
+    \item \alert{Internal:} se crea una red virtual entre las máquinas de esa red.
+    \item \alert{Host-only:} las máquinas tienen conexión hacia afuera y desde el host.
+     En este caso, podemos configurar algunas cosas desde las preferencias
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Ejercicios}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{RAIDs}
+
+\begin{frame}
+  \frametitle{RAIDs: Ejercicio 1}
+
+\begin{itemize}
+\item \textbf{Creación de un RAID-1 con 2 dispositivos de bloques creados en VirtualBox.}
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{RAIDs: Ejercicio 1}
+
+\begin{itemize}
+\item \textbf{Creación de un RAID-1 con 2 dispositivos de bloques creados en VirtualBox.}
+\end{itemize}
+
+\pause
+
+  \begin{block}{}
+\# apt-get install mdadm
+  \end{block}
+Seleccionamos \texttt{none} y que lo arranque automáticamente.
+
+  \begin{block}{}
+\# cat /proc/mdstat \\
+
+\# ls /dev/sd*
+
+\# mdadm --create /dev/md0 --level=raid1 --raid-devices=2 $\backslash$ \\ \hspace{1cm} /dev/sda /dev/sdb \\
+\# cat /proc/mdstat \\
+\# mdadm --detail /dev/md0
+  \end{block}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{RAIDs: Ejercicio 2}
+
+\begin{enumerate}
+\item \textbf{Formatear el dispositivo RAID con el sistema de ficheros favorito y montarlo en \texttt{/mnt}}
+\item \textbf{Crear un fichero de texto de nombre \texttt{foo} y contenido \texttt{bar}}
+\end{enumerate}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{RAIDs: Ejercicio 2}
+
+\begin{enumerate}
+\item \textbf{Formatear el dispositivo RAID con el sistema de ficheros favorito y montarlo en \texttt{/mnt}}
+\item \textbf{Crear un fichero de texto de nombre \texttt{foo} y contenido \texttt{bar}}
+\end{enumerate}
+
+\pause
+
+  \begin{block}{}
+\# mkfs.ext4 /dev/md0 \\
+\# cat /proc/mdstat
+  \end{block}
+  Esperamos a que sincronice.
+
+  \begin{block}{}
+\# mount /dev/md0 /mnt \\
+
+\# echo bar $>$ /mnt/foo
+  \end{block}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{RAIDs: Algunas pruebas de funcionamiento del RAID (1)}
+
+Reiniciamos el PC y vemos que está el RAID perfectamente funcional y lo podemos volver a montar:
+
+\pause
+
+  \begin{block}{}
+\# cat /proc/mdstat \\
+\# mount /dev/md0 /mnt \\
+\# cat /mnt/foo
+  \end{block}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{RAIDs: Algunas pruebas de funcionamiento del RAID (y 2)}
+
+Apagamos el PC y eliminamos uno de los dispositivos de bloques del RAID. Arrancamos de nuevo el PC.
+Vemos que nos llega un mail informando de que el RAID está degradado:
+
+  \begin{block}{}
+\# mail
+  \end{block}
+
+\pause
+
+Aún así, el RAID sigue estando operativo y se puede seguir utilizando:
+
+  \begin{block}{}
+\# cat /proc/mdstat \\
+\# mount /dev/md0 /mnt \\
+
+\# cat /mnt/foo \\
+\# echo foo $>$ /mnt/bar
+  \end{block}
+
+\end{frame}
+
+
+\subsection{LVMs}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{LVMs: Ejercicio 1}
+
+\begin{itemize}
+\item \textbf{Crear un dispositivo de bloques virtual más y configurar el raid y el nuevo dispositivo como dispositivos físicos.}
+\end{itemize}
+
+\pause
+
+  \begin{block}{}
+\# pvcreate /dev/md0 \\
+\# pvcreate /dev/sdd
+  \end{block}
+
+{\footnotesize \alert{OJO:} Ahora somos los administradores los que tenemos que tener cuidado de \alert{no montar \texttt{/dev/md0}} ya que son dos tecnologías diferentes y no hay nada que nos lo impida.}
+
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{LVMs: Ejercicio 2}
+
+\begin{itemize}
+\item \textbf{Crear un grupo de volúmenes con los dos dispositivos físicos anteriores.}
+\end{itemize}
+
+\pause
+
+  \begin{block}{}
+\# vgcreate vg00 /dev/md0 /dev/sdd
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{LVMs: Ejercicio 3}
+
+\begin{itemize}
+\item \textbf{Crear un volumen lógico de la mitad de tamaño del volumen}
+\item \textbf{Formatear ese volumen lógico, montarlo en \texttt{/mnt} y crear algún fichero de prueba}
+\end{itemize}
+
+\pause
+
+  \begin{block}{}
+\# lvcreate -L1G -n foo vg00 \\
+\# mkfs.ext3 /dev/vg00/foo \\
+\# mount /dev/vg00/foo /mnt
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{LVMs: Ejercicio 4}
+
+\begin{itemize}
+\item \textbf{Crear un snapshot del volumen lógico y montarlo en otro punto del sistema de ficheros}
+\item \textbf{Comprobar que se pueden añadir y borrar ficheros en el snapshot sin modificar el volumen lógico.}
+\item \textbf{¿Para qué puede ser útil esta funcionalidad?}
+\end{itemize}
+
+\pause
+
+  \begin{block}{}
+\# lvcreate -L512M -s -n foo-snap /dev/vg00/foo \\
+\# mount /dev/vg00/foo-snap /mnt2
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{LVMs: Ejercicio 4}
+
+\begin{itemize}
+\item \textbf{Formatear el volumen lógico con un sistema de ficheros que permita el crecimiento en caliente.}
+\item \textbf{Aumentar el tamaño del volumen lógico y posteriormente el tamaño del sistema de ficheros}
+\end{itemize}
+
+\pause
+
+  \begin{block}{}
+\# lvremove /dev/vg00/foo-snap \\
+\# lvremove /dev/vg00/foo \\
+ 
+\# lvcreate -L512M -n foo vg00 \\
+
+\# apt-get install xfsdump \\
+
+\# mkfs.xfs /dev/vg00/foo \\
+\# mount /dev/vg00/foo /mnt \\
+
+\# lvresize -L+1G /dev/vg00/foo \\
+
+\# xfs\_grow /mnt
+  \end{block}
+
+\end{frame}
+
+
+
+\subsection{NFS}
+
+\begin{frame}
+  \frametitle{Ejercicio con NFS}
+
+  \begin{itemize}
+\item Añadir a la máquina virtual creada un nuevo interfaz de red de tipo `internal'
+\item Crear una segunda máquina virtual con Debian y un interfaz de red de tipo `internal' conectado a la misma red que la anterior.
+\item Instalar en una de ellas un servidor de NFS y servir un directorio que será montado en la otra máquina por la red interna.
+  \end{itemize}
+
+\end{frame}
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Portada final
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+
+%Fin de la presentacion
+\end{document}
+
+
