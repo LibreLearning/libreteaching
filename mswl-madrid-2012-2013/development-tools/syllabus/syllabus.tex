@@ -1,0 +1,379 @@
+\documentclass[a4paper]{article}
+%\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+\usepackage[hypertex,colorlinks]{hyperref}
+%\usepackage{html}
+%\usepackage{hthtml}
+\usepackage{geometry}
+
+% Comments (optional argument is author of comment)
+\newcommand{\comments}[2][?]{
+  \begin{quote}
+    \textbf{Comment (#1):} {\em #2}
+  \end{quote}
+  }
+
+% \name is for ``special names'', like procedure or variable names.
+\newcommand{\name}[1]{\texttt{\hturl{#1}}}
+
+% Just a shortcut for links where the url appears as footnote.
+\newcommand{\htflink}[2]{\htmladdnormallinkfoot{#1}{#2}}
+
+\title{MSWL Development Tools \\
+Master on libre software \\
+URJC - GSyC/Libresoft \\
+\url{http://master.libresoft.es}}
+
+\author{}
+\date{September 2012}
+
+\sloppy
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Course syllabus and learning program for the course ``Development
+Tools'', of the Master on libre software of the Universidad Rey Juan
+Carlos.
+
+[This is an evolving document, until the course is finished and graded]
+\end{abstract}
+
+\tableofcontents
+
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+\section{Course topics and schedule}
+
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+\subsection{00 - Presentation of the course}
+
+Presentation of the main aspects of the course, and specially those
+related to administrative issues, evaluation, etc.
+
+%%----------------------------------------------------------------
+\subsubsection{September 13, 2012 (0.5 hours)}
+
+\subsection{01 - Version control with Git}
+
+Git is a distributed version control system. This class will introduce
+the main concepts about version control and about Git. This is a
+pre-requisite for the rest of the course.
+
+%%----------------------------------------------------------------
+\subsubsection{September 6, 2012 (2 hours)}
+
+\begin{itemize}
+\item \textbf{Lecturers:} Gregorio Robles
+\item \textbf{Presentation:} ``Git''
+  \begin{itemize}
+  \item \textbf{Discussion:} Existing services to setup a Git
+    repository.
+  \item \textbf{Requirements:} Running Git installation
+  \item \textbf{Supporting material:} Slides ``Git''
+  \end{itemize}
+\item \textbf{Assignment (results in website):}
+  \begin{itemize}
+  \item Registration in a Git
+    public service and creation of a repository for the rest of the
+    course.
+  \item Any kind of activity
+    related to this talk (blog post, video, etc)
+  \end{itemize}
+\end{itemize}
+
+\subsection{02 - Introduction to Python}
+
+Python is a programming language, very popular in libre software
+community. We will see the main concepts of the language and will
+create a small program, to be stored in the Git repository.
+
+%%----------------------------------------------------------------
+\subsubsection{September 6, 2012 (2 hours)}
+
+\begin{itemize}
+\item \textbf{Lecturers:} Gregorio Robles
+\item \textbf{Presentation:} ``Introduction to Python''
+  \begin{itemize}
+  \item \textbf{Discussion:} Python vs. other programming
+    languages. What are the advantages and drawbacks of dynamic
+    typing?
+  \item \textbf{Requirements:} Running Python 2.x development
+    environment and Git
+  \item \textbf{Supporting material:} Slides ``Introduction to Python''
+  \end{itemize}
+\item \textbf{Assignment (results in website):} 
+  \begin{itemize}
+  \item Creation of a small program which reads its command line
+    arguments.
+  \item Upload of the program to the Git repository
+  \item Any kind of activity
+    related to this talk (blog post, video, etc)
+  \end{itemize}
+\end{itemize}
+
+
+\subsection{03 - Developing a web crawler in Python}
+
+We will some advanced Python coding techniques and libraries, to
+develop a web crawler. The web crawler  will track updates of a web
+page.
+
+%%----------------------------------------------------------------
+\subsubsection{September 27, 2012 (4 hours)}
+
+\begin{itemize}
+\item \textbf{Lecturers:} Israel Herraiz
+\item \textbf{Presentation:} ``Developing a web crawler in Python''
+  \begin{itemize}
+  \item \textbf{Requirements:} Running Python 2.X installation and Git
+  \item \textbf{Supporting material:} Slides ``Developing a web
+    crawler in Python'', sample source code
+  \end{itemize}
+\item \textbf{Assignment (results in website):} 
+  \begin{itemize}
+  \item First functional iteration of the web crawler
+  \item Upload of the program to the Git repository
+  \item Any kind of activity
+    related to this talk (blog post, video, etc)
+  \end{itemize}
+\end{itemize}
+
+
+\subsection{04 - Introduction to Integrated Development Environments}
+
+How to use Python with the Eclipse IDE and to Redmine to support and
+assist the development of the web crawler started in lecture 03.
+%%----------------------------------------------------------------
+\subsubsection{September 13, 2012 (4 hours)}
+
+\begin{itemize}
+\item \textbf{Lecturers:} Micael Gallego
+\item \textbf{Presentation:} ``Introduction to Eclipse''
+  \begin{itemize}
+\item \textbf{Requirements:} Running Python 2.x development
+  environment and Eclipse
+  \item \textbf{Supporting material:} Slides ``Introduction to Eclipse''
+  \end{itemize}
+\item \textbf{Assignment (results in website):} Eclipse project for
+  the web crawler application
+\end{itemize}
+
+\subsubsection{September 20, 2012 (4 hours)}
+
+\begin{itemize}
+\item \textbf{Lecturers:} Francisco Gort\'azar
+\item \textbf{Requirements:} Running Python 2.x development
+  environment, Eclipse
+\item \textbf{Presentation:} ``Web-based IDEs''
+  \begin{itemize}
+  \item \textbf{Supporting material:} Slides ``Web-based IDEs''
+  \end{itemize}
+\item \textbf{Assignment (results in website):} Code reviews assisted
+  by the Redmine tickets system
+\end{itemize}
+
+
+\subsection{05 - Introduction to GNOME}
+
+GNOME development. Libraries and tools used in the development of
+desktop applications.
+
+%%----------------------------------------------------------------
+\subsubsection{October 4, 2012 (4 hours)}
+
+\begin{itemize}
+\item \textbf{Lecturers:} Carlos Garc\'ia Campos
+\item \textbf{Presentation:} ``Introduction to GNOME''
+  \begin{itemize}
+  \item \textbf{Requirements:} GCC and Autotools
+  \item \textbf{Supporting material:} Slides ``Introduction to
+    GNOME'', sample source code 
+  \end{itemize}
+\item \textbf{Assignment (results in website):} 
+  \begin{itemize}
+  \item GNOME desktop application (optional assignment)
+  \end{itemize}
+\end{itemize}
+
+
+\section{Grading}
+
+This section details the criteria for grading the course, the
+deadlines for the different activities, and the submission details for
+the activities that require them.
+
+\subsection{Evaluation criteria}
+\label{sub:evaluation-criteria}
+
+Each activity contributing to the grading of the course has its own
+evaluation criteria, as described below. Each of these activities has
+a minimum and maximum grading. If the minimum grading is 0, the
+activity is optional. Otherwise, the activity is mandatory, and has to
+be graded al least with the minimum to pass the course. Each activity
+has also a description, and when possible, some general grading
+criteria. In any case, the final grade for the course will also depend
+on the continuous observation of the instructors on the outcomes and
+progress of students.
+
+Students should ask instructors about any detail which may not be
+clear to them, either about the general grading plan, or about
+specific aspects of the activities. As a general rule, evaluation will
+have into account how the activity and its results show that the
+student has come close to the competences, knowledge and skills
+expected for the course.
+
+The student can consider that the next table will be used as a
+(minimum) guideline for assigning marks:
+
+\begin{itemize}
+\item Pass (``aprobado''): 150
+\item Good (``notable''): 250
+\item Excellent (``sobresaliente''): 350
+\end{itemize}
+
+\begin{itemize}
+\item \textbf{Blog entries}. \\
+  Minimum: 0 points, maximum: 50 points
+
+  Blog entries specifically related to the course, and marked as
+  such. 10 points for each post.. The tag used for that is mswl-devtools.
+
+\item \textbf{Python application}. \\
+  Minimum: 60 points, maximum: 250 points
+
+Source code of the ``spider'' assignment. Grading will vary taking in
+account the different topics covered in the lectures (easy deployment,
+documentation, testing, clarity of the code, etc). The application
+should be delivered through the Git repository. The activity in the
+Git repository will also be used for grading. Correct usage of the Git
+repository is mandatory.
+
+\item \textbf{Eclipse and Redmine integration}. \\
+  Minimum: 60 points, maximum: 100 points
+
+Creation of the Eclipse project, usage of Redmine for maintenance and
+code reviews. Usage of Git through Eclipse and availability of the
+project files in the Git repository.
+
+
+\item \textbf{GNOME application (optional)}. \\
+  Minimum: 0 points, maximum: 100 points
+
+Development of a GNOME desktop application, in C.
+
+\end{itemize}
+
+\subsection{Submission deadlines}
+
+All activities to be graded in May must be completed and submitted by December 23rd 2012.
+
+\subsection{Submission details}
+
+Please, consider the details below for submitting the different activities for evaluation (for those not specified in this list, nothing special is needed for submission).
+
+\begin{itemize}
+\item As a summary of all the activities, a ``Summary of activities
+  for evaluation'' should be sent. This summary should be uploaded to
+  the corresponding resource in the Moodle site for this course, and
+  should include the following data: 
+  \begin{itemize}
+  \item \textbf{Name:} Full name of the student (as ``family name'', ``given name'')
+  \item \textbf{Blog entries:} Url of the blog entries for this course (HTML, not RSS version).
+  \item \textbf{Source code and project files in the Git repository:} Id for commits
+    to the repository where the source code is hosted, and summary of
+    the main contributions to it related to this course, including
+    links to the repository and commit ids if appropriate. 
+  \item \textbf{Redmine integration:} URL to the activity summary in
+    the Redmine site.   
+  \end{itemize}
+\end{itemize}
+
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+\section{Assignments and activities}
+
+%%----------------------------------------------------------------
+%%----------------------------------------------------------------
+\subsection{Spider to track the updates of a web page}
+\label{sub:python}
+
+You will have to write a Python application that get the current
+version of a web page, compare against a local cache of the page, and
+if changed, retrieve the new version of the page and write in the
+standard output a summary of the changes.
+
+The spider must visit all the links below the current page. The log of
+changes displayed in the standard output will contain a list of all
+the links that have been changed, and the number of lines of
+difference between the two versions.
+
+The application must be easily installable using Python standard
+deployment methods, must be properly document and must include a
+battery of tests to check that it is working as expected.
+
+All the development will be done using Git version control, and all
+the code will be publicly available in a Git repository, with frequent
+commits.
+
+\textbf{Supporting material}
+
+\begin{itemize}
+\item Slides about advanced Python development
+\item Snippets of sample source code
+\end{itemize}
+
+\subsection{Integration with Eclipse and Redmine}
+\label{sub:eclipse}
+
+You will have to use Eclipse for the development of the spider/web
+crawler. You will have to interact with the Git repository through
+Eclipse, and take advantage of the IDE features of Eclipse for Python
+(code completion, etc).
+
+The Eclipse project files will be added to the Git repository, either
+in a separate branch or in a selected directory.
+
+The maintenance of the spider, tasks management (bugs, new features),
+documentation of the application and code reviews will be done using
+the web tools available in the Redmine site (Redmine provided by the
+lecturers).
+
+\textbf{Supporting material}
+
+\begin{itemize}
+\item Slides about Eclipse and Redmine
+\item Redmine site at URJC
+\end{itemize}
+
+
+\subsection{GNOME desktop application}
+\label{sub:gnome}
+
+You will have to develop an application written in C for the GNOME
+desktop.
+
+All the development will be done using Git version control, and all
+the code will be publicly available in a Git repository, with frequent
+commits.
+
+This assignment is optional.
+
+
+\textbf{Supporting material}
+
+\begin{itemize}
+\item Slides about GNOME development
+\item Sample source code
+\end{itemize}
+
+
+%%----------------------------------------------------------------
+%\subsubsection{Statements about economic aspects of libre software}
+%\label{sub:statements-eco}
+
+\end{document}

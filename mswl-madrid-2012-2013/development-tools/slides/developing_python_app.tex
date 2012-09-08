@@ -1,0 +1,364 @@
+% Created 2011-03-09 Wed 23:43
+\documentclass[11pt]{beamer}
+
+      \mode<presentation>
+
+      \usetheme{Warsaw}
+
+      \usecolortheme{lily}
+
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg-soft.png}}
+      \beamertemplateballitem
+
+      \setbeameroption{show notes}
+      \usepackage[utf8]{inputenc}
+
+      \usepackage[T1]{fontenc}
+
+      \usepackage{hyperref}
+
+      \usepackage{color}
+      \usepackage{listings}
+      \lstset{numbers=none,language=[ISO]C++,tabsize=4,
+  frame=single,
+  basicstyle=\small,
+  showspaces=false,showstringspaces=false,
+  showtabs=false,
+  keywordstyle=\color{blue}\bfseries,
+  commentstyle=\color{red},
+  }
+
+      \usepackage{verbatim}
+
+      \institute{israel.herraiz@upm.es \\ Universidad Politécnica de Madrid}
+
+       \subject{MSWL Development and Tools}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{soul}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\providecommand{\alert}[1]{\textbf{#1}}
+
+\title{Developing a web crawler written in Python}
+\author{Israel Herraiz}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}
+\frametitle{Outline}
+\setcounter{tocdepth}{3}
+\tableofcontents
+\end{frame}
+
+\lstset{ %
+language=python,
+basicstyle=\footnotesize\ttfamily,       % the size of the fonts that are used
+numbers=none,                   % where to put the line-numbers
+numberstyle=\ttfamily,      % the size of the fonts that are used
+stepnumber=2,                   % the step between two
+numbersep=5pt,                  % how far the line-numbers are from
+showspaces=false,               % show spaces adding particular
+showstringspaces=false,         % underline spaces within strings
+showtabs=false,                 % show tabs within strings adding
+frame=none,                   % adds a frame around the code
+tabsize=2,                      % sets default tabsize to 2 spaces
+captionpos=b,                   % sets the caption-position to bottom
+breaklines=true,                % sets automatic line breaking
+breakatwhitespace=false,        % sets if automatic breaks should only
+title=\lstname,                 % show the filename of files included
+escapeinside={\%*}{*)},         % if you want to add a comment within
+morekeywords={*,...}            % if you want to add more keywords to
+}
+
+\section{How to properly deploy using \texttt{setuptools}}
+\label{sec-1}
+
+   
+\begin{frame}[fragile]\frametitle{What is \texttt{setuptools}?}
+\label{sec-1_1}
+
+
+Python package to install and deploy Python applications. 
+
+
+Features
+
+\begin{itemize}
+\item Register and upload your package in PyPi
+\item Take care of dependencies
+
+\begin{itemize}
+\item Generate dependencies to build dist packages
+\item Retrieve missing deps on installing
+\end{itemize}
+
+\item Properly install your app in the system
+
+\begin{itemize}
+\item Windows, GNU/Linux, etc
+\item Easy creation of packages for distributions
+\end{itemize}
+
+\end{itemize}
+\end{frame}
+\begin{frame}[fragile]\frametitle{What is PyPi?}
+\label{sec-1_2}
+
+
+The Python Package Index, Official repository for Python apps.
+
+
+Database with information about Python programs. Example:
+
+
+\begin{itemize}
+\item \href{http://pypi.python.org/pypi/mlstats/}{http://pypi.python.org/pypi/mlstats/}
+\end{itemize}
+
+Why should you care?
+
+\begin{itemize}
+\item Visibility for your app
+\item If it is a library, it can be used in a standard way with other
+  libraries and apps
+\end{itemize}
+\end{frame}
+\begin{frame}[fragile]\frametitle{Using \texttt{setuptools} with your own programs}
+\label{sec-1_3}
+
+
+The main file of your app must be named \texttt{setup.py}. We have also the
+main file of your app, called \texttt{mycraaawler} and a directory with own
+modules for your app called \texttt{pymycraaawler}.
+
+So this is the sources tree
+\begin{itemize}
+\item \texttt{mycraaawler} (Python script)
+\item \texttt{setup.py}
+\item \texttt{pymycraaawler}
+
+\begin{itemize}
+\item \texttt{\_\_init\_\_.py}
+\end{itemize}
+
+\item And other files (\texttt{COPYING}, \texttt{README}, etc)
+\end{itemize}
+\end{frame}
+\begin{frame}[fragile]\frametitle{\texttt{setup.py}}
+\label{sec-1_4}
+
+\begin{lstlisting}
+from setuptools import setup, find_packages
+
+setup( name = "MyCraaawler",
+       version = "0.1",
+       packages = find_packages(),
+       scripts = ['mycraaaawler'],
+       install_requires = ['BeatifulSoup'],
+       package_data = { 'pymycraawler': [''], },
+       author = "Sponge Bob",
+       author_email = "bob@undersea.pineapple.com",
+       description = "Scrapper for The New Atlantis",
+       license = "",
+       keywords = "",
+       url = "",
+       long_description = "",
+       download_url = "", )
+\end{lstlisting}
+\end{frame}
+\begin{frame}[fragile]\frametitle{Installing and creating dist packages}
+\label{sec-1_5}
+
+
+\texttt{python setup.py [command]}
+
+\begin{itemize}
+\item \texttt{install}
+\item \texttt{easy\_install}
+\item \texttt{bdist}
+\item \texttt{sdist}
+\item \texttt{check}
+\item \texttt{register}
+\item \texttt{upload}
+\end{itemize}
+\end{frame}
+\begin{frame}[fragile]\frametitle{Configuration for automatic register and upload}
+\label{sec-1_6}
+
+
+You have to create a file named \texttt{\textasciitilde{}/.pypirc}
+\begin{verbatim}
+[distutils]
+index-servers =
+    pypi
+
+[pypi]
+username:your_username
+password:your_password
+\end{verbatim}
+\end{frame}
+\section{How do I get a file from the Internet?}
+\label{sec-2}
+\begin{frame}[fragile]\frametitle{Python modules for Internet communications}
+\label{sec-2_1}
+
+
+There are two different modules in Python to connect to a host in the Internet:
+\begin{itemize}
+\item \texttt{urllib}
+\item \texttt{urllib2}
+\end{itemize}
+\end{frame}
+\begin{frame}[fragile]\frametitle{Making sense of \texttt{urllib}, \texttt{urllib2} and co.}
+\label{sec-2_2}
+
+   
+\begin{itemize}
+\item \texttt{urllib} is deprecated in favor of \texttt{urllib2} (although in Python 3, both modules are present).
+\item \texttt{urllib} provides \texttt{urlopen} which is similar to \texttt{open} but will  accept URLs
+\item \texttt{urllib2} also provides \texttt{urlopen}
+\item \texttt{urlparse} is useful to handle URLs (but we will not use it)
+\end{itemize}
+\end{frame}
+\begin{frame}[fragile]\frametitle{Reading a file located in a remote host}
+\label{sec-2_3}
+
+
+\begin{lstlisting}
+ import urllib2
+ user_agent = "Mozilla/5.0 (X11; U; Linux x86_64; en-US) AppleWebKit/534.7 (KHTML, like Gecko) Chrome/7.0.517.41 Safari/534.7"
+
+ _opener = urllib2.build_opener()
+ _opener.addheaders = [('User-agent', user_agent)]
+ raw_code = self._opener.open(article.url).read()
+\end{lstlisting}
+\end{frame}
+\section{Parsing \texttt{HTML} using \texttt{BeatifulSoup}}
+\label{sec-3}
+\begin{frame}[fragile]\frametitle{About \texttt{BeatifulSoup}}
+\label{sec-3_1}
+
+
+\texttt{BeatifulSoup} is a \texttt{HTML} parser for Python. You didn't write that
+awful page. You're just trying to get some data out of it. Right now,
+you don't really care what \texttt{HTML} is supposed to look like.
+
+Neither does this parser.
+\begin{itemize}
+\item Find out more at \href{http://www.crummy.com/software/BeautifulSoup/}{http://www.crummy.com/software/BeautifulSoup/}
+\end{itemize}
+\end{frame}
+\begin{frame}[fragile]\frametitle{Example: getting all the \texttt{<div>} of a particular kind (called \texttt{article} in this case)}
+\label{sec-3_2}
+
+
+\begin{lstlisting}
+from BeautifulSoup import BeautifulSoup as Soup
+
+soup_code = Soup(raw_code)
+divs = [div for div 
+            in soup_code.findAll('div') 
+            if div.get('id') == 'article']
+\end{lstlisting}
+\end{frame}
+\begin{frame}[fragile]\frametitle{Example: get all links}
+\label{sec-3_3}
+
+
+
+\begin{lstlisting}
+from BeautifulSoup import BeautifulSoup as Soup
+
+soup_code = Soup(raw_code)
+links = [link['href'] for link 
+                      in soup_code.findAll('a') 
+                      if link.has_key('href')]
+\end{lstlisting}
+\end{frame}
+\begin{frame}[fragile]\frametitle{Example: Decode \texttt{HTML} entities}
+\label{sec-3_4}
+
+
+
+\begin{lstlisting}
+from BeautifulSoup import BeautifulStoneSoup as StoneSoup
+
+html_entity = "Cami&oacute;n"
+
+python_str = StoneSoup(html_entity,
+              convertEntities = StoneSoup.HTML_ENTITIES)
+\end{lstlisting}
+\end{frame}
+\section{Command line arguments made easy with \texttt{argparse}}
+\label{sec-4}
+\begin{frame}[fragile]\frametitle{What is \texttt{argparse}?}
+\label{sec-4_1}
+
+
+The argparse module makes it easy to write user friendly command line interfaces
+\begin{itemize}
+\item New in version 2.7
+\item Find out more at
+   \href{http://docs.python.org/release/2.7/library/argparse.html}{http://docs.python.org/release/2.7/library/argparse.html}
+\end{itemize}
+\end{frame}
+\begin{frame}[fragile]\frametitle{Example}
+\label{sec-4_2}
+
+
+Command line application \texttt{myapp [-n N] URL}
+
+\begin{lstlisting}
+import argparse
+parser = argparse.ArgumentParser(description="Let's craaaawl the Internet")
+
+parser.add_argument('url', nargs=1,
+     help='target URL')
+
+parser.add_argument('-n', '--number-of-levels', type=int, default=1,
+     help='how deep the craaaawl will go')
+
+args = parser.parse_args()
+
+target_url = args.url.pop()
+deep = args.number_of_levels
+\end{lstlisting}
+\end{frame}
+\begin{frame}[fragile]\frametitle{Another example}
+\label{sec-4_3}
+
+
+Command line application \texttt{myapp [-w]}
+
+\begin{lstlisting}
+import argparse
+parser = argparse.ArgumentParser(description='World domination 0.1')
+
+parser.add_argument('-w', '--start-nuclear-war', action='store_true',
+    help='should I start a thermonuclear war?')
+
+args = parser.parse_args()
+
+if args.launch_nuclear_war:
+   world.dominate()
+else:
+   sleep()
+
+\end{lstlisting}
+\end{frame}
+
+\end{document}
