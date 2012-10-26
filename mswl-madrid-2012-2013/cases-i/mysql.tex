@@ -1,0 +1,277 @@
+\documentclass{beamer}
+\usepackage{moreverb} 
+\usepackage{listings}
+% imprimir
+% \documentclass[handout]{beamer} 
+% \usepackage{pgfpages}
+% \pgfpagesuselayout{4 on 1}[a4paper,landscape,border shrink=5mm]
+
+\mode<presentation> {
+  \usetheme{Warsaw}
+  \setbeamercovered{transparent}
+}
+
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+% \usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+%\definecolor{libresoftgreen}{RGB}{162,190,43}
+%\definecolor{libresoftblue}{RGB}{0,98,143}
+
+%\setbeamercolor{titlelike}{bg=libresoftgreen}
+
+%% Metadatos del PDF.
+\hypersetup{  
+  pdftitle={Introduction to MySQL},
+  pdfauthor={Santiago Dueñas},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Master on Free Software},
+}
+%%
+
+\begin{document}
+
+\title{Introduction to MySQL}
+\subtitle{Master on Libre Software 2012}
+\institute{sduenas@libresoft.es \\ GSyC/Libresoft -- URJC} 
+\author{Santiago Dueñas} 
+%\date{\today}
+\date{October 26h, 2012}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+\frame{
+~
+\vspace{4cm}
+
+\begin{flushright}
+{\footnotesize
+(cc) 2010 - 2011 Santiago Dueñas. \\
+  Some rights reserved. This work is licensed under a Creative Commons 
+  Attribution-Share Alike 3.0 License, available at 
+  \url{http://creativecommons.org/licenses/by-sa/3.0/}
+ 
+
+\bigskip
+
+}
+\end{flushright}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Introduction}
+
+\begin{itemize}
+\item Relational Database Management System
+\item Multi-Platform
+\item SQL compatibility
+\item Supports several storage engines (MyISAM, InnoDB, MERGE, MEMORY ...)
+\item Triggers, functions, stored procedures, GIS, replication, clustering, ...
+\item GPL License (and some others commercial licenses)
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{History}
+
+\begin{itemize}
+\item Developed by Michael Widenius and David Axmark
+\item 1995 MySQL AB company founded
+\item 1995 First internal release of MySQL
+\item 2000 MySQl goes free software (GPL)
+\item 2005 MySQL 5.0
+\item 2008 Sun Microsystems acquires MySQL AB
+\item 2008 MySQL 5.1
+\item 2010 Oracle acquires Sun Microsystems
+\item 2011/09 Oracle starts to sell commercial extensions
+\item 2012/09 MySQL 5.5.28
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{MySQL command line client}
+
+\begin{verbatim}
+Command:
+
+  mysql [<options>] database
+
+Common options:
+  --user, -u: MySQL user name
+  --password, -p: user's password
+  --host, -h: connect to the server on the given host
+\end{verbatim}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Everyday MySQL commands (I)}
+
+\begin{itemize}
+\item Create a database
+\begin{verbatim}
+mysql> create database <name>;
+
+\end{verbatim}
+
+\item Drop a database
+\begin{verbatim}
+mysql> drop database <name>;
+
+\end{verbatim}
+
+\item Change of database
+\begin{verbatim}
+mysql> use <name>;
+
+\end{verbatim}
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Everyday MySQL commands (II)}
+
+\begin{itemize}
+\item List of databases
+\begin{verbatim}
+mysql> show databases [like <exp>];
+
+\end{verbatim}
+
+\item List of tables
+\begin{verbatim}
+mysql> show tables [like <exp>] [from <database>];
+
+\end{verbatim}
+
+\item Table description
+\begin{verbatim}
+mysql> show fields from <table>;
+or
+mysql> desc <table>
+
+\end{verbatim}
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Administration - mysqladmin}
+
+\begin{itemize}
+\item Create a database
+\begin{verbatim}
+mysqladmin [<options>] create <database>
+
+\end{verbatim}
+
+\item Drop a database
+\begin{verbatim}
+mysqladmin [<options>] drop <database>
+
+\end{verbatim}
+
+\item List of variables
+\begin{verbatim}
+mysqladmin [<options>] variables
+
+\end{verbatim}
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Backup - mysqldump}
+
+\begin{itemize}
+\item Back up a single database
+\begin{verbatim}
+mysqldump [<options>] <database> [<table> <table> ...]
+
+\end{verbatim}
+
+\item Back up multiple database
+\begin{verbatim}
+mysqldump [<options>] --databases [<db> <db> ...]
+
+\end{verbatim}
+
+\item Back up all databases in the server
+\begin{verbatim}
+mysqldump [<options>] --all-databases [<options>]
+
+\end{verbatim}
+
+\item Restore
+\begin{verbatim}
+mysql [<options>] <database> < <backup_file.sql>
+
+\end{verbatim}
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{GUI Tools}
+
+\begin{itemize}
+
+\item MySQL Workbench
+\begin{itemize}
+\item Data modeling
+\item SQL queries
+\item Administration
+\end{itemize}
+
+\item phpMyAdmin
+\item DBDesigner4
+
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame} 
+\frametitle{References}
+
+\begin{itemize}
+\item \textsc{Kofler}, Michael. \textit{The Definitive Guide to MySQL 5}, Apress, 2005.
+\item \textsc{Kruckenber} and \textsc{Pipes}. \textit{Pro MySQL}, Apressddison-Wesley, 2005.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+
