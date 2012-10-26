@@ -1,0 +1,414 @@
+\documentclass{beamer}
+% \usepackage{moreverb} 
+\usepackage{listings}
+\usepackage{mflogo}
+
+\mode<presentation> {
+  \usetheme{Warsaw}
+  \setbeamercovered{opaque}
+}
+
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+%% Metadatos del PDF.
+\hypersetup{  
+  pdftitle={KVM: Curso práctico},
+  pdfauthor={Jose Castro},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Master on Free Software},
+}
+%%
+
+\defbeamertemplate*{footline}{shadow theme}
+{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.1cm plus1fil,rightskip=.2cm]{author in head/foot}%
+\includegraphics[scale=0.40]{format/cc-by-80x15.png} \hspace{0.05cm}
+	Miguel Vidal / Jose Castro
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle%
+    \hspace{2cm} \usebeamerfont{author in head/foot}\insertframenumber\,/\,\inserttotalframenumber\hfill
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+
+\begin{document}
+
+\title{KVM: Curso práctico}
+\subtitle{System Integration}
+% \institute{\texttt{http://gsyc.urjc.es/\~{}mvidal} \\ Twitter: \texttt{@mvidallopez}}
+\author{Miguel Vidal, Jose Castro} 
+\date{\footnotesize{Master on Free Software \\ April 13rd, 2012}}
+\author{Miguel Vidal \hspace{1cm} Jose Castro \\
+\hspace{0.5mm} {\tiny Twitter: @mvidallopez \hspace{1.1cm}Twitter: @jfcastroluis}
+}
+
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+%% License slide
+\begin{frame}
+  \vspace{2cm}
+  \begin{flushright}
+    {\small \copyright{} 2010-2012 Miguel Vidal, Jose Castro} \\
+%    \vspace{0.25cm}
+    \medskip
+    {\scriptsize This work is licensed under \\ a Creative Commons Attribution 3.0 License}
+%    \vspace{0.10cm}
+  \end{flushright}
+  \begin{flushright}
+    \href{http://creativecommons.org/licenses/by/3.0/es}{\includegraphics[width=2cm]{format/cc-by.png}} \\
+    {\tiny \url{http://creativecommons.org/licenses/by/3.0}}
+  \end{flushright}
+\end{frame}%%
+
+\usebackgroundtemplate{}
+
+\AtBeginSection[]
+{
+\begin{frame}<beamer>
+\begin{center}
+{\huge \insertsection}
+\end{center}
+\end{frame}
+}
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>{Índice}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>{Índice}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Prerrequisitos}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{Instrucciones de virtualización}
+  \begin{itemize}
+    \item Activar las instrucciones en la BIOS
+  \end{itemize}
+  \bigskip
+  \begin{block}{Comprobación}
+    \texttt{\$ egrep -c '(vmx|svm)' /proc/cpuinfo}
+  \end{block}
+  \bigskip
+  \begin{itemize}
+    \item Con kernel Xen comprobar flag \texttt{hvm} en \texttt{/sys/hypervisor/properties/capabilities}
+  \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{64 bits}
+  Se debe usar un kernel de 64 bits para:
+  \begin{itemize}
+    \item configurar más de 2GB a una máquina virtual
+    \item poder crear máquinas virtuales de 32 y 64 bits
+  \end{itemize}
+  \begin{block}{Comprobación procesador}
+    \texttt{\$ egrep -c 'lm' /proc/cpuinfo}
+  \end{block}
+  \begin{block}{Comprobación kernel}
+    \texttt{\$ uname -m}
+    \begin{itemize}
+      \item i686 -- 32 bits
+      \item x86\_64 -- 64 bits
+    \end{itemize}
+  \end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Instalación}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{Instalación}
+  \begin{block}{Instalación del sistema}
+    \texttt{\# apt-get install qemu-kvm|kvm libvirt-bin [bridge-utils]}
+    \begin{itemize}
+      \item qemu-kvm --- módulo kvm.ko
+      \item libvirt-bin --- gestión de la virtualización
+      \item bridge-utils --- utilidades de red para \textit{bridges}
+    \end{itemize}
+  \end{block}
+  \bigskip
+  Los usuarios que vayan a gestionar las máquinas virtuales han de pertenecer a los grupos \texttt{libvirtd} y \texttt{kvm}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+  \frametitle{Comprobación}
+  \begin{block}{virsh}
+    \texttt{\$ virsh -c qemu:///system list} \\
+    \small{\begin{verbatim}
+Id Name                  State
+----------------------------------
+    \end{verbatim}}
+  \end{block}
+  \bigskip
+  \begin{block}{kvm-ok}
+    \texttt{\$ kvm-ok} \\
+    \small{\begin{verbatim}
+INFO: /dev/kvm exists
+KVM acceleration can be used
+    \end{verbatim}}
+  \end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{Herramientas}
+  \begin{block}{virtinst}
+    \texttt{\# apt-get install virtinst}
+  \end{block}
+  Este paquete provee las siguientes herramientas:
+  \begin{itemize}
+    \item \texttt{virt-install}
+    \item \texttt{virt-clone}
+    \item \texttt{virt-image}
+    \item \texttt{virt-convert}
+  \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Configuración}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+  \frametitle{Pools almacenamiento}
+  \begin{block}{Pool default}
+    \texttt{\$ virsh pool-start default} \\
+    \texttt{\$ virsh pool-autostart default} \\
+    \medskip
+    \texttt{\$ virsh pool-list $--$all} \\
+    \small{\begin{verbatim}
+Name                 State      Autostart 
+----------------------------------------- 
+default              active     yes
+    \end{verbatim}}
+  \end{block}
+  \begin{center}
+    \texttt{/etc/libvirt/storage/default.xml}
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+  \frametitle{Red}
+  \begin{block}{Red interna}
+    \texttt{\$ virsh net-start default} \\
+    \texttt{\$ virsh net-autostart default} \\
+    \medskip
+    \texttt{\$ virsh net-list $--$all} \\
+    \small{\begin{verbatim}
+Name                 State      Autostart
+-----------------------------------------
+default              active     yes
+    \end{verbatim}}
+  \end{block}
+  \bigskip
+  \begin{itemize}
+    \item Las máquinas virtuales reciben una IP por DHCP
+    \item El anfitrión hace NAT para la conexión de los invitados
+  \end{itemize}
+  \begin{center}
+    \texttt{/etc/libvirt/qemu/networks/default.xml}
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Gestión de Máquinas Virtuales}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{Creación}
+  \begin{block}{Creación VM}
+    \scriptsize{\texttt{\$ virt-install $--$connect qemu:///system \textbackslash \\
+    $--$name debian $--$ram 512 $--$os-type linux \textbackslash \\
+    $--$os-variant debiansqueeze \textbackslash \\
+    $--$disk path=/var/lib/libvirt/images/debian.img,size=5 \textbackslash \\
+    $--$cdrom /home/jfcastro/isos/debian-6.0.4-amd64-netinst.iso}}
+  \end{block}
+  \begin{itemize}
+    \item Configuración: \texttt{/etc/libvirt/qemu/debian.xml}
+    \item Imagen: \texttt{/var/lib/libvirt/images.debian.img}
+  \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+  \frametitle{Arranque}
+  \begin{block}{Arranque VM}
+    \texttt{\$ virsh -c qemu:///system start debian} \\
+    \small{\begin{verbatim}
+Domain debian started
+    \end{verbatim}}
+  \end{block}
+  \bigskip
+  \begin{block}{Arranque automático}
+    \texttt{\$ virsh -c qemu:///system autostart debian} \\
+    \small{\begin{verbatim}
+Domain debianbase marked as autostarted
+    \end{verbatim}}
+  \end{block}
+  Crea un enlace simbólico en \texttt{/etc/libvirt/qemu/autostart}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{Consola y conexiones}
+  \begin{block}{Instalación}
+    \texttt{\# apt-get install virt-viewer}
+  \end{block}
+  \begin{block}{Consola}
+    \texttt{\$ virt-viewer -c qemu:///system debian}
+  \end{block}
+  \bigskip
+  \begin{block}{Conexión local}
+    \texttt{\$ virsh -c qemu:///system}
+  \end{block}
+  \begin{block}{Conexión remota}
+    \texttt{\$ virsh -c qemu+ssh://user@domain:port/system}
+  \end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{Parada}
+  \begin{block}{Parada VM}
+    \texttt{\$ virsh -c qemu:///system shutdown debian}
+  \end{block}
+  \bigskip
+  \begin{block}{Botonazo VM}
+    \texttt{\$ virsh -c qemu:///system destroy debian}
+  \end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{Borrado}
+  \begin{block}{Borrado VM}
+    \texttt{\$ virsh -c qemu:///system destroy debian} \\
+    \texttt{\$ virsh -c qemu:///system undefine debian} \\
+  \end{block}
+  \bigskip
+  \begin{block}{Borrado ficheros}
+    \texttt{\# rm -r /var/lib/libvirt/images/debian.img} \\
+    \texttt{\# rm /etc/libvirt/qemu/autostart/debian.xml} \\
+    \texttt{\# rm /etc/libvirt/qemu/debian.xml} \\
+  \end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{Comandos básicos}
+  \begin{itemize}
+    \item \textbf{virsh help}: muestra la ayuda del comando
+    \item \textbf{virsh list \-\-all}: listado de dominios activos
+    \item \textbf{virsh dominfo}: muestra información de un dominio
+    \item \textbf{virsh dumpxml}: muestra la configuración xml
+    \item \textbf{virsh suspend}: parar temporalmente un dominio
+    \item \textbf{virsh resume}: vuelve a la actividad un dominio suspendido
+    \item \textbf{virsh save}: guarda un dominio ejecutando en un fichero
+    \item \textbf{virsh restore}: crea un dominio desde un fichero
+    \item \textbf{virsh migrate}: migra un dominio a otro host
+  \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{GUI}
+  \begin{block}{virt-manager}
+    \texttt{\# apt-get install virt-manager}
+  \end{block}
+  \bigskip
+  \begin{itemize}
+    \item Se puede gestionar pools, redes y máquinas virtuales
+    \item Permite conexiones locales y remotas
+    \item Es una interfaz gráfica realmente completa
+  \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Almacenamiento externo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{Creación fichero}
+  \begin{block}{Creación fichero almacenamiento}
+    \small{\texttt{\# dd if=/dev/zero of=/var/lib/libvirt/images/data.img} \textbackslash  \\
+    \texttt{bs=1024 count=102400}}
+  \end{block}
+  \bigskip
+  \begin{center}
+    El fichero debe estar en uno de los pools de almacenamiento
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+  \frametitle{Configuración máquina virtual}
+  \begin{block}{Configuración almacenamiento}
+    \texttt{\$ virsh -c qemu:///system shutdown debian} \\
+    \texttt{\$ virsh -c qemu:///system edit debian} \\
+    \small{\begin{verbatim}
+<disk type='file' device='disk'>
+   <driver name='qemu' type='raw'/>
+   <source file='/var/lib/libvirt/images/data.img'/>
+   <target dev='vdb' bus='virtio'/>
+<disk>
+   \end{verbatim}}
+   \texttt{\$ virsh -c qemu:///system start debian}
+  \end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+  \frametitle{Configuración dispositivo}
+  \begin{block}{Creación partición}
+    \texttt{\# cfdisk /dev/vdb}
+  \end{block}
+  \begin{block}{Formato partición}
+    \texttt{\# mkfs.ext3 /dev/vdb1}
+  \end{block}
+  \begin{block}{Montaje sistema ficheros}
+    \texttt{\# mount /dev/vdb1 /mnt} \\
+    \texttt{\# vim /etc/fstab} \\
+    \small{\begin{verbatim}
+/dev/vdb1	/mnt	ext3	defaults	0	0
+    \end{verbatim}}
+  \end{block}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,428 @@
+\documentclass{beamer}
+\usepackage{moreverb} 
+\usepackage{listings}
+\usepackage{mflogo}
+% imprimir
+% \documentclass[handout]{beamer} 
+% \usepackage{pgfpages}
+% \pgfpagesuselayout{4 on 1}[a4paper,landscape,border shrink=5mm]
+
+\mode<presentation> {
+  \usetheme{Warsaw}
+  \setbeamercovered{opaque}
+}
+
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+%% Metadatos del PDF.
+\hypersetup{  
+  pdftitle={Clusters de Alta Disponibilidad},
+  pdfauthor={Miguel Vidal},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Master on Free Software},
+}
+%%
+
+\defbeamertemplate*{footline}{shadow theme}
+{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.1cm plus1fil,rightskip=.2cm]{author in head/foot}%
+\includegraphics[scale=0.40]{format/cc-by-80x15.png} \hspace{0.05cm}
+	Miguel Vidal / Jose Castro
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle%
+    \hspace{2cm} \usebeamerfont{author in head/foot}\insertframenumber\,/\,\inserttotalframenumber\hfill
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+
+\begin{document}
+
+\title{Clusters de Alta Disponibilidad}
+\subtitle{System Integration}
+% \institute{\texttt{http://gsyc.urjc.es/\~{}mvidal} \\ Twitter: \texttt{@mvidallopez}}
+\author{Miguel Vidal, Jose Castro} 
+\date{\footnotesize{Master on Free Software \\ April 27th, 2012}}
+\author{Miguel Vidal \hspace{1cm} Jose Castro \\
+\hspace{0.5mm} {\tiny Twitter: @mvidallopez \hspace{1.1cm}Twitter: @jfcastroluis}
+}
+
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+%% License slide
+\begin{frame}
+  \vspace{2cm}
+  \begin{flushright}
+    {\small \copyright{} 2010-2012 Miguel Vidal, Jose Castro} \\
+%    \vspace{0.25cm}
+    \medskip
+    {\scriptsize This work is licensed under \\ a Creative Commons Attribution 3.0 License}
+%    \vspace{0.10cm}
+  \end{flushright}
+  \begin{flushright}
+    \href{http://creativecommons.org/licenses/by/3.0/es}{\includegraphics[width=2cm]{format/cc-by.png}} \\
+    {\tiny \url{http://creativecommons.org/licenses/by/3.0}}
+  \end{flushright}
+\end{frame}%%
+
+\usebackgroundtemplate{}
+
+\AtBeginSection[]
+{
+\begin{frame}<beamer>
+\begin{center}
+{\huge \insertsection}
+\end{center}
+\end{frame}
+}
+
+
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>{Índice}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+%%
+
+\section{Fundamentos de los clusters HA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{¿Qué es un clúster HA?}
+
+% \begin{definition}
+\begin{block}{Definición}
+\alert{Clúster HA}: Conjunto de dos o más máquinas orientado a ofrecer y garantizar servicios en \alert{Alta Disponibilidad}. 
+% \end{definition}
+\end{block}
+
+\begin{block}{Clúster}
+Conjunto de dos o más máquinas unidas por red que se comportan como si fuesen una sola.
+\end{block}
+
+\begin{block}{Alta Disponibilidad}
+24/7, alto grado de fiabilidad y de continuidad operativa.
+\end{block}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{¿Qué es un clúster HA?}
+
+\begin{itemize}
+
+\item Se basa en 2 o más máquinas redundantes (\alert{nodos}), que asumen el servicio cuando algún componente del sistema falla.
+\item Debe ser capaz de arrancar automáticamente los servicios en cualquiera de las otras máquinas del cluster (\alert{failover}).
+\item Se busca eliminar los \alert{Puntos Únicos de Fallo} (SPoF), mediante redundancia a todos los niveles, desde el hardware hasta el almacenamiento o las conexiones de red. 
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{¿Qué es un Clúster HA?}
+
+\begin{columns}
+
+\column[t]{4cm}
+
+\begin{figure}[h]
+
+\begin{center}
+  \centering
+  \includegraphics[height=1in]{figs/cluster.png}
+%  \caption{Clúster HA de 2 nodos. \textit{Fuente:} Wikipedia.}
+\end{center}
+\end{figure}
+
+
+\column[t]{7.5cm}
+
+\begin{itemize}
+	\item \alert{Nodos activos} o \alert{maestros}: donde normalmente se ejecuta el servicio.
+	\item \alert{Nodos pasivos}, \alert{backups} o \alert{esclavos}: despliegan los servicios en el caso de que el nodo maestro falle. 
+\end{itemize}
+
+\end{columns}
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Misión de un clúster HA}
+
+Un clúster HA debe ser capaz de: 
+
+\begin{itemize}
+\item detectar cualquier fallo en un nodo (hardware o software)
+\item reiniciar los servicios en otro nodo (\alert{failover})
+\item mantener el servicio sin intervención de operador alguno
+\item garantizar la integridad de los datos del clúster
+\item Migrar los servicios de nuevo a la máquina original cuando el nodo se recupera (\alert{failback})
+\end{itemize}
+
+\bigskip
+
+\small
+Puede incluir otras operaciones previas automatizadas, como montar el sistema de ficheros, asignar la IP, etc. 
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Tipos de configuración}
+
+\begin{itemize}
+\item El tamaño más frecuente de un clúster HA es de \alert{2 nodos} (mínimo requerido).
+\item Los dos configuraciones más comunes en los clusters de dos nodos son:
+	\begin{itemize}
+	\item \alert{Clúster activo/pasivo}
+	\item \alert{Clúster activo/activo}
+	\end{itemize}
+\item \alert{N+1}: Un nodo extra que puede asumir las funciones de cualquiera de los nodos que haya fallado.
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Tipos de clusters HA}
+
+\begin{figure}[h]
+
+\begin{center}
+  \centering
+  \includegraphics[height=1.7in]{figs/clusters2.png}
+%  \caption{Clúster HA de 2 nodos. \textit{Fuente:} Wikipedia.}
+\end{center}
+\end{figure}
+
+	\begin{itemize}
+	\item \alert{Clúster activo/activo}: todos los nodos se encuentran dando servicio.
+	\item \alert{Clúster activo/pasivo}: hay un solo nodo dando servicio.
+	\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Cluster activo-activo}
+
+\begin{columns}
+
+\column[t]{4cm}
+
+\begin{figure}[h]
+
+\begin{center}
+  \centering
+  \includegraphics[height=1.7in]{figs/active-cluster.png}
+%  \caption{Clúster HA de 2 nodos. \textit{Fuente:} Wikipedia.}
+\end{center}
+\end{figure}
+
+
+\column[t]{5cm}
+\vspace{2cm}
+
+\alert{Clúster activo/activo}: todos los nodos se encuentran dando servicio.
+
+\end{columns}
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Cluster activo-pasivo}
+
+\begin{columns}
+
+\column[t]{4cm}
+
+\begin{figure}[h]
+
+\begin{center}
+  \centering
+  \includegraphics[height=1.7in]{figs/passive-cluster.png}
+%  \caption{Clúster HA de 2 nodos. \textit{Fuente:} Wikipedia.}
+\end{center}
+\end{figure}
+
+
+\column[t]{5cm}
+\vspace{2cm}
+
+\alert{Clúster activo/pasivo}: hay un solo nodo dando servicio.
+
+\end{columns}
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+% \frametitle{Clúster HA de 2 nodos}
+
+\begin{figure}[h]
+
+\begin{center}
+  \centering
+  \includegraphics[height=2.7in]{figs/2nodeHAcluster.png}
+  \caption{Clúster HA de 2 nodos. \textit{Fuente:} Wikipedia.}
+\end{center}
+\end{figure}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Conceptos básicos (1)}
+
+\begin{itemize}
+\item \alert{Failover}: recuperación de un fallo desplegando los servicios en otro nodo.
+\item \alert{Heartbeat}: pulso o ``latido'' mediante el cual se mantiene la comunicación entre los nodos del clúster. 
+\item \alert{Split-brain}: cuando los enlaces de red que unen a los nodos entre sí caen, pero los nodos siguen operando. 
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Conceptos básicos (2)}
+
+\begin{itemize}
+\item \alert{Fencing}: Aislamiento/bloqueo de un nodo en estado incierto.
+\item \alert{Stonith} (``\textit{Shoot The Other Node In The Head}''): una de las técnicas de \alert{fencing}. Ambos nodos se ``apuntan'' uno al otro: al detectar que un nodo está caído, el otro nodo le enviará un comando ``reset''. \\
+\textit{\small{También se usa como técnica de recuperación automática para desbloquear un nodo.}}
+\normalsize
+\item \alert{Agente de recurso}: un interfaz estándar para manejar los recursos del cluster (red, montaje de filesystems, servicios, etc.). 
+\end{itemize}
+
+\end{frame}
+
+
+\section{Soluciones libres HA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{HAST}
+\begin{frame}
+\frametitle{HAST - Highly Available STorage}
+
+\begin{itemize}
+\item Específico para FreeBSD. Orientado a redundancia en backends de \alert{almacenamiento}.
+\item Similar a RAID1 (mirror) por TCP/IP.
+\item Ofrece un dispositivo \texttt{/dev/hast/} para operar como un dispositivo de bloques estándar (sincroniza a nivel de bloque).
+\item Funciona solo en modo activo-pasivo (actualmente limitado a dos nodos)
+\item HAST puede integrarse con Heartbeat, CARP (para IP failover) y con ZFS.
+\end{itemize}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Linux-HA}
+\begin{frame}
+\frametitle{Linux-HA}
+
+\begin{itemize}
+\item Solución libre \alert{multiplataforma} para desplegar clusters de Alta Disponibilidad.
+\item Funcionalidades avanzadas basado en políticas: apto para grandes clusters.
+\item Disponible para Linux, FreeBSD, OpenBSD, *Solaris...
+\item Formado por varios componentes:
+	\begin{itemize}
+	\item \alert{Heartbeat} (el latido): servicio de comunicación y membresía del cluster.
+	\item \alert{Corosync} (derivado de Open-AIS): comunicación criptográficamente segura.
+	\item \alert{Pacemaker} (CRM): gestiona los agentes de recurso.
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Linux-HA - Demo}
+
+\begin{center}
+
+\LARGE Linux-HA --- Demo
+
+\end{center}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Referencias}
+
+\begin{frame}
+\frametitle{Referencias}
+
+\begin{itemize}
+\item Linux-HA Project: \href{http://www.linux-ha.org}{http://www.linux-ha.org}
+\item Highly Available Storage: \href{http://wiki.freebsd.org/HAST}{http://wiki.freebsd.org/HAST}
+\item HAST and ZFS (Michael W. Lucas): \href{http://blather.michaelwlucas.com/archives/221}{http://blather.michaelwlucas.com/archives/221}
+\item \textsc{Miguel Vidal, José Castro}: \href{http://www.ati.es/novatica/2011/209/Nv209-75.pdf}{``Creación de un clúster de Alta Disponibilidad''}, \textit{Novática}, nº 209, marzo de 2011. 
+\end{itemize}
+
+\end{frame}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+
+
+\end{document}
+
+
