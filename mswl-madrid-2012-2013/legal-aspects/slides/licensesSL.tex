@@ -1,0 +1,1427 @@
+\documentclass{beamer}
+\usepackage{moreverb} 
+\usepackage{alltt} 
+\usepackage{listings}
+\usepackage{mflogo}
+% imprimir
+% \documentclass[handout]{beamer} 
+% \usepackage{pgfpages}
+% \pgfpagesuselayout{4 on 1}[a4paper,landscape,border shrink=5mm]
+
+\mode<presentation> {
+  \usetheme{Warsaw}
+  \setbeamercovered{opaque}
+}
+
+% \usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+% \usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+%% Metadatos del PDF.
+\hypersetup{  
+  pdftitle={Legal Aspects},
+  pdfauthor={Miguel Vidal},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Master on Free Software},
+}
+%%
+
+\defbeamertemplate*{footline}{shadow theme}
+{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm plus1fil,rightskip=.3cm]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertframenumber\,/\,\inserttotalframenumber\hfill\includegraphics[scale=0.40]{format/cc-by-80x15.png} \hspace{0.1cm}\insertshortauthor 
+% \usebeamerfont{author in head/foot} \includegraphics[width=0.7cm]{format/cc-by.png} \hfill\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle%
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\title{Free Software licenses}
+\subtitle{Legal Aspects -- Master on Free Software 2012-13}
+% \institute{\texttt{http://gsyc.urjc.es/\~{}mvidal} \\ Twitter: \texttt{@mvidallopez}}
+\institute{\texttt{http://flossystems.com} \\ Twitter: \texttt{@mvidallopez}}
+% \institute{\texttt{http://gsyc.urjc.es/\~{}mvidal} \\ Twitter: \texttt{@mvidallopez}}
+\author{Miguel Vidal} 
+%\date{\today}
+\date{November 2nd, 2012}
+
+\frame{
+\maketitle
+\begin{center}
+% \includegraphics[width=6cm]{format/gsyc-urjc}
+\vspace{-0.5cm}
+\includegraphics[width=6cm]{format/flossURJC-bg.png}
+\end{center}
+}
+
+%%
+
+%% License slide
+\begin{frame}
+  \vspace{2cm}
+  \begin{flushright}
+    {\small (cc) 2008-2012 Miguel Vidal} \\
+%    \vspace{0.25cm}
+    \medskip
+    {\scriptsize This work is licensed under \\ a Creative Commons Attribution 3.0 License}
+%    \vspace{0.10cm}
+  \end{flushright}
+  \begin{flushright}
+    \href{http://creativecommons.org/licenses/by/3.0}{\includegraphics[width=2cm]{format/cc-by.png}} \\
+    {\tiny \url{http://creativecommons.org/licenses/by/3.0}}
+  \end{flushright}
+\end{frame}%%
+
+\usebackgroundtemplate{}
+
+\AtBeginSubsection[]
+{
+ \footnotesize
+  \begin{frame}<beamer>{Table of Contents}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+\normalsize
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{Disclaimer}
+\begin{frame}
+\frametitle{Disclaimer}
+
+\begin{itemize}
+% \item \alert{This presentation} is for \alert{informational} and \alert{educational purposes only}, and \alert{is not legal advice!} 
+\item \textsc{This presentation is for \alert{informational} and \alert{educational purposes only}, and \alert{is not legal advice!}}
+\item \textsc{It must not be relied upon as a substitute for obtaining specific legal advice from a licensed attorney.}
+\item \textsc{Legal advice must be provided in the course of an attorney-client relationship specifically with reference to \alert{all the facts of a particular situation} and the \alert{law of your jurisdiction}.} 
+\end{itemize}
+
+\begin{center}
+\textbf{Hire an attorney if you need legal advice}
+\end{center}
+
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Course Contents}
+
+%  \begin{itemize}[<+->]
+  \begin{itemize}
+    \item Lesson 0: Presentation of the Course
+    \item Lesson 1: Intellectual Property: basic concepts and legal framework
+    \item Lesson 2: Legal Aspects of Libre Software
+    \item \alert{Lesson 3: Free Software licenses}
+    \item Lesson 4: Free licenses for other intellectual works
+    \item Lesson 5: Case studies
+  \end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{Lesson III: Free/Open Source Software Licenses}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Why Do I Need a License?}
+
+\pause
+
+\begin{center}
+\Large{If you don't license your code,\\ it can't be used (legally) by other people.}
+\end{center}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{FLOSS License Example}
+
+Implementing a basic free license is very easy: 
+\small
+\begin{block}{Free Software License Example}
+\texttt{Copyright (c) Year(s), Company or Person's Name $<$E-mail address$>$. All rights reserved.}
+
+\medskip
+
+\texttt{Permission to \alert{use}, \alert{copy}, \alert{modify}, and/or \alert{distribute} this software \alert{for any purpose} with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.}
+\end{block}
+\normalsize
+\alert{That's all!!}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{FLOSS Licensing}
+
+From least to greatest complexity (and liberal/control):
+\begin{itemize}
+\item \alert{Academic Licenses}
+\item \alert{Permissive Licenses}
+\item \alert{Partially Closable Licenses} (weak copyleft)
+\item \alert{Reciprocal Licenses} (strong copyleft)
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Recommended licenses}
+
+\begin{itemize}
+\item	\alert{Academic/permissive}
+	\begin{itemize}
+	\item The Simplified (``2-clause'') BSD License 
+	\item The ISC License
+	\item The Apache License 2.0 
+	\end{itemize}
+\item \alert{Weak copyleft}
+	\begin{itemize}
+	\item The Mozilla Public License (MPL) 
+	\item The CDDL License (OpenSolaris) 
+	\item The Lesser GPL (LGPL), version 2 or 3
+	\end{itemize}
+\item \alert{Strong copyleft}
+	\begin{itemize}
+	\item The GNU GPL, version 2 or 3 
+	\item The Affero GPL, version 3
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+
+\section{Academic licenses}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The BSD family of licenses}
+
+\begin{frame}
+\frametitle{BSD License. Origins}
+
+\begin{itemize}
+\item BSD (Berkeley Software Distribution) is a Unix flavor developed
+  by University of Berkeley (CA).
+\item BSD Unix was licensed under a ``minimalistic'' license which
+  permits both source or binary redistribution; also modifications,
+  but without any other restriction.
+\item Several revisions: it's a \alert{template}.
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Current BSD License}
+
+\begin{itemize}
+\item Based in original BSD license.
+\item Very popular (BSD userland, PF, TCP/IP, OpenSSH, TCL/Tk...).
+\item You may redistribute the work, in any form (source or binary)
+  but with all remaining copyright notes (authorship attribution).
+\item There is a ``no warranty'' clause.
+\item ``Liberal (=libertarian) license'': no control over software evolution. 
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{BSD License. Advantages}
+
+\begin{itemize}
+\item BSD license places minimal restrictions on future behavior.
+\item This allows BSD code to remain Open Source or become integrated into closed solutions.
+\item No legal complexity (unlike GPL or LGPL licenses). 
+\item It allows developers and companies to spend their time creating and promoting good code rather than worrying if that code violates licensing.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+% \frametitle{Original BSD License (1988)}
+
+\begin{block}{Original BSD License (1988, 4.3BSD and Net/1)}
+Copyright (c) $<$year$>$, $<$copyright holder$>$. All rights reserved. 
+
+\medskip
+
+Redistribution and use in source and binary forms are permitted
+provided that the above copyright notice and this paragraph are
+duplicated in all such forms and that any documentation,
+advertising materials, and other materials related to such
+distribution and use acknowledge that the software was developed
+by the $<$organization$>$.  The name of the
+University may not be used to endorse or promote products derived
+from this software without specific prior written permission.
+THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR
+IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+ 
+\end{block}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+%\frametitle{4-clause BSD License}
+
+\begin{block}{The 4-clause BSD License (``BSD-old'')} 
+
+\footnotesize
+  
+Copyright (c) $<$year$>$, $<$copyright holder$>$. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+\begin{enumerate}
+\item Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+\item \alert{All advertising materials mentioning features or use of this software
+   must display the following acknowledgement:
+   This product includes software developed by the $<$organization$>$.}
+\item Neither the name of the $<$organization$>$ nor the
+   names of its contributors may be used to endorse or promote products
+   derived from this software without specific prior written permission.
+\end{enumerate}
+
+\end{block}
+
+\begin{itemize}
+  \item Clause \#3: \alert{The ``advertising clause''}
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+% \frametitle{The 3-clause BSD License}
+
+\begin{block}{The 3-clause BSD License}
+Copyright (c) $<$year$>$, $<$copyright holder$>$. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+\small
+
+\begin{enumerate}
+\item Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer in the
+      documentation and/or other materials provided with the distribution.
+\item Neither the name of the $<$organization$>$ nor the
+      names of its contributors may be used to endorse or promote products
+      derived from this software without specific prior written permission.
+\end{enumerate}
+ 
+\end{block}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{New BSD License (``Simplified'')}
+
+\begin{block}{The 2-clause BSD License} 
+Copyright (c) $<$year$>$, $<$copyright holder$>$. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+
+\begin{enumerate}
+\item Redistributions of source code must retain the above copyright notice, this list of  conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+\end{enumerate}
+ 
+\end{block}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+% \frametitle{The BSD License: No Warranty}
+
+\begin{block}{The BSD License: Disclaimer / No Warranty}
+{\footnotesize
+THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' 
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, 
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR 
+PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS 
+BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, 
+OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT 
+OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; 
+OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, 
+EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{BSD-like licenses}
+\begin{frame}
+\frametitle{BSD-like licenses}
+
+\begin{itemize}
+
+\item \alert{Internet Systems Consortium (ISC)} 
+	\begin{itemize}
+	\item Equivalent to the 2-clause BSD license.
+	\item Language ``made unnecessary by the Berne convention'' removed.
+	\item BIND, DHCP and preferred license of OpenBSD project.
+	\end{itemize}
+\item \alert{MIT License}
+	\begin{itemize}
+	\item Used graphical subsystem in Unix systems (X Window System), Symfony, RoR, Lua, Putty Mono, CakePHP... 
+	\item Similar to the 2-clause BSD license, 
+	\item It doesn't contain a notice prohibiting the use of the name of the copyright holder in promotion.
+     	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+% \frametitle{ISC: the shortest license}
+
+\begin{block}{ISC: the shortest license}
+{\small Copyright (c) Year(s), Company or Person's Name $<$E-mail address$>$}
+
+\medskip
+
+\alert{Permission} to \alert{use}, \alert{copy}, \alert{modify}, and/or \alert{distribute} this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+\end{block}
+
+\medskip
+\begin{itemize}
+\item Preferred license in OpenBSD Project and ISC sw (bind, dhcp)
+\end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+% \frametitle{The MIT License}
+
+\begin{block}{The MIT License (MIT)} 
+Copyright (c) $<$year$>$, $<$copyright holder$>$ 
+
+\medskip
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the ``Software''), to deal in the Software without restriction, including without limitation the rights to \alert{use}, \alert{copy}, \alert{modify}, \alert{merge}, \alert{publish}, \alert{distribute}, sublicense, \alert{and/or sell copies} of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+\medskip
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ 
+\end{block}
+\medskip
+\begin{itemize}
+\item It states more explicitly the rights given to the end-user
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Other BSD-like licenses}
+
+\begin{itemize}
+\item \alert{Zope Public License 2.0}
+	\begin{itemize}
+	\item Used by the Zope distribution (an application server) and some related products. 
+	\item Near BSD license, also prohibits the use of Zope Corporation trademarks.
+	\end{itemize}
+\item \alert{WTFPL} (``Do What The Fuck You Want To Public License'') 
+	\begin{itemize}
+	\item Licensees are encouraged to do what they want to. 
+	\item Approved as a GPL-compatible by the FSF. 
+	\item \textbf{Examples}: \textit{WindowMaker artwork} and \textit{Potlatch} (the online editor of the OpenStreetMap).
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+% \frametitle{WTFPL License}
+
+\begin{block}{WTFPL: The most permissive and irreverent license} 
+% \small
+
+\center DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+
+Version 2, December 2004
+
+\flushleft
+
+Copyright (C) 2004 Sam Hocevar $<$sam@hocevar.net$>$
+
+\smallskip
+
+Everyone is permitted to copy and distribute verbatim or modified
+copies of this license document, and changing it is allowed as long
+as the name is changed.
+
+
+\center DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+  TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+
+\flushleft
+0. You just DO WHAT THE FUCK YOU WANT TO.
+
+\end{block}
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Public Domain}
+\begin{frame}
+\frametitle{Public Domain}
+
+\begin{itemize}
+\item An intellectual work in the \alert{Public Domain}
+  is neither under any IP law nor a license. 
+\item Most public domain works retains the authorship. 
+\item \alert{With source code} available, it's (\textbf{functionally}) \alert{very similar} placing the program under a \alert{BSD license}.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Public Domain: No Copyright}
+
+\begin{columns}
+
+\column[t]{2.5cm}
+
+\begin{figure}
+\vspace{0.2cm}
+\begin{flushleft}
+	\includegraphics[scale=0.3,clip=true]{figs/no-copyright-public-domain.jpg}
+\end{flushleft}
+\end{figure}
+
+\column[t]{8cm}
+\vspace{-0.5cm}
+\begin{block}{Sample Public Domain Dedication}
+\texttt{``I, the copyright holder of this work, hereby release it into the public domain. This applies worldwide.} \\
+\medskip
+\texttt{In case this is not legally possible, I grant any entity the right to use this work for any purpose, without any conditions, unless such conditions are required by law.''}
+\end{block}
+
+\end{columns}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{ipfilter case}
+\begin{frame}
+\frametitle{Exercise: ipfilter license (2000)}
+
+\begin{alltt}
+\footnotesize
+/* \\
+ * Copyright (C) 1993-2000 by Darren Reed. \\
+ * \\
+ * The author accepts no responsibility for the use of this software \\
+ * and provides it on an ``as is'' basis without express or implied \\
+ *  warranty. \\
+ * \\
+ * Redistribution and use in source and binary forms are permitted \\
+ * provided that this notice is preserved and due credit is given \\
+ * to the original author and the contributors. \\
+ * \\
+ * This program is distributed in the hope that it will be useful, \\
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of \\
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. \\
+ * \\
+ * I hate legaleese, don't you ? \\
+ */
+
+\end{alltt}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{ipfilter license ``Clarification'' (2001)}
+
+\begin{alltt}
+\footnotesize
+/* \\
+/* Copyright (C) 1993-2001 by Darren Reed. \\
+ * \\
+ * The author accepts no responsibility for the use of this software \\
+ * and provides it on an ``as is'' basis without express or implied \\
+ *  warranty. \\
+ * \\
+ * Redistribution and use in source and binary forms are permitted \\
+ * provided that this notice is preserved and due credit is given \\
+ * to the original author and the contributors. \\
+ * \\
+ * \alert{Yes, this means that derivitive or modified works are not} \\ 
+ * \alert{permitted without the author's prior consent.} \\
+ * \\
+ * This program is distributed in the hope that it will be useful, \\
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of \\
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. \\
+ * /
+
+\end{alltt}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Theo de Raadt announces that IPFilter will be replaced}
+
+\begin{alltt}
+\footnotesize
+
+
+Date: Tue, 29 May 2001 19:13:11 -0600 \\
+From: Theo de Raadt <deraadt@cvs.openbsd.org> \\
+Subject: ipf \\
+
+sometime in the next 20 hours, i will be removing ipf from the source tree since it does not meet our freedom requirements, as have been outlined in policy.html and goals.html since the start of our project. \\
+
+we will have to work on an alternative.
+
+\end{alltt}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Be careful with grants!}
+
+\begin{block}{The 2-clause BSD License} 
+Copyright (c) $<$year$>$, $<$copyright holder$>$. All rights reserved.
+
+Redistribution and use in source and binary forms, \alert{with or without
+modification}, are permitted provided that the following conditions
+are met:
+
+\small
+
+\begin{enumerate}
+\item Redistributions of source code must retain the above copyright notice, this list of  conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+\end{enumerate}
+ 
+\end{block}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{ipfilter case}
+
+\begin{itemize}
+\item The real problem is that code with a non-free license was incorporated into the core of a free operating system. 
+\item Carelessness with licenses invites trouble.
+\end{itemize}
+
+\end{frame}
+
+
+
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Permissive licenses}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{The Apache License}
+\begin{frame}
+\frametitle{The Apache License}
+
+\begin{itemize}
+\item Old versions: 1.0 (original) and 1.1 (ASF, 2000).
+\item An extension of the 3-clause BSD license.
+	\item Permits to be integrated into closed source projects.
+\item \alert{Apache License 2.0} (January 2004): permissive license.
+	\begin{itemize}
+	\item Make the license easier for non-ASF projects to use.
+	\item Explicitly \alert{grants patent rights} where necessary to operate, modify and distribute the 	software (sect. 3).
+	\item \alert{Patent retaliation} (terminating the license upon the initiation of a lawsuit)
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{The Apache License v2}
+
+\begin{itemize}
+\item Over 5000 non-ASF projects located at SourceForge are available under Apache License (2009). 
+\item 25\% from Google Code (including Android).
+\item Compatibility with GPLv3 (only one-way). 
+\item Incompatible with GPLv2.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Apache License: Grant of Patent}
+
+\begin{block}{3. Grant of Patent License}
+Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable, patent license to make, have made, use, offer to sell, sell, import, and otherwise transfer the Work , where such license applies [...].
+\end{block}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Apache License: Patent retaliation}
+
+\begin{block}{3. Grant of Patent License}
+\alert{If You institute patent litigation against any entity} (including a cross-claim or counterclaim in a lawsuit) alleging that the Work or a Contribution incorporated within the Work constitutes direct or contributory patent infringement, then \alert{any patent licenses granted to You under this License} for that Work \alert{shall terminate as of the date such litigation is filed}.
+\end{block}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Weak copyleft licenses}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The MPL License}
+\begin{frame}
+\frametitle{The Mozilla Public License}
+
+\begin{itemize}
+\item It keeps the covered code itself open source.
+\item Code under the MPL may be combined with proprietary files in one program (``Larger Work'').
+\item Explicitly grants patent rights where necessary to operate the software.
+\item A module covered by the GPL and a module covered by the MPL 1.1. cannot legally be linked together.
+\item For this reason, Firefox have been relicensed under multiple licenses (MPL, GPL, LGPL).
+\item MPL 1.1 can be specifically amended to allow combining with GPL and others (sect. 13, ``Multiple-licensed code'').
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{MPL 1.1 Exception | Dual Licensing} 
+\begin{center}
+\includegraphics[scale=0.40,clip=true]{figs/mpl-exception.png}
+
+\end{center}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{The MPL version 2}
+
+\begin{itemize}
+\item \alert{MPL 2.0:} released in Jan 2012 after more than a decade.
+\item Grant of Patent (section 2.1).
+\item MPL v2.0 is \alert{compatible} with the \alert{Apache} License and \alert{GPL}. 
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The CDDL License}
+\begin{frame}
+\frametitle{The CDDL License}
+
+\begin{itemize}
+\item The Common Development and Distribution License is a based work of the MPL. 
+\item Produced by Sun Microsystems for OpenSolaris projects (kernel, userland, ZFS, DTrace, NetBeans, GlassFish...).
+\item OSI-compliant (2004) and one of nine OSI preferred licenses (also OSSCC reco.
+\item It fixes some smaller problems in the MPL 1.1. 
+\item Such as some non-copliances with European law system in the MPL that have been corrected in the CDDL.
+\item GPL-incompatible.
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The LGPL License}
+\begin{frame}
+\frametitle{The GNU LGPL v2.1}
+
+\begin{center}
+LGPL = Lesser GPL
+\end{center}
+
+\begin{itemize}
+\item LGPL started as ``Library GPL''. Later renamed to ``Lesser
+  GPL''.
+\item LGPL maintain all GPL provisions, but with one exception:
+\begin{itemize}
+  \item ``Works that use the library'' \alert{can be licensed any way} (including proprietary software).
+  \item Not only libraries: OpenOffice, Mozilla.
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{LGPL linking exception}
+\begin{block}{LGPL linking exception}
+``A program that contains no derivative of any portion of the Library, but is designed to work with the Library by being compiled or linked with it, is called a ``work that uses the Library''. Such a work, in isolation, is not a derivative work of the Library, and therefore falls outside the scope of this License.''
+
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Why LGPL?}
+
+
+\begin{itemize}
+\item Created for promoting the use of free software libraries (ex: GNU libc --glibc--).
+\item Later, FSF checked that LGPL was very used, so they decided to rename it 
+  to ``lesser'' and discourage its use (v2.1, 1999).
+\end{itemize}
+
+\end{frame}
+
+
+\section{Strong copyleft licenses}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The GPL License}
+\begin{frame}
+\frametitle{GNU GPL License}
+
+\begin{center}
+\item GPL = GNU General Public License.
+\end{center}
+
+GPL Concepts:
+\begin{itemize}
+\item Created by FSF for the GNU Project.
+\item Very often used in non-GNU free software.
+\item Probably, the most popular Free Software license: around 70\%
+  Freshmeat projects licensed under GPL.
+\item Some popular software licensed under GPL: Linux, GNOME, Emacs,
+ GCC\ldots
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{The GNU GPL}
+
+What makes the GPL so special?
+\pause
+\begin{itemize}
+\item It was the first license to outline the copyleft principle.
+\item All copyleft licenses have been based on the GPL, including the Wikipedia license.
+\item Without the GPL, copyleft would be just an idea. 
+\item Designed to prevent the proprietary commercialization of free software code.
+\item The GPL is a ``viral'' copyleft license: not business friendly?
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{GNU GPL. Characteristics}
+
+\begin{itemize}
+\item This license guarantees the four FLOSS freedoms.
+\item ``\alert{Copyleft}'' clause: all derivative works should be
+  licensed also under the same license.
+\item Since in USA software patents are admissible, GPL includes a
+  clause for avoiding GPL licensing of patented software or
+  algorithms.
+\item GPL code can not be mixed with other code under
+  ``GPL-incompatible'' license.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{GPLv2. Copyleft clause}
+
+\begin{block}{Section 2 (Copyleft clause)} 
+You may modify your copy or copies of the Program or any portion of it, thus forming a work based on the Program, and copy and distribute such modifications or work [...] provided that you also meet all of these conditions:
+
+\medskip
+
+\begin{itemize}
+\item a) You must cause the modified files to carry \alert{prominent notices} stating that you changed the files and the date of any change.
+\item b) You must cause any work that you distribute or publish, that in whole or in part contains or is derived from the Program or any part thereof, to be licensed as a whole at no charge to all third parties \alert{under the terms of this License}.
+\end{itemize}
+ 
+\end{block}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{GPL. EULA is not necessary}
+
+\begin{block}{GPLv2. Section 5} 
+5. \alert{You are not required to accept this License, since you have not signed it. However, nothing else grants you permission to modify or distribute the Program or its derivative works.} These actions are prohibited by law if you do not accept this License. Therefore, by modifying or distributing the Program (or any work based on the Program), you indicate your acceptance of this License to do so, and all its terms and conditions for copying, distributing or modifying the Program or works based on it.
+ 
+\end{block}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{GPL versions}
+
+\begin{itemize}
+\item Based in Emacs license, first copyleft license (1986).
+\item \alert{GPL version 1} (1989). Generics, program-independent, ``version 1 or later''.
+\item \alert{GPL version 2} (1991). ``Liberty or dead'' clause (it prevents from patents threats).
+\item \alert{GPL version 3} (2007). Tivoization, patents and DRMs. Community discuss.
+\end{itemize}
+
+\medskip
+
+The most known is GPL Version 2 because has been on the market for more than 15 years. 
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{GPL, version 2 (GPLv2)}
+
+\begin{itemize}
+    \item Written by Richard Stallman and the FSF. It was published in 1991.
+    \item The most popular free software license: It covers 50-70 \% of all free software.
+    \item It's more than a software license: it is a social contract.
+
+
+\end{itemize}
+
+\pause
+
+{\centerline{\large \alert{Why does it update it?}}}
+
+\pause
+
+After 15 years, needed updating in order to remain effective against the technological challenges.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{GPLv3 elaboration process}
+
+Public consultation process:
+\begin{itemize}
+\item It lasted eighteen months: from January 16, 2006 (first draft) to June 29, 2007 (final version).
+\item Four drafts. 
+\item Five International Conferences (Boston, Porto Alegre, Barcelona, Tokyo and Brussels)
+\end{itemize}
+
+\pause
+
+The most important change, compared to previous versions, was the re-elaboration of the license, since it was discussed and agreed by the community.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Changes in GPLv3}
+The newest GPL version does not invalidate previous versions or requires software to be licensed under the new version.
+\begin{itemize}
+\item Major changes
+    \begin{itemize}
+        \item It DOES NOT prevent DRM implementations with GPL software, but it DOES allow interoperable software to be written with it.
+        \item {More protection related to software patents}
+        \item It neutralizes WIPO (\textit{anti-circumvention}) laws which ban libre software (DMCA and EUCD).
+        \item It clarifies license compatibility (additional permissions)
+    \end{itemize}
+\item Minor changes
+    \begin{itemize}
+        \item Adaptation to technological innovations.
+        \item Clarifications to make it easier to use and understand.
+        \item Better internationalization (\textit{convey/distribution})
+    \end{itemize}
+\end{itemize}
+
+\pause
+
+Many changes, but fundamental principles remain.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{How GPLv3 works: Digital Rights Management (DRM)}
+
+\begin{itemize}
+\item Section 3 neutralize laws that prohibit (write or share) free software (such as DMCA, EUCD)
+\item But not forbidding DRM with GPLed software.
+\item It's always possible to use GPLed code to write software that implements DRM 
+\item But it's possible write interoperable software and bypass restrictions. 
+\item Neutralize \textit{tivoization}: require to provide with information or necessary data to install modified software on the embedded device.
+\end{itemize}
+
+\textbf{``GNU GPL does not restrict what people do in software; it just stops them from restricting others.''}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{GPLv3: Software Patents}
+Protection against patent threats is implemented in GPLv2 through clause ``Liberty or Death'' (sec. 7).
+
+\begin{itemize}
+\item If GPLed code includes patents with incompatible restrictions, can't be distributed.
+\item Avoid ``zombie'' free software (software would be free if patents won't exist anymore).
+\end{itemize}
+
+{\centerline{This clause remains in GPLv3.}}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{GPLv3: Protecting From Anti-Circumvention Law}
+Protecting Users' Legal Rights From Anti-Circumvention Law (sec. 3):
+
+\begin{block}{GPLv3, Section 3. Protecting From Anti-Circumvention}
+No covered work shall be deemed part of an effective technological measure. [...] When you convey a covered work, you waive any legal power to forbid circumvention of technological measures to the extent such circumvention is effected by exercising rights
+under this License 
+ \end{block}
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Software Patents}
+GPLv3 adds stronger protection against patent threats through legal-engineering:
+
+\begin{itemize}
+\item Who distribute GPLed software must provide any patent rights to exercise the freedoms that the GPL grants him.
+\item If anyone intends to exercise a patent, your license is finished.
+\item Users and developers can work with GPLv3 software without worrying about anybody can sue for patent infringement.
+\end{itemize}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Compatibility}
+
+Compatibility == merge source code from different libre software licenses.
+
+\begin{itemize}
+\item GPLv3 increases compatibility with several free licenses (Apache, Affero).
+\item Allow additional requirements:
+\begin{itemize}
+\item Responsibility: Allows add disclaimers or warranty notes.
+\item Allows add restrictions about trademarks.
+\end{itemize}
+\end{itemize}
+
+GPLv3 is more modular, more compatible, and will be compatible with different copyleft licenses.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{The ongoing decline of the GPL}
+
+\begin{center}
+\small
+The GPLv2 is in decline relative to permissive licenses:
+
+\medskip
+
+\includegraphics[scale=0.7,clip=true]{figs/gplusage.png}
+\end{center}
+
+\begin{center}
+\small
+Since this analysis, the decline has accelerated: GPLv2 is now at 36,65\% (November 2012)
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{The Top Licenses on Github}
+
+\begin{center}
+\small
+The 50 most watched Github projects shows an acute decline in the GPL relative to permissive licenses:
+
+\medskip
+
+\includegraphics[scale=0.5,clip=true]{figs/top-licenses-on-github.png}
+\end{center}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Affero License}
+\begin{frame}
+\frametitle{Other reciprocal licenses: Affero GPL (AGPL)}
+
+\begin{itemize}
+\item It is a \alert{derived} license from GPL. 
+\item Published by the Free Software Foundation (version 3: 2007).
+\item It contains a clause requiring distribution of any modified source code of applications \alert{running over a network} (SaaS).
+\item It aims to cover the case of modified GPL software which is not distributed because the GPL license does not require to do so (web services or online applications). 
+\item Criticism (ex. Bryan Cantrill): based in a ``absurdly broad definition of derived work''.
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Affero Clause}
+
+\begin{block}{AGPL, Section 13. Affero Clause}
+If you \alert{modify} the Program, \alert{your modified version must prominently offer all users interacting with it remotely through a computer network} (if your version supports such interaction) an opportunity to receive the Corresponding Source of your version by providing access to the Corresponding Source from a network server at no charge [...].
+ \end{block}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Issues about Derivative Works}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \subsection{FSF doctrine}
+\begin{frame}
+\frametitle{GPL caveats (FSF doctrine)}
+
+\begin{itemize}
+\item The GPL does require that incompatible (OSS or not) and GPL'ed programs ``are not combined in a way that would make them effectively a single program.''
+\item If GPL source is required for a program to compile, the program must be under the GPL. 
+\item \alert{Linking} to a GPL library requires a program to be under the GPL.
+\item Simply \alert{aggregating software} together (i.e. distros) \alert{doesn't count} as including GPLed programs in non-GPLed programs.
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{GPL caveats (FSF doctrine)}
+
+\begin{itemize}
+\item Output of a program does not count as a derivative work. This enables the \texttt{gcc} compiler to be used in commercial environments without legal problems.
+\item Since the Linux kernel is under the GPL, any code statically linked with the Linux kernel must be GPLed. 
+\item This requirement can be circumvented by distributing and dynamically linking loadable kernel modules.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{FSF doctrine about linking: remarks and inconsistencies}
+
+\begin{itemize}
+\item \alert{Linking} has a \alert{specific meaning} in computer programming but not referred in copyright law. 
+\item What about linking in web pages?
+\item Translate, modify, revisions... are (according to laws) derivative works. But it's not linking that made the derivative difference!
+\item Scripting: ``pipes'' (not derivative) vs. include code (derivative work)
+\item Compiling (not derivative) vs. code language translation
+\item If in doubt: valid meaning (interpretation) is above all \alert{judge} and \alert{copyright-holder / licensor} (not FSF)  
+\end{itemize}
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \subsection{FSF criticism}
+\begin{frame}
+\frametitle{Lawrence Rosen: critical views}
+
+\begin{itemize}
+\item Lawrence Rosen (OSI) claims that a GPLd library may be used from any program as long as the library code is not modified.
+\item A program under GPL may link against non-GPL libraries (\alert{dynamic linking}) as this action is not considered to create a derivative work but a \alert{collective work}. 
+\item The FSF claims that this is not permitted.  
+	\begin{itemize}
+	\item but the claim from the FSF is in conflict with the Copyright law.
+	\item No GPL code copied, modified, translated or changed... \alert{no copyleft obligations} (according to Rosen)
+	\end{itemize}
+\end{itemize}
+
+\footnotesize
+Important issue because the FSF insists that the GPL has to be interpreted as a US license instead of being a contract! 
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{The US Copyright Act. Derivative Works}
+
+\begin{block}{The Copyright Act, at 17 U.S.C. §101}
+A ``derivative work'' is a work based upon one or more pre-existing works, such as a translation, musical arrangement, dramatization, fictionalization, motion picture version, sound recording, art reproduction, abridgment, condensation or any other form in which a work may be recast, transformed or adapted. A work consisting of editorial revisions, annotations, elaborations or other modifications which, as a whole, represent an original work of authorship, is a ``derivative work''.
+\end{block}
+
+It is a little vague and doesn't say anything at all about software.
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsection{What is a derivative work?}
+\begin{frame}
+\frametitle{When is one program a ``derivative work'' of another?}
+
+\pause
+
+\begin{itemize}
+\item A work based upon a preexisting work.
+\item The preexisting work is modified, translated, recasted, 
+transformed, adapted so to create an improved (or different) work.
+\item \alert{Linking} is not referred. 
+\item \alert{Substantial similarity}: it's not enough to identify a derivated software work. 
+\item Complex problem... only related to copyleft?
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}
+%\frametitle{What is a derivative work?}
+
+%\pause
+
+%\begin{itemize}
+%\item It will not be broadened to include software created by linking to library programs that were designed and intended to be used as library programs (Rosen). 
+%\item People who merely use the library, unmodified, perhaps without even looking at the source code, are not thereby creating derivative works of the library (Rosen).
+%\item You don't create a derivative work by merely running such a plugin under it, even if you have to look at the source code to learn how (Rosen).
+%\end{itemize}
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{What is a derivative work?}
+
+\begin{itemize}
+
+\item Is Linux a derivative work of Unix?
+\item Is implementation of a industry standard a derivative work of that specification?
+\item How much copying of source code is required to create a derivative work?
+\item Does linking create a derivative work?
+\end{itemize}
+
+\begin{center}
+Controversial interpretations
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Free Licenses Comparison}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Most Popular Licenses}
+\begin{frame}
+
+\frametitle{Top 20 OSS Licenses (Black Duck Software)} 
+\vspace{-0.25cm}
+\begin{center}
+\includegraphics[scale=0.25,clip=true]{figs/top20licenses.png}
+
+\end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+% \frametitle{Most Popular Licenses in the Enterpises (OpenLogic)} 
+\vspace{-0.25cm}
+\begin{center}
+\includegraphics[scale=0.29,clip=true]{figs/MostPopularLicensesInTheEnterprise3.png}
+
+% \medskip
+% \footnotesize
+% \url{http://www.openlogic.com/blog/bid/197148/open-source-software-101-understanding-compliance}
+\end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+% \frametitle{Most Popular Licenses in the Enterpises (OpenLogic)} 
+\vspace{-0.25cm}
+\begin{center}
+\includegraphics[scale=0.29,clip=true]{figs/MostPopularLicensesInTheEnterprise.png}
+
+% \medskip
+% \footnotesize
+% \url{http://www.openlogic.com/blog/bid/197148/open-source-software-101-understanding-compliance}
+\end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{The Top Licenses on Github}
+
+\begin{center}
+
+% MIT is the dominant license among the most popular projects on Github, followed by BSD and Apache. 
+
+\medskip
+
+\includegraphics[scale=0.5,clip=true]{figs/licenses-github.jpg} \\
+\footnotesize
+\textit{Source:} \url{http://ostatic.com/blog/the-top-licenses-on-github}
+\end{center}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Free Licenses Comparison}
+\begin{frame}
+\frametitle{Free Licenses Comparison}
+
+\begin{center}
+\includegraphics[scale=0.32,clip=true]{figs/licenses-comparison.png}
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Free Licenses Comparison (OSSCC)} 
+\begin{center}
+\includegraphics[scale=0.32,clip=true]{figs/licenses-comparison-osscc.png}
+
+\medskip
+
+\url{http://www.osscc.net/en/licenses.html}
+\end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{Discussion: GPL vs BSD framework}
+\begin{frame}
+\frametitle{Discussion: GPL vs BSD}
+\Large
+\begin{itemize}
+\item ``BSD code is free, but GPL code stays free.'' 
+
+\pause
+
+\item Copyleftism: (Not) business friendly? 
+
+\end{itemize}
+\end{frame}
+
+
+%%---------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{References}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{References}
+
+\begin{itemize}
+\item \textsc{Rose, Lawrence}: \textit{Open Source Licensing}, Prentice Hall, July 2004 
+\item \textsc{fsfe}: \href{https://wiki.fsfe.org/EuropeanLegalNetwork/LinkingDocument?action=AttachFile&do=view&target=software_interactions.pdf}{``Working Paper on the legal implication of certain forms of Software Interactions (aka linking)''}, July 2010.
+\item \textsc{Bain, Malcolm}: \href{http://www.ifosslr.org/ifosslr/article/view/44}{``Software Interactions and the GNU General Public License''}, IFOSS L.Rev, 2(2), 2010.
+\item \textsc{Rose, Lawrence}: \href{http://www.linuxjournal.com/article/6366}{``Derivative Works''}, \textit{Linux Journal}, June 1, 2003.
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame{
+\maketitle
+\begin{center}
+% \includegraphics[width=6cm]{format/gsyc-urjc}
+\vspace{-0.5cm}
+\includegraphics[width=6cm]{format/flossURJC-bg.png}
+\end{center}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\end{document}
+
+

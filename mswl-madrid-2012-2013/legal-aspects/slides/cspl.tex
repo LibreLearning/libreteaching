@@ -1,0 +1,214 @@
+\documentclass{beamer}
+\usepackage{moreverb} 
+\usepackage{listings}
+\usepackage{mflogo}
+% imprimir
+% \documentclass[handout]{beamer} 
+% \usepackage{pgfpages}
+% \pgfpagesuselayout{4 on 1}[a4paper,landscape,border shrink=5mm]
+
+\mode<presentation> {
+  \usetheme{Warsaw}
+  \setbeamercovered{transparent}
+}
+
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+% \usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+%% Metadatos del PDF.
+\hypersetup{  
+  pdftitle={License Study: The case of the CSPL},
+  pdfauthor={Miguel Vidal},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Master on Free Software},
+}
+%%
+
+\defbeamertemplate*{footline}{shadow theme}
+{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm plus1fil,rightskip=.3cm]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertframenumber\,/\,\inserttotalframenumber\hfill\includegraphics[scale=0.40]{format/cc-by-80x15.png} \hspace{0.1cm}\insertshortauthor 
+% \usebeamerfont{author in head/foot} \includegraphics[width=0.7cm]{format/cc-by.png} \hfill\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle%
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\title{License Study: The case of the CSPL}
+\subtitle{Master on Libre Software 2012-13}
+\institute{\texttt{http://gsyc.urjc.es/\~{}mvidal} \\ Twitter: \texttt{@mvidallopez}}
+\author{Miguel Vidal} 
+%\date{\today}
+\date{November 16th, 2012}
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+%% License slide
+\begin{frame}
+  \vspace{2cm}
+  \begin{flushright}
+    {\small (cc) 2008-2012 Gregorio Robles, Miguel Vidal} \\
+%    \vspace{0.25cm}
+    \medskip
+    {\scriptsize This work is licensed under \\ a Creative Commons Attribution 3.0 License}
+%    \vspace{0.10cm}
+  \end{flushright}
+  \begin{flushright}
+    \href{http://creativecommons.org/licenses/by/3.0/es}{\includegraphics[width=2cm]{format/cc-by.png}} \\
+    {\tiny \url{http://creativecommons.org/licenses/by/3.0}}
+  \end{flushright}
+\end{frame}%%
+
+\usebackgroundtemplate{}
+
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>{Table of Contents}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Activity: Study of a License}
+
+\begin{itemize}
+\item License under study: Christian Software Public License
+\item It was the software license of the Jesux distribution.
+\item Jesux was a distribution for Christian hackers based on Red Hat.
+\item Jesux was released 1999 once, but never again.
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Questions to solve}
+
+\begin{itemize}
+\item Is the Christian Software Public License a Libre Software
+License?
+	\begin{itemize}
+	\item Why?
+	\end{itemize}
+\item What license is it based on?
+\begin{itemize}
+	\item What has been changed?
+	\end{itemize}
+\item Is it a GPL-compatible license?
+	\begin{itemize}
+	\item Why?
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Christian Software Public License (I)}
+
+\footnotesize
+
+Copyright 1999 Jesux Developers. All rights reserved.
+
+\medskip
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+\medskip
+
+1. Redistributions of source code must retain the above copyright notice, this
+list of conditions and the following disclaimer. \\
+2. Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation and/or
+other materials provided with the distribution. \\
+3. All advertising materials mentioning features or use of this software must
+display the following acknowledgement: \\
+
+\begin{center}
+For God so loved the world, that he gave his only begotten Son, that
+whosoever believeth in him should not perish, but have everlasting life. (John
+3:16, King James Bible)
+\end{center}
+
+4. Neither the name ``Jesux'' nor the names of its developers may be used to
+endorse or promote products derived from this software without specific prior
+written permission.
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Christian Software Public License (and II)}
+
+\small
+
+THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR
+IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+DEVELOPERS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{References}
+
+\begin{itemize}
+\item The Jesux distribution: \\
+{\tiny \href{http://web.archive.org/web/20081004042254/http://www.geocities.com/ResearchTriangle/Node/4081/}{http://web.archive.org/web/20081004042254/http://www.geocities.com/ResearchTriangle/Node/4081/}}
+\item Christian Software Public License: \\
+{\tiny \href{http://web.archive.org/web/20080925040044/http://www.geocities.com/ResearchTriangle/Node/4081/cspl.html}{http://web.archive.org/web/20080925040044/http://www.geocities.com/ResearchTriangle/Node/4081/cspl.html}}
+% \item Jesux: la primera distribución cristiana de Linux: \\
+% {\tiny \url{http://softlibre.barrapunto.com/article.pl?sid=99/09/25/0038209}}
+\end{itemize}
+
+\end{frame}
+
+
+\frame{
+\maketitle
+\begin{center}
+\includegraphics[width=6cm]{format/gsyc-urjc}
+\end{center}
+}
+
+
+\end{document}
+
+

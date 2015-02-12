@@ -1,0 +1,237 @@
+%% presentation.tex
+
+\documentclass{beamer}
+\usepackage{moreverb} 
+\usepackage{listings}
+\usepackage{mflogo}
+% imprimir
+% \documentclass[handout]{beamer} 
+% \usepackage{pgfpages}
+% \pgfpagesuselayout{4 on 1}[a4paper,landscape,border shrink=5mm]
+
+\mode<presentation> {
+  \usetheme{Warsaw}
+  \setbeamercovered{transparent}
+}
+
+% \usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+% \usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+%% Metadatos del PDF.
+\hypersetup{  
+  pdftitle={Legal Aspects},
+  pdfauthor={Miguel Vidal},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Master on Free Software},
+}
+%%
+
+\defbeamertemplate*{footline}{shadow theme}
+{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm plus1fil,rightskip=.3cm]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertframenumber\,/\,\inserttotalframenumber\hfill\includegraphics[scale=0.40]{format/cc-by-80x15.png} \hspace{0.1cm}\insertshortauthor 
+% \usebeamerfont{author in head/foot} \includegraphics[width=0.7cm]{format/cc-by.png} \hfill\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle%
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\title{Legal Aspects -- Presentation}
+\subtitle{Master on Free Software 2012-13}
+% \institute{\texttt{http://gsyc.urjc.es/\~{}mvidal} \\ Twitter: \texttt{@mvidallopez}}
+\institute{\texttt{http://flossystems.com} \\ Twitter: \texttt{@mvidallopez}}
+% \institute{\texttt{http://gsyc.urjc.es/\~{}mvidal} \\ Twitter: \texttt{@mvidallopez}}
+\author{Miguel Vidal} 
+%\date{\today}
+\date{October 19th, 2012}
+
+\frame{
+\maketitle
+\begin{center}
+% \includegraphics[width=6cm]{format/gsyc-urjc}
+\includegraphics[width=6cm]{format/flossURJC-bg.png}
+\end{center}
+}
+
+%%
+
+
+\section{Presentation of the course}
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Administrative data}
+
+\begin{itemize}
+\item First semester, 3 ECTS credits
+\item Teachers:
+  \begin{itemize}
+  \item \alert{Miguel Vidal} (\texttt{mvidal at gsyc.urjc.es})
+  \end{itemize}
+\item Schedule: \alert{Fridays, 17:00-21:00}
+  \begin{itemize}
+  \item Classroom 227, Departamental I, campus at Fuenlabrada
+  \end{itemize}
+\item Moodle course (\textbf{please, join it as soon as possible}): \\
+  {\footnotesize\url{http://gsyc.escet.urjc.es/moodle/course/view.php?id=121}}
+\end{itemize}
+\end{frame}
+
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Subject: Legal Aspects}
+
+\setbeamercovered{invisible}
+
+\center \Large \textbf{Why should I care about legal aspects?}
+ 
+\pause
+
+\bigskip
+\normalsize
+\begin{itemize}
+\item \alert{It allows us to release \& enjoy free software liberties}
+\pause
+\item \alert{It allows us to distinguish between free software and non-free software}
+% \alert{Licenses are legal basis and ``social contract'' of free/open source software.}
+\end{itemize}
+
+\end{frame}
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Main topics addressed}
+
+\begin{itemize}
+   \item Intellectual property (IP) law \alert{for nonlawyers}: Copyrights,
+Patents, Trademarks, Warranties...
+   \item How FLOSS and IP work together
+   \item Free and Open Source Software licenses (permissive and reciprocal)
+   \item Free cultural works (documentation, images, Creative Commons
+licenses)
+   \item Case studies and practical issues (choosing a license, compatibility,
+forking, merging/mixing... myths)
+\end{itemize}
+
+\end{frame}
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Sessions}
+
+\begin{enumerate}
+\item \alert{Oct. 19:} Introduction to the general concepts of Intellectual Property
+\item \alert{Oct. 26:} Copyright on Software. Legal aspects of free software
+\item \alert{Nov. 2:} Free Software Licenses
+\item \alert{Nov. 9:} Free licenses for other intellectual works
+\item \alert{Nov. 16:} Case studies, practical issues and myths
+\end{enumerate}
+
+\end{frame}
+
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Evaluation criteria}
+
+\begin{itemize}
+\item \alert{Specific report}: \textbf{45 points}
+\item \alert{Exercises} (in Moodle forum): \textbf{35 points}
+\item \alert{Blog entries} (optional, use \texttt{mswl-legal} tag): \textbf{20 points} 
+\item \alert{Other activities} (optional, agreed with lecturer): \textbf{15 points} 
+\end{itemize}
+
+Deadline for submissions: \alert{November 28th}.
+
+\end{frame}
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Grades}
+
+\begin{itemize}
+\item \textbf{0-49: Fail} (``Suspenso'', SS)
+\item \textbf{50-69: Pass} (``Aprobado'', AP)
+\item \textbf{70-89: Good} (``Notable'', NT)
+\item \textbf{90-100: Excellent} (``Sobresaliente'', SB)
+\end{itemize}
+
+\end{frame}
+
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Final work: Specific Report}
+
+\begin{itemize}
+\item Specific written report about a relevant legal aspect of free/open source software. 
+\item Mandatory.
+\item About 7-10 pages long.
+\item Deadline for submissions: \alert{November 28th}.
+\end{itemize}
+
+\end{frame}
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Final work: Some ideas}
+
+\begin{itemize}
+\item IP (copyrights, patents) lawsuits against FLOSS.
+\item Infringement and violations of FLOSS licenses.
+\item How to affect SaaS (software on demand, cloud computing, etc.) to FLOSS licensing.
+\item Analysis of a specific FLOSS license or comparison between FLOSS licenses.
+\item Thinking about derivate works: linking and licensing, types of business models with FLOSS licenses, etc.
+\item Intellectual Property debate: Defense vs. opposition against patents and copyrights; IP framework alternatives, etc.
+\end{itemize}
+
+\end{frame}
+
+%%---------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Some references}
+
+\begin{itemize}
+\item Course Website: \\
+  {\footnotesize \url{http://gsyc.escet.urjc.es/moodle/course/view.php?id=121}}
+\item \textsc{Van Lindberg}, \textit{Intellectual Property and Open Source}, O'Reilly Media, July 2008.
+\item \textsc{Malcolm Bain} et al. \textit{Aspectos legales y de explotación del software libre}, UOC, February 2007. \\
+{\footnotesize \url{http://ocw.uoc.edu/informatica-tecnologia-y-multimedia/aspectos-legales-y-de-explotacion-del-software-libre/materiales/}}
+\item \textsc{Andre St. Laurent}, \textit{Understanding Open Source \& Free Software Licensing}, O'Reilly, August 2004 
+\item \textsc{Lawrence Rose}, \textit{Open Source Licensing}, Prentice Hall, July 2004 
+\end{itemize}
+
+\end{frame}
+
+%%---------------------------------------------------------------
+
+\frame{
+\maketitle
+\begin{center}
+% \includegraphics[width=6cm]{format/gsyc-urjc}
+\includegraphics[width=6cm]{format/flossURJC-bg.png}
+\end{center}
+}
+
+
+\end{document}
+

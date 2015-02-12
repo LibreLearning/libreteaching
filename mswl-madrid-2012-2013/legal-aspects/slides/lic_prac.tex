@@ -1,0 +1,714 @@
+%% lic_prac.tex
+%%
+%% Presentation of the course ``Legal Issues'' of the Official Master on Libre Software (URJC)
+%% http://master.libresoft.es
+%%
+
+\documentclass{beamer}
+\usepackage{moreverb} 
+\usepackage{alltt} 
+\usepackage{listings}
+\usepackage{mflogo}
+% imprimir
+% \documentclass[handout]{beamer} 
+% \usepackage{pgfpages}
+% \pgfpagesuselayout{4 on 1}[a4paper,landscape,border shrink=5mm]
+
+\mode<presentation> {
+  \usetheme{Warsaw}
+  \setbeamercovered{opaque}
+}
+
+% \usebackgroundtemplate{\includegraphics[width=\paperwidth]{format/libresoft-bg.png}}
+% \usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{amssymb} % Simbolos matematicos
+
+%% Metadatos del PDF.
+\hypersetup{  
+  pdftitle={Legal Aspects},
+  pdfauthor={Miguel Vidal},
+  pdfcreator={GSyC/Libresoft},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Master on Free Software},
+}
+%%
+
+\defbeamertemplate*{footline}{shadow theme}
+{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm plus1fil,rightskip=.3cm]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertframenumber\,/\,\inserttotalframenumber\hfill\includegraphics[scale=0.40]{format/cc-by-80x15.png} \hspace{0.1cm}\insertshortauthor 
+% \usebeamerfont{author in head/foot} \includegraphics[width=0.7cm]{format/cc-by.png} \hfill\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle%
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\title{Case studies}
+\subtitle{Legal Aspects -- Master on Free Software 2012-13}
+% \institute{\texttt{http://gsyc.urjc.es/\~{}mvidal} \\ Twitter: \texttt{@mvidallopez}}
+\institute{\texttt{http://flossystems.com} \\ Twitter: \texttt{@mvidallopez}}
+% \institute{\texttt{http://gsyc.urjc.es/\~{}mvidal} \\ Twitter: \texttt{@mvidallopez}}
+\author{Miguel Vidal} 
+%\date{\today}
+\date{November 16th, 2012}
+
+\frame{
+\maketitle
+\begin{center}
+% \includegraphics[width=6cm]{format/gsyc-urjc}
+\vspace{-0.5cm}
+\includegraphics[width=6cm]{format/flossURJC-bg.png}
+\end{center}
+}
+
+%%
+
+%% License slide
+\begin{frame}
+  \vspace{2cm}
+  \begin{flushright}
+    {\small (cc) 2008-2012 Miguel Vidal} \\
+%    \vspace{0.25cm}
+    \medskip
+    {\scriptsize This work is licensed under \\ a Creative Commons Attribution 3.0 License}
+%    \vspace{0.10cm}
+  \end{flushright}
+  \begin{flushright}
+    \href{http://creativecommons.org/licenses/by/3.0}{\includegraphics[width=2cm]{format/cc-by.png}} \\
+    {\tiny \url{http://creativecommons.org/licenses/by/3.0}}
+  \end{flushright}
+\end{frame}%%
+
+\usebackgroundtemplate{}
+
+\AtBeginSubsection[]
+{
+ \footnotesize
+  \begin{frame}<beamer>{Table of Contents}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+\normalsize
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{Disclaimer}
+\begin{frame}
+\frametitle{Disclaimer}
+
+\begin{itemize}
+% \item \alert{This presentation} is for \alert{informational} and \alert{educational purposes only}, and \alert{is not legal advice!} 
+\item \textsc{This presentation is for \alert{informational} and \alert{educational purposes only}, and \alert{is not legal advice!}}
+\item \textsc{It must not be relied upon as a substitute for obtaining specific legal advice from a licensed attorney.}
+\item \textsc{Legal advice must be provided in the course of an attorney-client relationship specifically with reference to \alert{all the facts of a particular situation} and the \alert{law of your jurisdiction}.} 
+\end{itemize}
+
+\begin{center}
+\textbf{Hire an attorney if you need legal advice}
+\end{center}
+
+\end{frame}
+
+
+
+
+%%---------------------------------------------------------------------
+%%---------------------------------------------------------------------
+
+\begin{frame}
+  \frametitle{Course Contents}
+
+  \begin{itemize}
+    \item Lesson 0: Presentation of the Course
+    \item Lesson 1: Intellectual Property: basic concepts and legal framework
+    \item Lesson 2: Legal Aspects of Free/Open Source Software
+    \item Lesson 3: Free/Open Source software licenses
+    \item Lesson 4: Free licenses for other intellectual works
+    \item \alert{Lesson 5: Case studies}
+  \end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{Lesson V: Practical Issues. Case studies}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Choosing a free license: previous criteria}
+
+\begin{itemize}
+\item Each project has its own goals and criteria related to licensing issues.
+\item The \alert{main criterion} of differentiation is existence (or not) of \alert{reciprocity pacts}.
+\item Other copyleft licenses have a limited effect, which applies only to the work (or component) original (``weak copyleft''). 
+\item \alert{Dual licensing} policies.
+
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Choosing a free license: When?}
+
+\begin{itemize}
+\item When we want to guarantee some basic freedoms, common to all free software.
+\item When we want a work achieves the highest use and dissemination (permissive licenses).
+\item When we want to maintain control over the evolution of the program (copyleft licenses).
+\item When we impose certain conditions or restrictions (the recognition of authorship, copyleft, lack of liability, extra warranties, trademarks, etc.)
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{How to know when a software license is free?}
+
+\begin{center}
+\includegraphics[width=6.5cm]{figs/chart.jpg}
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{How to know when a software license is free?}
+
+\begin{center}
+\includegraphics[width=10cm]{figs/flowchart-licenses.png}
+\end{center}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Choosing a free license: Cases}
+
+\begin{itemize}
+\item Do I want to allow privatization of derivative works?
+\pause
+\item Do I want developers return their modifications to the community, or me as original author, in particular?
+\pause
+\item Do I want to allow licensees to merge or link their program with mine?
+\pause
+\item Do I want widespread coverage, avoid any restriction and/or try to establish a standard?
+\pause
+\item Should my program run with one in particular? Have it any restrictions?
+\pause
+\item Is there risk that someone requiring a patent license over program?
+\end{itemize}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Quick Reference For Choosing a Free Software License}
+
+\begin{center}
+\includegraphics[width=11.5cm]{figs/licenses_quick_reference.png}
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Exercise: Find mistakes}
+
+\begin{center}
+\includegraphics[width=11.5cm]{figs/tabla_licencias.png}
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Conventional Matrix}
+
+\begin{center}
+\includegraphics[width=10.5cm]{figs/conventional_matrix.png}
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Matrix Including Developer's Choice}
+
+\begin{center}
+\includegraphics[width=11cm]{figs/matrix_developers_choice.png}
+\end{center}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Remarks}
+
+\begin{itemize}
+\item Some members of the community refuse to accept GPL'ed source code into their projects.
+\item Other members of the community strongly prefer GPL'ed source code over other licenses.
+\item \alert{Nobody refuses} to accept code under \alert{permissive licenses} such as BSD, X11, MIT... 
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Remarks (2)}
+
+\begin{itemize}
+\item Almost nobody refuses to accept LGPL'ed code, except the Apache Foundation, saying that they think it would impose LGPL requirement upon the proprietary code (when they are linked via the Java class-loading mechanism).
+\item The FSF disagrees with this statement, asserting that such linking falls under section 6 of the LGPLv2 (``linking exception'').
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Remarks (and 3)}
+
+\begin{itemize}
+\item MPL 1.1 can be specifically amended to allow combining with GPL (section 13).
+\item You should also get your employer (if you work as a programmer) or school, to sign a ``copyright disclaimer'' for the program, if necessary. 
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Choosing a Free Software License}
+
+\begin{center}
+\includegraphics[width=9.5cm]{figs/licencias_SL_diagrama.png}
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Applying a free license}
+
+\begin{itemize}
+\item \texttt{LICENSE} or \texttt{COPYING} file.
+\item Copyright and license summary at the beginning of each source file.
+\item It should have at least the ``copyright'' notice and a link to the full version of the license.
+\item Also add information on how to contact you by electronic and paper mail.
+\item If the program is interactive (terminal), make it output a short copyright notice 
+when it starts in an interactive mode.
+\item If it has a GUI, a menu can include copyright notice (or even the full license).
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Applying a free license}
+
+\begin{itemize}
+\item \alert{File-by-file method}: widely adopted in the free software community during the past two decades.
+\item \alert{``Single COPYRIGHT file''} method (FSF preferred)
+\item Question: advantages and disadvantages
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Example: How to Apply the GPL to Your Work}
+
+\footnotesize
+
+\texttt{<one line with program's name and a brief idea of what it does.>} \\
+\texttt{Copyright (C) <year>  <name of author>}
+
+\medskip
+
+\texttt{This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.}
+
+\medskip
+
+\texttt{This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.}
+
+\medskip
+
+\texttt{You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Example: How to Apply the Apache License to Your Work}
+
+\footnotesize
+
+\texttt{Copyright [yyyy] [name of copyright owner]}
+
+\medskip
+
+\texttt{Licensed under the Apache License, Version 2.0 (the ``License'');
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0}
+
+\medskip
+
+\texttt{Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an ``AS IS'' BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Example: How to Apply the ISC License to Your Work (1)}
+
+\begin{itemize}
+\item Below is an example license to be used for new code in OpenBSD,
+modeled after the ISC license.
+\item It is important to specify the year of the copyright.  Additional years
+should be separated by a comma, e.g.
+    Copyright (c) 2003, 2004
+\item If you add extra text to the body of the license, be careful not to
+add further restrictions.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+% \frametitle{Example: How to Apply the ISC License to Your Work (and 2)}
+
+\begin{block}{Example: How to Apply the ISC License to Your Work}
+\footnotesize
+/* \\
+ * Copyright (c) CCYY YOUR NAME HERE $<$user@your.dom.ain$>$ \\
+ * \\
+ * Permission to use, copy, modify, and distribute this software \\
+ * for any purpose with or without fee is hereby granted, provided \\
+ * that the above copyright notice and this permission notice appear \\
+ * in all copies. \\
+ * \\
+ * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS \\
+ * ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING \\
+ * ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. \\
+ * IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, \\
+ * DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY \\
+ * DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR \\
+ * PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR \\
+ * OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION \\
+ * WITH THE USE OR PERFORMANCE OF THIS SOFTWARE. \\
+ */
+\end{block}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Maintaining Permissive-Licensed Files in a GPL-Licensed Project}
+
+\begin{itemize}
+\item Take care to comply with the minimal conditions of the permissive license.
+\item Full preservation of copyright, permission, and warranty disclaimer notices.
+\item Failure to do so may result in infringement of the copyright.
+\end{itemize}
+                                                 
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Adding GPL'd modifications to permissive-licensed files}
+
+\begin{itemize}
+\item The developer of the GPL'd project must comply with the notice preservation requirement.
+\item He should place a new copyright notice and permission notice above the existing one 
+\item He should make clear that the developer has modified the file.
+\end{itemize}
+                                                 
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+% \frametitle{Example: How to Apply the ISC License to Your Work (and 2)}
+
+\begin{block}{Adding GPL'd modifications to permissive-licensed files}
+\tiny
+/*  \\
+ * Copyright (c) 2007  GPL Project Developer Who Made Changes $<$gpl@example.org$>$  \\
+ *  \\
+ *  This file is free software: you may copy, redistribute and/or modify it  \\
+ *  under the terms of the GNU General Public License as published by the   \\
+ *  Free Software Foundation, either version 2 of the License, or (at your   \\
+ *  option) any later version.   \\
+ *  \\
+ *  This file is distributed in the hope that it will be useful, but   \\
+ *  WITHOUT ANY WARRANTY; without even the implied warranty of   \\
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU   \\
+ *  General Public License for more details.   \\
+ *  \\
+ *  You should have received a copy of the GNU General Public License   \\
+ *  along with this program.  If not, see $<$http://www.gnu.org/licenses$>$.  \\ 
+ *  \\
+\pause
+ * \alert{This file incorporates work covered by the following copyright and}   \\
+ * \alert{permission notice:}   \\
+ *   \\
+ *     \alert{Copyright (c) YEARS\_LIST, Permissive Contributor1 $<$contrib1@example.net$>$}   \\
+ *     \alert{Copyright (c) YEARS\_LIST, Permissive Contributor2 $<$contrib2@example.net$>$}   \\
+ *   \\
+ *     \alert{Permission to use, copy, modify, and/or distribute this software}   \\
+ *     \alert{for any purpose with or without fee is hereby granted, provided}   \\
+ *     \alert{that the above copyright notice and this permission notice appear}   \\
+ *     \alert{in all copies.}   \\
+ *   
+\end{block}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Mixing GPL and BSD code just takes care}
+
+\begin{enumerate}
+\item Identify all contributors.
+\item Identify which contributions create a copyright interest.
+\item Secure permissions from current copyright holders.
+\item Create a system for tracking permissions on future contributions.
+\item Publicize the new licensing policy.
+\end{enumerate}
+                                                 
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Dual-licensing}
+
+Distribute software under two different sets of terms and conditions. Motivations:
+
+\begin{itemize}
+\item License compatibility (Perl, Mozilla/Firefox, MySQL).
+\item Market segregation based business models (MySQL Enterprise)
+\item Allows the holder to offer customisations, early releases, generate other derivative works or grant rights to third parties to redistribute proprietary versions.
+\end{itemize}
+                                                 
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Dual-licensed under the GPL and a permissive license?}
+
+\begin{itemize}
+\item Developers sometimes attempt to explicitly dual licensing to be available under permissive terms as well as to be incorporable into GPL'd projects.
+\item But developers should simply use the permissive license without any further reference to the GPL (Software Freedom Law Center).
+\end{itemize}
+                                                 
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Compatibility}
+
+\begin{itemize}
+\item Two licenses are incompatible if it is not possible combining both works in compliance with the terms of  both licenses at the same time. 
+\item It affects to distribution, not the use. 
+\item If two licenses are free does, it doesn't imply are compatible. 
+\item Copyleft licenses are mutually incompatible, unless compatibility is declared explicitly. 
+\item Support for `` linking'': even if not allowed mix or integrate software with different licenses, maybe it can be linked. 
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Forking (1)}
+
+\begin{itemize}
+\item A piece of software is modified and developed separately by another team development, and distributed under a different name, and maybe other
+license.
+\item The forks can be possible \alert{only} with free/open source software.
+\item The GPL software has tendency to avoid forking (we must keep the original license).
+\item The BSD-style licenses are forked easily.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Forking (and 2)}
+
+\begin{itemize}
+\item \alert{Forkaphobia}: Soma people consider forking a bad thing (waste efforts, bitter disputes...).
+\item But there are successful cases: XOrg/XFree86, 386BSD, OpenBSD, Gnu-Emacs/XEmacs, changes of license (GForge, OpenSSH).
+\item If forking is easy, experimentation with ideas can be pursued while still remaining downstream.
+\item But if forking is difficult, experimenters are reduced to dissenters (resulting in divorce). 
+\item \alert{Forking paradox}: ``the easier it is to fork the software, the more difficult it is to fork the community'' (Bryan Cantrill)
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Licenses and warranty}
+
+\begin{itemize}
+\item Warranty disclaimers and limitation of liability clauses are common in software.
+\item There are legal doubts about the effectiveness of these clauses: \alert{would not apply to consumers}.
+\item This clauses are valid when there is \alert{no commercial service}.
+\item The proprietary licenses using similar terms: is a myth to accept greater responsibility.
+\item It must be considered legal guarantees that apply to both open source and proprietary software.
+\item The free licenses allow (sometimes) to add extra warranty clauses.
+\end{itemize}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Anti-patterns: mistakes (B. Cantrill)}
+
+\begin{itemize}
+\item No source! Don't do this: you gain nothing and you lose credibility (perhaps forever). Ex. HP webOS
+\item Forkaphobia: FOSS that cannot be forked has no vitality.
+\item Governance orgy (constitutions, elections...): corrosive effects, factionalize and undermine community. 
+\item Competitive paranoia: companies that adopt your technology \alert{are not your competitors}!
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Anti-collaborative licensing?}
+
+\begin{itemize}
+\item \alert{Competitive paranoia}: anti-collaborative licensing erect walls \alert{within} open source software.
+\item Strong copyleft (and affero clauses) excludes competitors... \alert{but also collaborators}! It prevents cross-polinization across open source code bases! 
+\item And prevent integration of FLOSS technologies! (ex. DTrace, ZFS and Linux).
+\item If you want a collaborative copyleft license, \alert{consider weak copyleft} (MPL, CDDL, LGPL...).
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Exercise: Case study}
+
+
+\begin{itemize}
+\item Case study: Apache License v2 and GPL (v2 and v3)  (in)compatibility.
+% \item Moodle exercise.
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Exercise 2: Case study}
+
+
+\begin{itemize}
+\item Case study: GPL and CDDL incompatibility. 
+% \item Moodle exercise.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Exercise 3: Case study}
+
+
+\begin{itemize}
+\item Case study: The Atheros Case.
+% \item Moodle exercise.
+\end{itemize}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \begin{frame}
+% \frametitle{Exercise: Case study}
+
+
+% \begin{itemize}
+% \item Case study: The EUPL
+% \item Moodle Exercise 
+% \end{itemize}
+
+% \end{frame}
+
+
+
+%%==================================================================
+
+\frame{
+\maketitle
+\begin{center}
+% \includegraphics[width=6cm]{format/gsyc-urjc}
+\vspace{-0.5cm}
+\includegraphics[width=6cm]{format/flossURJC-bg.png}
+\end{center}
+}
+
+%%---------------------------------------------------------------
+
+\end{document}
+
+Atheros case:
+* http://undeadly.org/cgi?action=article&sid=20070913014315&thres=(u+*+100)+/+c+%3E=+75&mode=flat
+* http://www.softwarefreedom.org/resources/2007/ath5k-code-analysis.html
